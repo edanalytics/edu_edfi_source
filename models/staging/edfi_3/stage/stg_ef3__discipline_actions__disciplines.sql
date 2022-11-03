@@ -1,0 +1,15 @@
+with stg_discipline_actions as (
+    select * from {{ ref('stg_ef3__discipline_actions') }}
+),
+flattened as (
+    select 
+        tenant_code,
+        api_year,
+        discipline_action_id,
+        discipline_date,
+        k_student,
+        {{ extract_descriptor('value:disciplineDescriptor::string') }} as discipline_type
+    from stg_discipline_actions,
+        lateral flatten(input => v_disciplines)
+)
+select * from flattened
