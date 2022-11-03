@@ -1,0 +1,36 @@
+config-version: 2
+
+name: 'edu_edfi_source'
+version: '0.1.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'edu_edfi_source'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+
+models:
+  edu_edfi_source:
+    +copy_grants: true
+    staging:
+      +schema: stage
+      edfi_3:
+        base:
+          +materialized: view
+        intermediate:
+          +materialized: ephemeral
+        stage: 
+          +materialized: table
+          
+vars:
+  extensions: null
