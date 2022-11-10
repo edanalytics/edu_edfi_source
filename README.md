@@ -28,7 +28,7 @@ Note: if you're using the downstream [warehouse package](https://github.com/edan
 
 ## License
 This package is free to use for noncommercial purposes. 
-See [License](LICENSE).
+See [License](LICENSE.md).
 
 ## Configuration
 ### Sources
