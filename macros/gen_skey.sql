@@ -168,6 +168,11 @@
             'col_list': ['bellScheduleName', 'schoolId'],
             'annualize': True
         },
+        'k_parent': {
+            'reference_name': 'parent_reference',
+            'col_list': ['parentUniqueId'],
+            'annualize': False
+        },
 
         'k_template': {
             'reference_name': '',
