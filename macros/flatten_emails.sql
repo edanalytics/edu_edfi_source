@@ -8,9 +8,8 @@ flattened as (
         tenant_code,
         api_year,
         {% for key in keys %}
-        {{key}}{%- if not loop.last %},{% endif -%}
+        {{key}},
         {% endfor %}
-        k_parent,
         {{ extract_descriptor('value:electronicMailTypeDescriptor::string') }} as email_type,
         lower(value:electronicMailAddress::string) as email_address,
         value:primaryEmailAddressIndicator::boolean as is_primary_email,
