@@ -71,6 +71,11 @@ referential_integrity_tests:
         to: ref('stg_ef3__objective_assessments')
         field: k_objective_assessment
         tags: ['ref_integrity']
+  - k_parent: &ref_k_parent
+    - relationships:
+        to: ref('stg_ef3__parents')
+        field: k_parent
+        tags: ['ref_integrity']
 
 models: 
   - name: stg_ef3__calendar_dates
@@ -301,3 +306,12 @@ models:
               to: ref('stg_ef3__discipline_incidents')
               field: k_discipline_incident
               tags: ['ref_integrity']
+
+  - name: stg_ef3__student_parent_associations
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_parent
+        tests: 
+          *ref_k_parent
