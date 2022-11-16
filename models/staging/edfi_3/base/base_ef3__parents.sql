@@ -24,7 +24,7 @@ renamed as (
         v:addresses                       as v_addresses,
         v:internationalAddresses          as v_international_addresses,
         v:electronicMails                 as v_emails,
-        v:telephones                      as v_telephones
+        v:telephones                      as v_telephones,
         v:languages                       as v_languages,
         v:otherNames                      as v_other_names,
         v:personalIdentificationDocuments as v_personal_identification_documents,
