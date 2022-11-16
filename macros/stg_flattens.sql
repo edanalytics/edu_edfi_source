@@ -2,7 +2,7 @@
 
 {% set array_defs = {
         'v_electronic_mails': {
-            'cols': ["{{ extract_descriptor('value:electronicMailTypeDescriptor::string') }}",
+            'cols': ["value:electronicMailTypeDescriptor::string",
                      "lower(value:electronicMailAddress::string)",
                      "value:primaryEmailAddressIndicator::boolean",
                      "value:doNotPublishIndicator::boolean"]
@@ -24,7 +24,12 @@ flattened as (
         {{key}},
         {% endfor %}
         {% for col in array_cols %}
-        {{col}}{%- if not loop.last %},{% endif -%}
+        {% if 'Descriptor' in col %}
+        {{ extract_descriptor(col) }}
+        {% else %}
+        {{col}}
+        {% endif %}
+        {%- if not loop.last %},{% endif -%}
         {% endfor %}
     from stg
         , lateral flatten(input=>{{array_name}})
