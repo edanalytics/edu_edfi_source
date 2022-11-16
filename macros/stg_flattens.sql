@@ -4,7 +4,7 @@
         'v_electronic_mails': {
             'cols': [["value:electronicMailTypeDescriptor::string", 'email_type'],
                      ["lower(value:electronicMailAddress::string)", 'email_address'],
-                     ["value:primaryEmailAddressIndicator::boolean", 'is_primary_email']
+                     ["value:primaryEmailAddressIndicator::boolean", 'is_primary_email'],
                      ["value:doNotPublishIndicator::boolean", 'do_not_publish']]
              },
     }
