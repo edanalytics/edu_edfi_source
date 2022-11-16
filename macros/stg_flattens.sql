@@ -7,6 +7,13 @@
                      ["value:primaryEmailAddressIndicator::boolean", 'is_primary_email'],
                      ["value:doNotPublishIndicator::boolean", 'do_not_publish']]
              },
+        'v_telephones': {
+            'cols': [["value:telephoneNumberTypeDescriptor::string", 'phone_number_type'],
+                     ["value:telephoneNumber::string", 'phone_number'],
+                     ["value:orderOfPriority::int", 'priority_order'],
+                     ["value:doNotPublishIndicator::boolean", 'do_not_publish'],
+                     ['value:textMessageCapabilityIndicator::boolean', 'is_text_message_capable']]
+             },
     }
 %}
 
