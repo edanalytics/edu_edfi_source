@@ -21,7 +21,7 @@ flattened as (
         tenant_code,
         api_year,
         {% for key in keys %}
-        {{key}},
+            {{key}},
         {% endfor %}
         {% for col in array_cols %}
             {% if 'Descriptor' in col[0] %}
