@@ -35,7 +35,7 @@ flattened as (
                 {{ extract_descriptor(col[0]) }}
             {% else %}
                 {{col[0]}}
-        {% endif -%} as {{col[1]}}{%- if not loop.last %},{% endif -%}
+            {% endif -%} as {{col[1]}}{%- if not loop.last %},{% endif -%}
         {% endfor %}
     from stg
         , lateral flatten(input=>{{array_name}})
