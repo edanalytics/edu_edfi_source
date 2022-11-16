@@ -1,7 +1,7 @@
 {% macro flatten_stg(stg_ref, keys, array_name) %}
 
 {% set array_defs = {
-        'v_emails': {
+        'v_electronic_mails': {
             'cols': ["{{ extract_descriptor('value:electronicMailTypeDescriptor::string') }}",
                      "lower(value:electronicMailAddress::string)",
                      "value:primaryEmailAddressIndicator::boolean",
