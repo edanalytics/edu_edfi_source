@@ -23,7 +23,7 @@ renamed as (
         -- unflattened lists
         v:addresses                       as v_addresses,
         v:internationalAddresses          as v_international_addresses,
-        v:electronicMails                 as v_emails,
+        v:electronicMails                 as v_electronic_mails,
         v:telephones                      as v_telephones,
         v:languages                       as v_languages,
         v:otherNames                      as v_other_names,
