@@ -22,4 +22,5 @@ deduped as (
     }}
 )
 select * from deduped
+order by tenant_code, api_year desc, descriptor_name, code_value
 
