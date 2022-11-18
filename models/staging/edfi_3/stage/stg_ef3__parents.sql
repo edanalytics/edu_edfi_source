@@ -4,8 +4,6 @@ with base_parents as (
 ),
 keyed as (
     select 
-        -- todo: should this be annualized?
-        -- why was there an xyear student? demographic changes only?
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
