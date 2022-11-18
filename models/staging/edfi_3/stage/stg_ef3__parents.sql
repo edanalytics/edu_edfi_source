@@ -9,7 +9,7 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'parent_unique_id'
+                lower('parent_unique_id')
             ]
         ) }} as k_parent,
         base_parents.*
