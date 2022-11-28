@@ -19,7 +19,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_parent', 
-            order_by='pull_timestamp desc'
+            order_by='api_year desc, pull_timestamp desc'
         )
     }}
 )
