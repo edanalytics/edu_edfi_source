@@ -1,0 +1,1 @@
+{{ flatten_telephones('stg_ef3__parents', ['k_parent']) }}
