@@ -13,9 +13,10 @@ renamed as (
         v:id::string                                             as record_guid,
         v:contactPriority::int                                   as contact_priority,
         v:contactRestrictions::string                            as contact_restrictions,
-        v:emergencyContactStatus::string                         as emergency_contact_status,
+        v:emergencyContactStatus::boolean                        as is_emergency_contact,
         v:livesWith::boolean                                     as is_living_with,
         v:primaryContactStatus::boolean                          as is_primary_contact,
+        v:legalGuardian::boolean                                 as is_legal_guardian,
         {{ extract_descriptor('v:relationDescriptor::string') }} as relation_type,
         -- references
         v:parentReference                                        as parent_reference,
