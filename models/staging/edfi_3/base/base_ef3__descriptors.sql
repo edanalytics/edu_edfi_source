@@ -5,7 +5,10 @@ renamed as (
     select 
         tenant_code, 
         api_year,
-        pull_timestamp, 
+        pull_timestamp,
+        file_row_number,
+        filename,
+        is_deleted,
         name                           as descriptor_name, 
         v:id::string                   as record_guid,
         v:codeValue::string            as code_value,
