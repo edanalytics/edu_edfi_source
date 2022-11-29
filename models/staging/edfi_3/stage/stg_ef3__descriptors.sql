@@ -7,7 +7,7 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             ['tenant_code',
             'api_year',
-            'lower(code_value'),
+            'lower(code_value)',
             'lower(namespace)']
         ) }} as k_descriptor, 
         api_year as school_year,
