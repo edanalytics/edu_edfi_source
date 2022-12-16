@@ -45,14 +45,6 @@ select * from flattened
 
 -- flatten addresses
 {% macro flatten_addresses(stg_ref, keys) %}
-
-{% set address_parts = [['',  'street_address'],
-                        [', ', 'apartment_room_suite_number'], 
-                        [', ', 'city'], 
-                        [', ', 'state_code'], 
-                        ['',   'postal_code'],
-                        [', ', 'name_of_country']] %}
-
 with stg as (
     select * from {{ ref(stg_ref) }}
 ),
@@ -85,11 +77,18 @@ flattened as (
 ),
 full_address as (
     select *,
-        {% for part in address_parts %}
-            {% if part[1] is not none %}
-                {{part[0]}}||{{part[1]}} {% if not loop.last %}||{% endif %}
-            {% endif %}
-        {% endfor %} as full_address
+        concat(
+            street_address, ', ',
+            ifnull(apartment_room_suite_number, ''),
+            case
+                when apartment_room_suite_number is null
+                    then ''
+                else ', '
+            end,
+            city, ', ',
+            state_code, ' ',
+            postal_code
+        ) as full_address
     from flattened
 )
 select * from full_address
