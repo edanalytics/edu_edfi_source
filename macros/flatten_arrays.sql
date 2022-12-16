@@ -45,6 +45,14 @@ select * from flattened
 
 -- flatten addresses
 {% macro flatten_addresses(stg_ref, keys) %}
+
+{% set address_parts = [['',  'street_address'],
+                        [', ', 'apartment_room_suite_number'], 
+                        [', ', 'city'], 
+                        [', ', 'state_code'], 
+                        ['',   'postal_code'],
+                        [', ', 'name_of_country']] %}
+
 with stg as (
     select * from {{ ref(stg_ref) }}
 ),
@@ -74,6 +82,15 @@ flattened as (
     from stg
         , lateral flatten(input=>v_addresses) as addr
         , lateral flatten(input=>addr.value:periods, outer=>true) as timing
+),
+full_address as (
+    select *,
+        {% for part in address_parts %}
+            {% if part[1] is not none %}
+                part[0]||part[1] {% if not loop.last %}||{% endfor %}
+            {% endif %}
+        {% endfor %} as full_address
+    from flattened
 )
-select * from flattened
+select * from full_address
 {% endmacro %}
