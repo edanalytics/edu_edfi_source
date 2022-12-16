@@ -87,7 +87,7 @@ full_address as (
     select *,
         {% for part in address_parts %}
             {% if part[1] is not none %}
-                part[0]||part[1] {% if not loop.last %}||{% endfor %}
+                {{part[0]}}||{{part[1]}} {% if not loop.last %}||{% endif %}
             {% endif %}
         {% endfor %} as full_address
     from flattened
