@@ -66,7 +66,7 @@ flattened as (
         {{ extract_descriptor('addr.value:localeDescriptor::string') }} as locale,
         addr.value:congressionalDistrict::string as congressional_district,
         addr.value:countyFIPSCode::string as county_fips_code,
-        addr.value:doNotPublishIndicator::boolean as do_not_publish_indicator,
+        addr.value:doNotPublishIndicator::boolean as do_not_publish,
         addr.value:latitude::string as latitude,
         addr.value:longitude::string as longitude,
         timing.value:beginDate::date as address_begin_date,
