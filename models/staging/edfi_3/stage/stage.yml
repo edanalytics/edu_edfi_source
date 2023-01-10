@@ -324,3 +324,12 @@ models:
       - name: k_program
         tests:
           *ref_k_program
+
+  - name: stg_ef3__student_homeless_program_associations
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_program
+        tests:
+          *ref_k_program
