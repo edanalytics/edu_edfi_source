@@ -1,3 +1,13 @@
+# Unreleased
+## New features
+- Add models for studentLanguageInstructionProgramAssociations, studentHomelessProgramAssociations, and studentTitleIPartAProgramAssociations
+
+## Under the hood
+
+## Fixes
+- Remove unnecessary deduplication keys for program association staging models
+
+
 # edu_edfi_source v0.1.1
 ## New features
 - Add models for descriptors
