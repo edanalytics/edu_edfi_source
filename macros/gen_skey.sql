@@ -173,6 +173,11 @@
             'col_list': ['parentUniqueId'],
             'annualize': False
         },
+        'k_cohort': {
+            'reference_name': 'cohort_reference',
+            'col_list': ['cohortIdentifier', 'educationOrganizationId'],
+            'annualize': True
+        },
 
         'k_template': {
             'reference_name': '',
