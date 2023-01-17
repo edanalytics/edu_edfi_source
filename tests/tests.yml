@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  config_tests:
+    - name: cfg_student_assessment_score_name_dupes
+      config:
+        tags: ['assessment']
+    - name: cfg_student_assessment_subjects
+      config:
+        tags: ['assessment']
+    - name: cfg_student_objective_assessment_score_name_dupes
+      config:
+        tags: ['assessment']
