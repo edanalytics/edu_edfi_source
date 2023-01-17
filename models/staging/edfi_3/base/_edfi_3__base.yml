@@ -1,0 +1,135 @@
+version: 2
+
+models:
+  - name: base_ef3__assessments
+    config:
+      tags: ['assessment']
+  - name: base_ef3__bell_schedules
+    config:
+      tags: ['core']
+  - name: base_ef3__calendar_dates
+    config:
+      tags: ['core']
+  - name: base_ef3__calendars
+    config:
+      tags: ['core']
+  - name: base_ef3__class_periods
+    config:
+      tags: ['core']
+  - name: base_ef3__course_offerings
+    config:
+      tags: ['core']
+  - name: base_ef3__course_transcripts
+    config:
+      tags: ['core']
+  - name: base_ef3__courses
+    config:
+      tags: ['core']
+  - name: base_ef3__descriptors
+    config:
+      tags: ['core']
+  - name: base_ef3__discipline_actions
+    config:
+      tags: ['discipline']
+  - name: base_ef3__discipline_incidents
+    config:
+      tags: ['discipline']
+  - name: base_ef3__education_organization_network_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__education_organization_networks
+    config:
+      tags: ['core']
+  - name: base_ef3__grades
+    config:
+      tags: ['core']
+  - name: base_ef3__grading_periods
+    config:
+      tags: ['core']
+  - name: base_ef3__local_education_agencies
+    config:
+      tags: ['core']
+  - name: base_ef3__locations
+    config:
+      tags: ['core']
+  - name: base_ef3__objective_assessments
+    config:
+      tags: ['assessment']
+  - name: base_ef3__parents
+    config:
+      tags: ['core']
+  - name: base_ef3__programs
+    config:
+      tags: ['core']
+  - name: base_ef3__schools
+    config:
+      tags: ['core']
+  - name: base_ef3__sections
+    config:
+      tags: ['core']
+  - name: base_ef3__sessions
+    config:
+      tags: ['core']
+  - name: base_ef3__staff_education_organization_assignment_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__staff_school_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__staff_section_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__staffs
+    config:
+      tags: ['core']
+  - name: base_ef3__student_academic_records
+    config:
+      tags: ['core']
+  - name: base_ef3__student_assessments
+    config:
+      tags: ['assessment']
+  - name: base_ef3__student_discipline_incident_associations
+    config:
+      tags: ['discipline']
+  - name: base_ef3__student_discipline_incident_behavior_associations
+    config:
+      tags: ['discipline']
+  - name: base_ef3__student_discipline_incident_non_offender_associations
+    config:
+      tags: ['discipline']
+  - name: base_ef3__student_education_organization_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__student_homeless_program_associations
+    config:
+      tags: ['homeless']
+  - name: base_ef3__student_language_instruction_program_associations
+    config:
+      tags: ['language_instruction']
+  - name: base_ef3__student_parent_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__student_program_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__student_school_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__student_school_attendance_events
+    config:
+      tags: ['core']
+  - name: base_ef3__student_section_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__student_section_attendance_events
+    config:
+      tags: ['core']
+  - name: base_ef3__student_special_education_program_associations
+    config:
+      tags: ['special_ed']
+  - name: base_ef3__student_title_i_part_a_program_associations
+    config:
+      tags: ['title_i']
+  - name: base_ef3__students
+    config:
+      tags: ['core']
