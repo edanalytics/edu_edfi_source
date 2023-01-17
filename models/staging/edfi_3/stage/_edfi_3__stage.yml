@@ -99,9 +99,9 @@ referential_integrity_tests:
 
   - k_student_academic_record: &ref_k_student_academic_record
     - relationships:
-      to: ref('stg_ef3__student_academic_records')
-      field: k_student_academic_record
-      tags: ['ref_integrity']
+        to: ref('stg_ef3__student_academic_records')
+        field: k_student_academic_record
+        tags: ['ref_integrity']
 
 
 models:
