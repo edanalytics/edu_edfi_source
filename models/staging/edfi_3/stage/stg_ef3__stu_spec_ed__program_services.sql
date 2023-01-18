@@ -17,11 +17,21 @@ flattened as (
         value:serviceBeginDate::date    as service_begin_date,
         value:serviceEndDate::date      as service_end_date,
         -- edfi extensions
-        value:_ext as v_ext
-        
+        value:_ext as v_ext        
 
     from stage_stu_spec_ed
         , lateral flatten(input=>v_special_education_program_services) 
+),
+
+-- There is a v_ext nested within v_special_education_program_services. Those extensions must be extracted here, not in prev CTE, 
+-- because dbt gets confused whether to reference stage_stu_spec_ed.v_ext or v_special_education_program_services.v_ext
+extended as (
+    select 
+      flattened.*
+      {{ extract_extension(model_name=this.name, flatten=True) }}
+    from flattened
+
 )
-select * from flattened
+
+select * from extended
 
