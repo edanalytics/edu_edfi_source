@@ -4,6 +4,7 @@ models:
   - name: base_ef3__assessments
     config:
       tags: ['assessment']
+      enabled: "{{ var('src:domain:assessment:enabled', True) }}"
   - name: base_ef3__bell_schedules
     config:
       tags: ['core']
@@ -31,9 +32,11 @@ models:
   - name: base_ef3__discipline_actions
     config:
       tags: ['discipline']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
   - name: base_ef3__discipline_incidents
     config:
       tags: ['discipline']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
   - name: base_ef3__education_organization_network_associations
     config:
       tags: ['core']
@@ -55,6 +58,7 @@ models:
   - name: base_ef3__objective_assessments
     config:
       tags: ['assessment']
+      enabled: "{{ var('src:domain:assessment:enabled', True) }}"
   - name: base_ef3__parents
     config:
       tags: ['core']
@@ -88,24 +92,30 @@ models:
   - name: base_ef3__student_assessments
     config:
       tags: ['assessment']
+      enabled: "{{ var('src:domain:assessment:enabled', True) }}"
   - name: base_ef3__student_discipline_incident_associations
     config:
       tags: ['discipline']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
   - name: base_ef3__student_discipline_incident_behavior_associations
     config:
       tags: ['discipline']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
   - name: base_ef3__student_discipline_incident_non_offender_associations
     config:
       tags: ['discipline']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
   - name: base_ef3__student_education_organization_associations
     config:
       tags: ['core']
   - name: base_ef3__student_homeless_program_associations
     config:
       tags: ['homeless']
+      enabled: "{{ var('src:program:homeless:enabled', True) }}"
   - name: base_ef3__student_language_instruction_program_associations
     config:
       tags: ['language_instruction']
+      enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
   - name: base_ef3__student_parent_associations
     config:
       tags: ['core']
@@ -127,9 +137,11 @@ models:
   - name: base_ef3__student_special_education_program_associations
     config:
       tags: ['special_ed']
+      enabled: "{{ var('src:program:special_ed:enabled', True) }}"
   - name: base_ef3__student_title_i_part_a_program_associations
     config:
       tags: ['title_i']
+      enabled: "{{ var('src:program:title_i:enabled', True) }}"
   - name: base_ef3__students
     config:
       tags: ['core']

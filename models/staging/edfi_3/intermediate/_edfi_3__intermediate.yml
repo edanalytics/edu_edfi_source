@@ -4,3 +4,4 @@ models:
   - name: int_ef3__student_assessments__identify_subject
     config:
       tags: ['assessment']
+      enabled: "{{ var('src:domain:assessment:enabled', True) }}"
