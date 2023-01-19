@@ -9,7 +9,7 @@ keyed as (
         {{ gen_skey('k_cohort')}},
         api_year as school_year,
         base_stu_cohorts_assoc.*
-        {{ edu_edfi_source.extract_extension(model_name=this.name, flatten=True) }}
+        {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_stu_cohorts_assoc
 ),
 deduped as (

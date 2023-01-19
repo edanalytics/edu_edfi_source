@@ -7,12 +7,12 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             ['tenant_code',
             'api_year',
-            'lower(cohort_id)'
+            'lower(cohort_id)',
             'ed_org_id']
         ) }} as k_cohort, 
         api_year as school_year,
         base_cohorts.*
-        {{ edu_edfi_source.extract_extension(model_name=this.name, flatten=True) }}
+        {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_cohorts
 ),
 deduped as (

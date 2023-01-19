@@ -1,5 +1,5 @@
 with stu_cohort_assoc as (
-    {{ edu_edfi_source.source_edfi3('student_cohort_associations') }}
+    {{ source_edfi3('student_cohort_associations') }}
 ),
 renamed as (
     select

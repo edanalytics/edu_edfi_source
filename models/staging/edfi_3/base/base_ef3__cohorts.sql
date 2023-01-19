@@ -1,5 +1,5 @@
 with cohorts as (
-    {{ edu_edfi_source.source_edfi3('cohorts') }}
+    {{ source_edfi3('cohorts') }}
 ),
 renamed as (
     select
@@ -15,8 +15,8 @@ renamed as (
         v:cohortDescription::string                                   as cohort_description,
         v:cohortIdentifier::string                                    as cohort_id,
         -- descriptors
-        {{ edu_edfi_source.extract_descriptor('v:cohortScopeDescriptor::string') }} as cohort_scope,
-        {{ edu_edfi_source.extract_descriptor('v:cohortTypeDescriptor::string') }}  as cohort_type,
+        {{ extract_descriptor('v:cohortScopeDescriptor::string') }} as cohort_scope,
+        {{ extract_descriptor('v:cohortTypeDescriptor::string') }}  as cohort_type,
         -- references
         v:educationOrganizationReference as education_organization_reference,
         -- lists
