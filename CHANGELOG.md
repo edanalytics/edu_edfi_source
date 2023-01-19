@@ -1,6 +1,7 @@
 # Unreleased
 ## New features
 - Add models for studentLanguageInstructionProgramAssociations, studentHomelessProgramAssociations, and studentTitleIPartAProgramAssociations
+- Add model for Special Education Program Services
 
 ## Under the hood
 
