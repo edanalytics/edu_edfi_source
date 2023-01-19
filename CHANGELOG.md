@@ -1,8 +1,10 @@
 # Unreleased
 ## New features
 - Add models for studentLanguageInstructionProgramAssociations, studentHomelessProgramAssociations, and studentTitleIPartAProgramAssociations
+- Add optional domain disabling to all non-core models, using vars in dbt_project.yml.
 
 ## Under the hood
+- Add a single model properties file under each subdirectory, as per DBT recommendation.
 
 ## Fixes
 - Remove unnecessary deduplication keys for program association staging models
