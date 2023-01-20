@@ -320,12 +320,3 @@ models:
       - name: k_parent
         tests: 
           *ref_k_parent
-
-  - name: stg_ef3__student_cohort_associations
-    columns:
-      - name: k_student
-        tests:
-          *ref_k_student
-      - name: k_cohort
-        tests: 
-          *ref_k_cohort
