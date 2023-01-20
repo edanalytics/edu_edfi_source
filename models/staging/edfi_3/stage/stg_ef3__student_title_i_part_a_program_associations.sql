@@ -1,7 +1,9 @@
 with base_stu_programs as (
-    select * from {{ ref('base_ef3__student_program_associations') }}
+    select *
+    from {{ ref('base_ef3__student_title_i_part_a_program_associations') }}
     where not is_deleted
 ),
+
 keyed as (
     select 
         {{ gen_skey('k_student') }},
@@ -11,14 +13,16 @@ keyed as (
         api_year as school_year,
         base_stu_programs.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
+
     from base_stu_programs
 ),
+
 deduped as (
-    {{
-        dbt_utils.deduplicate(
-            relation='keyed',
-            partition_by='k_student, k_program, program_enroll_begin_date, school_year',
-            order_by='pull_timestamp desc')
-    }}
+    {{ dbt_utils.deduplicate(
+        relation='keyed',
+        partition_by='k_student, k_program, program_enroll_begin_date, school_year',
+        order_by='pull_timestamp desc'
+    ) }}
 )
+
 select * from deduped
