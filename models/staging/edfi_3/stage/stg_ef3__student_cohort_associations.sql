@@ -16,7 +16,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_student, k_cohort, cohort_begin_date, cohort_ed_org_id, school_year',
+            partition_by='k_student, k_cohort, cohort_begin_date, school_year',
             order_by='pull_timestamp desc')
     }}
 )
