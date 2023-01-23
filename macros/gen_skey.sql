@@ -137,7 +137,7 @@
                 'graduationPlanTypeDescriptor',
                 'graduationSchoolYear'
             ],
-            'annualize': False
+            'annualize': True
         },
         'k_assessment': {
             'reference_name': 'assessment_reference',
