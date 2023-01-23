@@ -2,6 +2,7 @@
 ## New features
 - Add models for studentLanguageInstructionProgramAssociations, studentHomelessProgramAssociations, and studentTitleIPartAProgramAssociations
 - Add model for Special Education Program Services
+- Add model for graduation plans
 
 ## Under the hood
 
