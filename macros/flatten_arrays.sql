@@ -66,7 +66,7 @@ flattened as (
         {{ extract_descriptor('addr.value:localeDescriptor::string') }} as locale,
         addr.value:congressionalDistrict::string as congressional_district,
         addr.value:countyFIPSCode::string as county_fips_code,
-        addr.value:doNotPublishIndicator::boolean as do_not_publish_indicator,
+        addr.value:doNotPublishIndicator::boolean as do_not_publish,
         addr.value:latitude::string as latitude,
         addr.value:longitude::string as longitude,
         timing.value:beginDate::date as address_begin_date,
@@ -74,6 +74,22 @@ flattened as (
     from stg
         , lateral flatten(input=>v_addresses) as addr
         , lateral flatten(input=>addr.value:periods, outer=>true) as timing
+),
+full_address as (
+    select *,
+        concat(
+            street_address, ', ',
+            ifnull(apartment_room_suite_number, ''),
+            case
+                when apartment_room_suite_number is null
+                    then ''
+                else ', '
+            end,
+            city, ', ',
+            state_code, ' ',
+            postal_code
+        ) as full_address
+    from flattened
 )
-select * from flattened
+select * from full_address
 {% endmacro %}
