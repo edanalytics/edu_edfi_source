@@ -137,7 +137,7 @@
                 'graduationPlanTypeDescriptor',
                 'graduationSchoolYear'
             ],
-            'annualize': False
+            'annualize': True
         },
         'k_assessment': {
             'reference_name': 'assessment_reference',
@@ -172,6 +172,11 @@
             'reference_name': 'parent_reference',
             'col_list': ['parentUniqueId'],
             'annualize': False
+        },
+        'k_cohort': {
+            'reference_name': 'cohort_reference',
+            'col_list': ['cohortIdentifier', 'educationOrganizationId'],
+            'annualize': True
         },
 
         'k_template': {

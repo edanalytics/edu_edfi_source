@@ -5,6 +5,7 @@ keyed as (
     select 
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_parent') }},
+        {{ gen_skey('k_student_xyear') }},
         api_year as school_year,
         base_stu_parent.*
         {{ extract_extension(model_name=this.name, flatten=True) }}

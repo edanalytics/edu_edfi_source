@@ -21,7 +21,7 @@ Include the following in your `packages.yml` file:
 ```
 packages:
   - package: edanalytics/edu_edfi_source
-    version: 0.1.1
+    version: 0.1.3
 ```
 
 Note: if you're using the downstream [warehouse package](https://github.com/edanalytics/edu_warehouse), it already includes this source package, and you don't need to install it again. 
@@ -37,7 +37,7 @@ here because Ed-Fi can be extended and new resources are added over time,
 so each project should generate their sources from their own Ed-Fi API.
 
 We have code to generate source definitions from an Ed-Fi API's swagger definition
-[here](https://github.com/edanalytics/int_edfi_project_template/blob/master/templates/generate_templates.py). #todo: update link, clarify
+[here](https://github.com/edanalytics/edu_project_template/blob/main/codegen/generate_templates.py).
 
 This will generate a `src_edfi_3.yml` file containing the location and definitions
 of all raw raw resourcs coming from Ed-Fi APIs which must be included in your project.

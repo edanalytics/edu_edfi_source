@@ -7,6 +7,12 @@ referential_integrity_tests:
         field: k_assessment
         tags: ['ref_integrity']
 
+  - k_cohort: &ref_k_cohort
+    - relationships:
+        to: ref('stg_ef3__cohorts')
+        field: k_cohort
+        tags: [ 'ref_integrity' ]
+
   - k_course: &ref_k_course
     - relationships:
         to: ref('stg_ef3__courses')
@@ -288,6 +294,10 @@ models:
         tests:
           *ref_k_school
 
+  - name: stg_ef3__graduation_plans
+    config:
+      tags: ['core']
+
   - name: stg_ef3__local_education_agencies
     config:
       tags: ['core']
@@ -543,6 +553,17 @@ models:
     config:
       tags: ['assessment']
       enabled: "{{ var('src:domain:assessment:enabled', True) }}"
+
+  - name: stg_ef3__student_cohort_associations
+    config:
+      tags: [ 'core' ]
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_cohort
+        tests:
+          *ref_k_cohort
 
   - name: stg_ef3__student_discipline_incident_associations
     config:

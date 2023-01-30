@@ -17,6 +17,9 @@ models:
   - name: base_ef3__class_periods
     config:
       tags: ['core']
+  - name: base_ef3__cohorts
+    config:
+      tags: ['core']
   - name: base_ef3__course_offerings
     config:
       tags: ['core']
@@ -47,6 +50,9 @@ models:
     config:
       tags: ['core']
   - name: base_ef3__grading_periods
+    config:
+      tags: ['core']
+  - name: base_ef3__graduation_plans
     config:
       tags: ['core']
   - name: base_ef3__local_education_agencies
@@ -93,6 +99,9 @@ models:
     config:
       tags: ['assessment']
       enabled: "{{ var('src:domain:assessment:enabled', True) }}"
+  - name: base_ef3__student_cohort_associations
+    config:
+      tags: ['core']
   - name: base_ef3__student_discipline_incident_associations
     config:
       tags: ['discipline']
