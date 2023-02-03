@@ -12,8 +12,10 @@ flattened as (
         k_lea,
         k_school,
 
+        program_enroll_begin_date,
         {{ extract_descriptor('value:titleIPartAProgramServiceDescriptor::string') }} as program_service,
         value:primaryIndicator::boolean as primary_indicator,
+        value:providers                 as v_providers,
         value:serviceBeginDate::date    as service_begin_date,
         value:serviceEndDate::date      as service_end_date,
 

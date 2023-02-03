@@ -23,7 +23,7 @@ renamed as (
         v:servedOutsideOfRegularSession::boolean                          as is_served_outside_regular_session,
         v:participationStatus:designatedBy::string                        as participation_status_designated_by,
         v:participationStatus:statusBeginDate::date                       as participation_status_begin_date,
-        v:participationStatus:statusEndDate::date                         as participation_status_end_date
+        v:participationStatus:statusEndDate::date                         as participation_status_end_date,
 
         v:awaitingFosterCare::boolean                                     as is_awaiting_foster_care,
         v:homelessUnaccompaniedYouth::boolean                             as is_homeless_unaccompanied_youth,
