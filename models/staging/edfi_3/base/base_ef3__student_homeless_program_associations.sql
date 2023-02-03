@@ -20,10 +20,10 @@ renamed as (
         v:beginDate::date                                                 as program_enroll_begin_date,
         v:endDate::date                                                   as program_enroll_end_date,
         v:programReference:programName::string                            as program_name,
-        v:servedOutsideOfRegularSession::boolean                          as served_outside_regular_session,
-        v:participationStatus:designatedBy::string                        as status_designated_by,
-        v:participationStatus:statusBeginDate::date                       as status_begin_date,
-        v:participationStatus:statusEndDate::date                         as status_end_date,
+        v:servedOutsideOfRegularSession::boolean                          as is_served_outside_regular_session,
+        v:participationStatus:designatedBy::string                        as participation_status_designated_by,
+        v:participationStatus:statusBeginDate::date                       as participation_status_begin_date,
+        v:participationStatus:statusEndDate::date                         as participation_status_end_date
 
         v:awaitingFosterCare::boolean                                     as is_awaiting_foster_care,
         v:homelessUnaccompaniedYouth::boolean                             as is_homeless_unaccompanied_youth,
@@ -35,9 +35,9 @@ renamed as (
         {{ extract_descriptor('v:homelessPrimaryNighttimeResidenceDescriptor::string') }}       as homeless_primary_nighttime_residence,
 
         -- references
-        v:studentReference               as student_reference,
-        v:programReference               as program_reference,
         v:educationOrganizationReference as education_organization_reference,
+        v:programReference               as program_reference,
+        v:studentReference               as student_reference,
 
         -- lists
         v:programParticipationStatuses as v_program_participation_statuses,
