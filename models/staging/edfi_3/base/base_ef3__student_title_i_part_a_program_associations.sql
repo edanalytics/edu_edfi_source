@@ -14,8 +14,8 @@ renamed as (
 
         v:id::string                                                      as record_guid,
         v:studentReference:studentUniqueId::string                        as student_unique_id,
-        v:educationOrganizationReference:educationOrganizationId::integer as delivering_ed_org_id,
-        v:educationOrganizationReference:link:rel::string                 as delivering_ed_org_type,
+        v:educationOrganizationReference:educationOrganizationId::integer as ed_org_id,
+        v:educationOrganizationReference:link:rel::string                 as ed_org_type,
         v:programReference:educationOrganizationId::integer               as program_ed_org_id,
         v:beginDate::date                                                 as program_enroll_begin_date,
         v:endDate::date                                                   as program_enroll_end_date,
