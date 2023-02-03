@@ -1,4 +1,4 @@
-with stu_prog as (
+with source_stu_programs as (
     {{ source_edfi3('student_homeless_program_associations') }}
 ),
 
@@ -46,7 +46,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from stu_prog
+    from source_stu_programs
 )
 
 select * from renamed
