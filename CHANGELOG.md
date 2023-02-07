@@ -1,4 +1,9 @@
-# Unreleased
+# Unreleased 
+## New features
+## Under the hood
+## Fixes
+
+# edu_edfi_source v0.2.0
 ## New features
 - Add optional domain disabling to all non-core models, using vars in dbt_project.yml.
 
