@@ -16,6 +16,7 @@ base_student_discipline_incident as (
     , lateral flatten(input=>v_behaviors)
     where not is_deleted
     {% set non_offender_codes =  var('edu:discipline:non_offender_codes')  %}
+    -- todo: not sure we want the option for this to be empty
     {% if non_offender_codes | length -%}
       {% if non_offender_codes is string -%}
         {% set non_offender_codes = [non_offender_codes] %}
@@ -24,6 +25,7 @@ base_student_discipline_incident as (
       and student_participation_code not in (
       '{{ non_offender_codes | join("', '") }}'
       )
+    {%- endif -%}
 ),
 stacked as (
     select * from base_student_discipline_incident_behavior
