@@ -2,19 +2,34 @@ with base_student_discipline_incident_behavior as (
     select * from {{ ref('base_ef3__student_discipline_incident_behavior_associations') }}
     where not is_deleted
 ),
+base_student_discipline_incident as (
+    select * from {{ ref('base_ef3__student_discipline_incident_associations') }}
+    where not is_deleted
+),
+dedupe_base_student_discipline_incident  as (
+    deduped as (
+        {{
+            dbt_utils.deduplicate(
+                relation='base_student_discipline_incident',
+                partition_by='student_unique_id, school_id, incident_id',
+                order_by='pull_timestamp desc'
+            )
+        }}
+    )
+),
 -- note: this model is deprecated, but still in use so stacking here
 -- projects should only ever have one of the two models in use
-base_student_discipline_incident as (
+format_student_discipline_incident as (
     -- note: the deprecated model needs to be flattened to match the grain of the new model
     select 
         {{ dbt_utils.star(ref('base_ef3__student_discipline_incident_associations'), 
             except=['student_participation_code', 'v_behaviors']) }},
         {{ extract_descriptor('value:behaviorDescriptor::string') }} as behavior_type,
         value:behaviorDetailedDescription::string as behavior_detailed_description,
-        array_agg(student_participation_code) over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes
-    from {{ ref('base_ef3__student_discipline_incident_associations') }}
+        array_agg(object_construct('disciplineIncidentParticipationCodeDescriptor',student_participation_code)) 
+            over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes
+    from dedupe_base_student_discipline_incident
     , lateral flatten(input=>v_behaviors)
-    where not is_deleted
     {% set non_offender_codes =  var('edu:discipline:non_offender_codes')  %}
     -- todo: not sure we want the option for this to be empty
     {% if non_offender_codes | length -%}
@@ -22,7 +37,7 @@ base_student_discipline_incident as (
         {% set non_offender_codes = [non_offender_codes] %}
       {%- endif -%}
       -- only offenders
-      and student_participation_code not in (
+      where student_participation_code not in (
       '{{ non_offender_codes | join("', '") }}'
       )
     {%- endif -%}
