@@ -10,7 +10,7 @@ base_student_discipline_incident as (
         {{ dbt_utils.star(ref('base_ef3__student_discipline_incident_associations'), 
             except=['student_participation_code', 'v_behaviors']) }},
         {{ extract_descriptor('value:behaviorDescriptor::string') }} as behavior_type,
-        value:behaviorDetailedDescription::string as behavior_detailed_description
+        value:behaviorDetailedDescription::string as behavior_detailed_description,
         array_agg(student_participation_code) over (partition by incident_id, school_id, student_id) as v_discipline_incident_participation_codes
     from {{ ref('base_ef3__student_discipline_incident_associations') }}
     , lateral flatten(input=>v_behaviors)
