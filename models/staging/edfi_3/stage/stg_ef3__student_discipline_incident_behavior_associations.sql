@@ -7,15 +7,13 @@ base_student_discipline_incident as (
     where not is_deleted
 ),
 dedupe_base_student_discipline_incident  as (
-    deduped as (
-        {{
-            dbt_utils.deduplicate(
-                relation='base_student_discipline_incident',
-                partition_by='student_unique_id, school_id, incident_id',
-                order_by='pull_timestamp desc'
-            )
-        }}
-    )
+    {{
+        dbt_utils.deduplicate(
+            relation='base_student_discipline_incident',
+            partition_by='student_unique_id, school_id, incident_id',
+            order_by='pull_timestamp desc'
+        )
+    }}
 ),
 -- note: this model is deprecated, but still in use so stacking here
 -- projects should only ever have one of the two models in use
