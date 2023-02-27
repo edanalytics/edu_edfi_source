@@ -21,11 +21,12 @@ format_student_discipline_incident as (
     -- note: the deprecated model needs to be flattened to match the grain of the new model
     select 
         {{ dbt_utils.star(ref('base_ef3__student_discipline_incident_associations'), 
-            except=['student_participation_code', 'v_behaviors']) }},
+            except=['student_participation_code', 'v_behaviors', 'v_ext']) }},
         {{ extract_descriptor('value:behaviorDescriptor::string') }} as behavior_type,
         value:behaviorDetailedDescription::string as behavior_detailed_description,
         array_agg(object_construct('disciplineIncidentParticipationCodeDescriptor',student_participation_code)) 
-            over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes
+            over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes,
+        v_ext
     from dedupe_base_student_discipline_incident
     , lateral flatten(input=>v_behaviors)
     {% set non_offender_codes =  var('edu:discipline:non_offender_codes')  %}
@@ -43,7 +44,7 @@ format_student_discipline_incident as (
 stacked as (
     select * from base_student_discipline_incident_behavior
     union all
-    select * from base_student_discipline_incident
+    select * from format_student_discipline_incident
 ),
 keyed as (
     select 

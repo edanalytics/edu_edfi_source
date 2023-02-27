@@ -17,12 +17,13 @@ dedupe_base_student_discipline_incident  as (
 ),
 -- note: this model is deprecated, but still in use so stacking here
 -- projects should only ever have one of the two models in use
-base_student_discipline_incident as (
+format_student_discipline_incident as (
     select 
         {{ dbt_utils.star(ref('base_ef3__student_discipline_incident_associations'), 
-            except=['student_participation_code', 'v_behaviors']) }},
+            except=['student_participation_code', 'v_behaviors', 'v_ext']) }},
         array_agg(object_construct('disciplineIncidentParticipationCodeDescriptor',student_participation_code)) 
-            over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes
+            over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes,
+        v_ext
     from dedupe_base_student_discipline_incident
     {% set non_offender_codes =  var('edu:discipline:non_offender_codes')  %}
     -- todo: not sure we want the option for this to be empty
@@ -40,7 +41,7 @@ base_student_discipline_incident as (
 stacked as (
     select * from base_student_discipline_incident_non_offender
     union all
-    select * from base_student_discipline_incident
+    select * from format_student_discipline_incident
 ),
 keyed as (
     select 
