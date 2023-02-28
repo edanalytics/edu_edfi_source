@@ -12,8 +12,10 @@ flattened as (
         k_lea,
         k_school,
 
-        {{ extract_descriptor('value:homelessProgramServiceDescriptor::string') }} as homeless_program_service,
+        program_enroll_begin_date,
+        {{ extract_descriptor('value:homelessProgramServiceDescriptor::string') }} as program_service,
         value:primaryIndicator::boolean as primary_indicator,
+        value:providers                 as v_providers,
         value:serviceBeginDate::date    as service_begin_date,
         value:serviceEndDate::date      as service_end_date,
 

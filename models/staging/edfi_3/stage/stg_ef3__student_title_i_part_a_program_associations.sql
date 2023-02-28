@@ -1,6 +1,5 @@
 with base_stu_programs as (
-    select *
-    from {{ ref('base_ef3__student_title_i_part_a_program_associations') }}
+    select * from {{ ref('base_ef3__student_title_i_part_a_program_associations') }}
     where not is_deleted
 ),
 
@@ -9,7 +8,7 @@ keyed as (
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_program') }},
-        {{ edorg_ref() }},
+        {{ edorg_ref(annualize=False) }},
         api_year as school_year,
         base_stu_programs.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
