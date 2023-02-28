@@ -21,9 +21,11 @@ format_student_discipline_incident as (
     -- note: the deprecated model needs to be flattened to match the grain of the new model
     select 
         {{ dbt_utils.star(ref('base_ef3__student_discipline_incident_associations'), 
-            except=['student_participation_code', 'v_behaviors', 'v_ext']) }},
+            except=['student_participation_code', 'v_behaviors', 'v_ext', 'discipline_incident_reference', 'student_reference']) }},
         {{ extract_descriptor('value:behaviorDescriptor::string') }} as behavior_type,
         value:behaviorDetailedDescription::string as behavior_detailed_description,
+        discipline_incident_reference,
+        student_reference,
         array_agg(object_construct('disciplineIncidentParticipationCodeDescriptor',student_participation_code)) 
             over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes,
         v_ext
