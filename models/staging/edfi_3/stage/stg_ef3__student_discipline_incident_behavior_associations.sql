@@ -51,6 +51,7 @@ stacked as (
 keyed as (
     select 
         {{ gen_skey('k_student') }},
+        {{ gen_skey('k_school', 'discipline_incident_reference') }},
         {{ gen_skey('k_discipline_incident') }},
         stacked.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
