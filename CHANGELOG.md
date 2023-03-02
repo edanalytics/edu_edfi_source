@@ -3,13 +3,16 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.1 
+## Under the hood
+- Standardize naming conventions across program models
+- Add minimum dbt version requirement
+
 # edu_edfi_source v0.2.0
 ## New features
 - Add optional domain disabling to all non-core models, using vars in dbt_project.yml.
-
 ## Under the hood
 - Add a single model properties file under each subdirectory, as per DBT recommendation.
-
 ## Fixes
 - Remove unnecessary deduplication keys for program association staging models
 
@@ -29,9 +32,6 @@
 - Add model for Special Education Program Services
 - Add models for cohorts
 - Add model for graduation plans
-
-## Under the hood
-
 ## Fixes
 - Remove unnecessary deduplication keys for program association staging models
 

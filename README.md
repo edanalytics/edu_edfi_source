@@ -21,7 +21,7 @@ Include the following in your `packages.yml` file:
 ```
 packages:
   - package: edanalytics/edu_edfi_source
-    version: 0.2.0
+    version: [">=0.2.1", "<0.3.0"]
 ```
 
 Note: if you're using the downstream [warehouse package](https://github.com/edanalytics/edu_warehouse), it already includes this source package, and you don't need to install it again. 
