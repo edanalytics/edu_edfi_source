@@ -16,7 +16,7 @@ renamed as (
         v:sessionReference:school_id::string                          as school_id,
         v:sessionReference:session_name::string                       as session_name,
         v:schoolYearTypeReference:schoolYear::string                  as school_year,
-        v:surveyIdentifier::string                                    as survey_identifier,
+        v:surveyIdentifier::string                                    as survey_id,
         v:namespace::string                                           as namespace,
         v:numberAdministered::int                                     as number_administered,
         v:survey_title::string                                        as survey_title,
