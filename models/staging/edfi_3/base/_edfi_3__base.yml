@@ -46,6 +46,10 @@ models:
   - name: base_ef3__education_organization_networks
     config:
       tags: ['core']
+  - name: base_ef3__education_service_centers
+    config:
+      tags: ['esc']
+      enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
   - name: base_ef3__grades
     config:
       tags: ['core']
