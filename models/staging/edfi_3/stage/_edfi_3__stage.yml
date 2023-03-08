@@ -269,6 +269,21 @@ models:
     config:
       tags: ['core']
 
+  - name: stg_ef3__education_service_centers
+    config: 
+      tags: ['esc']
+      enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
+
+  - name: stg_ef3__education_service_centers__addresses
+    config: 
+      tags: ['esc']
+      enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
+
+  - name: stg_ef3__education_service_centers__identification_codes
+    config: 
+      tags: ['esc']
+      enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
+
   - name: stg_ef3__grades
     config:
       tags: ['core']

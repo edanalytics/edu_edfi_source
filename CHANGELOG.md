@@ -1,5 +1,7 @@
 # Unreleased 
 ## New features
+- Add models for education service centers
+
 ## Under the hood
 ## Fixes
 
