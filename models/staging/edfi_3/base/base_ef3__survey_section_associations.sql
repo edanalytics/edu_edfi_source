@@ -1,4 +1,4 @@
-with survey_sections as (
+with survey_sections_associations as (
     {{ source_edfi3('survey_section_associations') }}
 ),
 renamed as (
@@ -23,6 +23,6 @@ renamed as (
         v:surveyReference  as survey_reference,
         -- edfi extensions
         v:_ext as v_ext
-    from survey_sections
+    from survey_sections_associations
 )
 select * from renamed
