@@ -5,7 +5,7 @@ flattened as (
     select 
         tenant_code,
         api_year,
-        k_service_center,
+        k_education_service_center,
         {{ extract_descriptor('value:educationOrganizationIdentificationSystemDescriptor::string') }} as id_system,
         value:identificationCode::string as id_code
     from stg_service_centers,

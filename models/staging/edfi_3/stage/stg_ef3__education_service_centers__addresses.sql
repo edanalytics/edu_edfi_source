@@ -1,1 +1,1 @@
-{{ flatten_addresses('stg_ef3__education_service_centers', ['k_service_center']) }}
+{{ flatten_addresses('stg_ef3__education_service_centers', ['k_education_service_center']) }}
