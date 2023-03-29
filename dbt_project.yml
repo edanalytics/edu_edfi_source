@@ -35,3 +35,6 @@ models:
           
 vars:
   extensions: null
+  
+  # student discipline participation codes that map to non-offenders
+  'edu:discipline:non_offender_codes': ['Victim', 'Witness']
