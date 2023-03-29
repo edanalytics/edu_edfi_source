@@ -7,6 +7,7 @@
 #}
 {% macro extract_extension(model_name, flatten) %}
 
+{# If `model_name` is a singleton, convert to a list. #}
 {% if model_name is string %}
     {% set model_name = [model_name] %}
 {% endif %}
