@@ -14,6 +14,8 @@
   {# if `model_name` IS a singleton, use var of its single model name #}
   {%- set extensions =  var('extensions')[model_name]  -%}
 
+  {%- if extensions is defined and extensions|length > 0 -%},{% endif -%}
+
   {%- for ext in extensions %}
   
     {# If flatten (as is done in stg models), pull out metadata from dbt_project var and use to flatten json into columns #}
