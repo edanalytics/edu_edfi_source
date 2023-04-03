@@ -26,6 +26,7 @@
 
       {%- if ext_extract_descriptor %}
         {{extract_descriptor(full_ext_native_name)}}::{{ext_dtype}} as {{ext}}
+      {%- else -%}
         {{full_ext_native_name}}::{{ext_dtype}} as {{ext}}
       {%- endif %}    
 
