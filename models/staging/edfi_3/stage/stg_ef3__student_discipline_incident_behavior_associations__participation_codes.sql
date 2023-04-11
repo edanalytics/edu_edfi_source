@@ -6,6 +6,7 @@ flattened as (
         tenant_code,
         api_year,
         k_student,
+        k_student_xyear,
         k_discipline_incident,
         {{ extract_descriptor('value:disciplineIncidentParticipationCodeDescriptor::string') }} as participation_code
     from stg_stu_discipline_incident_behaviors,
