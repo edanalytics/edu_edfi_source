@@ -1,9 +1,15 @@
 # Unreleased 
 ## New features
-- Add models for education service centers
-
 ## Under the hood
 ## Fixes
+
+# edu_edfi_source v0.2.2 
+## New features
+- Add models for education service centers
+- Add additional discipline/behavior models
+
+## Under the hood
+- Update `extract_extension` macro to handle multiple models
 
 # edu_edfi_source v0.2.1 
 ## Under the hood
