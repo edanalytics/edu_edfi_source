@@ -580,7 +580,7 @@ models:
         tests:
           *ref_k_cohort
 
-  - name: stg_ef3__student_discipline_incident_associations
+  - name: stg_ef3__student_discipline_incident_behavior_associations
     config:
       tags: ['discipline']
       enabled: "{{ var('src:domain:discipline:enabled', True) }}"
@@ -592,7 +592,24 @@ models:
         tests:
           *ref_k_discipline_incident
 
-  - name: stg_ef3__student_discipline_incident_associations__behaviors
+  - name: stg_ef3__student_discipline_incident_behavior_associations__participation_codes
+    config:
+      tags: ['discipline']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
+  
+  - name: stg_ef3__student_discipline_incident_non_offender_associations
+    config:
+      tags: ['discipline']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_discipline_incident
+        tests:
+          *ref_k_discipline_incident
+
+  - name: stg_ef3__student_discipline_incident_non_offender_associations__participation_codes
     config:
       tags: ['discipline']
       enabled: "{{ var('src:domain:discipline:enabled', True) }}"
