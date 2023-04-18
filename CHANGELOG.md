@@ -10,6 +10,7 @@
 
 ## Under the hood
 - Update `extract_extension` macro to handle multiple models
+- Add school_year to staff ed org assignments
 
 # edu_edfi_source v0.2.1 
 ## Under the hood
