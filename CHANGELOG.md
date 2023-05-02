@@ -3,6 +3,11 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.3 
+## Fixes
+- Bugfix release: correct typo
+- Add to default non-offender codes
+
 # edu_edfi_source v0.2.2 
 ## New features
 - Add models for education service centers
