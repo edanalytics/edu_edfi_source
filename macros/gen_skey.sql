@@ -179,6 +179,24 @@
             'annualize': True
         },
 
+        'k_survey': {
+            'reference_name': 'survey_reference',
+            'col_list': ['surveyIdentifier', 'namespace'],
+            'annualize': True
+        },
+
+        'k_survey_question': {
+            'reference_name': 'survey_question_reference',
+            'col_list': ['questionCode', 'surveyIdentifier', 'namespace'],
+            'annualize': True
+        },
+        
+        'k_survey_response': {
+            'reference_name': 'survey_response_reference',
+            'col_list': ['surveyResponseIdentifier'm 'surveyIdentifier', 'namespace'],
+            'annualize': True
+        },
+
         'k_template': {
             'reference_name': '',
             'col_list': [],

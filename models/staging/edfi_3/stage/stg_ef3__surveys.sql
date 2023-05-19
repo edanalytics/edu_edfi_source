@@ -12,7 +12,7 @@ keyed as (
                 'lower(namespace)'
             ]
         ) }} as k_survey,
-        base_students.*
+        base_surveys.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_surveys
 ),
@@ -26,3 +26,4 @@ deduped as (
     }}
 )
 select * from deduped
+order by 2,3

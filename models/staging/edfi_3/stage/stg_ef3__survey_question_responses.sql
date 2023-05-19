@@ -8,18 +8,12 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'lower(survey_id)', 
-                'lower(question_code)'
+                'lower(survey_id)',
+                'lower(namespace)'
             ]
-        ) }} as k_survey_question,
-        {{ dbt_utils.surrogate_key(
-            [
-                'tenant_code',
-                'api_year',
-                'lower(survey_id)', 
-                'lower(survey_response_id)'
-            ]
-        ) }} as k_survey_reponse,
+        ) }} as k_survey,
+        {{ gen_skey('k_survey_question') }},
+        {{ gen_skey('k_survey_response') }},
         base_survey_question_responses.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_survey_question_responses
@@ -28,7 +22,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_survey_question', 'k_survey_reponse'
+            partition_by='k_survey_question, k_survey_response',
             order_by='pull_timestamp desc'
         )
     }}

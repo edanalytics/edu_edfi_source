@@ -12,6 +12,7 @@ keyed as (
                 'lower(question_code)'
             ]
         ) }} as k_survey_question,
+        {{ gen_skey('k_survey') }},
         base_survey_questions.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_survey_questions
@@ -20,7 +21,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_survey_question', 
+            partition_by='k_survey_question, k_survey', 
             order_by='pull_timestamp desc'
         )
     }}

@@ -1,5 +1,5 @@
 with survey_question_responses as (
-    {{ source_edfi3('survey_question_responses') }}
+    {{ edu_edfi_source.source_edfi3('survey_question_responses') }}
 ),
 renamed as (
     select 
@@ -14,12 +14,12 @@ renamed as (
         v:surveyQuestionReference:surveyIdentifier::string            as survey_id,
         v:surveyQuestionReference:questionCode::string                as question_code,
         v:surveyResponseReference:surveyResponseIdentifier::string    as survey_response_id,
-        v:namespace::string                                           as namespace,
+        v:surveyQuestionReference:namespace::string                   as namespace,
         v:comment::string                                             as comment,
-        v:noResponse::bool                                            as no_response,
+        v:noResponse::boolean                                         as no_response,
         --references
-        v:surveyReference          as survey_reference,
-        v:surveySectionReference   as survey_section_reference,
+        v:surveyQuestionReference   as survey_question_reference,
+        v:surveyResponseReference   as survey_response_reference,
         -- lists
         v:surveyQuestionMatrixElementResponses  as v_survey_question_matrix_element_responses,
         v:values                                as v_values,
