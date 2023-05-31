@@ -1,5 +1,5 @@
 with surveys as (
-    {{ edu_edfi_source.source_edfi3('surveys') }}
+    {{ source_edfi3('surveys') }}
 ),
 renamed as (
     select 
@@ -21,7 +21,7 @@ renamed as (
         v:numberAdministered::int                                     as number_administered,
         v:surveyTitle::string                                         as survey_title,
         -- descriptors
-        {{ edu_edfi_source.extract_descriptor('v:surveyCategoryDescriptor::string') }} as survey_category,
+        {{ extract_descriptor('v:surveyCategoryDescriptor::string') }} as survey_category,
         --references
         v:educationOrganizationReference as education_organization_reference,
         v:schoolYearTypeReference        as school_year_reference,

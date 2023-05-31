@@ -1,5 +1,5 @@
 with survey_question as (
-    {{ edu_edfi_source.source_edfi3('survey_questions') }}
+    {{ source_edfi3('survey_questions') }}
 ),
 renamed as (
     select 
@@ -17,7 +17,7 @@ renamed as (
         v:questionCode::string                                        as question_code,
         v:questionText::string                                        as question_text,
         -- descriptors
-        {{ edu_edfi_source.extract_descriptor('v:questionFormDescriptor::string') }} as question_form,
+        {{ extract_descriptor('v:questionFormDescriptor::string') }} as question_form,
         --references
         v:surveyReference          as survey_reference,
         v:surveySectionReference   as survey_section_reference,

@@ -187,13 +187,13 @@
 
         'k_survey_question': {
             'reference_name': 'survey_question_reference',
-            'col_list': ['questionCode', 'surveyIdentifier', 'namespace'],
+            'col_list': ['questionCode', 'surveyIdentifier'],
             'annualize': True
         },
         
         'k_survey_response': {
             'reference_name': 'survey_response_reference',
-            'col_list': ['surveyResponseIdentifier'm 'surveyIdentifier', 'namespace'],
+            'col_list': ['surveyResponseIdentifier' 'surveyIdentifier'],
             'annualize': True
         },
 

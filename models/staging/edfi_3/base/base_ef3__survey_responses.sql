@@ -1,5 +1,5 @@
 with survey_responses as (
-    {{ edu_edfi_source.source_edfi3('survey_responses') }}
+    {{ source_edfi3('survey_responses') }}
 ),
 renamed as (
     select 
