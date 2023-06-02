@@ -8,8 +8,8 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'lower(survey_id)',
-                'lower(namespace)'
+                'lower(namespace)',
+                'lower(survey_id)'
             ]
         ) }} as k_survey,
         base_surveys.*

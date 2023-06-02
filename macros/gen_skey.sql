@@ -181,7 +181,7 @@
 
         'k_survey': {
             'reference_name': 'survey_reference',
-            'col_list': ['surveyIdentifier', 'namespace'],
+            'col_list': ['namespace', 'surveyIdentifier'],
             'annualize': True
         },
 
@@ -193,7 +193,7 @@
         
         'k_survey_response': {
             'reference_name': 'survey_response_reference',
-            'col_list': ['surveyResponseIdentifier' 'surveyIdentifier'],
+            'col_list': ['surveyIdentifier', 'surveyResponseIdentifier'],
             'annualize': True
         },
 

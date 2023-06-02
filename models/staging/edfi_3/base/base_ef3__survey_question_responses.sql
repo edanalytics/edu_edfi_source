@@ -11,10 +11,10 @@ renamed as (
         is_deleted,
 
         v:id::string                                                  as record_guid,
+        v:surveyQuestionReference:namespace::string                   as namespace,
         v:surveyQuestionReference:surveyIdentifier::string            as survey_id,
         v:surveyQuestionReference:questionCode::string                as question_code,
         v:surveyResponseReference:surveyResponseIdentifier::string    as survey_response_id,
-        v:surveyQuestionReference:namespace::string                   as namespace,
         v:comment::string                                             as comment,
         v:noResponse::boolean                                         as no_response,
         --references

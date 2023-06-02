@@ -8,8 +8,8 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'lower(survey_id)', 
-                'lower(question_code)'
+                'lower(question_code)',
+                'lower(survey_id)' 
             ]
         ) }} as k_survey_question,
         {{ gen_skey('k_survey') }},

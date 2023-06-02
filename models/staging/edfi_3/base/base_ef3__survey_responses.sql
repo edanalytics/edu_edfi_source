@@ -19,10 +19,12 @@ renamed as (
         v:fullName::string                                            as full_name, 
         v:location::string                                            as location, 
         v:responseDate::date                                          as response_date, 
-        v:responseTime::int                                           as response_time, 
+        v:responseTime::int                                           as completion_time_seconds, 
         --references
-        v:studentReference   as student_reference,
         v:surveyReference    as survey_reference,
+        v:studentReference   as student_reference,
+        v:staffReference     as staff_refrence,
+        v:parentReference    as parent_reference,
         -- lists
         v:surveyLevels  as v_survey_levels,    
         -- edfi extensions

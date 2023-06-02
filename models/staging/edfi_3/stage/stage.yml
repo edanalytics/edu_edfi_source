@@ -81,6 +81,21 @@ referential_integrity_tests:
         to: ref('stg_ef3__cohorts')
         field: k_cohort
         tags: ['ref_integrity']
+  - k_survey: &ref_k_survey
+    - relationships:
+        to: ref('stg_ef3__surveys')
+        field: k_survey
+        tags: ['ref_integrity']
+  - k_survey_question: &ref_k_survey_question
+    - relationships:
+        to: ref('stg_ef3__survey_questions')
+        field: k_survey_question
+        tags: ['ref_integrity']
+  - k_survey_response: &ref_k_survey_response
+    - relationships:
+        to: ref('stg_ef3__survey_responses')
+        field: k_survey_response
+        tags: ['ref_integrity']
 
 models: 
   - name: stg_ef3__calendar_dates
@@ -356,3 +371,24 @@ models:
       - name: k_cohort
         tests: 
           *ref_k_cohort
+  
+  - name: stg_ef3__survey_responses 
+    columns:
+      - name: k_survey
+        tests: 
+          *ref_k_survey
+  
+  - name: stg_ef3__survey_questions
+    columns:
+      - name: k_survey
+        tests: 
+          *ref_k_survey
+  
+  - name: stg_ef3__survey_question_responses
+    columns: 
+      - name: k_survey_question
+        tests: 
+          *ref_k_survey_question
+      - name: k_survey_response
+        tests: 
+          *ref_k_survey_response
