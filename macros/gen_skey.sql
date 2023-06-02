@@ -183,6 +183,21 @@
             'col_list': ['educationServiceCenterId'],
             'annualize': False
         },
+        'k_survey': {
+            'reference_name': 'survey_reference',
+            'col_list': ['namespace', 'surveyIdentifier'],
+            'annualize': True
+        },
+        'k_survey_question': {
+            'reference_name': 'survey_question_reference',
+            'col_list': ['questionCode', 'surveyIdentifier'],
+            'annualize': True
+        },
+        'k_survey_response': {
+            'reference_name': 'survey_response_reference',
+            'col_list': ['surveyIdentifier', 'surveyResponseIdentifier'],
+            'annualize': True
+        },
 
         'k_template': {
             'reference_name': '',
