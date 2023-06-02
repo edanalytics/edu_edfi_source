@@ -4,7 +4,7 @@ with base_survey_question_responses as (
 ),
 keyed as (
     select 
-        {{ gen_skey('k_survey', 'survey_question_reference') }}
+        {{ gen_skey('k_survey', 'survey_question_reference') }},
         {{ gen_skey('k_survey_question') }},
         {{ gen_skey('k_survey_response') }},
         base_survey_question_responses.*

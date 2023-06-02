@@ -23,7 +23,7 @@ renamed as (
         --references
         v:surveyReference    as survey_reference,
         v:studentReference   as student_reference,
-        v:staffReference     as staff_refrence,
+        v:staffReference     as staff_reference,
         v:parentReference    as parent_reference,
         -- lists
         v:surveyLevels  as v_survey_levels,    
