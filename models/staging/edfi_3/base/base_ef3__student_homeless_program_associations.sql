@@ -1,4 +1,4 @@
-with stu_prog as (
+with source_stu_programs as (
     {{ source_edfi3('student_homeless_program_associations') }}
 ),
 
@@ -14,16 +14,16 @@ renamed as (
 
         v:id::string                                                      as record_guid,
         v:studentReference:studentUniqueId::string                        as student_unique_id,
-        v:educationOrganizationReference:educationOrganizationId::integer as delivering_ed_org_id,
-        v:educationOrganizationReference:link:rel::string                 as delivering_ed_org_type,
+        v:educationOrganizationReference:educationOrganizationId::integer as ed_org_id,
+        v:educationOrganizationReference:link:rel::string                 as ed_org_type,
         v:programReference:educationOrganizationId::integer               as program_ed_org_id,
         v:beginDate::date                                                 as program_enroll_begin_date,
         v:endDate::date                                                   as program_enroll_end_date,
         v:programReference:programName::string                            as program_name,
-        v:servedOutsideOfRegularSession::boolean                          as served_outside_regular_session,
-        v:participationStatus:designatedBy::string                        as status_designated_by,
-        v:participationStatus:statusBeginDate::date                       as status_begin_date,
-        v:participationStatus:statusEndDate::date                         as status_end_date,
+        v:servedOutsideOfRegularSession::boolean                          as is_served_outside_regular_session,
+        v:participationStatus:designatedBy::string                        as participation_status_designated_by,
+        v:participationStatus:statusBeginDate::date                       as participation_status_begin_date,
+        v:participationStatus:statusEndDate::date                         as participation_status_end_date,
 
         v:awaitingFosterCare::boolean                                     as is_awaiting_foster_care,
         v:homelessUnaccompaniedYouth::boolean                             as is_homeless_unaccompanied_youth,
@@ -35,9 +35,9 @@ renamed as (
         {{ extract_descriptor('v:homelessPrimaryNighttimeResidenceDescriptor::string') }}       as homeless_primary_nighttime_residence,
 
         -- references
-        v:studentReference               as student_reference,
-        v:programReference               as program_reference,
         v:educationOrganizationReference as education_organization_reference,
+        v:programReference               as program_reference,
+        v:studentReference               as student_reference,
 
         -- lists
         v:programParticipationStatuses as v_program_participation_statuses,
@@ -46,7 +46,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from stu_prog
+    from source_stu_programs
 )
 
 select * from renamed

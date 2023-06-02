@@ -178,6 +178,11 @@
             'col_list': ['cohortIdentifier', 'educationOrganizationId'],
             'annualize': True
         },
+        'k_education_service_center': {
+            'reference_name': 'education_service_center_reference',
+            'col_list': ['educationServiceCenterId'],
+            'annualize': False
+        },
 
         'k_survey': {
             'reference_name': 'survey_reference',
