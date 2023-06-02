@@ -21,7 +21,7 @@ Include the following in your `packages.yml` file:
 ```
 packages:
   - package: edanalytics/edu_edfi_source
-    version: 0.1.3
+    version: [">=0.2.1", "<0.3.0"]
 ```
 
 Note: if you're using the downstream [warehouse package](https://github.com/edanalytics/edu_warehouse), it already includes this source package, and you don't need to install it again. 
@@ -40,7 +40,8 @@ We have code to generate source definitions from an Ed-Fi API's swagger definiti
 [here](https://github.com/edanalytics/edu_project_template/blob/main/codegen/generate_templates.py).
 
 This will generate a `src_edfi_3.yml` file containing the location and definitions
-of all raw raw resourcs coming from Ed-Fi APIs which must be included in your project.
+of all raw raw resources coming from Ed-Fi APIs which must be included in your project.
+Any resources not in use can be disabled here to exclude them from dbt's graph.
 
 ### Ed-Fi Extensions
 
@@ -50,7 +51,7 @@ or new resources. This section deals with new columns, while new/custom resource
 can be handled by adding base/stage models in the importing project.
 
 Extension columns are stored in the API payloads under an `_ext` element in the
-payload, which contains a dictionary of named extensions, each containing 
+JSON, which contains a dictionary of named extensions, each containing 
 their extended columns.
 
 To add these to your tables, you need a configuration block in `dbt_project.yml` 
@@ -186,8 +187,8 @@ version conflicts.
 ## Package Maintenance
 
 The Education Analytics team only maintains the latest version of the package.
-We recommend that you stay consistent with the [latest version]() of the package
-and refer to the [CHANGELOG](https://github.com/edanalytics/edu_edfi_source/blob/main/CHANGELOG.md)
+We recommend that you stay consistent with the [latest version](https://github.com/edanalytics/edu_edfi_source/releases/latest) 
+of the package and refer to the [CHANGELOG](https://github.com/edanalytics/edu_edfi_source/blob/main/CHANGELOG.md)
 and release notes for more information on changes across versions.
 
 ## Platform Compatibility

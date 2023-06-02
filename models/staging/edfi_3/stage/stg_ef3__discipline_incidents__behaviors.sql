@@ -7,7 +7,8 @@ flattened as (
         api_year,
         k_discipline_incident,
         k_school,
-        {{ extract_descriptor('value:behaviorDescriptor::string') }} as behavior_type
+        {{ extract_descriptor('value:behaviorDescriptor::string') }} as behavior_type,
+        value:behaviorDetailedDescription::string as behavior_detailed_description
     from stg_discipline_incidents,
         lateral flatten(input => v_behaviors)
 )

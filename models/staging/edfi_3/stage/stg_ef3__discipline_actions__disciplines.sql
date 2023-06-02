@@ -8,6 +8,7 @@ flattened as (
         discipline_action_id,
         discipline_date,
         k_student,
+        k_student_xyear,
         {{ extract_descriptor('value:disciplineDescriptor::string') }} as discipline_type
     from stg_discipline_actions,
         lateral flatten(input => v_disciplines)
