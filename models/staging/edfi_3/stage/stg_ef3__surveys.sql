@@ -26,4 +26,3 @@ deduped as (
     }}
 )
 select * from deduped
-order by 2,3 
