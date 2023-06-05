@@ -15,6 +15,7 @@ keyed as (
         {{ gen_skey('k_survey') }},
         {{ gen_skey('k_staff') }},
         {{ gen_skey('k_student') }},
+        {{ gen_skey('k_parent') }},
         base_survey_responses.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_survey_responses
