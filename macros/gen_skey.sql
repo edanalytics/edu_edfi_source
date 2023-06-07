@@ -1,14 +1,6 @@
-
----------
-{#- check: can things like termDescriptor, programTypeDescriptor be fully qualified? -#}
-{#- make these alphabetical for predictability -#}
 {% macro gen_skey(k_name, alt_ref=None, alt_k_name=None, extras=None) %}
-
-    {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(k_name, alt_ref=alt_ref, extras=extras)) }} as {{ alt_k_name or k_name }}
-{% endmacro %}
-
-{% macro gen_key_list(k_name,  alt_ref=None, extras=None) %}
-
+     
+    {#- make these alphabetical for predictability -#}
     {% set skey_defs = {
         'k_school': {
             'reference_name': 'school_reference',
@@ -207,15 +199,10 @@
 
     }
     %}
-     {#- retrieve key def for then decompose parts -#}
+    {#- retrieve key def for then decompose parts -#}
     {% set skey_def = skey_defs[k_name] %}
     {% set skey_ref = skey_def['reference_name'] %}
     {% set skey_vars = skey_def['col_list'] %}
-
-    {% set consts = ['tenant_code'] %}
-    {% if skey_def['annualize'] %}
-        {% set consts = ['tenant_code', 'api_year'] %}
-    {% endif %}
 
     {#- deal with special case: references embedded in unusual cases
         Note: we still want the same values, we just pull them from another place
@@ -223,7 +210,23 @@
      -#}
     {% if alt_ref %}
       {% set skey_ref = alt_ref %}
+    {%- endif -%}
+
+    iff(
+        {{ skey_ref }} is not null, 
+        {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
+        null
+    )::varchar(32) as {{ alt_k_name or k_name }}
+{%- endmacro -%}
+
+{% macro gen_key_list(skey_def, skey_ref, skey_vars, extras=None) %}
+
+
+    {% set consts = ['tenant_code'] %}
+    {% if skey_def['annualize'] %}
+        {% set consts = ['tenant_code', 'api_year'] %}
     {% endif %}
+
     
     {#- add our key constants to the output -#}
     {% set output = consts %}
