@@ -1,6 +1,9 @@
 # Unreleased 
 ## New features
+- Add models for the main components of the Survey domain
 ## Under the hood
+- Change the way foreign key generation works: optional references that are Null 
+    will now produce a Null key rather than a valid hash that doesn't join to anything
 ## Fixes
 
 # edu_edfi_source v0.2.3 
