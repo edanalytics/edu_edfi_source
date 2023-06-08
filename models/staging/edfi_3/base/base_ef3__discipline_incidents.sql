@@ -12,7 +12,7 @@ renamed as (
         v:id::string                                  as record_guid,
         v:incidentIdentifier::string                  as incident_id,
         v:schoolReference:schoolId::int               as school_id,
-        v:incident_date::date                         as incident_date,
+        v:incidentDate::date                          as incident_date,
         v:incidentTime::time                          as incident_time,
         v:caseNumber::string                          as case_number,
         v:incidentCost::float                         as incident_cost,
