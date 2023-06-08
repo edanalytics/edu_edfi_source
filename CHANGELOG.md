@@ -3,6 +3,11 @@
 ## Under the hood
 ## Fixes
 
+
+# edu_edfi_source v0.2.4
+## Fixes
+- Bugfix release: correct typo
+
 # edu_edfi_source v0.2.3 
 ## Fixes
 - Bugfix release: correct typo
