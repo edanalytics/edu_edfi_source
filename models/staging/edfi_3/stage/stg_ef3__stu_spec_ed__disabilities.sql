@@ -1,4 +1,4 @@
-with stg_stu_ed_org as (
+with stg_stu_spec_ed_org as (
     select * from {{ ref('stg_ef3__student_special_education_program_associations') }}
 ),
 flattened as (
@@ -18,7 +18,7 @@ flattened as (
         -- in which case we would not want to double-flatten, but leave nested
         -- for a downstream step
         {{ extract_descriptor('desig.value:disabilityDesignationDescriptor::string') }} as disability_designation
-    from stg_stu_ed_org
+    from stg_stu_spec_ed_org
         , lateral flatten(input=>v_disabilities) disab
         , lateral flatten(input=>disab.value:designations, OUTER => TRUE) as desig
 )
