@@ -4,7 +4,7 @@
     {% if join_deletes %}
         select
             api_data.*,
-            deletes_data.v:Id::string is not null as is_deleted
+            (deletes_data.v:Id::string is not null or deletes_data.v:id::string is not null) as is_deleted
 
         from {{ source('raw_edfi_3', resource) }} as api_data
 
@@ -13,7 +13,8 @@
                 deletes_data.name = '{{ resource | lower }}'
                 and api_data.tenant_code = deletes_data.tenant_code
                 and api_data.api_year = deletes_data.api_year
-                and api_data.v:id::string = replace(deletes_data.v:Id::string, '-')
+                and (api_data.v:id::string = replace(deletes_data.v:Id::string, '-')
+                    or api_data.v:id::string = replace(deletes_data.v:id::string, '-'))
             )
 
     {% else %}
