@@ -7,7 +7,6 @@ flattened as (
         k_student,
         k_student_xyear,
         k_program,
-        ed_org_id,
         k_lea,
         k_school,
         program_enroll_begin_date,
