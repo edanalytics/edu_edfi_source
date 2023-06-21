@@ -4,12 +4,14 @@ with stg_stu_spec_ed_org as (
 flattened as (
     select
         tenant_code,
-        api_year,
         k_student,
         k_student_xyear,
+        k_program,
         ed_org_id,
         k_lea,
         k_school,
+        program_enroll_begin_date,
+        school_year,
         {{ extract_descriptor('disab.value:disabilityDescriptor::string') }} as disability_type,
         {{ extract_descriptor('disab.value:disabilityDeterminationSourceTypeDescriptor::string') }} as disability_source_type,
         disab.value:disabilityDiagnosis::string as disability_diagnosis,
