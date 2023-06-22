@@ -3,6 +3,9 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.5
+## Fixes
+- Bugfix release: address inconsistent casing in deletes IDs in Ed-Fi deployments
 
 # edu_edfi_source v0.2.4
 ## Fixes
