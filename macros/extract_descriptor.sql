@@ -36,7 +36,7 @@
           then '{{short_descriptions[i]}}'
 
       {%- endfor %}
-        -- default to raw value if now found in descriptors table
+        -- default to raw value if not found in descriptors table
         else split_part({{ col }}, '#', -1)
         end       
     {%- endif -%}
