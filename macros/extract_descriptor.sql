@@ -4,16 +4,11 @@
     {%- set stripped_col = col.split(":")[1] -%}
     {%- set config = var('descriptors')[stripped_col] or None -%}
     {%- set replace_with_short_descr = config['replace_with_short_descr'] or False -%}
-    {%- set alias = config['alias'] -%}
 
     -- if not configured to replace (default), split part from raw value
     {%- if not replace_with_short_descr -%}
 
       split_part({{ col }}, '#', -1)
-
-    {%- elif replace_with_short_descr and not alias -%}
-
-      {{ exceptions.raise_compiler_error("Error in extract_descriptor(): if replace_with_short_descr is set, must define an alias") }}
 
     -- if configured to replace, query int_ef3__deduped_descriptors to find each value's short description
     {%- else %}
@@ -35,12 +30,14 @@
       
       -- create a case/when statement that replaces each raw code_value with short_description
       case
-      {%- for i in range(code_values|length) -%}
+      {% for i in range(code_values|length) -%}
 
         when split_part({{ col }}, '#', 1) = '{{namespaces[i]}}' and split_part({{ col }}, '#', -1) = '{{code_values[i]}}'
           then '{{short_descriptions[i]}}'
 
       {%- endfor %}
+        -- default to raw value if now found in descriptors table
+        else split_part({{ col }}, '#', -1)
         end       
     {%- endif -%}
 {%- endmacro %}
