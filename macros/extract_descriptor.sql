@@ -19,7 +19,7 @@
       
       {% set query_descriptors -%}
         select namespace, code_value, description, short_description
-        from {{ ref('bld_ef3__deduped_descriptors') }}
+        from {{ ref('int_ef3__deduped_descriptors') }}
         where lower(split_part(namespace, '/', -1)) = lower('{{stripped_col}}')
       {%- endset -%}
       {%- set descriptor_xwalk = run_query(query_descriptors) %}
