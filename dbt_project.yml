@@ -30,6 +30,8 @@ models:
           +materialized: view
         intermediate:
           +materialized: ephemeral
+          int_ef3__deduped_descriptors:
+           +materialized: table
         stage: 
           +materialized: table
           
