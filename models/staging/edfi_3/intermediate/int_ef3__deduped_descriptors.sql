@@ -1,5 +1,5 @@
 -- this model deduplicates stg_ef3__descriptors across tenants & years, to simplify the code needed in edu_edfi_source.extract_descriptor
-    -- to replace descriptor code_values with short or long descriptions
+    -- to replace descriptor code_values with short descriptions
 -- in the future, we could allow for more sophisticated order by logic, to not just select rows based on alphabetical tenant order
 with stg_descriptors as (
     select * from {{ ref('stg_ef3__descriptors') }}
