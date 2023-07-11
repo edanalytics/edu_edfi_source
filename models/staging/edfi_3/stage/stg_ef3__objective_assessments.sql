@@ -5,6 +5,8 @@ with base_obj_assessments as (
 stage_student_assessments as (
     select * from {{ ref('stg_ef3__student_assessments') }}
 ),
+-- need to determine which subject(s) each objective assess id code is associated to
+-- based on student results
 distinct_obj_subject as (
     select distinct
         tenant_code,
@@ -16,28 +18,34 @@ distinct_obj_subject as (
     from stage_student_assessments,
         lateral flatten(input => v_student_objective_assessments)
 ),
-keyed as (
+join_subject as (
     select
-        {{ dbt_utils.surrogate_key(
-            ['base_obj_assessments.tenant_code',
-            'base_obj_assessments.api_year',
-            'lower(distinct_obj_subject.academic_subject)',
-            'lower(base_obj_assessments.assessment_identifier)',
-            'lower(base_obj_assessments.namespace)',
-            'lower(base_obj_assessments.objective_assessment_identification_code)']
-        ) }} as k_objective_assessment,
-        {{ gen_skey('k_assessment', extras = ['distinct_obj_subject.academic_subject']) }},
         base_obj_assessments.*,
         distinct_obj_subject.academic_subject
-        {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_obj_assessments
-    -- point of this is to cross join objective assessments against the academic subjects to add to gen_skey
+    -- this join will drop objective assessments with no student results
     join distinct_obj_subject 
         on base_obj_assessments.tenant_code = distinct_obj_subject.tenant_code
         and base_obj_assessments.api_year = distinct_obj_subject.api_year
         and base_obj_assessments.assessment_identifier = distinct_obj_subject.assessment_identifier
         and base_obj_assessments.namespace = distinct_obj_subject.namespace
         and base_obj_assessments.objective_assessment_identification_code = distinct_obj_subject.objective_assessment_identification_code
+),
+keyed as (
+    select
+        {{ dbt_utils.surrogate_key(
+            ['tenant_code',
+            'api_year',
+            'lower(academic_subject)',
+            'lower(assessment_identifier)',
+            'lower(namespace)',
+            'lower(objective_assessment_identification_code)']
+        ) }} as k_objective_assessment,
+        {{ gen_skey('k_assessment', extras = ['academic_subject']) }},
+        join_subject.*
+        {{ extract_extension(model_name=this.name, flatten=True) }}
+    from join_subject
+    
 ),
 deduped as (
     {{
