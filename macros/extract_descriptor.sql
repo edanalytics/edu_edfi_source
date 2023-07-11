@@ -6,12 +6,12 @@
     {%- set replace_with_short_descr = config['replace_with_short_descr'] or False -%}
 
     -- if not configured to replace (default), split part from raw value
-    {%- if not replace_with_short_descr -%}
+    {%- if not replace_with_short_descr %}
 
       split_part({{ col }}, '#', -1)
 
-    -- if configured to replace, query int_ef3__deduped_descriptors to find each value's short description
     {%- else %}
+    -- if configured to replace, query int_ef3__deduped_descriptors to find each value's short description
       
       {% set query_descriptors -%}
         select namespace, code_value, description, short_description
