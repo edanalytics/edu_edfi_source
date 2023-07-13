@@ -3,6 +3,13 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.7
+## New features
+- Allow for swapping descriptor codeValues for shortDescriptions or Descriptions
+## Under the hood
+## Fixes
+- Fix attribution of Objective Assessments to the correct Academic Subject
+
 # edu_edfi_source v0.2.6
 ## New features
 - Add models for the main components of the Survey domain
