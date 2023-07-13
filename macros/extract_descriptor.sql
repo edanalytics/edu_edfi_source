@@ -2,7 +2,7 @@
 {% macro extract_descriptor(col) -%}
     
     {%- set stripped_col = col.split(":")[-3] -%}
-    {%- set config = var('descriptors')[stripped_col] or None -%}
+    {%- set config = var('descriptors', {}).get(stripped_col) or None -%}
     {%- set replace_with = config['replace_with'] or None -%}
 
     {# if not configured to replace (default), split part from raw value #}
