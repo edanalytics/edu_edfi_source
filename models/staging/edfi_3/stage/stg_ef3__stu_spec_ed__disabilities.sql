@@ -15,12 +15,8 @@ flattened as (
         {{ extract_descriptor('disab.value:disabilityDeterminationSourceTypeDescriptor::string') }} as disability_source_type,
         disab.value:disabilityDiagnosis::string as disability_diagnosis,
         disab.value:orderOfDisability::int as order_of_disability,
-        -- todo: perhaps these would better serve as wide booleans
-        -- in which case we would not want to double-flatten, but leave nested
-        -- for a downstream step
-        {{ extract_descriptor('desig.value:disabilityDesignationDescriptor::string') }} as disability_designation
+        disab.value:designations as v_designations
     from stg_stu_spec_ed_org
         , lateral flatten(input=>v_disabilities) disab
-        , lateral flatten(input=>disab.value:designations, OUTER => TRUE) as desig
 )
 select * from flattened
