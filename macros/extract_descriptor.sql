@@ -17,6 +17,7 @@
         select namespace, code_value, {{ replace_with }}
         from {{ ref('int_ef3__deduped_descriptors') }}
         where lower(split_part(namespace, '/', -1)) = lower('{{stripped_col}}')
+        order by 1,2
       {%- endset -%}
 
       {%- set descriptor_xwalk = run_query(query_descriptors) %}
@@ -31,8 +32,9 @@
       case
       {% for i in range(code_values|length) -%}
 
-        when split_part({{ col }}, '#', 1) = '{{namespaces[i]}}' and split_part({{ col }}, '#', -1) = '{{code_values[i]}}'
-          then '{{descriptions[i]}}'
+        when split_part({{ col }}, '#', 1) = '{{namespaces[i]|replace("'", "\\'")}}'
+            and split_part({{ col }}, '#', -1) = '{{code_values[i]|replace("'", "\\'")}}'
+          then '{{descriptions[i]|replace("'", "\\'")}}'
 
       {% endfor %}
         {# default to raw value if not found in descriptors table #}
