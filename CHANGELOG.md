@@ -3,6 +3,11 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.9
+## Fixes
+- Fix discipline-behavior grain
+- Add missing model config for disabilities
+
 # edu_edfi_source v0.2.8
 ## Fixes
 - Handle single quotes in Descriptors when swapping from codeValue to shortDescription
