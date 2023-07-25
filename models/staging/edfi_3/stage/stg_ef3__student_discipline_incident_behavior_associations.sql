@@ -60,7 +60,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_student, k_discipline_incident',
+            partition_by='k_student, k_discipline_incident', 'behavior_type'
             order_by='pull_timestamp desc'
         )
     }}
