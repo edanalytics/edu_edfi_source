@@ -536,6 +536,11 @@ models:
       tags: ['language_instruction']
       enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
 
+  - name: stg_ef3__stu_spec_ed__disabilities
+    config:
+      tags: ['special_ed']
+      enabled: "{{ var('src:program:special_ed:enabled', True) }}"
+
   - name: stg_ef3__stu_spec_ed__program_services
     config:
       tags: ['special_ed']
