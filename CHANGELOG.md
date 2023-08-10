@@ -3,6 +3,14 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.11
+## New features
+- Add studentAcademicRecord diplomas model
+
+# edu_edfi_source v0.2.10
+## Under the hood
+- On Assessment records, use timestamps without timezones for better compatibility
+
 # edu_edfi_source v0.2.9
 ## Fixes
 - Fix discipline-behavior grain
