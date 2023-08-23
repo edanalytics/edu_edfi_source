@@ -52,6 +52,7 @@ keyed as (
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_school', 'discipline_incident_reference') }},
         {{ gen_skey('k_discipline_incident') }},
+        api_year as school_year,
         stacked.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from stacked
