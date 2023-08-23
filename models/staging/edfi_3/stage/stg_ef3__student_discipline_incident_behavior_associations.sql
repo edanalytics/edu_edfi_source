@@ -10,7 +10,7 @@ dedupe_base_student_discipline_incident  as (
     {{
         dbt_utils.deduplicate(
             relation='base_student_discipline_incident',
-            partition_by='student_unique_id, school_id, incident_id',
+            partition_by='tenant_code, api_year, student_unique_id, school_id, incident_id',
             order_by='pull_timestamp desc'
         )
     }}
