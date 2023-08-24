@@ -10,7 +10,7 @@ dedupe_base_student_discipline_incident  as (
     {{
         dbt_utils.deduplicate(
             relation='base_student_discipline_incident',
-            partition_by='student_unique_id, school_id, incident_id',
+            partition_by='tenant_code, api_year, student_unique_id, school_id, incident_id',
             order_by='pull_timestamp desc'
         )
     }}
@@ -52,6 +52,7 @@ keyed as (
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_school', 'discipline_incident_reference') }},
         {{ gen_skey('k_discipline_incident') }},
+        api_year as school_year,
         stacked.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from stacked

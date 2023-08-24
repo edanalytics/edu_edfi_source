@@ -8,6 +8,7 @@ keyed as (
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_school', alt_ref='assignment_school_reference', alt_k_name='k_school__assignment') }},
         {{ gen_skey('k_school', alt_ref='responsibility_school_reference', alt_k_name='k_school__responsibility') }},
+        api_year as school_year,
         base_discipline_actions.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_discipline_actions

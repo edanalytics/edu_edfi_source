@@ -11,6 +11,7 @@ keyed as (
              'school_id']
         ) }} as k_discipline_incident,
         {{ gen_skey('k_school') }},
+        api_year as school_year,
         base_discipline_incident.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_discipline_incident
