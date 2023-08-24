@@ -3,6 +3,11 @@
 ## Under the hood
 ## Fixes
 
+
+# edu_edfi_source v0.2.12
+## Fixes
+- Fix a rare edge case in the grain of the discipline model against multi-year ODSes
+
 # edu_edfi_source v0.2.11
 ## New features
 - Add studentAcademicRecord diplomas model
