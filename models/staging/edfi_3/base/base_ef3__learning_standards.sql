@@ -12,16 +12,16 @@ renamed as (
         -- ids
         v:id::string                              as record_guid,
         v:learningStandardId::string              as learning_standard_id,
-        v:learningStandardIdentificationCode      as learning_standard_identification_code,
+        v:learningStandardIdentificationCode      as v_learning_standard_identification_code,
         -- descriptions
         v:learningStandardItemCode::string        as learning_standard_item_code,
-        v:learningStandardCategory                as learning_standard_category,
-        v:learningStandardScope                   as learning_standard_scope,
-        v:academicSubjects                        as academic_subjects,
-        v:contentStandard                         as content_standard,
+        v:learningStandardCategory                as v_learning_standard_category,
+        v:learningStandardScope                   as v_learning_standard_scope,
+        v:academicSubjects                        as v_academic_subjects,
+        v:contentStandard                         as v_content_standard,
         v:courseTitle::string                     as course_title,
-        v:description::string                     as course_description,
-        v:gradeLevels                             as grade_level,
+        v:description::string                     as learning_standard_description,
+        v:gradeLevels                             as v_grade_level,
         -- references
         v:parentLearningStandardReference         as parent_learning_standard_reference,
         v:successCriteria::string                 as success_criteria,

@@ -2,7 +2,6 @@ with base_learning_standards as (
     select * from {{ ref('base_ef3__learning_standards') }}
     where not is_deleted
 ),
-
 keyed as (
     select
         {{ dbt_utils.surrogate_key(
@@ -14,7 +13,7 @@ keyed as (
         {{ extract_descriptor('ls_academic_subject.value:academicSubjectDescriptor::string') }} as academic_subject_descriptor
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_learning_standards,
-        lateral flatten(input=>academic_subjects, outer=>true) as ls_academic_subject
+        lateral flatten(input=>v_academic_subjects, outer=>true) as ls_academic_subject
 ),
 deduped as (
     {{
