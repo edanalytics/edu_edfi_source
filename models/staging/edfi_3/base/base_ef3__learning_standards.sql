@@ -21,7 +21,7 @@ renamed as (
         v:contentStandard                         as v_content_standard,
         v:courseTitle::string                     as course_title,
         v:description::string                     as learning_standard_description,
-        v:gradeLevels                             as v_grade_level,
+        v:gradeLevels                             as v_grade_levels,
         -- references
         v:parentLearningStandardReference         as parent_learning_standard_reference,
         v:successCriteria::string                 as success_criteria,
