@@ -300,6 +300,10 @@ models:
       tags: ['esc']
       enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
 
+  - name: stg_ef3__grades__learning_standards
+    config:
+      tags: ['core']
+  
   - name: stg_ef3__grades
     config:
       tags: ['core']
@@ -326,6 +330,10 @@ models:
           *ref_k_school
 
   - name: stg_ef3__graduation_plans
+    config:
+      tags: ['core']
+
+  - name: stg_ef3__learning_standards
     config:
       tags: ['core']
 
