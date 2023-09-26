@@ -11,7 +11,7 @@ keyed as (
         ) }} as k_learning_standard,
         base_learning_standards.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
-    from base_learning_standards,
+    from base_learning_standards
 ),
 deduped as (
     {{
