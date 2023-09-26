@@ -6,7 +6,6 @@ flattened as (
     select
         stg_grades.grade_type,
         stg_grades.tenant_code,
-        stg_grades.performance_base_conversion_descriptor,
         v_lsg.value:learningStandardReference:learningStandardId::string as learning_standard_id,
         v_lsg.value:letterGradeEarned::string as letter_grade_earned,
         v_lsg.value:numericGradeEarned::string as numeric_grade_earned,
