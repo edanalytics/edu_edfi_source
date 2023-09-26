@@ -9,11 +9,9 @@ keyed as (
             'api_year',
             'learning_standard_id']
         ) }} as k_learning_standard,
-        base_learning_standards.*,
-        {{ extract_descriptor('ls_academic_subject.value:academicSubjectDescriptor::string') }} as academic_subject_descriptor
+        base_learning_standards.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_learning_standards,
-        lateral flatten(input=>v_academic_subjects, outer=>true) as ls_academic_subject
 ),
 deduped as (
     {{
