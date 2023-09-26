@@ -12,11 +12,11 @@ renamed as (
         -- ids
         v:id::string                              as record_guid,
         v:learningStandardId::string              as learning_standard_id,
-        v:learningStandardIdentificationCode      as v_learning_standard_identification_code,
+        v:identificationCodes                     as v_learning_standard_identification_codes,
         -- descriptions
         v:learningStandardItemCode::string        as learning_standard_item_code,
-        v:learningStandardCategory                as v_learning_standard_category,
-        v:learningStandardScope                   as v_learning_standard_scope,
+        v:learningStandardCategoryDescriptor      as v_learning_standard_category_descriptor,
+        v:learningStandardScopeDescriptor         as v_learning_standard_scope_descriptor,
         v:academicSubjects                        as v_academic_subjects,
         v:contentStandard                         as v_content_standard,
         v:courseTitle::string                     as course_title,
