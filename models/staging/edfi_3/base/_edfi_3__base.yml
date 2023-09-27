@@ -59,6 +59,9 @@ models:
   - name: base_ef3__graduation_plans
     config:
       tags: ['core']
+  - name: base_ef3__learning_standards
+    config:
+      tags: ['core']
   - name: base_ef3__local_education_agencies
     config:
       tags: ['core']
