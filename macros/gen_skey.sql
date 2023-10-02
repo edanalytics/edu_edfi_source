@@ -190,6 +190,11 @@
             'col_list': ['surveyIdentifier', 'surveyResponseIdentifier'],
             'annualize': True
         },
+        'k_learning_standard': {
+            'reference_name': 'learning_standard_reference',
+            'col_list': ['learningStandardId'],
+            'annualize': True
+        },
 
         'k_template': {
             'reference_name': '',
