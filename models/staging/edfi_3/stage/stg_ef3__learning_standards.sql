@@ -7,7 +7,7 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             ['tenant_code',
             'api_year',
-            'learning_standard_id']
+            'lower(learning_standard_id)']
         ) }} as k_learning_standard,
         {{ gen_skey('k_learning_standard', 
                     alt_ref='parent_learning_standard_reference', 
