@@ -10,6 +10,7 @@ keyed as (
             'lower(cohort_id)',
             'ed_org_id']
         ) }} as k_cohort, 
+        {{ edorg_ref() }},
         api_year as school_year,
         base_cohorts.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
