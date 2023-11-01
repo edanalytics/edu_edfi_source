@@ -3,6 +3,9 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.13
+## New features
+- Add base & stage models for learning standards, and stg_ef3__grades__learning_standards for student-learning standard-grades
 
 # edu_edfi_source v0.2.12
 ## Fixes
