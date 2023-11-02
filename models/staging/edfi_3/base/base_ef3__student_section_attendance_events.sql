@@ -18,7 +18,7 @@ renamed as (
         v:sectionReference:sessionName::string       as session_name,
         v:eventDate::date                            as attendance_event_date,
         v:attendanceEventReason::string              as attendance_event_reason,
-        v:event_duration::float                      as event_duration,
+        v:eventDuration::float                      as event_duration,
         v:sectionAttendanceDuration::float           as section_attendance_duration,
         v:arrivalTime::string                        as arrival_time, --todo: look at format here
         v:departureTime::string                      as departure_time, --todo: look at format here
