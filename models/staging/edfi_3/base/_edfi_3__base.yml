@@ -19,7 +19,7 @@ models:
       tags: ['core']
   - name: base_ef3__cohorts
     config:
-      tags: ['core']
+      tags: ['cohort']
   - name: base_ef3__course_offerings
     config:
       tags: ['core']
@@ -108,7 +108,7 @@ models:
       enabled: "{{ var('src:domain:assessment:enabled', True) }}"
   - name: base_ef3__student_cohort_associations
     config:
-      tags: ['core']
+      tags: ['cohort']
   - name: base_ef3__student_discipline_incident_associations
     config:
       tags: ['discipline']
