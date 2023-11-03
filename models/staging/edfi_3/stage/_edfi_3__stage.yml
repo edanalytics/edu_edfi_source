@@ -341,6 +341,10 @@ models:
     config:
       tags: ['core']
 
+  - name: stg_ef3__state_education_agencies
+    config:
+      tags: ['core']
+
   - name: stg_ef3__local_education_agencies__addresses
     config:
       tags: ['core']
