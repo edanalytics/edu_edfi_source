@@ -3,6 +3,14 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.14
+## New features
+- Add models for SEAs
+## Under the hood
+- Tag cohort models for easy disabling when not in use
+## Fixes
+- Fix typo on attendance durations
+
 # edu_edfi_source v0.2.13
 ## New features
 - Add base & stage models for learning standards, and stg_ef3__grades__learning_standards for student-learning standard-grades
