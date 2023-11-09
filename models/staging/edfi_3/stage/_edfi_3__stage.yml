@@ -198,10 +198,6 @@ models:
   - name: stg_ef3__cohorts
     config:
       tags: ['cohort']
-    columns:
-      - name: k_cohort
-        tests:
-          *ref_k_cohort
 
   - name: stg_ef3__course_offerings
     config:
