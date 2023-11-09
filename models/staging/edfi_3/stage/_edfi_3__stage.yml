@@ -195,6 +195,10 @@ models:
         tests:
           *ref_k_school
 
+  - name: stg_ef3__cohorts
+    config:
+      tags: ['cohort']
+
   - name: stg_ef3__course_offerings
     config:
       tags: ['core']
@@ -600,7 +604,7 @@ models:
 
   - name: stg_ef3__student_cohort_associations
     config:
-      tags: [ 'core' ]
+      tags: [ 'cohort' ]
     columns:
       - name: k_student
         tests:
