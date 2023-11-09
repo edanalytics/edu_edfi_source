@@ -18,7 +18,7 @@ renamed as (
         -- descriptors
         {{ extract_descriptor('v:operationalStatusDescriptor::string') }} as operational_status,
         -- lists
-        v:accountabilities       as v_accountabilities
+        v:accountabilities       as v_accountabilities,
         v:addresses              as v_addresses,
         v:categories             as v_categories,
         v:federalFunds           as v_federal_funds,
