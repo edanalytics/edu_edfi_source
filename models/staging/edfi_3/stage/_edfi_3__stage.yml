@@ -198,6 +198,7 @@ models:
   - name: stg_ef3__cohorts
     config:
       tags: ['cohort']
+      enabled: "{{ var('src:domain:cohort:enabled', True) }}"
 
   - name: stg_ef3__course_offerings
     config:
@@ -609,6 +610,7 @@ models:
   - name: stg_ef3__student_cohort_associations
     config:
       tags: [ 'cohort' ]
+      enabled: "{{ var('src:domain:cohort:enabled', True) }}"
     columns:
       - name: k_student
         tests:
