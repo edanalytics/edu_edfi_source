@@ -567,10 +567,6 @@ models:
   - name: stg_ef3__student_academic_records
     config:
       tags: ['core']
-    columns:
-      - name: k_student
-        tests:
-          *ref_k_student
 
   - name: stg_ef3__student_academic_records__gpas
     config:
