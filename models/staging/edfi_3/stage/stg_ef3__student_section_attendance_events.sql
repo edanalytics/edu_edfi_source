@@ -7,7 +7,6 @@ keyed as (
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_course_section') }},
-        {{ gen_skey('k_session') }},
         base_student_section_attend.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_student_section_attend
@@ -16,7 +15,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_student, k_course_section, k_session, attendance_event_category, attendance_event_date',
+            partition_by='k_student, k_course_section, attendance_event_category, attendance_event_date',
             order_by='pull_timestamp desc'
         )
     }}
