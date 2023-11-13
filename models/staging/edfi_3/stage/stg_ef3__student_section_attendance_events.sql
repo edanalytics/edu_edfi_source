@@ -15,7 +15,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_student, k_course_section, attendance_event_date',
+            partition_by='k_student, k_course_section, k_session, attendance_event_category, attendance_event_date',
             order_by='pull_timestamp desc'
         )
     }}
