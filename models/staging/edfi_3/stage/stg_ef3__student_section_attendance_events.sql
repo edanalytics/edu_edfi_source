@@ -7,6 +7,7 @@ keyed as (
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_course_section') }},
+        {{ gen_skey('k_session') }},
         base_student_section_attend.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_student_section_attend
