@@ -10,7 +10,7 @@ keyed as (
         ) }} as k_lea,
         {{ gen_skey('k_lea', 'parent_local_education_agency_reference', 'k_lea__parent') }},
         {{ gen_skey('k_sea') }},
-        {# {{ gen_skey('k_esc') }}, #}
+        {{ gen_skey('k_education_service_center') }},
         base_local_education_agencies.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_local_education_agencies
