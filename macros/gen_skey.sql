@@ -17,11 +17,6 @@
             'col_list': ['stateEducationAgencyId'],
             'annualize': False
         },
-        'k_esc': {
-            'reference_name': 'education_service_center_reference',
-            'col_list': ['educationServiceCenterId'],
-            'annualize': False
-        },
         'k_student': {
             'reference_name': 'student_reference',
             'col_list': ['studentUniqueId'],
