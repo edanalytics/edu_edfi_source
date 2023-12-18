@@ -13,6 +13,7 @@ keyed as (
         ) }} as k_student_assessment,
         {{ gen_skey('k_assessment', extras = ['academic_subject']) }},
         {{ gen_skey('k_student') }},
+        {{ gen_skey('k_student_xyear') }},
         int_stu_assessments.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from int_stu_assessments
