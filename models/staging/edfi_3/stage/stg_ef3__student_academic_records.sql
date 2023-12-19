@@ -14,6 +14,7 @@ keyed as (
             ]
         ) }} as k_student_academic_record,
         {{ gen_skey('k_student_xyear') }},
+        {{ gen_skey('k_student') }},
         {{ edorg_ref(annualize=False) }},
         base_academic_records.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
