@@ -15,7 +15,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_course, k_student_academic_record, course_attempt_result',
-            order_by='pull_timestamp desc'
+            order_by='api_year desc, pull_timestamp desc'
         )
     }}
 )
