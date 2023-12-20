@@ -3,6 +3,12 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.2.15
+## Under the hood
+- add k_student_xyear to student assessment models
+## Fixes
+- Fix deduplication ordering in student academic records
+
 # edu_edfi_source v0.2.14
 ## New features
 - Add models for SEAs
