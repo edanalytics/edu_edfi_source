@@ -16,8 +16,8 @@ renamed as (
         v:webSite::string                 as website,
         -- reference ids
         v:parentLocalEducationAgencyReference:localEducationAgencyId::int as parent_lea_id,
-        v:educationServiceCenterReference:educationServiceCenterId::int   as education_service_center_id,
-        v:stateEducationAgencyReference:stateEducationAgencyId::int       as state_education_agency_id,
+        v:educationServiceCenterReference:educationServiceCenterId::int   as esc_id,
+        v:stateEducationAgencyReference:stateEducationAgencyId::int       as sea_id,
         -- descriptors
         {{ extract_descriptor('v:operationalStatusDescriptor::string') }}            as operational_status,
         {{ extract_descriptor('v:charterStatusDescriptor::string') }}                as charter_status,
