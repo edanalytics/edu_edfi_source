@@ -17,7 +17,7 @@ flattened as (
         -- todo: perhaps these would better serve as wide booleans
         -- in which case we would not want to double-flatten, but leave nested
         -- for a downstream step
-        {{ extract_descriptor('desig.value:disabilityDesignationDescriptor::string') }} as disability_desgination
+        {{ extract_descriptor('desig.value:disabilityDesignationDescriptor::string') }} as disability_designation
     from stg_stu_ed_org
         , lateral flatten(input=>v_disabilities) disab
         , lateral flatten(input=>disab.value:designations) as desig
