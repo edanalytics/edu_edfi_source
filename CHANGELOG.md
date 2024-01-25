@@ -3,6 +3,13 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.3.0
+## New features
+- Bring SEA and ESC in line with LEA by using abbreviated names and keys
+## Fixes
+- Fix spelling of `stg_ef3__stu_ed_org__disabilities.disability_designation`
+- Fix unique key of `stg_ef3__student_school_attendance_events` and `stg_ef3__student_section_attendance_events` to correctly align with Ed-Fi key. This creates new records that are handled in edu_wh v0.3.0
+
 # edu_edfi_source v0.2.15
 ## Under the hood
 - add k_student_xyear to student assessment models
