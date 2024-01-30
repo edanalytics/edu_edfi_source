@@ -1,5 +1,6 @@
 with int_stu_assessments as (
     select * from {{ ref('int_ef3__student_assessments__identify_subject') }}
+    where not is_deleted
 ),
 keyed as (
     select
