@@ -3,6 +3,11 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.3.1
+## Fixes
+- Fix to `stg_ef3__student_assessments`: remove deleted records
+
+
 # edu_edfi_source v0.3.0
 ## New features
 - Bring SEA and ESC in line with LEA by using abbreviated names and keys
