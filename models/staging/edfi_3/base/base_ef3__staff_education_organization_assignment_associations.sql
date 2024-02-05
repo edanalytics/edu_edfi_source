@@ -20,8 +20,8 @@ renamed as (
         v:orderOfAssignment::float                                    as order_of_assignment,
         v:credentialReference:credentialIdentifier::string            as credential_identifier,
         -- descriptors
-        {{ extract_descriptor('v:stateOfIssueStateAbbreviationDescriptor::string') }} as credential_state,
-        {{ extract_descriptor('v:staffClassificationDescriptor::string') }}           as staff_classification,
+        {{ extract_descriptor('v:credentialReference:stateOfIssueStateAbbreviationDescriptor::string') }} as credential_state,
+        {{ extract_descriptor('v:staffClassificationDescriptor::string') }}                               as staff_classification,
         -- references
         v:credentialReference            as credential_reference,
         v:educationOrganizationReference as education_organization_reference,
