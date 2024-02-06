@@ -5,7 +5,6 @@ with base_staff_ed_org_employ as (
 keyed as (
     select 
         {{ gen_skey('k_staff') }},
-        --todo: edorg
         {{ edorg_ref() }},
         api_year as school_year,
         base_staff_ed_org_employ.*
