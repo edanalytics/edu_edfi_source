@@ -94,6 +94,9 @@ models:
   - name: base_ef3__staff_education_organization_assignment_associations
     config:
       tags: ['core']
+  - name: base_ef3__staff_education_organization_employment_associations
+    config:
+      tags: ['core']
   - name: base_ef3__staff_school_associations
     config:
       tags: ['core']
