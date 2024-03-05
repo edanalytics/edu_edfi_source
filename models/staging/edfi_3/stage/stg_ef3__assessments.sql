@@ -14,7 +14,7 @@ flatten as (
 keyed as (
     select
         {{ dbt_utils.surrogate_key(
-            ['tenant_code',
+            [tenant_code_col(),
             'api_year',
             'lower(academic_subject)',
             'lower(assessment_identifier)',
