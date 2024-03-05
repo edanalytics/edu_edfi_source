@@ -221,10 +221,14 @@
 
 {% macro gen_key_list(skey_def, skey_ref, skey_vars, extras=None) %}
 
+    {% set tenant_code_col = 'tenant_code' %}
+    {% if var('edu:partner_code_prefix') %}
+        {% set tenant_code_col = "concat('" + var('edu:partner_code_prefix') + "',tenant_code)" %}
+    {% endif %}
 
-    {% set consts = ['tenant_code'] %}
+    {% set consts = [tenant_code_col] %}
     {% if skey_def['annualize'] %}
-        {% set consts = ['tenant_code', 'api_year'] %}
+        {% set consts = [tenant_code_col, 'api_year'] %}
     {% endif %}
 
     
