@@ -3,6 +3,12 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.3.2
+## New features
+- Add `base_ef3__staff_education_organization_employment_associations`
+- Add `stg_ef3__staff_education_organization_employment_associations`
+- Add `stg_ef3__staff__races`
+
 # edu_edfi_source v0.3.1
 ## Fixes
 - Fix to `stg_ef3__student_assessments`: remove deleted records
