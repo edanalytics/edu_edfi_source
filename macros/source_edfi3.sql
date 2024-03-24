@@ -4,7 +4,8 @@
     {% if join_deletes %}
         select
             api_data.*,
-            get_ignore_case(deletes_data.v, 'id')::string is not null as is_deleted
+            get_ignore_case(deletes_data.v, 'id')::string is not null as is_deleted,
+            coalesce(deletes_data.pull_timestamp, api_data.pull_timestamp) as last_modified_timestamp
 
         from {{ source('raw_edfi_3', resource) }} as api_data
 
@@ -17,7 +18,8 @@
             )
 
     {% else %}
-        select *, false as is_deleted from {{ source('raw_edfi_3', resource) }}
+        select *, false as is_deleted, pull_timestamp as last_modified_timestamp
+        from {{ source('raw_edfi_3', resource) }}
 
     {% endif %}
 
