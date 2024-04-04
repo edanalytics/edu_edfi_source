@@ -7,7 +7,7 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'staff_unique_id'
+                'lower(staff_unique_id)'
             ]
         ) }} as k_staff,
         base_staffs.*
