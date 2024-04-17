@@ -7,6 +7,7 @@ renamed as (
         api_year,
         pull_timestamp,
         file_row_number,
+        last_modified_timestamp,
         filename,
         is_deleted,
         v:id::string                     as record_guid,

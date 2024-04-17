@@ -6,6 +6,7 @@ renamed as (
         tenant_code,
         api_year,
         pull_timestamp,
+        last_modified_timestamp,
         filename,
         file_row_number,
         is_deleted,

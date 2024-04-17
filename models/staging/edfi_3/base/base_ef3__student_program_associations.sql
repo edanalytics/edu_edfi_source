@@ -8,6 +8,7 @@ renamed as (
         tenant_code,
         api_year,
         pull_timestamp,
+        last_modified_timestamp,
         file_row_number,
         filename,
         is_deleted,
