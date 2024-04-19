@@ -3,6 +3,25 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.3.3
+## New features
+- Add column `last_modified_timestamp` to every base table (via `source_edfi3` macro). This includes timestamps of deletes, which is helpful for tracking down when deletes occurred.
+## Under the hood
+- Add explicit namespacing for macro call: `edu_edfi_source.extract_descriptor()` within `gen_skey()` so `gen_skey()` can be used outside this package
+## Fixes
+- Force staff_unique_id and student_unique_id to lower in construction of `k_staff` and `k_student`. This is needed for keys to match foreign keys generated using `gen_skey()` macro.
+
+# edu_edfi_source v0.3.2
+## New features
+- Add `base_ef3__staff_education_organization_employment_associations`
+- Add `stg_ef3__staff_education_organization_employment_associations`
+- Add `stg
+# edu_edfi_source v0.3.2
+## New features
+- Add `base_ef3__staff_education_organization_employment_associations`
+- Add `stg_ef3__staff_education_organization_employment_associations`
+- Add `stg_ef3__staff__races`
+
 # edu_edfi_source v0.3.1
 ## Fixes
 - Fix to `stg_ef3__student_assessments`: remove deleted records
