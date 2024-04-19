@@ -252,7 +252,7 @@
 
       {#- hack: if key contains Descriptor, parse value out -#}
       {% if 'Descriptor' in skey_var or 'descriptor' in skey_var %}
-        {%- set concatted_keys = extract_descriptor(concatted_keys) %}
+        {%- set concatted_keys = edu_edfi_source.extract_descriptor(concatted_keys) %}
       {% endif %}
       {#- grow the output object with the new key -#}
       {% do output.append(concatted_keys) %}
