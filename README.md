@@ -37,7 +37,7 @@ here because Ed-Fi can be extended and new resources are added over time,
 so each project should generate their sources from their own Ed-Fi API.
 
 We have code to generate source definitions from an Ed-Fi API's swagger definition
-[here](https://github.com/edanalytics/edu_project_template/blob/main/codegen/generate_templates.py).
+[here](https://github.com/edanalytics/edu_project_template/tree/main/codegen).
 
 This will generate a `src_edfi_3.yml` file containing the location and definitions
 of all raw raw resources coming from Ed-Fi APIs which must be included in your project.
