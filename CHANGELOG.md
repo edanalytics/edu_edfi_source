@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Improve performance by fixing the grain issues of a join in `int_ef3__student_assessments__identify_subject`. Also fixes edge case bug (only impacts where assessments were loaded incorrectly)
 
 # edu_edfi_source v0.3.3
 ## New features
