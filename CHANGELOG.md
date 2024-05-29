@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add base/stage models for student_education_organization_responsibility_associations
 - Add column `last_modified_timestamp` to every base table (via `source_edfi3` macro). This includes timestamps of deletes, which is helpful for tracking down when deletes occurred.
 ## Under the hood
 ## Fixes
