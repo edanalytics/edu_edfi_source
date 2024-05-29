@@ -3,6 +3,8 @@ with base_stu_assessments as (
 ),
 stg_assessments_single_subj as (
     select
+        tenant_code,
+        api_year,
         assessment_identifier,
         namespace,
         academic_subject
@@ -25,6 +27,10 @@ distinct_score_name as (
 ),
 score_result_to_subject as (
     select 
+        base_stu_assessments.tenant_code,
+        base_stu_assessments.api_year,
+        base_stu_assessments.pull_timestamp,
+        base_stu_assessments.file_row_number,
         base_stu_assessments.assessment_identifier,
         base_stu_assessments.namespace,
         student_assessment_identifier,
@@ -45,6 +51,10 @@ adding_subject as (
         on base_stu_assessments.assessment_identifier = score_result_to_subject.assessment_identifier
         and base_stu_assessments.namespace = score_result_to_subject.namespace
         and base_stu_assessments.student_assessment_identifier = score_result_to_subject.student_assessment_identifier
+        and base_stu_assessments.tenant_code = score_result_to_subject.tenant_code
+        and base_stu_assessments.api_year = score_result_to_subject.api_year
+        and base_stu_assessments.pull_timestamp = score_result_to_subject.pull_timestamp
+        and base_stu_assessments.file_row_number = score_result_to_subject.file_row_number
     left join subject_xwalk
         on score_result_to_subject.assessment_identifier = subject_xwalk.assessment_identifier
         and score_result_to_subject.namespace = subject_xwalk.namespace
@@ -52,5 +62,7 @@ adding_subject as (
     left join stg_assessments_single_subj
         on base_stu_assessments.assessment_identifier = stg_assessments_single_subj.assessment_identifier
         and base_stu_assessments.namespace = stg_assessments_single_subj.namespace
+        and base_stu_assessments.tenant_code = stg_assessments_single_subj.tenant_code
+        and base_stu_assessments.api_year = stg_assessments_single_subj.api_year
 )
 select * from adding_subject
