@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add base/stage models for student_education_organization_responsibility_associations
 ## Under the hood
 ## Fixes
 
