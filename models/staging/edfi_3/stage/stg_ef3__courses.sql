@@ -10,6 +10,7 @@ keyed as (
             'lower(course_code)',
             'ed_org_id']
         ) }} as k_course, 
+        {{ edorg_ref() }},
         api_year as school_year,
         base_courses.*
         {{ extract_extension(model_name=this.name, flatten=True) }}

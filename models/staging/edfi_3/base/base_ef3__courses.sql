@@ -31,6 +31,8 @@ renamed as (
         {{ extract_descriptor('v:courseGPAApplicabilityDescriptor::string') }}     as gpa_applicability,
         {{ extract_descriptor('v:maximumAvailableCreditTypeDescriptor::string') }} as maximum_available_credit_type,
         {{ extract_descriptor('v:minimumAvailableCreditDescriptor::string') }}     as minimum_available_credit_type,
+        -- references
+        v:educationOrganizationReference as education_organization_reference,
         -- unflattened lists
         v:identificationCodes  as v_identification_codes,
         v:competencyLevels     as v_competency_levels,
