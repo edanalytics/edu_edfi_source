@@ -10,6 +10,7 @@ flattened as (
         k_student,
         k_student_xyear,
         {{ extract_descriptor('value:disciplineDescriptor::string') }} as discipline_type
+        {{ extract_extension(model_name=this.name, flatten=True) }}
     from stg_discipline_actions,
         lateral flatten(input => v_disciplines)
 )

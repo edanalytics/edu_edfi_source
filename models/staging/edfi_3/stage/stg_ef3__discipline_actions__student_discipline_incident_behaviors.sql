@@ -29,6 +29,7 @@ flattened as (
         value:studentDisciplineIncidentAssociationReference:incidentIdentifier::string as incident_id,
         value:studentDisciplineIncidentAssociationReference:schoolId::string as school_id,
         value:studentDisciplineIncidentAssociationReference:studentUniqueId::string as student_unique_id
+        {{ extract_extension(model_name=this.name, flatten=True) }}
     from stg_discipline_actions,
         lateral flatten(input => v_student_discipline_incident_associations)
 )
