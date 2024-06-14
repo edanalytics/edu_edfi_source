@@ -12,6 +12,7 @@ keyed as (
             ]
         ) }} as k_candidate,
         base_candidates.*
+        {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_candidates
 ),
 deduped as (
