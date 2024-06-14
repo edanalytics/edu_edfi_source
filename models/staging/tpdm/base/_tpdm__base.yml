@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: base_tpdm__candidates
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__educator_preparation_programs
+    config:
+      tags: ['tpdm']
