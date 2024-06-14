@@ -1,5 +1,6 @@
 with base_stu_ed_org as (
     select * from {{ ref('base_ef3__student_education_organization_associations') }}
+    where not is_deleted
 ),
 keyed as (
     select 
