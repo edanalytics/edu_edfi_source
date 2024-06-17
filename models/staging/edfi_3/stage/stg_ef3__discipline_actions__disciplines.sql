@@ -9,8 +9,19 @@ flattened as (
         discipline_date,
         k_student,
         k_student_xyear,
-        {{ extract_descriptor('value:disciplineDescriptor::string') }} as discipline_type
+        {{ extract_descriptor('value:disciplineDescriptor::string') }} as discipline_type,
+
+        -- edfi extensions
+        value:_ext as v_ext
     from stg_discipline_actions,
         lateral flatten(input => v_disciplines)
+),
+extended as (
+    select 
+        flattened.*
+        {{ extract_extension(model_name=this.name, flatten=True) }}
+
+    from flattened
 )
-select * from flattened
+
+select * from extended

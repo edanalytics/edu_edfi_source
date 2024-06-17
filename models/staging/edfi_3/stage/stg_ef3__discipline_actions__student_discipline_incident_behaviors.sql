@@ -12,7 +12,10 @@ flattened as (
         {{ extract_descriptor('value:studentDisciplineIncidentBehaviorAssociationReference:behaviorDescriptor::string') }} as behavior_type,
         value:studentDisciplineIncidentBehaviorAssociationReference:incidentIdentifier::string as incident_id,
         value:studentDisciplineIncidentBehaviorAssociationReference:schoolId::string as school_id,
-        value:studentDisciplineIncidentBehaviorAssociationReference:studentUniqueId::string as student_unique_id
+        value:studentDisciplineIncidentBehaviorAssociationReference:studentUniqueId::string as student_unique_id,
+
+        -- edfi extensions
+        value:_ext as v_ext    
     from stg_discipline_actions,
         lateral flatten(input => v_student_discipline_incident_behavior_associations)
 
@@ -29,7 +32,18 @@ flattened as (
         value:studentDisciplineIncidentAssociationReference:incidentIdentifier::string as incident_id,
         value:studentDisciplineIncidentAssociationReference:schoolId::string as school_id,
         value:studentDisciplineIncidentAssociationReference:studentUniqueId::string as student_unique_id
+
+        -- edfi extensions
+        value:_ext as v_ext
     from stg_discipline_actions,
         lateral flatten(input => v_student_discipline_incident_associations)
+),
+extended as (
+    select 
+        flattened.*
+        {{ extract_extension(model_name=this.name, flatten=True) }}
+
+    from flattened
 )
-select * from flattened
+
+select * from extended
