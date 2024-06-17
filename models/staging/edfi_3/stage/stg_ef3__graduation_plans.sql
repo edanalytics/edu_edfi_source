@@ -11,6 +11,7 @@ keyed as (
            'lower(graduation_plan_type)',
            'graduation_school_year']
         ) }} as k_graduation_plan,
+        {{ edorg_ref() }},
         api_year as school_year,
         base_graduation_plans.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
