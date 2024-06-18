@@ -20,8 +20,18 @@ flattened as (
         value:evidenceStatement::string as evidence_statement,
         value:imageURL::string as image_url,
         value:issuerName::string as issuer_name,
-        value:issuerOriginURL::string as issuer_origin_url
+        value:issuerOriginURL::string as issuer_origin_url,
+        -- edfi extensions
+        value:_ext as v_ext 
     from stg_academic_records
         , lateral flatten(input=>v_diplomas)
+),
+-- pull out extensions from v_diplomas.v_ext to their own columns
+extended as (
+    select 
+        flattened.*
+        {{ extract_extension(model_name=this.name, flatten=True) }}
+
+    from flattened
 )
-select * from flattened
+select * from extended
