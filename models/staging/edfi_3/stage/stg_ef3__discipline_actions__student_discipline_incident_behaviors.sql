@@ -31,7 +31,7 @@ flattened as (
         null as behavior_type,
         value:studentDisciplineIncidentAssociationReference:incidentIdentifier::string as incident_id,
         value:studentDisciplineIncidentAssociationReference:schoolId::string as school_id,
-        value:studentDisciplineIncidentAssociationReference:studentUniqueId::string as student_unique_id
+        value:studentDisciplineIncidentAssociationReference:studentUniqueId::string as student_unique_id,
 
         -- edfi extensions
         value:_ext as v_ext
