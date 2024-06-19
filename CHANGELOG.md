@@ -3,6 +3,13 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.3.5
+## Fixes
+- Remove records deleted from Ed-Fi in `student_education_organization_associations` and `student_parent_associations`
+## Under the hood
+- Add v_ext handling in discipline and student_academic_record flattened models
+- Add missing references/surrogate key generation for ed_orgs in `graduation_plans` and `courses`
+
 # edu_edfi_source v0.3.4
 ## New features
 - Add base/stage models for student_education_organization_responsibility_associations
