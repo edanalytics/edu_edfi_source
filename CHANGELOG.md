@@ -3,6 +3,10 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.3.6
+## Fixes
+- Fix data type on base_ef3__student_special_education_program_associations.student_unique_id
+
 # edu_edfi_source v0.3.5
 ## Fixes
 - Remove records deleted from Ed-Fi in `student_education_organization_associations` and `student_parent_associations`
