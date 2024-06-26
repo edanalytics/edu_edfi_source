@@ -8,6 +8,7 @@ keyed as (
             ['tenant_code',
             'api_year',
             'lower(academic_subject)',
+            'lower(student_unique_id)',
             'lower(student_assessment_identifier)',
             'lower(assessment_identifier)',
             'lower(namespace)']
