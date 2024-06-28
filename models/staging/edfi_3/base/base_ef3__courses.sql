@@ -18,7 +18,7 @@ renamed as (
         v:courseDescription::string             as course_description,
         v:dateCourseAdopted::date               as date_course_adopted,
         v:highSchoolCourseRequirement::boolean  as is_high_school_course_requirement,
-        v:maxCompletionsForCtredit::int         as max_completions_for_credit,
+        v:maxCompletionsForCredit::int         as max_completions_for_credit,
         v:maximumAvailableCreditConversion::int as maximum_available_credit_conversion,
         v:maximumAvailableCredits::int          as maximum_available_credits,
         v:minimumAvailableCreditConversion::int as minimum_available_credit_conversion,
