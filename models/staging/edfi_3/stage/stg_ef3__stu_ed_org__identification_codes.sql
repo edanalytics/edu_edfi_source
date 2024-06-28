@@ -10,10 +10,10 @@ flattened as (
         ed_org_id,
         k_lea,
         k_school,
-        {{ extract_descriptor('value:studentIdentificationSystemDescriptor::string') }} as id_system,
-        value:assigningOrganizationIdentificationCode::string as assigning_org,
-        value:identificationCode::string as id_code
+        {{extract_descriptor(json_extract('ids', 'string', 'ids', True))}} as id_system,
+        {{json_extract('assigningOrganizationIdentificationCode', 'string', 'ids', True)}} as assigning_org,
+        {{json_extract('identificationCode', 'string', 'ids', True)}} as id_code
     from stage_stu_ed_org
-        , lateral flatten(input=>v_student_identification_codes)
+        {{ json_flatten('v_student_identification_codes', 'ids') }}
 )
 select * from flattened
