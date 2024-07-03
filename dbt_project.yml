@@ -35,6 +35,12 @@ models:
            +tags: ['bypass_rls']
         stage: 
           +materialized: table
+      tpdm:
+        +enabled: {{ var('edu:tpdm:enabled', false) }}
+        base:
+          +materialized: view
+        stage:
+          +materialized: table
           
 vars:
   extensions: null
