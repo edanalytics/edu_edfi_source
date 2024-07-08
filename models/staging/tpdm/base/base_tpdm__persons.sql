@@ -17,4 +17,4 @@ renamed as (
     from persons
 )
 
-select * from 
+select * from
