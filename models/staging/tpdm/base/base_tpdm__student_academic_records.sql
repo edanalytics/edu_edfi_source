@@ -11,13 +11,13 @@ renamed as (
         file_row_number,
         filename,
         is_deleted,
-        v:id::string                                                  as record_guid,
 
+        v:id::string                                                  as record_guid,
         v:studentReference:studentUniqueId::string                    as student_unique_id,
         v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         v:educationOrganizationReference:link:rel::string             as ed_org_type,
         v:schoolYearTypeReference:schoolYear::int                     as school_year,
-        v:projectedGraduationDate::date                          as projected_graduation_date,
+        v:projectedGraduationDate::date                               as projected_graduation_date,
         -- descriptors
         {{ extract_descriptor('v:termDescriptor::string') }}  as term,
         -- unflattened lists

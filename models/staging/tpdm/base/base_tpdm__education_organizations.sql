@@ -19,12 +19,12 @@ renamed as (
         -- descriptors
         {{ extract_descriptor('v:operationalStatusDescriptor::string') }} as operational_tatus,
         -- unnested lists
-        v:identificationCodes as identification_codes,
-        v:categories as categories,
-        v:addresses as addresses,
+        v:identificationCodes    as identification_codes,
+        v:categories             as categories,
+        v:addresses              as addresses,
         v:internationalAddresses as international_addresses,
-        v:institutionTelephones as institution_telephones,
-        v:indicators as indicators
+        v:institutionTelephones  as institution_telephones,
+        v:indicators             as indicators
     from education_organization
 )
 
