@@ -36,7 +36,7 @@ models:
         stage: 
           +materialized: table
       tpdm:
-        +enabled: {{ var('edu:tpdm:enabled', false) }}
+        +enabled: "{{ var('edu:tpdm:enabled', false) }}"
         base:
           +materialized: view
         stage:
