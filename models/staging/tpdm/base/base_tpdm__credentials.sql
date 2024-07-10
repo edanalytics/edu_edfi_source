@@ -36,7 +36,7 @@ renamed as (
         {{ extract_descriptor('v:credentialStatusDescriptor::string') }}              as credential_status,
         {{ extract_descriptor('v:educatorRoleDescriptor::string') }}                  as educator_role,
         -- references
-        v:studentAcademicRecords as student_academic_records,,
+        v:studentAcademicRecords as student_academic_records,
 
     from candidates
 )
