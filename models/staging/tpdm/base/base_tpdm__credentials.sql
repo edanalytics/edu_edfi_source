@@ -1,7 +1,6 @@
 with candidates as (
     {{ source_edfi3('credentials') }}
 ),
-
 renamed as (
     select
         tenant_code,
@@ -39,5 +38,4 @@ renamed as (
         v:studentAcademicRecords as student_academic_records
     from candidates
 )
-
 select * from renamed
