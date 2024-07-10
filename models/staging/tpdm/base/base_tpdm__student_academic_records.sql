@@ -1,7 +1,6 @@
 with student_academic_records as (
     {{ source_edfi3('student_academic_records') }}
 ),
-
 renamed as (
     select
         tenant_code,
