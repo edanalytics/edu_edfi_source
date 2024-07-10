@@ -40,4 +40,5 @@ renamed as (
 
     from candidates
 )
+
 select * from renamed
