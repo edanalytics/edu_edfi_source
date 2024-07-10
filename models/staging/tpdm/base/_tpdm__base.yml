@@ -10,3 +10,30 @@ models:
   - name: base_tpdm__educator_preparation_programs
     config:
       tags: ['tpdm']
+  - name: base_tpdm__student_academic_records
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__survey_response_person_target_associations
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__survey_responses
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__persons
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__survey_section_responses
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__post_secondary_institutions
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__schools
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__education_organizations
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__candidate_educator_preparation_program_associations
+    config:
+      tags: ['tpdm']
