@@ -12,8 +12,9 @@ renamed as (
         is_deleted,
 
         v:id::string                                               as record_guid,
-        v:surveyResponseReference:surveyResponseIdentifier::string as survey_response_id,
         v:personReference:personId:string                          as person_id,
+        v:surveyResponseReference:surveyIdentifier::string         as survey_id,
+        v:surveyResponseReference:surveyResponseIdentifier::string as survey_response_id,
         -- references 
         v:surveyResponseReference as survey_response_reference,
         v:personReference         as person_reference
