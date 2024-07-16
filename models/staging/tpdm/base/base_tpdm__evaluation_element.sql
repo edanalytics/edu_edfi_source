@@ -13,8 +13,8 @@ renamed as (
 
         v:evaluationElementTitle::string as evaluation_element_title,
         v:sortOrder::int                 as sort_order,
-        v:minRating::decimal             as min_rating,
-        v:maxRating::decimal             as max_rating,
+        v:minRating::decimal(6,3)        as min_rating,
+        v:maxRating::decimal(6,3)        as max_rating,
         -- descriptors
         {{ extract_descriptor('v:evaluationTypeDescriptor::string') }} as evaluation_type,
         -- unflattened lists
