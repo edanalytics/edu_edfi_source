@@ -13,8 +13,8 @@ renamed as (
 
         v:evaluationTitle::string             as evaluation_title,
         v:evaluationDescription::string       as evaluation_description,
-        v:minRating::integer                  as min_rating,
-        v:maxRating::integer                  as max_rating,
+        v:minRating::decimal(6,3)             as min_rating,
+        v:maxRating::decimal(6,3)             as max_rating,
         v:interRaterReliabilityScore::integer as inter_rater_reliability_score,
         -- descriptors
         {{ extract_descriptor('v:evaluationTypeDescriptor::string') }} as evaluation_type,
