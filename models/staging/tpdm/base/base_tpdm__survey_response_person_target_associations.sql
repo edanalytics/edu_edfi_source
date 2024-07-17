@@ -12,7 +12,7 @@ renamed as (
         is_deleted,
 
         v:id::string                                               as record_guid,
-        v:personReference:personId:string                          as person_id,
+        v:personReference:personId::string                          as person_id,
         v:surveyResponseReference:surveyIdentifier::string         as survey_id,
         v:surveyResponseReference:surveyResponseIdentifier::string as survey_response_id,
         -- references 
@@ -20,5 +20,4 @@ renamed as (
         v:personReference         as person_reference
     from survey_response_person_target_associations
 )
-
 select * from renamed

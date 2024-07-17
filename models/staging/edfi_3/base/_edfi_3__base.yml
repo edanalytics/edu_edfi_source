@@ -190,4 +190,5 @@ models:
       tags: ['core']
   - name: base_ef3__post_secondary_institutions
     config:
-      tags: ['core']
+      tags: ['survey']
+  - name: base_ef3__survey_section_responses

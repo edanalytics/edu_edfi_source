@@ -31,5 +31,4 @@ renamed as (
         v:mediumOfInstructions   as v_medium_of_instructions
     from student_academic_records
 )
-
 select * from renamed

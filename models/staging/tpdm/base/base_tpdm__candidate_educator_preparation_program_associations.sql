@@ -27,5 +27,4 @@ renamed as (
         v:educatorPreparationProgramReference as educator_preparation_program_reference
     from candidate_educator_preparation_program_associations
 )
-
 select * from renamed

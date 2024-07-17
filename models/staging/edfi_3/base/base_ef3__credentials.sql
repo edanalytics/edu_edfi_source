@@ -11,12 +11,12 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                             as record_guid,
-        v:credentialIdentifier::string                           as credential_id,
-        v:effectiveDate::date                                    as effective_date,
-        v:expirationDate::date                                   as expiration_date,
-        v:issuanceDate::date                                     as issuance_date,
-        v:namespace::string                                      as namespace,
+        v:id::string                   as record_guid,
+        v:credentialIdentifier::string as credential_id,
+        v:effectiveDate::date          as effective_date,
+        v:expirationDate::date         as expiration_date,
+        v:issuanceDate::date           as issuance_date,
+        v:namespace::string            as namespace,
         -- descriptors
         {{ extract_descriptor('v:credentialFieldDescriptor::string') }}               as credential_field,
         {{ extract_descriptor('v:credentialTypeDescriptor::string') }}                as credential_type,
@@ -24,9 +24,9 @@ renamed as (
         {{ extract_descriptor('v:teachingCredentialDescriptor::string') }}            as teaching_credential,
         {{ extract_descriptor('v:teachingCredentialBasisDescriptor::string') }}       as teaching_credential_basis,
         -- unnested lists
-        v:endorsements as     v_endorsements,
+        v:endorsements     as v_endorsements,
         v:academicSubjects as v_academic_subjects,
-        v:gradeLevels as      v_grade_levels,
+        v:gradeLevels      as v_grade_levels,
         -- references
         v:studentAcademicRecords as student_academic_records,
         -- edfi extensions

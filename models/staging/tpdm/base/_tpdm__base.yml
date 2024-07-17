@@ -10,9 +10,9 @@ models:
   - name: base_tpdm__survey_response_person_target_associations
     config:
       tags: ['tpdm']
-  - name: base_tpdm__survey_section_responses
-    config: 
-      tags: ['tpdm']
   - name: base_tpdm__candidate_educator_preparation_program_associations
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__financial_aids
     config:
       tags: ['tpdm']
