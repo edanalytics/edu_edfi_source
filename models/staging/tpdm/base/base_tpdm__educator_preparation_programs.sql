@@ -1,4 +1,4 @@
-with educator_prep_programs as (
+with educator_preparation_programs as (
     {{ source_edfi3('educator_preparation_programs') }}
 ),
 renamed as (
@@ -23,6 +23,6 @@ renamed as (
         v:gradeLevels                    as v_grade_levels,
         -- references
         v:educationOrganizationReference as ed_org_reference
-    from educator_prep_programs
+    from educator_preparation_programs
 )
 select * from renamed

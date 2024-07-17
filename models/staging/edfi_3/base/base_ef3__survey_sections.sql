@@ -12,8 +12,8 @@ renamed as (
         is_deleted,
 
         v:id::string                                as record_guid,
-        v:surveySectionTitle::string                as survey_section_title,
         v:surveyReference::surveyIdentifier::string as survey_id,
+        v:surveySectionTitle::string                as survey_section_title,
         -- references
         v:surveyReference as survey_reference
     from survey_sections

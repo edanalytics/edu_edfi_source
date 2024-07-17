@@ -36,7 +36,7 @@ renamed as (
         {{ extract_descriptor('v:sexDescriptor::string') }}                       as sex,
         {{ extract_descriptor('v:birthSexDescriptor::string') }}                  as birth_sex,
         {{ extract_descriptor('v:birthStateAbbreviationDescriptor::string') }}    as birth_state,
-        {{ extract_descriptor('v:birthCountryDescriptor::string') }}              as birth_county,
+        {{ extract_descriptor('v:birthCountryDescriptor::string') }}              as birth_country,
         {{ extract_descriptor('v:englishLanguageExamDescriptor::string' )}}       as english_language_exam,
         {{ extract_descriptor('v:limitedEnglishProficiencyDescriptor::string' )}} as lep_code,
         -- unflattened lists

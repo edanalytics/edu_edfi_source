@@ -1,4 +1,4 @@
-with candidates as (
+with credentials as (
     {{ source_edfi3('credentials') }}
 ),
 renamed as (
@@ -31,6 +31,6 @@ renamed as (
         v:studentAcademicRecords as student_academic_records,
         -- edfi extensions
         v:_ext as v_ext 
-    from candidates
+    from credentials
 )
 select * from renamed

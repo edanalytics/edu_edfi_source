@@ -1,5 +1,5 @@
-with rubric_ratings as (
-    {{ source_edfi3('rubric_ratings') }}
+with rubric_dimensions as (
+    {{ source_edfi3('rubric_dimensions') }}
 ),
 renamed as (
     select
@@ -20,6 +20,6 @@ renamed as (
         {{ extract_descriptor('v:rubricRatingLevelDescriptor::string') }} as rubric_rating_level,
         -- references
         v:evaluationElementReference as evaluation_element_reference
-    from rubric_ratings
+    from rubric_dimensions
 )
 select * from renamed

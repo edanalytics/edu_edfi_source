@@ -1,4 +1,4 @@
-with base_tpdm__section_responses as (
+with section_responses as (
     {{ source_edfi3('section_responses') }}
 ),
 renamed as (
@@ -18,7 +18,6 @@ renamed as (
         -- references
         v:surveyResponseReference as survey_response_reference,
         v:surveySectionReference  as survey_section_reference
-    from base_tpdm__section_responses
+    from section_responses
 )
-
 select * from renamed
