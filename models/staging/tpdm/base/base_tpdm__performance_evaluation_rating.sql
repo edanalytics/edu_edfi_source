@@ -12,14 +12,14 @@ select
     is_deleted,
 
     v:id::string                                                  as record_guid,
+    v:performanceEvaluationReference:educationOrganizationId::int as ed_org_id,
+    v:personReference:person_id::string                           as person_id,
     v:actualTime::timestamp                                       as actual_time,
     v:scheduleDate::date                                          as schedule_date,
     v:actualDate::date                                            as actual_date,
     v:comments::string                                            as comments,
     v:actualDuration::string                                      as actual_duration,
     v:announced::boolean                                          as actual_duration,
-    v:personReference:person_id::string                           as person_id
-    v:performanceEvaluationReference:educationOrganizationId::int as ed_org_id
     -- descriptors
     {{ extract_descriptor('v:performanceEvaluationRatingLevelDescriptor::string') }} as performance_evaluation_rating_level,
     {{ extract_descriptor('v:coteachingStyleObservedDescriptor::string') }}          as coteaching_style_observed,
