@@ -29,6 +29,6 @@ renamed as (
         v:institutionTelephones  as v_institution_telephones,
         v:internationalAddresses as v_international_addresses,
         v:mediumOfInstructions   as v_medium_of_instructions
-    from student_academic_records
+    from post_secondary_institutions
 )
 select * from renamed
