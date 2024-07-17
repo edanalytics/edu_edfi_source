@@ -11,10 +11,12 @@ renamed as (
         filename,
         is_deleted,
 
-        v:evaluationElementTitle::string as evaluation_element_title,
-        v:sortOrder::int                 as sort_order,
-        v:minRating::decimal(6,3)        as min_rating,
-        v:maxRating::decimal(6,3)        as max_rating,
+        v:id::string                                                 as record_guid,
+        v:evaluationElementTitle::string                             as evaluation_element_title,
+        v:sortOrder::int                                             as sort_order,
+        v:minRating::decimal(6,3)                                    as min_rating,
+        v:maxRating::decimal(6,3)                                    as max_rating,
+        v:evaluationObjectiveReference:educationOrganizationId ::int as ed_org_id,
         -- descriptors
         {{ extract_descriptor('v:evaluationTypeDescriptor::string') }} as evaluation_type,
         -- unflattened lists

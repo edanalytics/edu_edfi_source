@@ -11,11 +11,13 @@ renamed as (
         filename,
         is_deleted,
 
+        v:id::string       as record_guid,
         v:comments::string as comments,
         -- descriptors
         {{ extract_descriptor('v:objectiveRatingLevelDescriptor::string') }} as objective_rating_level,
         -- unflattened lists
         v:objectiveRatingResults  as objective_rating_results,
+        v:results                 as results,
         -- references
         v:evaluationRatingReference    as evaluation_rating_reference,
         v:evaluationObjectiveReference as evaluation_objective_reference

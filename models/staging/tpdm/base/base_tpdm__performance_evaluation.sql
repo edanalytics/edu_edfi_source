@@ -11,8 +11,11 @@ renamed as (
         filename,
         is_deleted,
 
-        v:performanceEvaluationTitle::string       as performance_evaluation_title,
-        v:performanceEvaluationDescription::string as performance_evaluation_description,
+        v:id::string                                                  as record_guid,
+        v:performanceEvaluationTitle::string                          as performance_evaluation_title,
+        v:performanceEvaluationDescription::string                    as performance_evaluation_description,
+        v:schoolYearTypeReference:schoolYear::int                     as performance_evaluation_description,
+        v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         -- descriptors
         {{ extract_descriptor('v:termDescriptor::string') }}                      as term,
         {{ extract_descriptor('v:performanceEvaluationTypeDescriptor::string') }} as performance_evaluation_type,

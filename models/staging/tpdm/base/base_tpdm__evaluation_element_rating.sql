@@ -11,6 +11,7 @@ renamed as (
         filename,
         is_deleted,
 
+        v:id::string                  as record_guid,
         v:areaOfRefinement::string    as area_of_refinement,
         v:areaOfReinforcement::string as area_of_reinforcement,
         v:comments::string            as comments,

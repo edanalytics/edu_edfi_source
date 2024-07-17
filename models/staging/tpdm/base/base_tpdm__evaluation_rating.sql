@@ -11,9 +11,11 @@ renamed as (
         filename,
         is_deleted,
 
-        v:evaluationDate::date    as evaluation_date,
-        v:comments::string        as comments,
-        v:actualDuration::string  as actual_duration,
+        v:id::string                                  as record_guid,
+        v:evaluationDate::date                        as evaluation_date,
+        v:comments::string                            as comments,
+        v:actualDuration::int                         as actual_duration,
+        v:sectionReference:sectionIdentifier:: string as section_id
         -- descriptors
         {{ extract_descriptor('v:evaluationRatingStatusDescriptor::string') }} as evaluation_rating_status,
         {{ extract_descriptor('v:evaluationRatingLevelDescriptor::string') }}  as evaluation_rating_level,
