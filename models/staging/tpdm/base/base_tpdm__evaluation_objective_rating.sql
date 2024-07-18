@@ -1,4 +1,4 @@
-with educator_prep_programs as (
+with evaluation_objective_rating as (
     {{ source_edfi3('evaluation_objective_rating') }}
 ),
 renamed as (
@@ -21,6 +21,6 @@ renamed as (
         -- references
         v:evaluationRatingReference    as evaluation_rating_reference,
         v:evaluationObjectiveReference as evaluation_objective_reference
-    from educator_prep_programs
+    from evaluation_objective_rating
 )
 select * from renamed

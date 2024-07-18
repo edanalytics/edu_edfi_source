@@ -1,4 +1,4 @@
-with educator_prep_programs as (
+with evaluation_rating as (
     {{ source_edfi3('evaluation_rating') }}
 ),
 renamed as (
@@ -12,7 +12,7 @@ renamed as (
         is_deleted,
 
         v:id::string                                  as record_guid,
-        v:sectionReference:sectionIdentifier:: string as section_id,
+        v:sectionReference:sectionIdentifier::string  as section_id,
         v:evaluationDate::date                        as evaluation_date,
         v:comments::string                            as comments,
         v:actualDuration::int                         as actual_duration,
@@ -26,6 +26,6 @@ renamed as (
         v:evaluationReference                  as evaluation_reference,
         v:performanceEvaluationRatingReference as performance_evaluation_rating_reference,
         v:sectionReference                     as section_reference
-    from educator_prep_programs
+    from evaluation_rating
 )
 select * from renamed

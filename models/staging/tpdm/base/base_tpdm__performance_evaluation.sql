@@ -1,4 +1,4 @@
-with educator_prep_programs as (
+with performance_evaluation as (
     {{ source_edfi3('performance_evaluation') }}
 ),
 renamed as (
@@ -28,6 +28,6 @@ renamed as (
         -- references
         v:educationOrganizationReference as education_organization_reference
         v:schoolYearTypeReference        as school_year_type_reference
-    from educator_prep_programs
+    from performance_evaluation
 )
 select * from renamed
