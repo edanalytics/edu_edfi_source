@@ -1,5 +1,5 @@
-with student_aids as (
-    {{ source_edfi3('student_aids') }}
+with financial_aids as (
+    {{ source_edfi3('financial_aids') }}
 ),
 renamed as (
     select
@@ -21,6 +21,6 @@ renamed as (
         v:pellGrantRecipient::boolean              as pell_grant_recipient,
         -- references
         v:studentReference as student_reference
-    from student_aids
+    from financial_aids
 )
 select * from renamed

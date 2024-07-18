@@ -16,3 +16,6 @@ models:
   - name: base_tpdm__financial_aids
     config:
       tags: ['tpdm']
+  - name: base_tpdm__rubric_dimensions
+    config:
+      tags: ['tpdm']
