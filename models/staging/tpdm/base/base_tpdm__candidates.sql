@@ -13,6 +13,7 @@ renamed as (
 
         v:id::string                         as record_guid,
         v:candidateIdentifier::string        as candidate_id,
+        v:personReference::personId::string  as person_id,
         v:firstName::string                  as first_name,
         v:lastSurname::string                as last_name,
         v:middleName::string                 as middle_name,
@@ -35,7 +36,7 @@ renamed as (
         {{ extract_descriptor('v:sexDescriptor::string') }}                       as sex,
         {{ extract_descriptor('v:birthSexDescriptor::string') }}                  as birth_sex,
         {{ extract_descriptor('v:birthStateAbbreviationDescriptor::string') }}    as birth_state,
-        {{ extract_descriptor('v:birthCountyDescriptor::string') }}               as birth_county,
+        {{ extract_descriptor('v:birthCountryDescriptor::string') }}              as birth_country,
         {{ extract_descriptor('v:englishLanguageExamDescriptor::string' )}}       as english_language_exam,
         {{ extract_descriptor('v:limitedEnglishProficiencyDescriptor::string' )}} as lep_code,
         -- unflattened lists
@@ -49,8 +50,7 @@ renamed as (
         v:telephones                      as v_telephones,
 
         -- references
-        v:personReference as person_reference,
-
+        v:personReference as person_reference
     from candidates
 )
 select * from renamed
