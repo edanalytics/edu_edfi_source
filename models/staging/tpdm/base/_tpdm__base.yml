@@ -7,3 +7,27 @@ models:
   - name: base_tpdm__educator_preparation_programs
     config:
       tags: ['tpdm']
+  - name: base_tpdm__evaluations
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__evaluation_ratings
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__performance_evaluations
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__performance_evaluation_ratings
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__evaluation_objectives
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__evaluation_objective_ratings
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__evaluation_elements
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__evaluation_element_ratings
+    config:
+      tags: ['tpdm']
