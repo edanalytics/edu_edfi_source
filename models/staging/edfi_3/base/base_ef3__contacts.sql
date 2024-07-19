@@ -1,5 +1,5 @@
-with parents as (
-    {{ source_edfi3('parents') }}
+with contacts as (
+    {{ source_edfi3('contacts') }}
 ),
 renamed as (
     select
@@ -12,7 +12,7 @@ renamed as (
         is_deleted,
 
         v:id::string                                                                     as record_guid,
-        v:parentUniqueId::string                                                         as parent_unique_id,
+        v:contactUniqueId::string                                                        as contact_unique_id,
         v:personReference:personId::string                                               as person_id,
         v:firstName::string                                                              as first_name,
         v:middleName::string                                                             as middle_name,
@@ -40,6 +40,6 @@ renamed as (
 
         -- edfi extensions
         v:_ext as v_ext
-    from parents
+    from contacts
 )
 select * from renamed
