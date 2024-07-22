@@ -1,6 +1,9 @@
 # Unreleased
 ## New features
+- Add base/stage models for `contacts` and `student_contact_associations`, added due to the rename from parent to contact in Ed-Fi data standard v5.0.
+- Rename `k_parent` to `k_contact` in `stg_ef3__survey_responses`.
 ## Under the hood
+- Add columns to `base_ef3__parents` to allow data to be unioned into new `stg_ef3__contacts` model.
 ## Fixes
 
 # edu_edfi_source v0.3.6
