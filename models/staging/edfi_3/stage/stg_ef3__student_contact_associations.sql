@@ -7,6 +7,7 @@ base_stu_parent as (
     from {{ ref('base_ef3__student_parent_associations') }}
     where not is_deleted
 ),
+-- parents were renamed to contacts in Data Standard v5.0
 unioned as (
     select * from base_stu_contact
     union 

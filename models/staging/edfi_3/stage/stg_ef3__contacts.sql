@@ -7,6 +7,7 @@ base_parents as (
     from {{ ref('base_ef3__parents') }}
     where not is_deleted
 ),
+-- parents were renamed to contacts in Data Standard v5.0
 unioned as (
     select * from base_contacts
     union 
