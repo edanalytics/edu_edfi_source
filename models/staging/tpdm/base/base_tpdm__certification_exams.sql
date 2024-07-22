@@ -13,7 +13,7 @@ renamed as (
 
         v:id::string                          as record_guid,
         v:certificationExamIdentifier::string as certification_exam_id,
-        v:namespace::string                   as certification_exam_namespace,
+        v:namespace::string                   as namespace,
         v:certificationExamTitle::string      as certification_exam_title,
         v:effectiveDate::date                 as effective_date,
         v:endDate::date                       as end_date,

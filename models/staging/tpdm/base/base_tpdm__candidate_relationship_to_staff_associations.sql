@@ -13,7 +13,7 @@ renamed as (
 
         v:id::string                                     as record_guid,
         v:candidateReference:candidateIdentifier::string as candidate_id,
-        v:staffReference:staffUniqueId::string           as staff_id,
+        v:staffReference:staffUniqueId::string           as staff_unique_id,
         v:beginDate::date                                as begin_date,
         -- descriptors
         {{ extract_descriptor('v:staffToCandidateRelationshipDescriptor::string') }} as staff_to_candidate_relationship,

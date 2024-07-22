@@ -200,6 +200,3 @@ models:
   - name: base_ef3__persons
     config:
       tags: ['core']
-  - name: base_ef3__schools
-    config:
-      tags: ['core']

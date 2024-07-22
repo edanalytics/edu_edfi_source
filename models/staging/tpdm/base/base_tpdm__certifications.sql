@@ -11,10 +11,10 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                      as record_guid,
-        v:certificationIdentifier::string                 as certification_id,
-        v:namespace::string                               as namespace,
-        v:certificationTitle::string                      as certification_title,
+        v:id::string                      as record_guid,
+        v:certificationIdentifier::string as certification_id,
+        v:namespace::string               as namespace,
+        v:certificationTitle::string      as certification_title,
         -- descriptors
         {{ extract_descriptor('v:certificationFieldDescriptor::string') }}    as certification_field,
         {{ extract_descriptor('v:certificationLevelDescriptor::string') }}    as certification_level,
