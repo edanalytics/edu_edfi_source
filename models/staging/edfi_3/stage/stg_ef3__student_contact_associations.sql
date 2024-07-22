@@ -1,9 +1,14 @@
 with base_stu_contact as (
-    select * from {{ ref('base_ef3__student_contact_associations') }}
+    select 
+        *,
+        contact_reference:contactUniqueId as contact_unique_id
+    from {{ ref('base_ef3__student_contact_associations') }}
     where not is_deleted
 ),
 base_stu_parent as (
-    select * rename parent_reference as contact_reference
+    select 
+        *,
+        parent_reference:parentUniqueId as contact_unique_id --rename to support union and key generation
     from {{ ref('base_ef3__student_parent_associations') }}
     where not is_deleted
 ),
@@ -16,7 +21,12 @@ unioned as (
 keyed as (
     select 
         {{ gen_skey('k_student') }},
-        {{ gen_skey('k_contact') }},
+        -- we can't use the gen_skey macro here because we're bringing in the deprecated parents endpoint data, which contains a parentReference that won't work
+        iff(
+            contact_unique_id is not null, 
+            md5(cast(coalesce(cast(tenant_code as TEXT), '') || '-' || coalesce(cast(lower(contact_unique_id) as TEXT), '') as TEXT)), 
+            null
+        )::varchar(32) as k_contact,
         {{ gen_skey('k_student_xyear') }},
         api_year as school_year,
         unioned.*
