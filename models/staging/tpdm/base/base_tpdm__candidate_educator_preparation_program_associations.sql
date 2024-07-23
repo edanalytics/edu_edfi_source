@@ -14,7 +14,7 @@ renamed as (
         v:id::string                                                        as record_guid,
         v:candidateReference:candidateIdentifier::string                    as candidate_id,
         v:educatorPreparationProgramReference:educationOrganizationId::int  as ed_org_id,
-        v:educationOrganizationReference:link:rel::string                   as ed_org_type,
+        v:educatorPreparationProgramReference:link:rel::string              as ed_org_type,
         v:beginDate::date                                                   as begin_date,
         v:endDate::date                                                     as end_date,
         -- descriptors
