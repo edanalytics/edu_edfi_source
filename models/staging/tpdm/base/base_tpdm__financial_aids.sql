@@ -13,12 +13,13 @@ renamed as (
 
         v:id::string                               as record_guid,
         v:studentReference:studentUniqueId::string as student_id,
-        v:aidTypeDescriptor::string                as aid_type,
         v:beginDate::date                          as begin_date,
-        v:aidAmount::decimal(19, 4)                as aid_amount,
+        v:aidAmount::float                         as aid_amount,
         v:aidConditionDescription::string          as aid_condition_description,
         v:endDate::date                            as end_date,
-        v:pellGrantRecipient::boolean              as pell_grant_recipient,
+        v:pellGrantRecipient::boolean              as is_pell_grant_recipient,
+        -- descriptors
+        {{ extract_descriptor('v:aidTypeDescriptor::string') }} as aid_type,
         -- references
         v:studentReference as student_reference
     from financial_aids

@@ -14,14 +14,12 @@ renamed as (
         v:id::string                                  as record_guid,
         v:sectionReference:sectionIdentifier::string  as section_id,
         v:evaluationDate::date                        as evaluation_date,
-        v:comments::string                            as comments,
-        v:actualDuration::int                         as actual_duration,
         -- descriptors
         {{ extract_descriptor('v:evaluationRatingStatusDescriptor::string') }} as evaluation_rating_status,
         {{ extract_descriptor('v:evaluationRatingLevelDescriptor::string') }}  as evaluation_rating_level,
         -- unflattened lists
-        v:reviewers as reviewers,
-        v:results   as results,
+        v:reviewers as v_reviewers,
+        v:results   as v_results,
         -- references
         v:evaluationReference                  as evaluation_reference,
         v:performanceEvaluationRatingReference as performance_evaluation_rating_reference,
