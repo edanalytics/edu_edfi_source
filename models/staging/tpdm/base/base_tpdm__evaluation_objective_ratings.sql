@@ -16,8 +16,8 @@ renamed as (
         -- descriptors
         {{ extract_descriptor('v:objectiveRatingLevelDescriptor::string') }} as objective_rating_level,
         -- unflattened lists
-        v:objectiveRatingResults  as objective_rating_results,
-        v:results                 as results,
+        v:objectiveRatingResults  as v_objective_rating_results,
+        v:results                 as v_results,
         -- references
         v:evaluationRatingReference    as evaluation_rating_reference,
         v:evaluationObjectiveReference as evaluation_objective_reference
