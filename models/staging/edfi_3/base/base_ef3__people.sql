@@ -1,5 +1,5 @@
-with peoples as (
-    {{ source_edfi3('peoples') }}
+with people as (
+    {{ source_edfi3('people') }}
 ),
 renamed as (
     select 
@@ -15,6 +15,6 @@ renamed as (
         v:personId::int as person_id,
         -- descriptors
         {{ extract_descriptor('v:sourceSystemDescriptor::string') }} as source_system
-    from peoples
+    from people
 )
 select * from renamed

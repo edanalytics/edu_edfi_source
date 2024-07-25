@@ -197,6 +197,6 @@ models:
   - name: base_ef3__survey_section_responses
     config:
       tags: ['survey']
-  - name: base_ef3__peoples
+  - name: base_ef3__people
     config:
       tags: ['core']
