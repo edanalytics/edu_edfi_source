@@ -13,11 +13,20 @@ referential_integrity_tests:
           field: k_educator_prep_program
           tags: ['ref_integrity']
 
+  - k_educator_prep_program: &ref_k_evaluation
+      - relationships:
+          to: ref('stg_tpdm__evaluations')
+          field: k_evaluation
+          tags: ['ref_integrity']
+
 
 models:
   - name: stg_tpdm__candidates
     config:
       tags: ['tpdm']
   - name: stg_tpdm__educator_preparation_programs
+    config:
+      tags: ['tpdm']
+  - name: stg_tpdm__evaluations
     config:
       tags: ['tpdm']
