@@ -13,6 +13,36 @@ referential_integrity_tests:
           field: k_educator_prep_program
           tags: ['ref_integrity']
 
+  - k_educator_prep_program: &ref_k_evaluation_element_rating
+      - relationships:
+          to: ref('stg_tpdm__evaluation_element_ratings')
+          field: k_evaluation_element_rating
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_evaluation_element
+      - relationships:
+          to: ref('stg_tpdm__evaluation_elements')
+          field: k_evaluation_element
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_evaluation_objective_rating
+      - relationships:
+          to: ref('stg_tpdm__evaluation_objective_ratings')
+          field: k_evaluation_objective_rating
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_evaluation_objective
+      - relationships:
+          to: ref('stg_tpdm__evaluation_objectives')
+          field: k_evaluation_objective
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_evaluation_rating
+      - relationships:
+          to: ref('stg_tpdm__evaluation_ratings')
+          field: k_evaluation_rating
+          tags: ['ref_integrity']
+
   - k_educator_prep_program: &ref_k_evaluation
       - relationships:
           to: ref('stg_tpdm__evaluations')
@@ -25,6 +55,21 @@ models:
     config:
       tags: ['tpdm']
   - name: stg_tpdm__educator_preparation_programs
+    config:
+      tags: ['tpdm']
+  - name: stg_tpdm__evaluation_element_ratings
+    config:
+      tags: ['tpdm']
+  - name: stg_tpdm__evaluation_elements
+    config:
+      tags: ['tpdm']
+  - name: stg_tpdm__evaluation_objective_ratings
+    config:
+      tags: ['tpdm']
+  - name: stg_tpdm__evaluation_objectives
+    config:
+      tags: ['tpdm']
+  - name: stg_tpdm__evaluation_ratings
     config:
       tags: ['tpdm']
   - name: stg_tpdm__evaluations
