@@ -49,6 +49,36 @@ referential_integrity_tests:
           field: k_evaluation
           tags: ['ref_integrity']
 
+  - k_educator_prep_program: &ref_k_financial_aid
+      - relationships:
+          to: ref('stg_tpdm__financial_aids')
+          field: k_financial_aid
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_performance_evaluation_rating
+      - relationships:
+          to: ref('stg_tpdm__performance_evaluation_ratings')
+          field: k_performance_evaluation_rating
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_performance_evaluation
+      - relationships:
+          to: ref('stg_tpdm__performance_evaluations')
+          field: k_performance_evaluation
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_rubric_dimension
+      - relationships:
+          to: ref('stg_tpdm__rubric_dimensions')
+          field: k_rubric_dimension
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_survey_response_person_target_association
+      - relationships:
+          to: ref('stg_tpdm__survey_response_person_target_associations')
+          field: k_survey_response_person_target_association
+          tags: ['ref_integrity']
+
 
 models:
   - name: stg_tpdm__candidates
