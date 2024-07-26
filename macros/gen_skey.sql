@@ -201,6 +201,61 @@
             'col_list': ['candidateIdentifier'],
             'annualize': True
         },
+        'k_evaluation_evaluation_element_rating': {
+            'reference_name': 'evaluation_element_rating_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_evaluation_element': {
+            'reference_name': 'evaluation_element_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_evaluation_objective_rating': {
+            'reference_name': 'evaluation_objective_rating_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_evaluation_objective': {
+            'reference_name': 'evaluation_objective_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_evaluation_rating': {
+            'reference_name': 'evaluation_rating_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_evaluation': {
+            'reference_name': 'evaluation_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_financial_aid': {
+            'reference_name': 'financial_aid_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_performance_evaluation_rating': {
+            'reference_name': 'performance_evaluation_rating_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_performance_evaluation': {
+            'reference_name': 'performance_evaluation_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_rubric_dimension': {
+            'reference_name': 'rubric_dimension_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
+        'k_survey_response_person_target_association': {
+            'reference_name': 'survey_response_person_target_association_reference',
+            'col_list': ['TODO: add proper col list'],
+            'annualize': True
+        },
 
         'k_template': {
             'reference_name': '',
