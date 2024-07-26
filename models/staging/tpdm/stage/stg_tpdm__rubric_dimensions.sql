@@ -7,7 +7,14 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'api_year'
+                'api_year',
+                'ed_org_id',
+                'evaluation_element_title',
+                'evaluation_objective_title',
+                'evaluation_title',
+                'performance_evaluation_title',
+                'schoolYear',
+                'rubric_rating'
             ]
         ) }} as k_rubric_dimension,
         base_rubric_dimensions.*

@@ -7,7 +7,11 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'api_year'
+                'api_year',
+                'person_id',
+                'survey_id',
+                'survey_response_id',
+                'namespace'
             ]
         ) }} as k_survey_response_person_target_association,
         base_survey_response_person_target_associations.*

@@ -13,6 +13,8 @@ renamed as (
 
         v:id::string                                       as record_guid,
         v:evaluationReference:educationOrganizationId::int as ed_org_id,
+        v:evaluationReference:evaluationTitle::string      as evaluation_title,
+        v:evaluationReference:schoolYear::int              as school_year,
         v:evaluationObjectiveTitle::string                 as evaluation_objective_title,
         v:evaluationObjectiveDescription::string           as evaluation_objective_description,
         v:sortOrder::int                                   as sort_order,

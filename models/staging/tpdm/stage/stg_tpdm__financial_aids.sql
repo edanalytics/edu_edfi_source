@@ -7,7 +7,9 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'api_year'
+                'api_year',
+                'student_id',
+                'beginDate'
             ]
         ) }} as k_financial_aid,
         base_financial_aids.*

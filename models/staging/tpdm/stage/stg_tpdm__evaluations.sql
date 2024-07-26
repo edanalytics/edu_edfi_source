@@ -7,7 +7,10 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'api_year'
+                'api_year',
+                'ed_org_id',
+                'school_year',
+                'evaluation_title'
             ]
         ) }} as k_evaluation,
         base_evaluations.*
