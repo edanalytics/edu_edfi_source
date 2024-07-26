@@ -38,6 +38,7 @@ models:
           
 vars:
   extensions: null
+  surrogate_key_treat_nulls_as_empty_strings: true
   
   # student discipline participation codes that map to non-offenders
   'edu:discipline:non_offender_codes': ['Victim', 'Witness', 'Reporter']

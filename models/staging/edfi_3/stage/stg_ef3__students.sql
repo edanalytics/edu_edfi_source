@@ -5,14 +5,14 @@ with base_students as (
 keyed as (
     -- todo: should this be annualized or not?
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
                 'api_year',
                 'lower(student_unique_id)'
             ]
         ) }} as k_student,
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
                 'student_unique_id'

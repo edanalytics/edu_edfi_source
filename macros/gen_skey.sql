@@ -214,7 +214,7 @@
 
     iff(
         {{ skey_ref }} is not null, 
-        {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
+        {{ dbt_utils.generate_surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
         null
     )::varchar(32) as {{ alt_k_name or k_name }}
 {%- endmacro -%}

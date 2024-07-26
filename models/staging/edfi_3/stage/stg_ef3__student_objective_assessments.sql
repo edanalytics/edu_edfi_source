@@ -38,7 +38,7 @@ keyed as (
         tenant_code,
         api_year,
         pull_timestamp,
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
             'lower(academic_subject)',
