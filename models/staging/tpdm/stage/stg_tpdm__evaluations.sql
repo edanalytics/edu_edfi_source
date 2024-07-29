@@ -9,8 +9,12 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'ed_org_id',
+                'evaluation_period',
+                'evaluation_title',
+                'perfomance_evaluation_title',
+                'performance_evaluation_type',
                 'school_year',
-                'evaluation_title'
+                'academic_term'
             ]
         ) }} as k_evaluation,
         base_evaluations.*

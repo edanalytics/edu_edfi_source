@@ -7,9 +7,20 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'api_year'
+                'api_year',
+                'ed_org_id',
+                'evaluation_date',
+                'evaluation_period',
+                'evaluation_title',
+                'performance_evaluation_title',
+                'performance_evaluation_type',
+                'person_id',
+                'school_year',
+                'source_system',
+                'academic_term'
             ]
-        ) }} as k_evaluation_ratings,
+        ) }} as k_evaluation_rating,
+        {{ gen_skey('k_course_section') }},
         base_evaluation_ratings.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_evaluation_ratings
