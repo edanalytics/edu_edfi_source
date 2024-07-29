@@ -13,73 +13,6 @@ referential_integrity_tests:
           field: k_educator_prep_program
           tags: ['ref_integrity']
 
-  - k_educator_prep_program: &ref_k_evaluation_element_rating
-      - relationships:
-          to: ref('stg_tpdm__evaluation_element_ratings')
-          field: k_evaluation_element_rating
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_evaluation_element
-      - relationships:
-          to: ref('stg_tpdm__evaluation_elements')
-          field: k_evaluation_element
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_evaluation_objective_rating
-      - relationships:
-          to: ref('stg_tpdm__evaluation_objective_ratings')
-          field: k_evaluation_objective_rating
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_evaluation_objective
-      - relationships:
-          to: ref('stg_tpdm__evaluation_objectives')
-          field: k_evaluation_objective
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_evaluation_rating
-      - relationships:
-          to: ref('stg_tpdm__evaluation_ratings')
-          field: k_evaluation_rating
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_evaluation
-      - relationships:
-          to: ref('stg_tpdm__evaluations')
-          field: k_evaluation
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_financial_aid
-      - relationships:
-          to: ref('stg_tpdm__financial_aids')
-          field: k_financial_aid
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_performance_evaluation_rating
-      - relationships:
-          to: ref('stg_tpdm__performance_evaluation_ratings')
-          field: k_performance_evaluation_rating
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_performance_evaluation
-      - relationships:
-          to: ref('stg_tpdm__performance_evaluations')
-          field: k_performance_evaluation
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_rubric_dimension
-      - relationships:
-          to: ref('stg_tpdm__rubric_dimensions')
-          field: k_rubric_dimension
-          tags: ['ref_integrity']
-
-  - k_educator_prep_program: &ref_k_survey_response_person_target_association
-      - relationships:
-          to: ref('stg_tpdm__survey_response_person_target_associations')
-          field: k_survey_response_person_target_association
-          tags: ['ref_integrity']
-
-
 models:
   - name: stg_tpdm__candidates
     config:
@@ -102,6 +35,10 @@ models:
   - name: stg_tpdm__evaluation_ratings
     config:
       tags: ['tpdm']
+    columns:
+      - name: k_course_section
+        tests:
+          *ref_k_course_section 
   - name: stg_tpdm__evaluations
     config:
       tags: ['tpdm']
