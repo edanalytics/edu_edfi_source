@@ -9,12 +9,15 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'ed_org_id',
-                'evaluation_element_title',
-                'evaluation_objective_title',
-                'evaluation_title',
-                'performance_evaluation_title',
-                'schoolYear',
-                'rubric_rating'
+                'lower(evaluation_element_title)',
+                'lower(evaluation_objective_title)',
+                'lower(evaluation_period)',
+                'lower(valuation_title)',
+                'lower(performance_evaluation_title)',
+                'lower(performance_evaluation_type)',
+                'school_year',
+                'rubric_rating',
+                'lower(academic_term)'
             ]
         ) }} as k_rubric_dimension,
         base_rubric_dimensions.*

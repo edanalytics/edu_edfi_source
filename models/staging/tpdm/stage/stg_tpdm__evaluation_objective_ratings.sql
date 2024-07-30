@@ -10,15 +10,15 @@ keyed as (
                 'api_year',
                 'ed_org_id',
                 'evaluation_date',
-                'evaluation_objective_title',
-                'evaluation_period',
-                'evaluation_title',
-                'perfomance_evaluation_title',
-                'performance_evaluation_type',
-                'person_id',
+                'lower(evaluation_objective_title)',
+                'lower(evaluation_period)',
+                'lower(evaluation_title)',
+                'lower(perfomance_evaluation_title)',
+                'lower(performance_evaluation_type)',
+                'lower(person_id)',
                 'school_year',
-                'source_system',
-                'academic_term'
+                'lower(source_system)',
+                'lower(academic_term)'
             ]
         ) }} as k_evaluation_objective_rating,
         base_evaluation_objective_ratings.*

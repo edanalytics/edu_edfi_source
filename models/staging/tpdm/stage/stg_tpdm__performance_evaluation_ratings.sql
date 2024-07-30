@@ -9,11 +9,16 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'ed_org_id',
-                'performance_evaluation_title',
+                'lower(evaluation_period)',
+                'lower(performance_evaluation_title)',
+                'lower(performance_evaluation_type)',
+                'lower(person_id)',
                 'school_year',
-                'person_id'
+                'lower(source_system)',
+                'lower(academic_term)'
             ]
         ) }} as k_performance_evaluation_rating,
+        {{ gen_skey('k_person') }},
         base_performance_evaluation_ratings.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_performance_evaluation_ratings

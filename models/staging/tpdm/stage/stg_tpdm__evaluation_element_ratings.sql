@@ -10,16 +10,16 @@ keyed as (
                 'api_year',
                 'ed_org_id',
                 'evaluation_date',
-                'evaluation_element_title',
-                'evaluation_objective_title',
-                'evaluation_period',
-                'evaluation_title',
-                'perfomance_evaluation_title',
-                'performance_evaluation_type',
-                'person_id',
-                'school_year',
-                'source_system',
-                'academic_term'
+                'lower(evaluation_element_title)',
+                'lower(evaluation_objective_title)',
+                'lower(evaluation_period)',
+                'lower(evaluation_title)',
+                'lower(perfomance_evaluation_title)',
+                'lower(performance_evaluation_type)',
+                'lower(person_id)',
+                'lower(school_year)',
+                'lower(source_system)',
+                'lower(academic_term)'
             ]
         ) }} as k_evaluation_element_rating,
         base_evaluation_element_ratings.*

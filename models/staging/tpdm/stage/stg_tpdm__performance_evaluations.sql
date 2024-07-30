@@ -9,10 +9,11 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'ed_org_id',
-                'performance_evaluation_title',
+                'lower(performance_evaluation_title)',
                 'school_year'
             ]
         ) }} as k_performance_evaluation,
+        {{ edorg_ref() }},
         base_performance_evaluations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_performance_evaluations

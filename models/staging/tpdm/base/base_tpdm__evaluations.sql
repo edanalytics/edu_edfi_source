@@ -19,7 +19,7 @@ renamed as (
         v:performanceEvaluationReference:performanceEvaluationTitle::string                                      as perfomance_evaluation_title,
         {{ extract_descriptor('v:performanceEvaluationReference:performanceEvaluationTypeDescriptor::string') }} as performance_evaluation_type,
         v:performanceEvaluationReference:schoolYear::int                                                         as school_year,
-        {{ extract_descriptor('v:performanceEvaluationReference:termDescriptor') }}                              as academic_term,
+        {{ extract_descriptor('v:performanceEvaluationReference:termDescriptor::string') }}                      as academic_term,
         -- non-identity components
         v:evaluationDescription::string       as evaluation_description,
         v:minRating::float                    as min_rating,

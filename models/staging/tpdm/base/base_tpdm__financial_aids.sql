@@ -11,17 +11,21 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                               as record_guid,
-        v:studentReference:studentUniqueId::string as student_id,
-        v:beginDate::date                          as begin_date,
-        v:aidAmount::float                         as aid_amount,
-        v:aidConditionDescription::string          as aid_condition_description,
-        v:endDate::date                            as end_date,
-        v:pellGrantRecipient::boolean              as is_pell_grant_recipient,
-        -- descriptors
+        v:id::string as record_guid,
+        -- identity components
         {{ extract_descriptor('v:aidTypeDescriptor::string') }} as aid_type,
+        v:beginDate::date                                       as begin_date,
+        v:studentReference:studentUniqueId::string              as student_unique_id,
+        -- non-identity components
+        v:beginDate::date                 as begin_date,
+        v:aidAmount::float                as aid_amount,
+        v:aidConditionDescription::string as aid_condition_description,
+        v:endDate::date                   as end_date,
+        v:pellGrantRecipient::boolean     as is_pell_grant_recipient,
         -- references
-        v:studentReference as student_reference
+        v:studentReference as student_reference,
+        -- edfi extensions
+        v:_ext as v_ext
     from financial_aids
 )
 select * from renamed

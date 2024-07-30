@@ -8,10 +8,13 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'student_id',
-                'beginDate'
+                'lower(aid_type)',
+                'beginDate',
+                'lower(student_unique_id)'
             ]
         ) }} as k_financial_aid,
+        {{ gen_skey('k_student') }},
+        {{ gen_skey('k_student_xyear') }},
         base_financial_aids.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_financial_aids

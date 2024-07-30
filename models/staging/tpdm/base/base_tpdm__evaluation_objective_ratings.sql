@@ -15,10 +15,10 @@ renamed as (
         -- identity components
         v:evaluationObjectiveReference:educationOrganizationId::int                                            as ed_org_id,
         v:evaluationRatingReference:evaluationDate::timestamp                                                  as evaluation_date,
-        v:evaluationObjectiveReference:evaluationObjectiveTitle                                                as evaluation_objective_title,
+        v:evaluationObjectiveReference:evaluationObjectiveTitle::string                                        as evaluation_objective_title,
         {{ extract_descriptor('v:evaluationObjectiveReference:evaluationPeriodDescriptor::string') }}          as evaluation_period,
         v:evaluationObjectiveReference:evaluationTitle::string                                                 as evaluation_title,
-        v:evaluationObjectiveReference:performanceEvaluationTitle                                              as perfomance_evaluation_title,
+        v:evaluationObjectiveReference:performanceEvaluationTitle::string                                      as perfomance_evaluation_title,
         {{ extract_descriptor('v:evaluationObjectiveReference:performanceEvaluationTypeDescriptor::string') }} as performance_evaluation_type,
         v:evaluationRatingReference:personId::string                                                           as person_id,
         v:evaluationObjectiveReference:schoolYear::int                                                         as school_year,

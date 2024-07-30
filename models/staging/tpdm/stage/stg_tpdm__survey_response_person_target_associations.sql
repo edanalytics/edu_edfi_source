@@ -8,12 +8,15 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'person_id',
-                'survey_id',
-                'survey_response_id',
-                'namespace'
+                'lower(namespace)',
+                'plower(erson_id)',
+                'lower(source_system)',
+                'lower(survey_id)',
+                'lower(survey_response_id)'
             ]
         ) }} as k_survey_response_person_target_association,
+        {{ gen_skey('k_person') }},
+        {{ gen_skey('k_survey_response') }},
         base_survey_response_person_target_associations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_survey_response_person_target_associations
