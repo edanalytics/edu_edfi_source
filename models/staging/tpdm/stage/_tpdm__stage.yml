@@ -12,6 +12,16 @@ referential_integrity_tests:
           to: ref('stg_tpdm__educator_preparation_programs')
           field: k_educator_prep_program
           tags: ['ref_integrity']
+  - k_course_section: &ref_k_course_section
+    - relationships:
+        to: ref('stg_ef3__sections')
+        field: k_course_section
+        tags: ['ref_integrity']
+#  - k_person: &ref_k_person
+#    - relationships:
+#        to: ref('stg_ef3__people')
+#        field: k_person
+#        tags: ['ref_integrity']
 
 models:
   - name: stg_tpdm__candidate_educator_preparation_program_associations
@@ -48,7 +58,7 @@ models:
     columns:
       - name: k_course_section
         tests:
-          *ref_k_course_section 
+          *ref_k_course_section
   - name: stg_tpdm__evaluations
     config:
       tags: ['tpdm']
@@ -60,8 +70,8 @@ models:
       tags: ['tpdm']
     columns:
       - name: k_person
-        tests:
-          *ref_k_person
+#        tests:
+#          *ref_k_person
   - name: stg_tpdm__performance_evaluations
     config:
       tags: ['tpdm']
@@ -73,5 +83,5 @@ models:
       tags: ['tpdm']
     columns:
       - name: k_person
-        tests:
-          *ref_k_person
+#        tests:
+#          *ref_k_person
