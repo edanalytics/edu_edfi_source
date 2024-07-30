@@ -13,6 +13,49 @@ referential_integrity_tests:
           field: k_educator_prep_program
           tags: ['ref_integrity']
 
+    - k_evaluation: &ref_k_evaluation
+      - relationships:
+          to: ref('stg_tpdm__evaluations')
+          field: k_evaluation
+          tags: ['ref_integrity']
+    
+    - k_evaluation_rating: &ref_k_evaluation_rating
+      - relationships:
+          to: ref('stg_tpdm__evaluation_ratings')
+          field: k_evaluation_rating
+          tags: ['ref_integrity']
+
+    - k_evaluation_objective: &ref_evaluation_objective
+      - relationships:
+          to: ref('stg_tpdm__evaluation_objectives')
+          field: k_evaluation_objective
+          tags: ['ref_integrity']
+
+    - k_performance_evaluation: &ref_k_performance_evaluation
+      - relationships:
+          to: ref('stg_tpdm__performance_evaluations')
+          field: k_performance_evaluation
+          tags: ['ref_integrity']
+
+    - k_performance_evaluation_rating: &ref_k_performance_evaluation_rating
+      - relationships:
+          to: ref('stg_tpdm__evaluation_ratings')
+          field: k_performance_evaluation_rating
+          tags: ['ref_integrity']
+    
+    - k_evaluation_element: &ref_k_evaluation_element
+      - relationships:
+          to: ref('stg_tpdm__evaluation_elements')
+          field: k_evaluation_element
+          tags: ['ref_integrity']
+
+    - k_evaluation_objective_rating: &ref_k_evaluation_objective_rating
+      - relationships:
+          to: ref('stg_tpdm__evaluation_objective_ratings')
+          field: k_evaluation_objective_rating
+          tags: ['ref_integrity']
+  
+
 models:
   - name: stg_tpdm__candidate_educator_preparation_program_associations
     config:
@@ -24,6 +67,9 @@ models:
       - name: k_educator_prep_program
         tests:
           *ref_k_educator_prep_program
+      - name: k_person
+        tests:
+          *ref_k_person
 
   - name: stg_tpdm__candidates
     config:
@@ -36,18 +82,40 @@ models:
   - name: stg_tpdm__evaluation_element_ratings
     config:
       tags: ['tpdm']
+    columns:
+      - name: k_evaluation_element
+        tests:
+          *ref_k_evaluation_element
+      - name: k_evaluation_objective_rating
+        tests:
+          *ref_k_evaluation_objective_rating
 
   - name: stg_tpdm__evaluation_elements
     config:
       tags: ['tpdm']
+    columns:
+      - name:
+        tests:
+          *k_evaluation_objective
 
   - name: stg_tpdm__evaluation_objective_ratings
     config:
       tags: ['tpdm']
+    columns:
+      - name: k_evaluation_rating
+        tests: 
+          *ref_k_evaluation_rating
+      - name: k_evaluation_objective
+        tests:
+          *ref_k_evaluation_objective
 
   - name: stg_tpdm__evaluation_objectives
     config:
       tags: ['tpdm']
+    columns:
+      - name: k_evaluation
+        tests:
+          *ref_k_evaluation
 
   - name: stg_tpdm__evaluation_ratings
     config:
@@ -56,14 +124,28 @@ models:
       - name: k_course_section
         tests:
           *ref_k_course_section 
+      - name: k_performance_evaluation_rating
+        tests:
+          *ref_k_performance_evaluation_rating
 
   - name: stg_tpdm__evaluations
     config:
       tags: ['tpdm']
+    columns:
+      - name: k_performance_evaluation
+        tests:
+          *ref_k_performance_evaluation
+      - name: k_evaluation
+        tests:
+          *ref_k_evaluation
 
   - name: stg_tpdm__financial_aids
     config:
       tags: ['tpdm']
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
 
   - name: stg_tpdm__performance_evaluation_ratings
     config:
@@ -72,6 +154,9 @@ models:
       - name: k_person
         tests:
           *ref_k_person
+      - name: k_performance_evaluation
+        tests:
+          *ref_k_performance_evaluation
 
   - name: stg_tpdm__performance_evaluations
     config:
@@ -80,6 +165,10 @@ models:
   - name: stg_tpdm__rubric_dimensions
     config:
       tags: ['tpdm']
+    columns:
+      - name: k_evaluation_element
+        tests:
+          *ref_k_evaluation_element
 
   - name: stg_tpdm__survey_response_person_target_associations
     config:
@@ -88,3 +177,6 @@ models:
       - name: k_person
         tests:
           *ref_k_person
+      - name: k_survey_response
+        tests:
+          *k_survey_response
