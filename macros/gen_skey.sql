@@ -201,6 +201,16 @@
             'col_list': ['candidateIdentifier'],
             'annualize': True
         },
+        'k_person': {
+            'reference_name': 'person_reference',
+            'col_list': ['personId', 'sourceSystemDescriptor'],
+            'annualize': True
+        },
+        'k_educator_prep_program': {
+            'reference_name': 'educator_preparation_program_reference',
+            'col_list': ['educationOrganizationId', 'programName', 'programTypeDescriptor'],
+            'annualize': True
+        },
         'k_template': {
             'reference_name': '',
             'col_list': [],
