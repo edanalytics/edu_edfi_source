@@ -9,7 +9,7 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'lower(namespace)',
-                'plower(erson_id)',
+                'lower(person_id)',
                 'lower(source_system)',
                 'lower(survey_id)',
                 'lower(survey_response_id)'
