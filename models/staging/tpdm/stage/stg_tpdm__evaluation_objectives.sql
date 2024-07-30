@@ -18,6 +18,7 @@ keyed as (
                 'lower(academic_term)'
             ]
         ) }} as k_evaluation_objective,
+        {{ gen_skey('k_evaluation') }},
         base_evaluation_objectives.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_evaluation_objectives

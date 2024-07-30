@@ -20,14 +20,14 @@ renamed as (
         v:schoolYearTypeReference:schoolYear::int                                 as school_year,
         {{ extract_descriptor('v:termDescriptor::string') }}                      as academic_term,
         -- non-identity components
-        v:performanceEvaluationDescription::string                      as performance_evaluation_description,
+        v:performanceEvaluationDescription::string as performance_evaluation_description,
         -- descriptors
         {{ extract_descriptor('v:academicSubjectDescriptor::string') }} as academic_subject,
         -- unflattened lists
         v:gradeLevels  as v_grade_levels,
         v:ratingLevels as v_rating_levels,
         -- references
-        v:educationOrganizationReference as education_organization_reference
+        v:educationOrganizationReference as education_organization_reference,
         v:schoolYearTypeReference        as school_year_type_reference
     from performance_evaluations
 )
