@@ -1,3 +1,5 @@
+{% if var("edu:contacts:enabled", False) %}
+
 with base_contacts as (
     select * from {{ ref('base_ef3__contacts') }}
     where not is_deleted
@@ -35,3 +37,12 @@ deduped as (
     }}
 )
 select * from deduped
+
+{% else %}
+
+select * rename 
+    k_parent as k_contact,
+    parent_unique_id as contact_unique_id
+from {{ ref('stg_ef3__parents') }}
+
+{% endif %}
