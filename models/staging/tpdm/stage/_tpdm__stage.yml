@@ -24,24 +24,31 @@ models:
       - name: k_educator_prep_program
         tests:
           *ref_k_educator_prep_program
+
   - name: stg_tpdm__candidates
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__educator_preparation_programs
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__evaluation_element_ratings
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__evaluation_elements
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__evaluation_objective_ratings
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__evaluation_objectives
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__evaluation_ratings
     config:
       tags: ['tpdm']
@@ -49,12 +56,15 @@ models:
       - name: k_course_section
         tests:
           *ref_k_course_section 
+
   - name: stg_tpdm__evaluations
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__financial_aids
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__performance_evaluation_ratings
     config:
       tags: ['tpdm']
@@ -62,12 +72,15 @@ models:
       - name: k_person
         tests:
           *ref_k_person
+
   - name: stg_tpdm__performance_evaluations
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__rubric_dimensions
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__survey_response_person_target_associations
     config:
       tags: ['tpdm']
