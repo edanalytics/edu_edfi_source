@@ -36,7 +36,9 @@ renamed as (
         v:results   as results,
         -- references
         v:personReference                as person_reference,
-        v:performanceEvaluationReference as performance_evaluation_reference
+        v:performanceEvaluationReference as performance_evaluation_reference,
+        -- edfi extensions
+        v:_ext as v_ext
     from performance_evaluation_ratings
 )
 select * from renamed

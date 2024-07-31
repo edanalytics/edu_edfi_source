@@ -20,7 +20,9 @@ renamed as (
         v:surveyResponseReference:surveyResponseIdentifier::string                  as survey_response_id,
         -- references
         v:surveyResponseReference as survey_response_reference,
-        v:personReference         as person_reference
+        v:personReference         as person_reference,
+        -- edfi extensions
+        v:_ext as v_ext
     from survey_response_person_target_associations
 )
 select * from renamed

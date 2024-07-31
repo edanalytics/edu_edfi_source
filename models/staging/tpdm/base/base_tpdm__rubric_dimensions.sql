@@ -29,7 +29,9 @@ renamed as (
         -- descriptors
         {{ extract_descriptor('v:rubricRatingLevelDescriptor::string') }} as rubric_rating_level,
         -- references
-        v:evaluationElementReference as evaluation_element_reference
+        v:evaluationElementReference as evaluation_element_reference,
+        -- edfi extensions
+        v:_ext as v_ext
     from rubric_dimensions
 )
 select * from renamed

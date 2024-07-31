@@ -28,7 +28,9 @@ renamed as (
         v:ratingLevels as v_rating_levels,
         -- references
         v:educationOrganizationReference as education_organization_reference,
-        v:schoolYearTypeReference        as school_year_type_reference
+        v:schoolYearTypeReference        as school_year_type_reference,
+        -- edfi extensions
+        v:_ext as v_ext
     from performance_evaluations
 )
 select * from renamed

@@ -11,7 +11,7 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                                                                           as record_guid,
+        v:id::string as record_guid,
         -- identity components
         v:evaluationObjectiveReference:educationOrganizationId::int                                            as ed_org_id,
         v:evaluationElementTitle::string                                                                       as evaluation_element_title,
