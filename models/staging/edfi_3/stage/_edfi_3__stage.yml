@@ -114,15 +114,23 @@ referential_integrity_tests:
         to: ref('stg_ef3__surveys')
         field: k_survey
         tags: ['ref_integrity']
+
   - k_survey_question: &ref_k_survey_question
     - relationships:
         to: ref('stg_ef3__survey_questions')
         field: k_survey_question
         tags: ['ref_integrity']
+
   - k_survey_response: &ref_k_survey_response
     - relationships:
         to: ref('stg_ef3__survey_responses')
         field: k_survey_response
+        tags: ['ref_integrity']
+
+  - k_person: &ref_k_person
+    - relationships:
+        to: ref('stg_ef3__people')
+        field: k_person
         tags: ['ref_integrity']
 
 

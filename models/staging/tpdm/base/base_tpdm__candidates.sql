@@ -48,9 +48,10 @@ renamed as (
         v:personalIdentificationDocuments as v_personal_identification_documents,
         v:races                           as v_races,
         v:telephones                      as v_telephones,
-
         -- references
-        v:personReference as person_reference
+        v:personReference as person_reference,
+        -- edfi extensions
+        v:_ext as v_ext
     from candidates
 )
 select * from renamed
