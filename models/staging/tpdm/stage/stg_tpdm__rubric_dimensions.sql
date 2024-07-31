@@ -20,6 +20,7 @@ keyed as (
                 'lower(academic_term)'
             ]
         ) }} as k_rubric_dimension,
+        {{ gen_skey('k_evaluation_element') }},
         base_rubric_dimensions.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_rubric_dimensions

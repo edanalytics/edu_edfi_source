@@ -13,7 +13,7 @@ keyed as (
                 'school_year'
             ]
         ) }} as k_performance_evaluation,
-        {{ edorg_ref() }},
+        {{ edorg_ref(annualize=False) }},
         base_performance_evaluations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_performance_evaluations
