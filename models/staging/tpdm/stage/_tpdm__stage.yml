@@ -25,6 +25,18 @@ referential_integrity_tests:
         field: k_person
         tags: ['ref_integrity']
 
+  - k_student: &ref_k_student
+    - relationships:
+        to: ref('stg_ef3__students')
+        field: k_student
+        tags: ['ref_integrity']
+
+  - k_survey_response: &ref_k_survey_response
+    - relationships:
+        to: ref('stg_ef3__survey_responses')
+        field: k_survey_response
+        tags: ['ref_integrity']
+
   - k_evaluation: &ref_k_evaluation
     - relationships:
         to: ref('stg_tpdm__evaluations')
@@ -37,7 +49,7 @@ referential_integrity_tests:
         field: k_evaluation_rating
         tags: ['ref_integrity']
 
-  - k_evaluation_objective: &ref_evaluation_objective
+  - k_evaluation_objective: &ref_k_evaluation_objective
     - relationships:
         to: ref('stg_tpdm__evaluation_objectives')
         field: k_evaluation_objective
@@ -105,9 +117,9 @@ models:
     config:
       tags: ['tpdm']
     columns:
-      - name:
+      - name: k_evaluation_objective
         tests:
-          *k_evaluation_objective
+          *ref_k_evaluation_objective
 
   - name: stg_tpdm__evaluation_objective_ratings
     config:
@@ -190,4 +202,4 @@ models:
           *ref_k_person
       - name: k_survey_response
         tests:
-          *k_survey_response
+          *ref_k_survey_response
