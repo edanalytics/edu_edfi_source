@@ -1,4 +1,3 @@
-
 with fieldwork_experiences as (
     select * from {{ ref('base_tpdm__fieldwork_experiences') }}
     where not is_deleted

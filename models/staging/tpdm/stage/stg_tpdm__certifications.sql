@@ -1,4 +1,3 @@
-
 with certifications as (
     select * from {{ ref('base_tpdm__certifications') }}
     where not is_deleted

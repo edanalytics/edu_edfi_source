@@ -1,4 +1,3 @@
-
 with post_secondary_institutions as (
     select * from {{ ref('base_tpdm__post_secondary_institutions') }}
     where not is_deleted

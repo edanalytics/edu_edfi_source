@@ -1,4 +1,3 @@
-
 with school_year_types as (
     select * from {{ ref('base_ef3__school_year_types') }}
     where not is_deleted

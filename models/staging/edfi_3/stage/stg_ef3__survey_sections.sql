@@ -1,4 +1,3 @@
-
 with survey_sections as (
     select * from {{ ref('base_ef3__survey_sections') }}
     where not is_deleted

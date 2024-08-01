@@ -1,4 +1,3 @@
-
 with credentials as (
     select * from {{ ref('base_tpdm__credentials') }}
     where not is_deleted

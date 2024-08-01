@@ -1,4 +1,3 @@
-
 with certification_exams as (
     select * from {{ ref('base_tpdm__certification_exams') }}
     where not is_deleted
