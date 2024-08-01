@@ -197,3 +197,9 @@ models:
   - name: base_ef3__survey_section_responses
     config:
       tags: ['survey']
+  - name: base_ef3__people
+    config:
+      tags: ['core']
+  - name: base_ef3__school_year_types
+    config:
+      tags: ['core']

@@ -11,8 +11,10 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                as record_guid,
-        v:surveyReference:surveyIdentifier::string  as survey_id,
+        v:id::string as record_guid,
+        -- identity components
+        v:surveyReference::surveyIdentifier::string as survey_id,
+        v:surveyReference::namespace::string        as namespace,
         v:surveySectionTitle::string                as survey_section_title,
         -- references
         v:surveyReference as survey_reference

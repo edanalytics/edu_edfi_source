@@ -201,6 +201,25 @@
             'col_list': ['candidateIdentifier'],
             'annualize': True
         },
+
+        'k_applicant_profile': {
+            'reference_name': 'applicant_profile_reference',
+            'col_list': ['applicantProfileIdentifier'],
+            'annualize': True
+        },
+
+        'k_certification_exam': {
+            'reference_name': 'certification_exam_reference',
+            'col_list': ['certificationExamIdentifier', 'namespace'],
+            'annualize': True
+        },
+
+        'k_survey_section': {
+            'reference_name': 'certification_exam_reference',
+            'col_list': ['surveyIdentifier', 'namespace', 'survey_section_title'],
+            'annualize': True
+        },
+
         'k_person': {
             'reference_name': 'person_reference',
             'col_list': ['personId', 'sourceSystemDescriptor'],
@@ -297,6 +316,7 @@
                          'termDescriptor'],
             'annualize': True
         },
+
         'k_template': {
             'reference_name': '',
             'col_list': [],

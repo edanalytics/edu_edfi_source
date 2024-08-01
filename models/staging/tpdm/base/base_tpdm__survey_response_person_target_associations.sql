@@ -13,11 +13,11 @@ renamed as (
 
         v:id::string as record_guid,
         -- identity components
-        v:surveyResponseReference:namespace::string                                 as namespace,
-        v:personReference:personId::string                                          as person_id,
-        {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string')}} as source_system,
-        v:surveyResponseReference:surveyIdentifier::string                          as survey_id,
-        v:surveyResponseReference:surveyResponseIdentifier::string                  as survey_response_id,
+        v:surveyResponseReference:namespace::string                                  as namespace,
+        v:personReference:personId::string                                           as person_id,
+        {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string') }} as source_system,
+        v:surveyResponseReference:surveyIdentifier::string                           as survey_id,
+        v:surveyResponseReference:surveyResponseIdentifier::string                   as survey_response_id,
         -- references
         v:surveyResponseReference as survey_response_reference,
         v:personReference         as person_reference,

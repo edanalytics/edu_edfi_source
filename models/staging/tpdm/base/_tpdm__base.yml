@@ -43,3 +43,25 @@ models:
   - name: base_tpdm__evaluation_element_ratings
     config:
       tags: ['tpdm']
+  - name: base_tpdm__applicant_profiles
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__applications
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__candidate_relationship_to_staff_associations
+    config:
+      tags: ['tpdm']
+  - name: base_tpdm__certification_exam_results
+      config:
+      tags: ['tpdm']
+  - name: base_tpdm__certification_exams
+      config:
+      tags: ['tpdm']
+  - name: base_tpdm__certifications
+      config:
+      tags: ['tpdm']
+  - name: base_tpdm__fieldwork_experiences
+      config:
+      tags: ['tpdm']
+  - name: base_tpdm__survey_response_education_organization_target_associations

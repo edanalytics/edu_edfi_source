@@ -11,16 +11,18 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                   as record_guid,
-        v:credentialIdentifier::string as credential_id,
-        v:effectiveDate::date          as effective_date,
-        v:expirationDate::date         as expiration_date,
-        v:issuanceDate::date           as issuance_date,
-        v:namespace::string            as namespace,
+        v:id::string as record_guid,
+        -- identity components
+        v:credentialIdentifier::string                                                as credential_id,
+        {{ extract_descriptor('v:stateOfIssueStateAbbreviationDescriptor::string') }} as state_of_issue_state_abbreviation,
+        -- non-identity components
+        v:effectiveDate::date  as effective_date,
+        v:expirationDate::date as expiration_date,
+        v:issuanceDate::date   as issuance_date,
+        v:namespace::string    as namespace,
         -- descriptors
         {{ extract_descriptor('v:credentialFieldDescriptor::string') }}               as credential_field,
         {{ extract_descriptor('v:credentialTypeDescriptor::string') }}                as credential_type,
-        {{ extract_descriptor('v:stateOfIssueStateAbbreviationDescriptor::string') }} as state_of_issue_state_abbreviation,
         {{ extract_descriptor('v:teachingCredentialDescriptor::string') }}            as teaching_credential,
         {{ extract_descriptor('v:teachingCredentialBasisDescriptor::string') }}       as teaching_credential_basis,
         -- unnested lists

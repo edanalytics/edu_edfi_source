@@ -1,5 +1,5 @@
-with survey_response_person_target_associations as (
-    select * from {{ ref('base_tpdm__survey_response_person_target_associations') }}
+with credentials as (
+    select * from {{ ref('base_tpdm__credentials') }}
     where not is_deleted
 ),
 keyed as (
@@ -12,18 +12,17 @@ keyed as (
             'lower(source_system)',
             'lower(survey_id)',
             'lower(survey_response_id)']
-        ) }} as k_survey_response_person_target_association,
-        {{ gen_skey('k_survey_response') }},
-        {{ gen_skey('k_person') }},
-        survey_response_person_target_associations.*
+        ) }} as k_credential,
+        {{ gen_skey('k_student_academic_record')}},
+        credentials.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
-    from survey_response_person_target_associations
+    from credentials
 ),
 deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_survey_response_person_target_association',
+            partition_by='k_credential',
             order_by='pull_timestamp desc')
     }}
 )
