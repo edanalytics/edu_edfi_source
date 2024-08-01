@@ -1,4 +1,3 @@
-
 with survey_response_person_target_associations as (
     select * from {{ ref('base_tpdm__survey_response_person_target_associations') }}
     where not is_deleted

@@ -1,5 +1,5 @@
-with section_responses as (
-    {{ source_edfi3('section_responses') }}
+with survey_section_responses as (
+    {{ source_edfi3('survey_section_responses') }}
 ),
 renamed as (
     select 
@@ -22,6 +22,6 @@ renamed as (
         -- references
         v:surveyResponseReference as survey_response_reference,
         v:surveySectionReference  as survey_section_reference
-    from section_responses
+    from survey_section_responses
 )
 select * from renamed

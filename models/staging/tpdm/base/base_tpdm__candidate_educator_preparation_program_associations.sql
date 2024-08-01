@@ -11,11 +11,16 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                                        as record_guid,
-        v:candidateReference:candidateIdentifier::string                    as candidate_id,
-        v:educatorPreparationProgramReference:educationOrganizationId::int  as program_id,
-        v:beginDate::date                                                   as begin_date,
-        v:endDate::date                                                     as end_date,
+        v:id::string as record_guid,
+        -- identity components
+        v:beginDate::date                                                                       as begin_date,
+        v:candidateReference:candidateIdentifier::string                                        as candidate_id,
+        v:educatorPreparationProgramReference:educationOrganizationId::int                      as ed_org_id,
+        v:educatorPreparationProgramReference:programName::string                               as program_name,
+        {{ extract_descriptor('v:educatorPreparationProgramReference:programTypeDescriptor') }} as program_type,
+        -- non-identity components
+        v:educatorPreparationProgramReference:link:rel::string as ed_org_type,
+        v:endDate::date                                        as end_date,
         -- descriptors
         {{ extract_descriptor('v:reasonExitedDescriptor::string') }}      as reason_exited,
         {{ extract_descriptor('v:eppProgramPathwayDescriptor::string') }} as epp_program_pathway,
@@ -24,7 +29,9 @@ renamed as (
         v:cohortYears           as v_cohort_years,
         -- references
         v:candidateReference                  as candidate_reference,
-        v:educatorPreparationProgramReference as educator_preparation_program_reference
+        v:educatorPreparationProgramReference as educator_preparation_program_reference,
+        -- edfi extensions
+        v:_ext as v_ext
     from candidate_educator_preparation_program_associations
 )
 select * from renamed

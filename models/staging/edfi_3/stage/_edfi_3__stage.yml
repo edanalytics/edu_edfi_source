@@ -131,6 +131,11 @@ referential_integrity_tests:
     - relationships:
         to: ref('stg_ef3__survey_sections')
         field: k_survey_section
+
+  - k_person: &ref_k_person
+    - relationships:
+        to: ref('stg_ef3__people')
+        field: k_person
         tags: ['ref_integrity']
 
 
