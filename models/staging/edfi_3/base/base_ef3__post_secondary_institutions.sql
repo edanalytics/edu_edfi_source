@@ -11,8 +11,10 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                      as record_guid,
+        v:id::string as record_guid,
+        -- identity components
         v:postSecondaryInstitutionId::int as post_secondary_institution_id,
+        -- non-identity components
         v:nameOfInstitution::string       as name_of_institution,
         v:shortNameOfInstitution::string  as short_name_of_institution,
         v:webSite::string                 as web_site,

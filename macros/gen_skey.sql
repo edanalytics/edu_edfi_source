@@ -214,6 +214,12 @@
             'annualize': True
         },
 
+        'k_survey_section': {
+            'reference_name': 'certification_exam_reference',
+            'col_list': ['surveyIdentifier', 'namespace', 'survey_section_title'],
+            'annualize': True
+        },
+
         'k_template': {
             'reference_name': '',
             'col_list': [],

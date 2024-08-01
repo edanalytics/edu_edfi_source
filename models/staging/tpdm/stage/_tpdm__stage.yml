@@ -120,5 +120,3 @@ models:
       - name: k_person
         tests:
           *ref_k_person
-  
-
