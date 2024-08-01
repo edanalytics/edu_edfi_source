@@ -16,7 +16,7 @@ renamed as (
         v:certificationIdentifier::string as certification_id,
         v:namespace::string               as namespace,
         -- non-identity components
-        v:certificationTitle::string      as certification_title,
+        v:certificationTitle::string as certification_title,
         -- descriptors
         {{ extract_descriptor('v:certificationFieldDescriptor::string') }}    as certification_field,
         {{ extract_descriptor('v:certificationLevelDescriptor::string') }}    as certification_level,

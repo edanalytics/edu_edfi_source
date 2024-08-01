@@ -1,5 +1,5 @@
-with base_applications as (
-    select * from {{ ref('base_ef3__applications') }}
+with applications as (
+    select * from {{ ref('base_tpdm__applications') }}
     where not is_deleted
 ),
 keyed as (
@@ -13,9 +13,9 @@ keyed as (
         ) }} as k_application,
         {{ edorg_ref(annualize=False) }},
         {{ gen_skey('k_applicant_profile')}},
-        base_applicant_profiles.*
+        applications.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
-    from base_applications
+    from applications
 ),
 deduped as (
     {{

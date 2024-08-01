@@ -1,5 +1,5 @@
 with base_applicant_profiles as (
-    select * from {{ ref('base_ef3__applicant_profiles') }}
+    select * from {{ ref('base_tpdm__applicant_profiles') }}
     where not is_deleted
 ),
 keyed as (

@@ -17,9 +17,9 @@ renamed as (
         v:applicationIdentifier::string                                as application_id,
         v:educationOrganizationReference:educationOrganizationId::int  as ed_org_id,
         -- non-identity components
-        v:educationOrganizationReference:link:rel::string              as ed_org_type,
-        v:acceptedDate::date                                           as accepted_date,
-        v:applicationDate::date                                        as application_date,
+        v:educationOrganizationReference:link:rel::string as ed_org_type,
+        v:acceptedDate::date                              as accepted_date,
+        v:applicationDate::date                           as application_date,
         -- descriptors
         {{ extract_descriptor('v:applicationStatusDescriptor::string') }} as application_status,
         -- references

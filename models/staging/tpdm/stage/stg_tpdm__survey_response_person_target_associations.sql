@@ -13,8 +13,8 @@ keyed as (
             'lower(survey_id)',
             'lower(survey_response_id)']
         ) }} as k_survey_response_person_target_association,
-        {{ gen_skey('k_survey_response')}},
-        {{ gen_skey('k_person')}},
+        {{ gen_skey('k_survey_response') }},
+        {{ gen_skey('k_person') }},
         survey_response_person_target_associations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from survey_response_person_target_associations

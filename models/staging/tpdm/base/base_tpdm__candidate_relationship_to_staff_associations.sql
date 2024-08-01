@@ -16,7 +16,7 @@ renamed as (
         v:candidateReference:candidateIdentifier::string as candidate_id,
         v:staffReference:staffUniqueId::string           as staff_unique_id,
         -- non-identity components
-        v:beginDate::date                                as begin_date,
+        v:beginDate::date as begin_date,
         -- descriptors
         {{ extract_descriptor('v:staffToCandidateRelationshipDescriptor::string') }} as staff_to_candidate_relationship,
         -- references

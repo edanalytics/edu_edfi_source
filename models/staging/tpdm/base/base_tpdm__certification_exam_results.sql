@@ -19,8 +19,8 @@ renamed as (
         v:personReference:personId::string                                          as person_id,
         {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string')}} as source_system,
         -- non-identity components
-        v:attemptNumber::int                                             as attempt_number,
-        v:certificationExamPassIndicator::boolean                        as certification_exam_pass_indicator,
+        v:attemptNumber::int                      as attempt_number,
+        v:certificationExamPassIndicator::boolean as certification_exam_pass_indicator,
         -- descriptors
         {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string') }} as person_source_system_descriptor,
         -- references

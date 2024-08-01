@@ -16,9 +16,9 @@ renamed as (
         v:certificationExamIdentifier::string as certification_exam_id,
         v:namespace::string                   as namespace,
         -- non-identity components
-        v:certificationExamTitle::string      as certification_exam_title,
-        v:effectiveDate::date                 as effective_date,
-        v:endDate::date                       as end_date,
+        v:certificationExamTitle::string as certification_exam_title,
+        v:effectiveDate::date            as effective_date,
+        v:endDate::date                  as end_date,
         -- descriptors
         {{ extract_descriptor('v:certificationExamTypeDescriptor::string') }} as certification_exam_type
     from certification_exams

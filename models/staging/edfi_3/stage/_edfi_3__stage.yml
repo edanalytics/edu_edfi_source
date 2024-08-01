@@ -881,7 +881,7 @@ models:
     columns:
       - name: k_survey
         tests:
-          **ref_k_survey
+          *ref_k_survey
 
   - name: stg_ef3__survey_section_responses
     config:
@@ -889,10 +889,10 @@ models:
     columns:
       - name: k_survey_response
         tests:
-          **ref_k_survey_response
+          *ref_k_survey_response
       - name: k_survey_section
         tests:
-          **ref_k_survey_section
+          *ref_k_survey_section
 
   - name: stg_ef3__school_year_types
     config:

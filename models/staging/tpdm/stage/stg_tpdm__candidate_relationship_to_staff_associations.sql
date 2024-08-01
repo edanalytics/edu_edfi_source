@@ -1,4 +1,4 @@
-with base_tpdm__candidate_relationship_to_staff_associations as (
+with candidate_relationship_to_staff_associations as (
     select * from {{ ref('base_tpdm__candidate_relationship_to_staff_associations') }}
     where not is_deleted
 ),
@@ -12,9 +12,9 @@ keyed as (
         ) }} as k_candidate_relationship_to_staff_associations,
         {{ gen_skey('k_candidate') }},
         {{ gen_skey('k_staff') }},
-        base_tpdm__candidate_relationship_to_staff_associations.*
+        candidate_relationship_to_staff_associations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
-    from base_tpdm__candidate_relationship_to_staff_associations
+    from candidate_relationship_to_staff_associations
 ),
 deduped as (
     {{
