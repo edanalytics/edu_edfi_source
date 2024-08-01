@@ -853,7 +853,7 @@ models:
     config: 
       tags: ['survey']
       enabled: "{{ var('src:domain:survey:enabled', True) }}"
-  
+
   - name: stg_ef3__people
     config:
       tags: ['core']
@@ -888,3 +888,8 @@ models:
       - name: k_survey_section
         tests:
           **ref_k_survey_section
+
+  - name: stg_ef3__school_year_types
+    config:
+      tags: ['core']
+
