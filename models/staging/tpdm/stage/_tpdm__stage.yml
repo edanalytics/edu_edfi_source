@@ -13,11 +13,112 @@ referential_integrity_tests:
           field: k_educator_prep_program
           tags: ['ref_integrity']
 
+  - k_applicant_profile: &ref_k_applicant_profile
+      - relationships:
+            to: ref('stg_tpdm__applicant_profiles')
+            field: k_applicant_profile
+            tags: ['ref_integrity']
+
+  - k_staff: &ref_k_staff
+    - relationships:
+        to: ref('stg_ef3__staffs')
+        field: k_staff
+        tags: ['ref_integrity']
+
+  - k_certification_exam: &ref_k_certification_exam
+    - relationships:
+        to: ref('stg_tpdm__certification_exam')
+        field: k_certification_exam
+        tags: ['ref_integrity']
+
+  - k_student: &ref_k_student
+    - relationships:
+        to: ref('stg_ef3__students')
+        field: k_student
+        tags: ['ref_integrity']
 
 models:
   - name: stg_tpdm__candidates
     config:
       tags: ['tpdm']
+
   - name: stg_tpdm__educator_preparation_programs
     config:
       tags: ['tpdm']
+
+  - name: stg_tpdm__applicant_profiles
+    config:
+      tags: ['tpdm']
+
+  - name: stg_tpdm__applications
+    config:
+      tags: ['tpdm']
+    columns:
+      - name: k_applicant_profile
+        tests:
+          *ref_k_applicant_profile
+      
+  - name: stg_tpdm__candidate_relationship_to_staff_associations
+    config:
+      tags: ['tpdm']
+    columns:
+      - name: k_candidate
+        tests:
+          *ref_k_candidate
+      - name: k_staff
+        tests:
+          *ref_k_staff
+
+  - name: stg_tpdm__certification_exam_results
+    config:
+      tags: ['tpdm']
+    columns:
+      - name: k_person
+        tests:
+          *ref_k_person
+      - name: k_certification_exam
+        tests:
+          *ref_k_certification_exam
+
+  - name: stg_tpdm__certification_exams
+    config:
+      tags: ['tpdm']
+
+  - name: stg_tpdm__certifications
+    config:
+      tags: ['tpdm']
+
+  - name: stg_tpdm__educator_preparation_programs
+    config:
+      tags: ['tpdm']
+    columns:
+      - name: k_educator_prep_program
+        tests:
+          *ref_k_educator_prep_program
+      - name: k_student
+        tests:
+          *ref_k_student
+
+  - name: stg_tpdm__educator_preparation_programs
+    config:
+      tags: ['tpdm']
+    columns:
+      - name: k_educator_prep_program
+        tests:
+          *ref_k_educator_prep_program
+      - name: k_student
+        tests:
+          *ref_k_student
+
+  - name: stg_tpdm__candidate_relationship_to_staff_associations
+    config:
+      tags: ['tpdm']
+    columns:
+      - name: k_survey_response
+        tests:
+          *ref_k_survey_response
+      - name: k_person
+        tests:
+          *ref_k_person
+  
+

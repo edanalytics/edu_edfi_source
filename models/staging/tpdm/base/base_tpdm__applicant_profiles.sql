@@ -11,10 +11,12 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                         as record_guid,
+        v:id::string as record_guid,
+        -- identity components
         v:applicantProfileIdentifier::string as applicant_profile_id,
-        v:firstName::string                  as first_name,
-        v:lastSurname::string                as last_name,
+        -- non-identity components
+        v:firstName::string   as first_name,
+        v:lastSurname::string as last_name,
         -- descriptors
         {{ extract_descriptor('v:sexDescriptor::string') }} as sex,
         -- unnested lists
@@ -32,7 +34,9 @@ renamed as (
         v:personalIdentificationDocuments as v_personal_identification_documents,
         v:races                           as v_races,
         v:telephones                      as v_telephones,
-        v:visas                           as v_visas
+        v:visas                           as v_visas,
+        -- edfi extensions
+        v:_ext as v_ext
     from applicant_profiles
 )
 select * from renamed

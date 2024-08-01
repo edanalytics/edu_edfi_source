@@ -11,10 +11,14 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                                     as record_guid,
-        v:certificationExamReference:certificationExamIdentifier::string as certification_exam_id,
-        v:personReference:personId::string                               as person_id,
-        v:certificationExamDate::date                                    as certification_exam_date,
+        v:id::string as record_guid,
+        -- identity components
+        v:certificationExamDate::date                                               as certification_exam_date,
+        v:certificationExamReference:certificationExamIdentifier::string            as certification_exam_id,
+        v:certificationExamReference:namespace::string                              as namespace,
+        v:personReference:personId::string                                          as person_id,
+        {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string')}} as source_system,
+        -- non-identity components
         v:attemptNumber::int                                             as attempt_number,
         v:certificationExamPassIndicator::boolean                        as certification_exam_pass_indicator,
         -- descriptors

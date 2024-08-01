@@ -11,10 +11,12 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                                   as record_guid,
+        v:id::string as record_guid,
+        -- identity components
+        v:applicantProfileReference:applicantProfileIdentifier::string as applicant_profile_id,
         v:applicationIdentifier::string                                as application_id,
-        v:applicantProfileReference:applicantProfileIdentifier::string as applicant_id,
         v:educationOrganizationReference:educationOrganizationId::int  as ed_org_id,
+        -- non-identity components
         v:educationOrganizationReference:link:rel::string              as ed_org_type,
         v:acceptedDate::date                                           as accepted_date,
         v:applicationDate::date                                        as application_date,
@@ -26,7 +28,9 @@ renamed as (
         -- unnested lists
         v:recruitmentEventAttendances as v_recruitment_event_attendances,
         v:scoreResults                as v_score_results,
-        v:terms                       as v_terms
+        v:terms                       as v_terms,
+        -- edfi extensions
+        v:_ext as v_ext
     from applications
 )
 select * from renamed

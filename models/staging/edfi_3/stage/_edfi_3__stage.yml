@@ -845,3 +845,7 @@ models:
     config: 
       tags: ['survey']
       enabled: "{{ var('src:domain:survey:enabled', True) }}"
+  
+  - name: stg_ef3__people
+    config:
+      tags: ['core']

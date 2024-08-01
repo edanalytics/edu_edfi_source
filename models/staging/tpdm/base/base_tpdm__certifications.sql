@@ -11,9 +11,11 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                      as record_guid,
+        v:id::string as record_guid,
+        -- identity components
         v:certificationIdentifier::string as certification_id,
         v:namespace::string               as namespace,
+        -- non-identity components
         v:certificationTitle::string      as certification_title,
         -- descriptors
         {{ extract_descriptor('v:certificationFieldDescriptor::string') }}    as certification_field,

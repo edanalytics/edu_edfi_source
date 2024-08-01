@@ -11,12 +11,14 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string                                                       as record_guid,
-        v:fieldworkIdentifier::string                                      as fieldwork_id,
+        v:id::string as record_guid,
+        -- identity components
+        v:beginDate::date                          as begin_date,
+        v:fieldworkIdentifier::string              as fieldwork_id,
+        v:studentReference:studentUniqueId::string as student_unique_id,
+        -- non-identity components
         v:educatorPreparationProgramReference:educationOrganizationId::int as ed_org_id,
         v:educatorPreparationProgramReference:link:rel::string             as ed_org_type,
-        v:studentReference:studentUniqueId::string                         as student_id,
-        v:beginDate::date                                                  as begin_date,
         v:endDate::date                                                    as end_date,
         -- descriptors
         {{ extract_descriptor('v:fieldworkTypeDescriptor::string') }} as fieldwork_type,

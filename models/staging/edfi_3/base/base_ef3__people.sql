@@ -11,9 +11,9 @@ renamed as (
         filename,
         is_deleted,
 
-        v:id::string    as record_guid,
+        v:id::string as record_guid,
+        -- identity components
         v:personId::int as person_id,
-        -- descriptors
         {{ extract_descriptor('v:sourceSystemDescriptor::string') }} as source_system
     from people
 )
