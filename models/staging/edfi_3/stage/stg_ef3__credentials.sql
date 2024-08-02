@@ -1,5 +1,5 @@
 with credentials as (
-    select * from {{ ref('base_tpdm__credentials') }}
+    select * from {{ ref('base_ef3__credentials') }}
     where not is_deleted
 ),
 keyed as (
