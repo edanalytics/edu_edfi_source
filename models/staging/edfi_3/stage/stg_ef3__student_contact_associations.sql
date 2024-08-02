@@ -1,5 +1,3 @@
-{% if var("edu:contacts:enabled", False) %}
-
 with base_stu_contact as (
     select 
         *,
@@ -41,10 +39,3 @@ deduped as (
     }}
 )
 select * from deduped
-
-{% else %}
-
-select * rename k_parent as k_contact
-from {{ ref('stg_ef3__student_parent_associations') }}
-
-{% endif %}

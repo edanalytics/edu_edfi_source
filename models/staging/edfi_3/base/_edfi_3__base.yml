@@ -24,7 +24,6 @@ models:
   - name: base_ef3__contacts
     config:
       tags: ['core']
-      enabled: "{{ var('edu:contacts:enabled', False) }}"
   - name: base_ef3__course_offerings
     config:
       tags: ['core']
@@ -124,7 +123,6 @@ models:
   - name: base_ef3__student_contact_associations
     config:
       tags: ['core']
-      enabled: "{{ var('edu:contacts:enabled', False) }}"
   - name: base_ef3__student_discipline_incident_associations
     config:
       tags: ['discipline']
