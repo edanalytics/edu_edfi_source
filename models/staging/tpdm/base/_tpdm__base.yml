@@ -53,15 +53,17 @@ models:
     config:
       tags: ['tpdm']
   - name: base_tpdm__certification_exam_results
-      config:
+    config:
       tags: ['tpdm']
   - name: base_tpdm__certification_exams
-      config:
+    config:
       tags: ['tpdm']
   - name: base_tpdm__certifications
-      config:
+    config:
       tags: ['tpdm']
   - name: base_tpdm__fieldwork_experiences
-      config:
+    config:
       tags: ['tpdm']
   - name: base_tpdm__survey_response_education_organization_target_associations
+    config:
+      tags: ['tpdm']

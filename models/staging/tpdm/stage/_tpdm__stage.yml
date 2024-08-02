@@ -115,10 +115,6 @@ models:
     config:
       tags: ['tpdm']
 
-  - name: stg_tpdm__educator_preparation_programs
-    config:
-      tags: ['tpdm']
-
   - name: stg_tpdm__applicant_profiles
     config:
       tags: ['tpdm']
@@ -160,14 +156,6 @@ models:
   - name: stg_tpdm__certifications
     config:
       tags: ['tpdm']
-
-  - name: stg_tpdm__educator_preparation_programs
-    config:
-      tags: ['tpdm']
-    columns:
-      - name: k_educator_prep_program
-        tests:
-          *ref_k_educator_prep_program
 
   - name: stg_tpdm__evaluation_element_ratings
     config:
@@ -247,17 +235,6 @@ models:
       - name: k_student
         tests:
           *ref_k_student
-
-  - name: stg_tpdm__candidate_relationship_to_staff_associations
-    config:
-      tags: ['tpdm']
-    columns:
-      - name: k_survey_response
-        tests:
-          *ref_k_survey_response
-      - name: k_person
-        tests:
-          *ref_k_person
 
   - name: stg_tpdm__performance_evaluation_ratings
     config:
