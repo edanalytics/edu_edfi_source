@@ -64,6 +64,3 @@ models:
   - name: base_tpdm__fieldwork_experiences
     config:
       tags: ['tpdm']
-  - name: base_tpdm__survey_response_education_organization_target_associations
-    config:
-      tags: ['tpdm']

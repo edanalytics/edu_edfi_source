@@ -12,11 +12,11 @@ keyed as (
                 'lower(evaluation_element_title)',
                 'lower(evaluation_objective_title)',
                 'lower(evaluation_period)',
-                'lower(valuation_title)',
+                'lower(evaluation_title)',
                 'lower(performance_evaluation_title)',
                 'lower(performance_evaluation_type)',
-                'school_year',
                 'rubric_rating',
+                'school_year',
                 'lower(academic_term)'
             ]
         ) }} as k_rubric_dimension,

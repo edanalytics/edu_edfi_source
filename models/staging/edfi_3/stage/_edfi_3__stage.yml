@@ -866,10 +866,6 @@ models:
   - name: stg_ef3__credentials
     config:
       tags: ['core']
-    columns:
-      - name: k_student_academic_record
-        tests:
-          *ref_k_student_academic_record
 
   - name: stg_ef3__post_secondary_institutions
     config:
@@ -877,7 +873,7 @@ models:
 
   - name: stg_ef3__survey_sections
     config:
-      tags: ['core']
+      tags: ['survey']
     columns:
       - name: k_survey
         tests:
@@ -885,7 +881,7 @@ models:
 
   - name: stg_ef3__survey_section_responses
     config:
-      tags: ['core']
+      tags: ['survey']
     columns:
       - name: k_survey_response
         tests:
@@ -894,7 +890,10 @@ models:
         tests:
           *ref_k_survey_section
 
-  - name: stg_ef3__school_year_types
+  - name: stg_ef3__survey_response_education_organization_target_associations
     config:
-      tags: ['core']
-
+      tags: ['survey']
+    columns:
+      - name: k_survey_response
+        tests:
+          *ref_k_survey_response

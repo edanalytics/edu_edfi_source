@@ -7,13 +7,9 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             ['tenant_code',
             'api_year',
-            'lower(namespace)',
-            'lower(person_id)',
-            'lower(source_system)',
-            'lower(survey_id)',
-            'lower(survey_response_id)']
+            'lower(credential_id)',
+            'lower(state_of_issue_state_abbreviation)']
         ) }} as k_credential,
-        {{ gen_skey('k_student_academic_record')}},
         credentials.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from credentials

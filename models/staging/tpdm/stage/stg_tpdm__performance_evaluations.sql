@@ -5,13 +5,14 @@ with base_performance_evaluations as (
 keyed as (
     select
         {{ dbt_utils.surrogate_key(
-            [
-                'tenant_code',
-                'api_year',
-                'ed_org_id',
-                'lower(performance_evaluation_title)',
-                'school_year'
-            ]
+            ['tenant_code',
+            'api_year',
+            'ed_org_id',
+            'lower(evaluation_period)',
+            'lower(performance_evaluation_title)',
+            'lower(performance_evaluation_type)',
+            'school_year',
+            'lower(academic_term)']
         ) }} as k_performance_evaluation,
         {{ edorg_ref(annualize=False) }},
         base_performance_evaluations.*
