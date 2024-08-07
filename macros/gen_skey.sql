@@ -215,8 +215,8 @@
         },
 
         'k_survey_section': {
-            'reference_name': 'certification_exam_reference',
-            'col_list': ['surveyIdentifier', 'namespace', 'survey_section_title'],
+            'reference_name': 'survey_section_reference',
+            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title'],
             'annualize': True
         },
 
@@ -235,8 +235,11 @@
         'k_performance_evaluation': {
             'reference_name': 'performance_evaluation_reference',
             'col_list': ['educationOrganizationId', 
+                         'evaluationPeriodDescriptor',
                          'performanceEvaluationTitle', 
-                         'schoolYear'],
+                         'performanceEvaluationTypeDescriptor',
+                         'schoolYear',
+                         'termDescriptor'],
             'annualize': True
         },
         'k_evaluation': {
@@ -311,12 +314,16 @@
                          'performanceEvaluationTitle',
                          'performanceEvaluationTypeDescriptor',
                          'personId',
-                         'sourceSystemDescriptor',
                          'schoolYear',
+                         'sourceSystemDescriptor',
                          'termDescriptor'],
             'annualize': True
         },
-
+        'k_post_secondary_institution': {
+            'reference_name': 'k_post_secondary_institution_reference',
+            'col_list': ['post_secondary_institution_id'],
+            'annualize': False
+        },
         'k_template': {
             'reference_name': '',
             'col_list': [],

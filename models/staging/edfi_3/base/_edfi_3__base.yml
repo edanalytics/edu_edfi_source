@@ -200,6 +200,6 @@ models:
   - name: base_ef3__people
     config:
       tags: ['core']
-  - name: base_ef3__school_year_types
+  - name: base_ef3__survey_response_education_organization_target_associations
     config:
-      tags: ['core']
+      tags: ['survey']

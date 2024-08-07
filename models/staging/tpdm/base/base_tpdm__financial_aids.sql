@@ -17,7 +17,6 @@ renamed as (
         v:beginDate::date                                       as begin_date,
         v:studentReference:studentUniqueId::string              as student_unique_id,
         -- non-identity components
-        v:beginDate::date                 as begin_date,
         v:aidAmount::float                as aid_amount,
         v:aidConditionDescription::string as aid_condition_description,
         v:endDate::date                   as end_date,

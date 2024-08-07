@@ -5,11 +5,9 @@ with base_candidates as (
 keyed as (
     select
         {{ dbt_utils.surrogate_key(
-            [
-                'tenant_code',
-                'api_year',
-                'lower(candidate_id)'
-            ]
+            ['tenant_code',
+            'api_year',
+            'lower(candidate_id)']
         ) }} as k_candidate,
         {{ gen_skey('k_person') }},
         base_candidates.*
