@@ -1,5 +1,5 @@
 with survey_response_education_organization_target_associations as (
-    select * from {{ ref('base__survey_response_education_organization_target_associations') }}
+    select * from {{ ref('base_ef3__survey_response_education_organization_target_associations') }}
     where not is_deleted
 ),
 keyed as (
@@ -22,7 +22,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='survey_response_education_organization_target_association', 
+            partition_by='k_survey_response_education_organization_target_association',
             order_by='pull_timestamp desc'
         )
     }}

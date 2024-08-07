@@ -215,8 +215,8 @@
         },
 
         'k_survey_section': {
-            'reference_name': 'certification_exam_reference',
-            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title']
+            'reference_name': 'survey_section_reference',
+            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title'],
             'annualize': True
         },
 

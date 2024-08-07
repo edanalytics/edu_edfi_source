@@ -22,6 +22,6 @@ renamed as (
         -- references
         v:educationOrganizationReference as education_organization_reference,
         v:surveyResponseReference        as survey_response_reference
-    from survey_education_organization_responses
+    from survey_response_education_organization_target_associations
 )
 select * from renamed
