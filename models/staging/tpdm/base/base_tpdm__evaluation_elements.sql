@@ -31,7 +31,7 @@ renamed as (
         -- unflattened lists
         v:ratingLevels as v_rating_levels,
         -- references
-        v:evaluationObjectiveReference as evaluation_objective_reference
+        v:evaluationObjectiveReference as evaluation_objective_reference,
         -- edfi extensions
         v:_ext as v_ext
     from evaluation_elements

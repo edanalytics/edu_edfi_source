@@ -22,7 +22,7 @@ renamed as (
         -- unflattened lists
         v:gradeLevels as v_grade_levels,
         -- references
-        v:educationOrganizationReference as ed_org_reference
+        v:educationOrganizationReference as education_organization_reference
     from educator_preparation_programs
 )
 select * from renamed

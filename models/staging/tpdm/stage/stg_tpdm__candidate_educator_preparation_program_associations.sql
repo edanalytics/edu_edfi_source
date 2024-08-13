@@ -1,4 +1,4 @@
-with base_candidate_educator_preparation_program_associations as (
+with candidate_educator_preparation_program_associations as (
     select * from {{ ref('base_tpdm__candidate_educator_preparation_program_associations') }}
     where not is_deleted
 ),
@@ -17,9 +17,9 @@ keyed as (
         ) }} as k_candidate_educator_preparation_program_association,
         {{ gen_skey('k_candidate') }},
         {{ gen_skey('k_educator_prep_program') }},
-        base_performance_evaluations.*
+        candidate_educator_preparation_program_associations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
-    from base_candidate_educator_preparation_program_associations
+    from candidate_educator_preparation_program_associations
 ),
 deduped as (
     {{

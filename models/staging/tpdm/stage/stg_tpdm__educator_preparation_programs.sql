@@ -15,7 +15,7 @@ keyed as (
         base_epp.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_epp
-)
+),
 deduped as (
     {{
         dbt_utils.deduplicate(
