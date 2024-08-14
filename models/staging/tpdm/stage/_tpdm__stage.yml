@@ -83,12 +83,6 @@ referential_integrity_tests:
         to: ref('stg_tpdm__evaluation_ratings')
         field: k_performance_evaluation_rating
         tags: ['ref_integrity']
-  
-  - k_evaluation_element: &ref_k_evaluation_element
-    - relationships:
-        to: ref('stg_tpdm__evaluation_elements')
-        field: k_evaluation_element
-        tags: ['ref_integrity']
 
   - k_evaluation_objective_rating: &ref_k_evaluation_objective_rating
     - relationships:
@@ -161,20 +155,9 @@ models:
     config:
       tags: ['tpdm']
     columns:
-      - name: k_evaluation_element
-        tests:
-          *ref_k_evaluation_element
       - name: k_evaluation_objective_rating
         tests:
           *ref_k_evaluation_objective_rating
-
-  - name: stg_tpdm__evaluation_elements
-    config:
-      tags: ['tpdm']
-    columns:
-      - name: k_evaluation_objective
-        tests:
-          *ref_k_evaluation_objective
 
   - name: stg_tpdm__evaluation_objective_ratings
     config:
@@ -254,10 +237,6 @@ models:
   - name: stg_tpdm__rubric_dimensions
     config:
       tags: ['tpdm']
-    columns:
-      - name: k_evaluation_element
-        tests:
-          *ref_k_evaluation_element
 
   - name: stg_tpdm__survey_response_person_target_associations
     config:

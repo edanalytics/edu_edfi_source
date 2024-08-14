@@ -9,7 +9,7 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'lower(aid_type)',
-                'beginDate',
+                'begin_date',
                 'lower(student_unique_id)'
             ]
         ) }} as k_financial_aid,

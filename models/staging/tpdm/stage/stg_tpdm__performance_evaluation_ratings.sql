@@ -19,7 +19,7 @@ keyed as (
             ]
         ) }} as k_performance_evaluation_rating,
         {{ gen_skey('k_person') }},
-        {{ gen_skey('k_performance_evaluation') }}
+        {{ gen_skey('k_performance_evaluation') }},
         base_performance_evaluation_ratings.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_performance_evaluation_ratings

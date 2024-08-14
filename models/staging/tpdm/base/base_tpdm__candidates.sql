@@ -13,7 +13,7 @@ renamed as (
 
         v:id::string                         as record_guid,
         v:candidateIdentifier::string        as candidate_id,
-        v:personReference::personId::string  as person_id,
+        v:personReference:personId::string  as person_id,
         v:firstName::string                  as first_name,
         v:lastSurname::string                as last_name,
         v:middleName::string                 as middle_name,

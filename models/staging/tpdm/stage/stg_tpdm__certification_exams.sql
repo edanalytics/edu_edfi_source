@@ -7,7 +7,6 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             ['tenant_code',
             'api_year',
-            'certification_exam_date',
             'lower(certification_exam_id)',
             'lower(namespace)']
         ) }} as k_certification_exam,
