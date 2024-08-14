@@ -26,7 +26,7 @@ keyed as (
         {{ gen_skey('k_student_xyear') }},
         api_year as school_year,
         unioned.*
-        {{ extract_extension(model_name=this.name, flatten=True) }}
+        {{ extract_extension(model_name=[this.name, 'stg_ef3__student_parent_associations'], flatten=True) }}
     from unioned
 ),
 deduped as (
