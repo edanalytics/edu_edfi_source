@@ -22,7 +22,7 @@ keyed as (
             ]
         ) }} as k_contact,
         unioned.*
-        {{ extract_extension([model_name=this.name, 'stg_ef3__parents'], flatten=True) }}
+        {{ extract_extension(model_name=[this.name, 'stg_ef3__parents'], flatten=True) }}
     from unioned
 ),
 deduped as (
