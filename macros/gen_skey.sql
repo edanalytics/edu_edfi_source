@@ -62,11 +62,19 @@
         },
         'k_grading_period': {
             'reference_name': 'grading_period_reference',
-            'col_list': ['gradingPeriodDescriptor',
-                         'periodSequence',
-                         'schoolId',
-                         'schoolYear'],
-            'annualize': False
+            'annualize': False,
+            'diff_by_data_standard': True,
+            'ds_specific_col_lists': {
+                "< '5.0'": ['gradingPeriodDescriptor',
+                                'periodSequence',
+                                'schoolId',
+                                'schoolYear'
+                        ],
+                ">= '5.0'": ['gradingPeriodDescriptor',
+                                'gradingPeriodName',
+                                'schoolId',
+                                'schoolYear']
+            }
         },
         'k_session': {
             'reference_name': 'session_reference',
@@ -202,8 +210,9 @@
     {#- retrieve key def for then decompose parts -#}
     {% set skey_def = skey_defs[k_name] %}
     {% set skey_ref = skey_def['reference_name'] %}
-    {% set skey_vars = skey_def['col_list'] %}
-
+    {% if not skey_def['diff_by_data_standard'] %}
+        {% set skey_vars = skey_def['col_list'] %}
+    {% endif %}
     {#- deal with special case: references embedded in unusual cases
         Note: we still want the same values, we just pull them from another place
         Example: getting k_section out of studentSectionAssociationReference instead of sectionReference
@@ -212,11 +221,22 @@
       {% set skey_ref = alt_ref %}
     {%- endif -%}
 
-    iff(
-        {{ skey_ref }} is not null, 
-        {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
-        null
-    )::varchar(32) as {{ alt_k_name or k_name }}
+    {# handle cases where skey is different depending on the data standard version (need a case when to apply different rules by row) #}
+    {% if skey_def['diff_by_data_standard'] %}
+        (case
+          when {{ skey_ref }} is null then null
+        {% for ds_version in skey_def['ds_specific_col_lists'] %}
+            when data_model_version {{ ds_version }}
+                then {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_def['ds_specific_col_lists'][ds_version], extras=extras)) }} 
+        {% endfor %}
+        end)::varchar(32) as {{ alt_k_name or k_name }}
+    {% else %}
+        iff(
+            {{ skey_ref }} is not null, 
+            {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
+            null
+        )::varchar(32) as {{ alt_k_name or k_name }}
+    {% endif %}
 {%- endmacro -%}
 
 {% macro gen_key_list(skey_def, skey_ref, skey_vars, extras=None) %}
