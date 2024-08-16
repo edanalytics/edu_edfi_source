@@ -18,7 +18,7 @@ renamed as (
         v:calendarReference:schoolYear::int       as calendar_school_year,
         v:schoolYearTypeReference:schoolYear::int as school_year,
         -- descriptors
-        {{ extract_descriptor('v:programAssignmentDescriptor') }} as program_assignment,
+        {{ extract_descriptor('v:programAssignmentDescriptor::string') }} as program_assignment,
         -- references
         v:calendarReference as calendar_reference,
         v:schoolReference   as school_reference,
