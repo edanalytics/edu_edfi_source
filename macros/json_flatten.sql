@@ -7,20 +7,20 @@ Arguments:
     outer: Keep rows with empty lists? Default false.
 #}
 
-{% macro json_flatten(column, alias, outer=False) %}
+{% macro json_flatten(column, alias='', outer=False) %}
     {{ return(adapter.dispatch('json_flatten', 'edu_edfi_source')(column, alias, outer)) }}
 {%  endmacro %}
 
 {% macro snowflake__json_flatten(column, alias, outer) -%}
 
-, lateral flatten(input=>{{ column }}, outer=>{{ outer }}) as {{ alias }}
+, lateral flatten(input=>{{ column }}, outer=>{{ outer }}) {% if alias %} as {{ alias }} {% endif %}
 
 {%- endmacro %}
 
 
 {% macro databricks__json_flatten(column, alias, outer) -%}
 
-lateral view {% if outer %}outer{% endif %} explode({{ column }}) as {{ alias }}
+lateral variant_explode{% if outer %}_outer{% endif %}({{ column }}) {% if alias %} as {{ alias }} {% endif %}
 
 {%- endmacro %}
 
