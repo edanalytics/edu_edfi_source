@@ -28,13 +28,13 @@ Flattened:
     This approach is relatively clumsy, but it works.
 
 #}
-{% macro json_extract(path, type='', column='v', flattened=False) %}
-    {{ return(adapter.dispatch('json_extract', 'edu_edfi_source')(path, type, column, flattened)) }}
+{% macro json_extract(path, type='', column='v') %}
+    {{ return(adapter.dispatch('json_extract', 'edu_edfi_source')(path, type, column)) }}
 {%  endmacro %}
 
-{% macro snowflake__json_extract(path, type, column, flattened) -%}
+{% macro snowflake__json_extract(path, type, column) -%}
 
-{{ column }}{% if flattened %}.value{% endif %}:{{ path }}{% if type != '' %}::{{type}}{% endif %}
+{{ column }}:{{ path }}{% if type != '' %}::{{type}}{% endif %}
 
 {%- endmacro %}
 

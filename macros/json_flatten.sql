@@ -13,14 +13,14 @@ Arguments:
 
 {% macro snowflake__json_flatten(column, alias, outer) -%}
 
-, lateral flatten(input=>{{ column }}, outer=>{{ outer }}) {% if alias %} as {{ alias }} {% endif %}
+, lateral flatten(input=>{{ column }}, outer=>{{ outer }}) {% if alias != '' %} as {{ alias }} {% endif %}
 
 {%- endmacro %}
 
 
 {% macro databricks__json_flatten(column, alias, outer) -%}
 
-lateral variant_explode{% if outer %}_outer{% endif %}({{ column }}) {% if alias %} as {{ alias }} {% endif %}
+lateral variant_explode{% if outer %}_outer{% endif %}({{ column }}) {% if alias != '' %} as {{ alias }} {% endif %}
 
 {%- endmacro %}
 
