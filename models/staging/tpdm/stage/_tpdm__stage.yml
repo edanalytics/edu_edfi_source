@@ -268,3 +268,14 @@ models:
         tests:
           *ref_k_survey_response
 
+  - name: stg_tpdm__fieldwork_experiences
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_survey_response
+        tests:
+          *ref_k_educator_prep_program
