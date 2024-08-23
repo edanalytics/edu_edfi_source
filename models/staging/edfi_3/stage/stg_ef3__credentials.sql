@@ -10,6 +10,7 @@ keyed as (
             'lower(credential_id)',
             'lower(state_of_issue_state_abbreviation)']
         ) }} as k_credential,
+	{{ gen_skey('k_person') }},
         credentials.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from credentials

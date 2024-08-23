@@ -14,6 +14,7 @@ renamed as (
         v:id::string as record_guid,
         -- identity components
         v:credentialIdentifier::string                                                as credential_id,
+	v:_ext:tpdm:personReference:personId::string                                  as person_id,
         {{ extract_descriptor('v:stateOfIssueStateAbbreviationDescriptor::string') }} as state_of_issue_state_abbreviation,
         -- non-identity components
         v:effectiveDate::date  as effective_date,
@@ -30,6 +31,7 @@ renamed as (
         v:academicSubjects as v_academic_subjects,
         v:gradeLevels      as v_grade_levels,
         -- references
+	v:personReference as person_reference,
         v:studentAcademicRecords as student_academic_records,
         -- edfi extensions
         v:_ext as v_ext 
