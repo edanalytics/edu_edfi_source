@@ -32,6 +32,7 @@ renamed as (
         {{ extract_descriptor('v:availableCreditTypeDescriptor::string') }}    as available_credit_type,
         {{ extract_descriptor('v:educationalEnvironmentDescriptor::string') }} as educational_environment_type,
         {{ extract_descriptor('v:instructionLanguageDescriptor::string') }}    as instruction_language,
+        {{ extract_descriptor('v:sectionTypeDescriptor::string') }}            as section_type,
         {{ extract_descriptor('v:mediumOfInstructionDescriptor::string') }}    as medium_of_instruction,
         {{ extract_descriptor('v:populationServedDescriptor::string') }}       as population_served,
         -- references
