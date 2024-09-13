@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Fix surrogate key creation for `stg_ef3__student_academic_records`, `stg_ef3__student_objective_assessments`, and `stg_ef3__students` to properly handle lowering of alphanumeric columns that are part of natural keys
 
 # edu_edfi_source v0.3.6
 ## Fixes
