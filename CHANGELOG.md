@@ -5,6 +5,7 @@
 - Add `v_programs` column to `course_transcripts` (Ed-Fi Data Standard v5.0 addition)
 ## Under the hood
 ## Fixes
+- Fix typo in column name `courses.maxCompletionsForCredit`
 
 # edu_edfi_source v0.3.6
 ## Fixes
