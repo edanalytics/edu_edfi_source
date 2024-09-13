@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Fix typo in column name `courses.maxCompletionsForCredit`
 
 # edu_edfi_source v0.3.6
 ## Fixes
