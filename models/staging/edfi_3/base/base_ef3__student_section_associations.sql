@@ -28,6 +28,9 @@ renamed as (
         v:studentReference as student_reference,
         v:sectionReference as section_reference,
 
+        -- lists
+        v:programs as v_programs,
+
         -- edfi extensions
         v:_ext as v_ext
     from student_section
