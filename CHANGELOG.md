@@ -1,9 +1,12 @@
 # Unreleased
 ## New features
+- Add base/stage models for `contacts` and `student_contact_associations`, added due to the rename from parent to contact in Ed-Fi data standard v5.0.
+- Rename `k_parent` to `k_contact` in `stg_ef3__survey_responses`.
 - Add `section_type` descriptor column to `sections` (Ed-Fi Data Standard v5.0 addition)
 - Add `responsible_teacher_staff_reference`, `v_programs`, `v_sections` columns to `course_transcripts` (Ed-Fi Data Standard v5.0 additions)
 - Add `v_programs` column to `course_transcripts` (Ed-Fi Data Standard v5.0 addition)
 ## Under the hood
+- Add columns to `base_ef3__parents` to allow data to be unioned into new `stg_ef3__contacts` model.
 ## Fixes
 - Fix typo in column name `courses.maxCompletionsForCredit`
 
