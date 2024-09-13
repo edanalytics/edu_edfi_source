@@ -15,7 +15,7 @@ keyed as (
         {{ dbt_utils.surrogate_key(
             [
                 'tenant_code',
-                'student_unique_id'
+                'lower(student_unique_id)'
             ]
         ) }} as k_student_xyear,
         base_students.*
