@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add `gender_identity`, `preferred_first_name`, `preferred_last_name` columns to `staffs` (Ed-Fi Data Standard v5.0 additions)
 ## Under the hood
 ## Fixes
 
