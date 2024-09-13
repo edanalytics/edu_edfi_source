@@ -42,11 +42,14 @@ renamed as (
         v:courseReference                        as course_reference,
         v:studentAcademicRecordReference         as student_academic_record_reference,
         v:externalEducationOrganizationReference as external_education_organization_reference,
+        v:responsibleTeacherStaffReference       as responsible_teacher_staff_reference,
 				-- non-identity collection components
 				v:earnedAdditionalCredits              as v_earned_additional_credits,
         v:academicSubjects                     as v_academic_subjects,
         v:alternativeCourseIdentificationCodes as v_alternative_course_identification_codes,
         v:creditCategories                     as v_credit_categories,
+        v:coursePrograms                       as v_programs,
+        v:sections                             as v_sections,
 
         -- edfi extensions
         v:_ext as v_ext
