@@ -1,5 +1,8 @@
 # Unreleased
 ## New features
+- Add `section_type` descriptor column to `sections` (Ed-Fi Data Standard v5.0 addition)
+- Add `responsible_teacher_staff_reference`, `v_programs`, `v_sections` columns to `course_transcripts` (Ed-Fi Data Standard v5.0 additions)
+- Add `v_programs` column to `course_transcripts` (Ed-Fi Data Standard v5.0 addition)
 ## Under the hood
 ## Fixes
 
