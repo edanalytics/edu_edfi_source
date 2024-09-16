@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add `stg_ef3__stu_ed_org__cohort_years` tracking student cohort designations (flattens `v_cohort_years` for use in `edu_wh` models)
 ## Under the hood
 ## Fixes
 
