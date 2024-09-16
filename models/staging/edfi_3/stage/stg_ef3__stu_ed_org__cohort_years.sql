@@ -10,9 +10,9 @@ flattened as (
         ed_org_id,
         k_lea,
         k_school,
-        {{ extract_descriptor('value:cohortYearTypeDescriptor::string') }} as cohort_year,
+        {{ extract_descriptor('value:cohortYearTypeDescriptor::string') }} as cohort_year_type,
         value:schoolYearTypeReference:schoolYear::string as school_year,
-        {{ extract_descriptor('value:termDescriptor::string') }} as term
+        {{ extract_descriptor('value:termDescriptor::string') }} as academic_term
     from stage_stu_ed_org
         , lateral flatten(input=>v_cohort_years)
 )
