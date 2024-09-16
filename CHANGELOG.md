@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add `stg_ef3__stu_ed_org__cohort_years` tracking student cohort designations (flattens `v_cohort_years` for use in `edu_wh` models)
 - Add base/stage models for `contacts` and `student_contact_associations`, added due to the rename from parent to contact in Ed-Fi data standard v5.0.
 - Rename `k_parent` to `k_contact` in `stg_ef3__survey_responses`.
 - Add `gender_identity`, `preferred_first_name`, `preferred_last_name` columns to `staffs` (Ed-Fi Data Standard v5.0 additions)
