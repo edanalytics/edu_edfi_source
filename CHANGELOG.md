@@ -1,5 +1,11 @@
 # Unreleased
 ## New features
+## Under the hood
+## Fixes
+
+
+# edu_edfi_source v0.3.7
+## New features
 - Add `stg_ef3__stu_ed_org__cohort_years` tracking student cohort designations (flattens `v_cohort_years` for use in `edu_wh` models)
 - Add base/stage models for `contacts` and `student_contact_associations`, added due to the rename from parent to contact in Ed-Fi data standard v5.0.
 - Rename `k_parent` to `k_contact` in `stg_ef3__survey_responses`.
@@ -13,8 +19,7 @@
 ## Fixes
 - Fix typo in column name `courses.maxCompletionsForCredit`
 - Fix surrogate key creation for `stg_ef3__student_academic_records`, `stg_ef3__student_objective_assessments`, and `stg_ef3__students` to properly handle lowering of alphanumeric columns that are part of natural keys
-
-
+  
 # edu_edfi_source v0.3.6
 ## Fixes
 - Fix data type on base_ef3__student_special_education_program_associations.student_unique_id
