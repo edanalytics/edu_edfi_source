@@ -1,6 +1,7 @@
 # Unreleased
 ## New features
 ## Under the hood
+- Make package macro calls to `extract_descriptor` explicit so `flatten_arrays` can be used by outer packages
 ## Fixes
 
 # edu_edfi_source v0.3.6
