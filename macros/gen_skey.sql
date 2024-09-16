@@ -190,6 +190,11 @@
             'col_list': ['learningStandardId'],
             'annualize': True
         },
+        'k_contact': {
+            'reference_name': 'contact_reference',
+            'col_list': ['contactUniqueId'],
+            'annualize': False
+        },
 
         'k_template': {
             'reference_name': '',
