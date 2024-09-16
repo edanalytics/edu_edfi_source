@@ -10,7 +10,7 @@ flattened as (
         {%- for key in keys %}
         {{key}},
         {% endfor -%}
-        {{ extract_descriptor('value:electronicMailTypeDescriptor::string') }} as email_type,
+        {{ edu_edfi_source.extract_descriptor('value:electronicMailTypeDescriptor::string') }} as email_type,
         lower(value:electronicMailAddress::string)                             as email_address,
         value:primaryEmailAddressIndicator::boolean                            as is_primary_email,
         value:doNotPublishIndicator::boolean                                   as do_not_publish
@@ -32,7 +32,7 @@ flattened as (
         {%- for key in keys %}
         {{key}},
         {% endfor -%}
-        {{ extract_descriptor('value:telephoneNumberTypeDescriptor::string') }} as phone_number_type,
+        {{ edu_edfi_source.extract_descriptor('value:telephoneNumberTypeDescriptor::string') }} as phone_number_type,
         value:telephoneNumber::string                                           as phone_number,
         value:orderOfPriority::int                                              as priority_order,
         value:doNotPublishIndicator::boolean                                    as do_not_publish,
@@ -55,15 +55,15 @@ flattened as (
         {%- for key in keys %}
         {{key}},
         {% endfor -%}
-        {{ extract_descriptor('addr.value:addressTypeDescriptor::string') }} as address_type,
+        {{ edu_edfi_source.extract_descriptor('addr.value:addressTypeDescriptor::string') }} as address_type,
         addr.value:streetNumberName::string as street_address,
         addr.value:apartmentRoomSuiteNumber::string as apartment_room_suite_number,
         addr.value:city::string as city,
         addr.value:nameOfCounty::string name_of_county,
-        {{ extract_descriptor('addr.value:stateAbbreviationDescriptor::string') }} as state_code,
+        {{ edu_edfi_source.extract_descriptor('addr.value:stateAbbreviationDescriptor::string') }} as state_code,
         addr.value:postalCode::string as postal_code,
         addr.value:buildingSiteNumber::string as building_site_number,
-        {{ extract_descriptor('addr.value:localeDescriptor::string') }} as locale,
+        {{ edu_edfi_source.extract_descriptor('addr.value:localeDescriptor::string') }} as locale,
         addr.value:congressionalDistrict::string as congressional_district,
         addr.value:countyFIPSCode::string as county_fips_code,
         addr.value:doNotPublishIndicator::boolean as do_not_publish,

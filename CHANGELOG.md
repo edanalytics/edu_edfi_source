@@ -8,7 +8,8 @@
 - Add `responsible_teacher_staff_reference`, `v_programs`, `v_sections` columns to `course_transcripts` (Ed-Fi Data Standard v5.0 additions)
 - Add `v_programs` column to `course_transcripts` (Ed-Fi Data Standard v5.0 addition)
 ## Under the hood
-- Add columns to `base_ef3__parents` to allow data to be unioned into new `stg_ef3__contacts` model.
+- Add columns to `base_ef3__parents` to allow data to be unioned into new `stg_ef3__contacts` model
+- Make package macro calls to `extract_descriptor` explicit so `flatten_arrays` can be used by outer packages
 ## Fixes
 - Fix typo in column name `courses.maxCompletionsForCredit`
 - Fix surrogate key creation for `stg_ef3__student_academic_records`, `stg_ef3__student_objective_assessments`, and `stg_ef3__students` to properly handle lowering of alphanumeric columns that are part of natural keys
