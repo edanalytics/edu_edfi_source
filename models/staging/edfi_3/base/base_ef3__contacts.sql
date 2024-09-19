@@ -1,5 +1,5 @@
-with parents as (
-    {{ source_edfi3('parents') }}
+with contacts as (
+    {{ source_edfi3('contacts') }}
 ),
 renamed as (
     select
@@ -12,7 +12,7 @@ renamed as (
         is_deleted,
 
         v:id::string                                                                     as record_guid,
-        v:parentUniqueId::string                                                         as parent_unique_id,
+        v:contactUniqueId::string                                                        as contact_unique_id,
         v:personReference:personId::string                                               as person_id,
         v:firstName::string                                                              as first_name,
         v:middleName::string                                                             as middle_name,
@@ -20,9 +20,7 @@ renamed as (
         v:maidenName::string                                                             as maiden_name,
         v:generationCodeSuffix::string                                                   as generation_code_suffix,
         v:personalTitlePrefix::string                                                    as personal_title_prefix,
-        -- the following three fields were introduced to the Contacts resource, which replaced Parents in v5.0
-        -- including them here (they will always be null) to allow the tables to be unioned in stage
-        v:genderIdentity::string                                                         as gender_identity, 
+        v:genderIdentity::string                                                         as gender_identity,
         v:preferredFirstName::string                                                     as preferred_first_name,
         v:preferredLastSurname::string                                                   as preferred_last_name,
         v:loginId::string                                                                as login_id,
@@ -42,6 +40,6 @@ renamed as (
 
         -- edfi extensions
         v:_ext as v_ext
-    from parents
+    from contacts
 )
 select * from renamed
