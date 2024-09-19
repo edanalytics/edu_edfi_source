@@ -11,6 +11,8 @@ renamed as (
         file_row_number,
         is_deleted,
         v:id::string                                             as record_guid,
+        ods_version,
+        data_model_version,
         v:disciplineIncidentReference:incidentIdentifier::string as incident_id,
         v:disciplineIncidentReference:schoolId::int              as school_id,
         v:studentReference:studentUniqueId::string               as student_unique_id,

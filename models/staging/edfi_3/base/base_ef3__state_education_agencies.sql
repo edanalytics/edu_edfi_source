@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
         -- fields
         v:id::string                     as record_guid,
+        ods_version,
+        data_model_version,
         v:stateEducationAgencyId::int    as sea_id,
         v:nameOfInstitution::string      as sea_name,
         v:shortNameOfInstitution::string as sea_short_name,

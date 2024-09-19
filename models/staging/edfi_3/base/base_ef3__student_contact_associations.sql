@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
 
         v:id::string                                             as record_guid,
+        ods_version,
+        data_model_version,
         v:contactPriority::int                                   as contact_priority,
         v:contactRestrictions::string                            as contact_restrictions,
         v:emergencyContactStatus::boolean                        as is_emergency_contact,

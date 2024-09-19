@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                                       as record_guid,
+        ods_version,
+        data_model_version,
         v:assessmentReference:assessmentIdentifier::string as assessment_identifier,
         v:assessmentReference:namespace::string            as namespace,
         v:identificationCode::string                       as objective_assessment_identification_code,

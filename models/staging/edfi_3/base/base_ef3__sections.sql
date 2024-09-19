@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                as record_guid,
+        ods_version,
+        data_model_version,
         v:sectionIdentifier::string as section_id,
         v:sectionName::string       as section_name,
         -- course offering key

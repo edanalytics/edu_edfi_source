@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
 
         v:id::string                                                                     as record_guid,
+        ods_version,
+        data_model_version,
         v:contactUniqueId::string                                                        as contact_unique_id,
         v:personReference:personId::string                                               as person_id,
         v:firstName::string                                                              as first_name,

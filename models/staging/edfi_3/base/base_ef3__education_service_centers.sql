@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                                            as record_guid,
+        ods_version,
+        data_model_version,
         v:educationServiceCenterId::string                      as esc_id,
         v:nameOfInstitution::string                             as esc_name,
         v:shortNameOfInstitution::string                        as esc_short_name,
