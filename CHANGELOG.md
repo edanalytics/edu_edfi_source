@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Rename stg_ef3__staff__races to stg_ef3__staffs__races for consistency with EDU naming conventions
 
 # edu_edfi_source v0.3.6
 ## Fixes
