@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                              as record_guid,
+        ods_version,
+        data_model_version,
         v:bellScheduleName::string                as bell_schedule_name,
         v:schoolReference:schoolId::int           as school_id,
         v:alternateDayName::string                as alternate_day_name,

@@ -4,7 +4,7 @@ with base_local_education_agencies as (
 ),
 keyed as (
     select
-         {{ dbt_utils.surrogate_key(
+         {{ dbt_utils.generate_surrogate_key(
            ['tenant_code', 
             'lea_id'] 
         ) }} as k_lea,

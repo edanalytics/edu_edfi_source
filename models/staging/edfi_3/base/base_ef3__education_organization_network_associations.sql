@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                            as record_guid,
+        ods_version,
+        data_model_version,
         v:educationOrganizationNetworkReference:educationOrganizationNetworkId::int as network_id,
         v:memberEducationOrganizationReference:educationOrganizationId::int         as ed_org_id,
         v:beginDate::date                       as begin_date,

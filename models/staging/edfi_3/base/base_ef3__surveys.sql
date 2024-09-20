@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
 
         v:id::string                                                  as record_guid,
+        ods_version,
+        data_model_version,
         v:namespace::string                                           as namespace,
         v:surveyIdentifier::string                                    as survey_id,
         v:schoolYearTypeReference:schoolYear::string                  as school_year,

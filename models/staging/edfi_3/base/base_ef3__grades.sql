@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string as record_guid,
+        ods_version,
+        data_model_version,
         -- section key
         v:studentSectionAssociationReference:beginDate::date         as section_begin_date,
         v:studentSectionAssociationReference:localCourseCode::string as local_course_code,

@@ -4,7 +4,7 @@ with base_sections as (
 ),
 keyed as (
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
                 'lower(local_course_code)',

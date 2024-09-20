@@ -1,5 +1,5 @@
-with student_parent_associations as (
-    {{ source_edfi3('student_parent_associations') }}
+with student_contact_associations as (
+    {{ source_edfi3('student_contact_associations') }}
 ),
 renamed as (
     select
@@ -22,11 +22,11 @@ renamed as (
         v:legalGuardian::boolean                                 as is_legal_guardian,
         {{ extract_descriptor('v:relationDescriptor::string') }} as relation_type,
         -- references
-        v:parentReference                                        as parent_reference,
+        v:contactReference                                       as contact_reference,
         v:studentReference                                       as student_reference,
 
         -- edfi extensions
         v:_ext as v_ext
-    from student_parent_associations
+    from student_contact_associations
 )
 select * from renamed

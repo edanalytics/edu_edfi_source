@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                                       as record_guid,
+        ods_version,
+        data_model_version,
         v:studentReference:studentUniqueId::string         as student_unique_id,
         v:cohortReference:educationOrganizationId::integer as cohort_ed_org_id,
         v:cohortReference:cohortIdentifier::string         as cohort_id,

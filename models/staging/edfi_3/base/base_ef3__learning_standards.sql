@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
         -- ids
         v:id::string                              as record_guid,
+        ods_version,
+        data_model_version,
         v:learningStandardId::string              as learning_standard_id,
         v:identificationCodes                     as v_learning_standard_identification_codes,
         -- descriptions

@@ -38,12 +38,12 @@ keyed as (
         tenant_code,
         api_year,
         pull_timestamp,
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
             'lower(academic_subject)',
-            'student_assessment_identifier',
-            'objective_assessment_identification_code']
+            'lower(student_assessment_identifier)',
+            'lower(objective_assessment_identification_code)']
         ) }} as k_student_objective_assessment,
         {{ gen_skey('k_objective_assessment', extras = ['academic_subject']) }},
         k_student_assessment,
