@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string as record_guid,
+        ods_version,
+        data_model_version,
 				--identity components
 				{{ extract_descriptor('v:courseAttemptResultDescriptor::string') }} as course_attempt_result,
         v:courseReference:educationOrganizationId::int                      as course_ed_org_id,
@@ -42,11 +44,14 @@ renamed as (
         v:courseReference                        as course_reference,
         v:studentAcademicRecordReference         as student_academic_record_reference,
         v:externalEducationOrganizationReference as external_education_organization_reference,
+        v:responsibleTeacherStaffReference       as responsible_teacher_staff_reference,
 				-- non-identity collection components
 				v:earnedAdditionalCredits              as v_earned_additional_credits,
         v:academicSubjects                     as v_academic_subjects,
         v:alternativeCourseIdentificationCodes as v_alternative_course_identification_codes,
         v:creditCategories                     as v_credit_categories,
+        v:coursePrograms                       as v_programs,
+        v:sections                             as v_sections,
 
         -- edfi extensions
         v:_ext as v_ext

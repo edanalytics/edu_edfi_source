@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                        as record_guid,
+        ods_version,
+        data_model_version,
         v:schoolReference:schoolId::integer as school_id,
         v:classPeriodName::string           as class_period_name,
         v:officialAttendancePeriod::boolean as is_official_attendance_period,

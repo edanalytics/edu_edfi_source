@@ -9,7 +9,7 @@ keyed as (
                 'tenant_code',
                 'ed_org_id',
                 'school_year',
-                'student_unique_id',
+                'lower(student_unique_id)',
                 'lower(academic_term)'
             ]
         ) }} as k_student_academic_record,

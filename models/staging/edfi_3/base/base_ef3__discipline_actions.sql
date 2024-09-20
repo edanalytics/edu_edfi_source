@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string as record_guid,
+        ods_version,
+        data_model_version,
         v:disciplineActionIdentifier::string          as discipline_action_id,
         v:disciplineDate::date                        as discipline_date,
         v:assignmentSchoolReference:schoolId::int     as assignment_school_id,

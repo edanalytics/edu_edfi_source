@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                      as record_guid,
+        ods_version,
+        data_model_version,
         v:localEducationAgencyId::int     as lea_id,
         v:nameOfInstitution::string       as lea_name,
         v:shortNameOfInstitution::string  as lea_short_name,

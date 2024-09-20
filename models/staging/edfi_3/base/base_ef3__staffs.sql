@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
         -- fields
         v:id::string                                 as record_guid,
+        ods_version,
+        data_model_version,
         v:staffUniqueId::string                      as staff_unique_id,
         v:loginId::string                            as login_id,
         v:firstName::string                          as first_name,
@@ -20,6 +22,9 @@ renamed as (
         v:middleName::string                         as middle_name,
         v:generationCodeSuffix::string               as generation_code_suffix,
         v:personalTitlePrefix::string                as personal_title_prefix,
+        v:genderIdentity::string                     as gender_identity,
+        v:preferredFirstName::string                 as preferred_first_name,
+        v:preferredLastSurname::string               as preferred_last_name,
         v:personReference:personId::string           as person_id,
         v:birthDate::date                            as birth_date,
         v:hispanicLatinoEthnicity::boolean           as has_hispanic_latino_ethnicity,

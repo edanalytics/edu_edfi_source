@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                             as record_guid,
+        ods_version,
+        data_model_version,
         v:date::date                             as calendar_date,
         v:calendarReference:calendarCode::string as calendar_code,
         v:calendarReference:schoolId::integer    as school_id,
