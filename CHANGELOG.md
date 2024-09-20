@@ -14,7 +14,7 @@
 ## Fixes
 - Fix typo in column name `courses.maxCompletionsForCredit`
 - Fix surrogate key creation for `stg_ef3__student_academic_records`, `stg_ef3__student_objective_assessments`, and `stg_ef3__students` to properly handle lowering of alphanumeric columns that are part of natural keys
-
+- Rename stg_ef3__staff__races to stg_ef3__staffs__races for consistency with EDU naming conventions
 
 # edu_edfi_source v0.3.6
 ## Fixes
