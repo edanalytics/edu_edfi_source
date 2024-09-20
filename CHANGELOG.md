@@ -1,6 +1,7 @@
 # Unreleased
 ## New features
 ## Under the hood
+- Update package dependency `dbt_utils` to 1.3.0, including alignment to renamed `generate_surrogate_key()` macro. Note, this change now treats nulls and empty strings as distinct values in surrogate key generation.
 ## Fixes
 
 # edu_edfi_source v0.3.6
