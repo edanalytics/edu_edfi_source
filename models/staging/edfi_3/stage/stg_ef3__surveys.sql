@@ -4,7 +4,7 @@ with base_surveys as (
 ),
 keyed as (
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
                 'api_year',
@@ -26,3 +26,4 @@ deduped as (
     }}
 )
 select * from deduped
+                  

@@ -4,9 +4,10 @@ with base_grading_periods as (
 ),
 keyed as (
     select
+
         case when base_grading_periods.data_model_version < '5.0'
         then 
-         {{ dbt_utils.surrogate_key(
+         {{ dbt_utils.generate_surrogate_key(
            ['tenant_code', 
             'lower(grading_period)',
             'period_sequence',
@@ -15,7 +16,7 @@ keyed as (
         ) }}
         when base_grading_periods.data_model_version >= '5.0'
         then 
-            {{ dbt_utils.surrogate_key(
+            {{ dbt_utils.generate_surrogate_key(
             ['tenant_code', 
                 'lower(grading_period)',
                 'grading_period_name',

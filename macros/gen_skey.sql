@@ -232,13 +232,13 @@
           when {{ skey_ref }} is null then null
         {% for ds_version in skey_def['ds_specific_col_lists'] %}
             when data_model_version {{ ds_version }}
-                then {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_def['ds_specific_col_lists'][ds_version], extras=extras)) }} 
+                then {{ dbt_utils.generate_surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_def['ds_specific_col_lists'][ds_version], extras=extras)) }} 
         {% endfor %}
         end)::varchar(32) as {{ alt_k_name or k_name }}
     {% else %}
         iff(
             {{ skey_ref }} is not null, 
-            {{ dbt_utils.surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
+            {{ dbt_utils.generate_surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
             null
         )::varchar(32) as {{ alt_k_name or k_name }}
     {% endif %}

@@ -9,6 +9,7 @@
 - Add `v_programs` column to `course_transcripts` (Ed-Fi Data Standard v5.0 addition)
 ## Under the hood
 - Add columns to `base_ef3__parents` to allow data to be unioned into new `stg_ef3__contacts` model
+- Update package dependency `dbt_utils` to 1.3.0, including alignment to renamed `generate_surrogate_key()` macro. Note, this change now treats nulls and empty strings as distinct values in surrogate key generation.
 - Make package macro calls to `extract_descriptor` explicit so `flatten_arrays` can be used by outer packages
 ## Fixes
 - Fix typo in column name `courses.maxCompletionsForCredit`

@@ -4,7 +4,7 @@ with base_parents as (
 ),
 keyed as (
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
                 'lower(parent_unique_id)'

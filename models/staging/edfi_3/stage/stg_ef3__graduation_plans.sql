@@ -4,7 +4,7 @@ with base_graduation_plans as (
 ),
 keyed as (
     select
-         {{ dbt_utils.surrogate_key(
+         {{ dbt_utils.generate_surrogate_key(
            ['tenant_code', 
            'api_year', 
            'ed_org_id',

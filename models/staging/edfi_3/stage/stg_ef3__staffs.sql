@@ -4,7 +4,7 @@ with base_staffs as (
 ),
 keyed as (
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
                 'lower(staff_unique_id)'
