@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
 
         v:id::string                                                  as record_guid,
+        ods_version,
+        data_model_version,
         v:surveyReference:surveyIdentifier::string                    as survey_id,
         v:surveyReference:namespace::string                           as namespace,
         v:surveyResponseIdentifier::string                            as survey_response_id,

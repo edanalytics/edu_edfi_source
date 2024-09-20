@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                         as record_guid,
+        ods_version,
+        data_model_version,
         v:studentUniqueId::string            as student_unique_id,
         v:firstName::string                  as first_name,
         v:middleName::string                 as middle_name,

@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string as record_guid,
+        ods_version,
+        data_model_version,
 				--identity components
 				{{ extract_descriptor('v:courseAttemptResultDescriptor::string') }} as course_attempt_result,
         v:courseReference:educationOrganizationId::int                      as course_ed_org_id,

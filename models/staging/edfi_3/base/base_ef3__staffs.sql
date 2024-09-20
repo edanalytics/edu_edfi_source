@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
         -- fields
         v:id::string                                 as record_guid,
+        ods_version,
+        data_model_version,
         v:staffUniqueId::string                      as staff_unique_id,
         v:loginId::string                            as login_id,
         v:firstName::string                          as first_name,
