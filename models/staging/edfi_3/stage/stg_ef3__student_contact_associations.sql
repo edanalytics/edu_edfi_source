@@ -22,7 +22,7 @@ keyed as (
     select 
         {{ gen_skey('k_student') }},
         -- we can't use the gen_skey macro here because we're bringing in the deprecated parents endpoint data, which contains a parentReference that won't work
-        {{ dbt_utils.generate_surrogate_key(['tenant_code', 'contact_unique_id']) }} as k_contact,
+        {{ dbt_utils.generate_surrogate_key(['tenant_code', 'lower(contact_unique_id)']) }} as k_contact,
         {{ gen_skey('k_student_xyear') }},
         api_year as school_year,
         unioned.*
