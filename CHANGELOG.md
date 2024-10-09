@@ -3,6 +3,10 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.4.1
+## Fixes
+- Fix surrogate key creation for `stg_ef3__student_contact_associations` to properly hanlde lowering of alphanumeric columns that are part of natural keys
+
 # edu_edfi_source v0.4.0
 ## New features
 - Add `stg_ef3__stu_ed_org__cohort_years` tracking student cohort designations (flattens Ed-Fi collection `cohort_years` for easier downstream use)
