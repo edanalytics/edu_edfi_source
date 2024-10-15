@@ -24,7 +24,7 @@ renamed as (
         v:schoolReference   as school_reference,
         v:staffReference    as staff_reference,
         -- lists 
-        v:academic_subjects as v_academic_subjects,
+        v:academicSubjects as v_academic_subjects,
         v:gradeLevels       as v_grade_levels,
 
         -- edfi extensions
