@@ -210,6 +210,17 @@
             'annualize': False
         },
 
+         'k_student_assessment': {
+            'reference_name': 'studentAssessmentReference'.
+            'col_list': [
+                'assessmentIdentifier',
+                'namespace',
+                'studentAssessmentIdentifier',
+                'studentUniqueId'
+            ],
+            'annualize': True
+
+
     }
     %}
     {#- retrieve key def for then decompose parts -#}
