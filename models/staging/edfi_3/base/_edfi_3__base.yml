@@ -191,3 +191,6 @@ models:
     config:
       tags: ['survey']
       enabled: "{{ var('src:program:survey:enabled', True) }}"
+  - name: base_ef3__student_assessment_education_organizations
+    config:
+      tags: ['core']
