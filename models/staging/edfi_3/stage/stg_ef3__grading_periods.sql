@@ -19,7 +19,7 @@ keyed as (
             {{ dbt_utils.generate_surrogate_key(
             ['tenant_code', 
                 'lower(grading_period)',
-                'grading_period_name',
+                'lower(grading_period_name)',
                 'school_id', 
                 'school_year'] 
             ) }}
