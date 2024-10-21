@@ -3,6 +3,10 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.4.2
+## Fixes
+- Fix surrogate key creation for `stg_ef3__grading_periods` to properly hanlde lowering of alphanumeric column (grading_period_name) that is part of natural key
+
 # edu_edfi_source v0.4.1
 ## Fixes
 - Fix surrogate key creation for `stg_ef3__student_contact_associations` to properly hanlde lowering of alphanumeric columns that are part of natural keys
