@@ -20,9 +20,9 @@ renamed as (
         v:localEducationAgencyReference:localEducationAgencyId as lea_id,
         -- pull out school categories
         case
-            when array_size(v:schoolCategories) = 1
+            when {{ json_array_size('v:schoolCategories') }} = 1
                 then {{ extract_descriptor('v:schoolCategories[0]:schoolCategoryDescriptor::string') }}
-            when array_size(v:schoolCategories) > 1
+            when {{ json_array_size('v:schoolCategories') }} > 1
                 then 'Multiple Categories'
             else NULL
         end as school_category,
