@@ -30,7 +30,7 @@ format_student_discipline_incident as (
             over (partition by incident_id, school_id, student_unique_id) as v_discipline_incident_participation_codes,
         v_ext
     from dedupe_base_student_discipline_incident
-    , lateral flatten(input=>v_behaviors)
+    {{ json_flatten('v_behaviors') }}
     {% set non_offender_codes =  var('edu:discipline:non_offender_codes')  %}
     -- note: not allowing for non_offender_codes var to be empty
       {% if non_offender_codes is string -%}

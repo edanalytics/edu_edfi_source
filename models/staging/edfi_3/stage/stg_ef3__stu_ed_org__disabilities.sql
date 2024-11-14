@@ -2,7 +2,7 @@ with stg_stu_ed_org as (
     select * from {{ ref('stg_ef3__student_education_organization_associations') }}
 ),
 flattened as (
-    select 
+    select
         tenant_code,
         api_year,
         k_student,
@@ -19,7 +19,7 @@ flattened as (
         -- for a downstream step
         {{ extract_descriptor('desig.value:disabilityDesignationDescriptor::string') }} as disability_designation
     from stg_stu_ed_org
-        , lateral flatten(input=>v_disabilities) disab
-        , lateral flatten(input=>disab.value:designations) as desig
+        {{ json_flatten('v_disabilities', 'disab') }}
+        {{ json_flatten('disab.value:designations', 'desig') }}
 )
 select * from flattened

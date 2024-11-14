@@ -20,8 +20,7 @@ flattened as (
         -- edfi extensions
         value:_ext as v_ext
 
-    from stage_stu_programs,
-        lateral flatten(input => v_english_language_proficiency_assessments)
+    from stage_stu_programs
+        {{ json_flatten('v_english_language_proficiency_assessments') }}
 )
-
 select * from flattened

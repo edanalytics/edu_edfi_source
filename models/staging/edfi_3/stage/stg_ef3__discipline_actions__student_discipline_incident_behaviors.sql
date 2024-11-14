@@ -2,7 +2,7 @@ with stg_discipline_actions as (
     select * from {{ ref('stg_ef3__discipline_actions') }}
 ),
 flattened as (
-    select 
+    select
         tenant_code,
         api_year,
         discipline_action_id,
@@ -15,13 +15,13 @@ flattened as (
         value:studentDisciplineIncidentBehaviorAssociationReference:studentUniqueId::string as student_unique_id,
 
         -- edfi extensions
-        value:_ext as v_ext    
-    from stg_discipline_actions,
-        lateral flatten(input => v_student_discipline_incident_behavior_associations)
+        value:_ext as v_ext
+    from stg_discipline_actions
+        {{ json_flatten('v_student_discipline_incident_behavior_associations') }}
 
     union all
 
-    select 
+    select
         tenant_code,
         api_year,
         discipline_action_id,
@@ -35,15 +35,13 @@ flattened as (
 
         -- edfi extensions
         value:_ext as v_ext
-    from stg_discipline_actions,
-        lateral flatten(input => v_student_discipline_incident_associations)
+    from stg_discipline_actions
+        {{ json_flatten('v_student_discipline_incident_associations') }}
 ),
 extended as (
-    select 
+    select
         flattened.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
-
     from flattened
 )
-
 select * from extended

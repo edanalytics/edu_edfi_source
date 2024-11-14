@@ -30,8 +30,8 @@ flattened as (
         -- unflattened lists
         value:performanceLevels as v_performance_levels,
         value:scoreResults as v_score_results
-    from stage_student_assessments,
-        lateral flatten(input => v_student_objective_assessments)
+    from stage_student_assessments
+        {{ json_flatten('v_student_objective_assessments') }}
 ),
 keyed as (
     select
