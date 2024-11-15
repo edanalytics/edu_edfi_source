@@ -886,7 +886,7 @@ models:
       tags: ['survey']
       enabled: "{{ var('src:domain:survey:enabled', True) }}"
   
-  - name: stg_ef3__student_assessment_education_organizations
+  - name: stg_ef3__student_assessment_education_organization_associations
     config:
       tags: ['assessment']
     columns:
