@@ -1,5 +1,5 @@
-with student_assessment_education_organizations as (
-    select * from {{ source_edfi3('student_assessment_education_organizations') }}
+with student_assessment_education_organization_associations as (
+    select * from {{ source_edfi3('student_assessment_education_organization_associations') }}
 ),
 
 
@@ -26,7 +26,7 @@ renamed as (
         v:studentAssessmentReference                                                            as student_assessment_reference
         -- edfi extensions
         v:_ext                                                                                  as v_ext
-    from student_assessment_education_organizations
+    from student_assessment_education_organization_associations
 )
 
 
