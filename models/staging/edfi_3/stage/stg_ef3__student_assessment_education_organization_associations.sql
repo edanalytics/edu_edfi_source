@@ -1,5 +1,5 @@
 with base as (
-    select * from {{ ref('base_ef3__student_assessment_education_organizations') }}
+    select * from {{ ref('base_ef3__student_assessment_education_organization_associations') }}
     where not is_deleted
 ),
 
