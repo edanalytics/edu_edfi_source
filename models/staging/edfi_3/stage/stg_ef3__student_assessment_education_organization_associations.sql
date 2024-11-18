@@ -14,13 +14,14 @@ keyed as (
                     'ed_org_association_type',
                     'assessment_identifier',
                     'student_assessment_identifier',
-                    'student_unique_id',
-                    'lower(namespace)'
+                    'student_id',
+                    'lower(assessment_namespace)'
                 ]
             )
         }} as k_student_assessment_ed_org,
         {{ gen_skey('k_ed_org') }},
-        {{ gen_skey('k_student_assessment') }}
+        {{ gen_skey('k_student_assessment') }},
+        base.*
     from base
 ),
 

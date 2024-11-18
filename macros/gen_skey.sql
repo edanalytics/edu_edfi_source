@@ -211,7 +211,7 @@
         },
 
          'k_student_assessment': {
-            'reference_name': 'studentAssessmentReference',
+            'reference_name': 'student_assessment_reference',
             'col_list': [
                 'assessmentIdentifier',
                 'namespace',
