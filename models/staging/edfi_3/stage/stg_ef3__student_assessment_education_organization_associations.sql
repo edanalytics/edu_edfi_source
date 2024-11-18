@@ -19,7 +19,7 @@ keyed as (
                 ]
             )
         }} as k_student_assessment_ed_org,
-        {{ gen_skey('k_ed_org') }},
+        {{ edorg_ref() }},
         {{ gen_skey('k_student_assessment') }},
         base.*
     from base
