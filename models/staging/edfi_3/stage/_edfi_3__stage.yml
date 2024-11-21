@@ -131,6 +131,13 @@ referential_integrity_tests:
         field: k_survey_response
         tags: ['ref_integrity']
 
+  - k_student_assessment: &ref_k_student_assessment
+    - relationships:
+        to: ref('stg_ef3__student_assessment')
+        field: k_student_assessment
+        tags: ['ref_integrity']
+
+
 
 models:
   - name: stg_ef3__assessments
@@ -878,3 +885,11 @@ models:
     config: 
       tags: ['survey']
       enabled: "{{ var('src:domain:survey:enabled', True) }}"
+  
+  - name: stg_ef3__student_assessment_education_organization_associations
+    config:
+      tags: ['assessment']
+    columns:
+      - name: k_student_assessment
+        tests:
+          *ref_k_student_assessment

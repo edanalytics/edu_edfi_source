@@ -210,7 +210,18 @@
             'annualize': False
         },
 
+         'k_student_assessment': {
+            'reference_name': 'student_assessment_reference',
+            'col_list': [
+                'assessmentIdentifier',
+                'namespace',
+                'studentAssessmentIdentifier',
+                'studentUniqueId'
+            ],
+            'annualize': True
+        }
     }
+    
     %}
     {#- retrieve key def for then decompose parts -#}
     {% set skey_def = skey_defs[k_name] %}
