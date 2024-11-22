@@ -1,17 +1,19 @@
-with base_contacts as (
-    select * from {{ ref('base_ef3__contacts') }}
-    where not is_deleted
-),
-base_parents as (
-    select * rename parent_unique_id as contact_unique_id
-    from {{ ref('base_ef3__parents') }}
-    where not is_deleted
-),
 -- parents were renamed to contacts in Data Standard v5.0
-unioned as (
-    select * from base_contacts
-    union 
-    select * from base_parents
+with unioned as (
+    {{
+        dbt_utils.union_relations(
+            relations=[
+                ref('base_ef3__contacts'), 
+                ref('int_ef3__parent_contact_bridge')
+            ],
+            exclude=['parent_unique_id']
+        )
+    }}
+),
+drop_deletes as (
+    select * 
+    from unioned
+    where not is_deleted
 ),
 keyed as (
     select 
@@ -21,9 +23,9 @@ keyed as (
                 'lower(contact_unique_id)'
             ]
         ) }} as k_contact,
-        unioned.*
+        drop_deletes.*
         {{ extract_extension(model_name=[this.name, 'stg_ef3__parents'], flatten=True) }}
-    from unioned
+    from drop_deletes
 ),
 deduped as (
     {{

@@ -1,3 +1,4 @@
+-- deprecated model
 with base_parents as (
     select * from {{ ref('base_ef3__parents') }}
     where not is_deleted
