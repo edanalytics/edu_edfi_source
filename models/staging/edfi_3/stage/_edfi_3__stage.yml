@@ -907,6 +907,7 @@ models:
   - name: stg_ef3__survey_sections
     config:
       tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
     columns:
       - name: k_survey
         tests:
@@ -915,6 +916,7 @@ models:
   - name: stg_ef3__survey_section_responses
     config:
       tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
     columns:
       - name: k_survey_response
         tests:
@@ -926,6 +928,7 @@ models:
   - name: stg_ef3__survey_response_education_organization_target_associations
     config:
       tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
     columns:
       - name: k_survey_response
         tests:
