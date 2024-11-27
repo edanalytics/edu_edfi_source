@@ -1,0 +1,281 @@
+version: 2
+
+referential_integrity_tests:
+  - k_candidate: &ref_k_candidate
+      - relationships:
+          to: ref('stg_tpdm__candidates')
+          field: k_candidate
+          tags: ['ref_integrity']
+
+  - k_educator_prep_program: &ref_k_educator_prep_program
+      - relationships:
+          to: ref('stg_tpdm__educator_preparation_programs')
+          field: k_educator_prep_program
+          tags: ['ref_integrity']
+
+  - k_applicant_profile: &ref_k_applicant_profile
+      - relationships:
+            to: ref('stg_tpdm__applicant_profiles')
+            field: k_applicant_profile
+            tags: ['ref_integrity']
+
+  - k_staff: &ref_k_staff
+    - relationships:
+        to: ref('stg_ef3__staffs')
+        field: k_staff
+        tags: ['ref_integrity']
+
+  - k_certification_exam: &ref_k_certification_exam
+    - relationships:
+        to: ref('stg_tpdm__certification_exam')
+        field: k_certification_exam
+
+  - k_course_section: &ref_k_course_section
+    - relationships:
+        to: ref('stg_ef3__sections')
+        field: k_course_section
+        tags: ['ref_integrity']
+
+  - k_person: &ref_k_person
+    - relationships:
+        to: ref('stg_ef3__people')
+        field: k_person
+        tags: ['ref_integrity']
+
+  - k_student: &ref_k_student
+    - relationships:
+        to: ref('stg_ef3__students')
+        field: k_student
+        tags: ['ref_integrity']
+  
+  - k_survey_response: &ref_k_survey_response
+    - relationships:
+        to: ref('stg_ef3__survey_responses')
+        field: k_survey_response
+        tags: ['ref_integrity']
+
+  - k_evaluation: &ref_k_evaluation
+    - relationships:
+        to: ref('stg_tpdm__evaluations')
+        field: k_evaluation
+        tags: ['ref_integrity']
+        
+  - k_evaluation_rating: &ref_k_evaluation_rating
+    - relationships:
+        to: ref('stg_tpdm__evaluation_ratings')
+        field: k_evaluation_rating
+        tags: ['ref_integrity']
+
+  - k_evaluation_objective: &ref_k_evaluation_objective
+    - relationships:
+        to: ref('stg_tpdm__evaluation_objectives')
+        field: k_evaluation_objective
+        tags: ['ref_integrity']
+
+  - k_performance_evaluation: &ref_k_performance_evaluation
+    - relationships:
+        to: ref('stg_tpdm__performance_evaluations')
+        field: k_performance_evaluation
+        tags: ['ref_integrity']
+
+  - k_performance_evaluation_rating: &ref_k_performance_evaluation_rating
+    - relationships:
+        to: ref('stg_tpdm__evaluation_ratings')
+        field: k_performance_evaluation_rating
+        tags: ['ref_integrity']
+
+  - k_evaluation_objective_rating: &ref_k_evaluation_objective_rating
+    - relationships:
+        to: ref('stg_tpdm__evaluation_objective_ratings')
+        field: k_evaluation_objective_rating
+        tags: ['ref_integrity']
+
+models:
+  - name: stg_tpdm__candidate_educator_preparation_program_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_candidate
+        tests:
+          *ref_k_candidate
+      - name: k_educator_prep_program
+        tests:
+          *ref_k_educator_prep_program
+      - name: k_person
+        tests:
+          *ref_k_person
+
+  - name: stg_tpdm__candidates
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+
+  - name: stg_tpdm__applicant_profiles
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+
+  - name: stg_tpdm__applications
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_applicant_profile
+        tests:
+          *ref_k_applicant_profile
+      
+  - name: stg_tpdm__candidate_relationship_to_staff_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_candidate
+        tests:
+          *ref_k_candidate
+      - name: k_staff
+        tests:
+          *ref_k_staff
+
+  - name: stg_tpdm__certification_exam_results
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_person
+        tests:
+          *ref_k_person
+      - name: k_certification_exam
+        tests:
+          *ref_k_certification_exam
+
+  - name: stg_tpdm__certification_exams
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+
+  - name: stg_tpdm__certifications
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+
+  - name: stg_tpdm__evaluation_element_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_evaluation_objective_rating
+        tests:
+          *ref_k_evaluation_objective_rating
+
+  - name: stg_tpdm__evaluation_objective_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_evaluation_rating
+        tests: 
+          *ref_k_evaluation_rating
+      - name: k_evaluation_objective
+        tests:
+          *ref_k_evaluation_objective
+
+  - name: stg_tpdm__evaluation_objectives
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_evaluation
+        tests:
+          *ref_k_evaluation
+
+  - name: stg_tpdm__evaluation_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_course_section
+        tests:
+          *ref_k_course_section 
+      - name: k_performance_evaluation_rating
+        tests:
+          *ref_k_performance_evaluation_rating
+
+  - name: stg_tpdm__evaluations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_performance_evaluation
+        tests:
+          *ref_k_performance_evaluation
+      - name: k_evaluation
+        tests:
+          *ref_k_evaluation
+
+  - name: stg_tpdm__financial_aids
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+
+  - name: stg_tpdm__educator_preparation_programs
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_educator_prep_program
+        tests:
+          *ref_k_educator_prep_program
+      - name: k_student
+        tests:
+          *ref_k_student
+
+  - name: stg_tpdm__performance_evaluation_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_person
+        tests:
+          *ref_k_person
+      - name: k_performance_evaluation
+        tests:
+          *ref_k_performance_evaluation
+
+  - name: stg_tpdm__performance_evaluations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+
+  - name: stg_tpdm__rubric_dimensions
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+
+  - name: stg_tpdm__survey_response_person_target_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_person
+        tests:
+          *ref_k_person
+      - name: k_survey_response
+        tests:
+          *ref_k_survey_response
+
+  - name: stg_tpdm__fieldwork_experiences
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_survey_response
+        tests:
+          *ref_k_educator_prep_program

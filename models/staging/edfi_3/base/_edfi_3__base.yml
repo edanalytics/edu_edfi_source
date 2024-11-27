@@ -191,3 +191,21 @@ models:
     config:
       tags: ['survey']
       enabled: "{{ var('src:program:survey:enabled', True) }}"
+  - name: base_ef3__credentials
+    config:
+      tags: ['core']
+  - name: base_ef3__post_secondary_institutions
+    config:
+      tags: ['core']
+  - name: base_ef3__survey_sections
+    config:
+      tags: ['survey']
+  - name: base_ef3__survey_section_responses
+    config:
+      tags: ['survey']
+  - name: base_ef3__people
+    config:
+      tags: ['core']
+  - name: base_ef3__survey_response_education_organization_target_associations
+    config:
+      tags: ['survey']
