@@ -1,0 +1,88 @@
+version: 2
+
+models:
+  - name: base_tpdm__candidates
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__educator_preparation_programs
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__survey_response_person_target_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__candidate_educator_preparation_program_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__financial_aids
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__rubric_dimensions
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__evaluations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__evaluation_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__performance_evaluations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__performance_evaluation_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__evaluation_objectives
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__evaluation_objective_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__evaluation_elements
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__evaluation_element_ratings
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__applicant_profiles
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__applications
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__candidate_relationship_to_staff_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__certification_exam_results
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__certification_exams
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__certifications
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+  - name: base_tpdm__fieldwork_experiences
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+

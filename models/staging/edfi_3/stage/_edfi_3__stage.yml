@@ -120,15 +120,28 @@ referential_integrity_tests:
         to: ref('stg_ef3__surveys')
         field: k_survey
         tags: ['ref_integrity']
+
   - k_survey_question: &ref_k_survey_question
     - relationships:
         to: ref('stg_ef3__survey_questions')
         field: k_survey_question
         tags: ['ref_integrity']
+
   - k_survey_response: &ref_k_survey_response
     - relationships:
         to: ref('stg_ef3__survey_responses')
         field: k_survey_response
+        tags: ['ref_integrity']
+
+  - k_survey_section: &ref_k_survey_section
+    - relationships:
+        to: ref('stg_ef3__survey_sections')
+        field: k_survey_section
+
+  - k_person: &ref_k_person
+    - relationships:
+        to: ref('stg_ef3__people')
+        field: k_person
         tags: ['ref_integrity']
 
 
@@ -878,3 +891,45 @@ models:
     config: 
       tags: ['survey']
       enabled: "{{ var('src:domain:survey:enabled', True) }}"
+
+  - name: stg_ef3__people
+    config:
+      tags: ['core']
+
+  - name: stg_ef3__credentials
+    config:
+      tags: ['core']
+
+  - name: stg_ef3__post_secondary_institutions
+    config:
+      tags: ['core']
+
+  - name: stg_ef3__survey_sections
+    config:
+      tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
+    columns:
+      - name: k_survey
+        tests:
+          *ref_k_survey
+
+  - name: stg_ef3__survey_section_responses
+    config:
+      tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
+    columns:
+      - name: k_survey_response
+        tests:
+          *ref_k_survey_response
+      - name: k_survey_section
+        tests:
+          *ref_k_survey_section
+
+  - name: stg_ef3__survey_response_education_organization_target_associations
+    config:
+      tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
+    columns:
+      - name: k_survey_response
+        tests:
+          *ref_k_survey_response
