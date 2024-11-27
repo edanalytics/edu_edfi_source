@@ -4,7 +4,7 @@ with fieldwork_experiences as (
 ),
 keyed as (
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
             'begin_date',
