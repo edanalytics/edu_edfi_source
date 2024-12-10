@@ -3,6 +3,10 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.4.3
+## Fixes
+- Add missing `program_enroll_end_date` to every stg-stu-program `__program_services` + `stu_spec_ed__disabilities`
+
 # edu_edfi_source v0.4.2
 ## Fixes
 - Fix surrogate key creation for `stg_ef3__grading_periods` to properly hanlde lowering of alphanumeric column (grading_period_name) that is part of natural key
