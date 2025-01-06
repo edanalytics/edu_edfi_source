@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Handle invalid timestamp formatting in student_assessments
 
 # edu_edfi_source v0.4.3
 ## Fixes
