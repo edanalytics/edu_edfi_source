@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Handle invalid timestamp formatting in student_assessments
 - Fix coalesce logic for academic subjects in `stg_ef3__objective_assessments` and `stg_ef3__student_objective_assessments` to hydrate correctly when populated in respective Ed-Fi element's `academicSubject` field
 
 # edu_edfi_source v0.4.3
