@@ -1,6 +1,9 @@
 with stage_student_assessments as (
     select * from {{ ref('stg_ef3__student_assessments') }}
 ),
+stage_obj_assessments as (
+    select * from {{ ref('stg_ef3__objective_assessments') }}
+),
 flattened as (
     select
         tenant_code,
@@ -32,6 +35,19 @@ flattened as (
         value:scoreResults as v_score_results
     from stage_student_assessments,
         lateral flatten(input => v_student_objective_assessments)
+),
+-- join to get subject from stg obj assess (if not null)
+joined as (
+    select
+      flattened.* exclude(academic_subject),
+      coalesce(stage_obj_assessments.academic_subject, flattened.academic_subject) as academic_subject
+    from flattened
+    join stage_obj_assessments
+      on flattened.tenant_code = stage_obj_assessments.tenant_code
+      and flattened.api_year = stage_obj_assessments.api_year
+      and flattened.assessment_identifier = stage_obj_assessments.assessment_identifier
+      and flattened.namespace = stage_obj_assessments.namespace
+      and flattened.objective_assessment_identification_code = stage_obj_assessments.objective_assessment_identification_code
 ),
 keyed as (
     select
@@ -69,7 +85,7 @@ keyed as (
         when_assessed_grade_level,
         v_performance_levels,
         v_score_results
-    from flattened
+    from joined
 ),
 -- todo: we already dedupe in student assessments so this is actually only necessary if we think there
     -- could be dupes in the objective assessments list
