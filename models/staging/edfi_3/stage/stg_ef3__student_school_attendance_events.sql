@@ -1,6 +1,15 @@
+{{ config(
+    materialized='incremental',
+    unique_key=['k_student', 'k_school', 'k_session', 'attendance_event_category', 'attendance_event_date']
+) }}
 with base_student_school_attend as (
     select * from {{ ref('base_ef3__student_school_attendance_events') }}
     where not is_deleted
+
+    {% if is_incremental() %}
+    -- Only get new or updated records since the last run
+    and pull_timestamp > (select max(pull_timestamp) from {{ this }})
+    {% endif %}
 ),
 keyed as (
     select 
@@ -21,4 +30,5 @@ deduped as (
         )
     }}
 )
-select * from deduped
+select *
+from deduped

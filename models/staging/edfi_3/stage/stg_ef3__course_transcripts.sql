@@ -1,6 +1,15 @@
+{{ config(
+    materialized='incremental',
+    unique_key=['k_course', 'k_student_academic_record', 'course_attempt_result']
+) }}
 with base_course_transcripts as (
     select * from {{ ref('base_ef3__course_transcripts') }}
     where not is_deleted
+
+    {% if is_incremental() %}
+    -- Only get new or updated records since the last run
+    and pull_timestamp > (select max(pull_timestamp) from {{ this }})
+    {% endif %}
 ),
 keyed as (
     select

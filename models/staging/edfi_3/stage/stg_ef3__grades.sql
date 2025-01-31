@@ -1,6 +1,15 @@
+{{ config(
+    materialized='incremental',
+    unique_key=['k_grading_period', 'k_student', 'k_school', 'k_course_section', 'grade_type']
+) }}
 with base_grades as (
     select * from {{ ref('base_ef3__grades') }}
     where not is_deleted
+
+    {% if is_incremental() %}
+    -- Only get new or updated records since the last run
+    and pull_timestamp > (select max(pull_timestamp) from {{ this }})
+    {% endif %}
 ),
 keyed as (
     select
