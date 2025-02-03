@@ -2,9 +2,12 @@
 ## New features
 ## Under the hood
 ## Fixes
+
+# edu_edfi_source v0.4.4
+## Fixes
 - Handle invalid timestamp formatting in student_assessments
 - Fix coalesce logic for academic subjects in `stg_ef3__objective_assessments` and `stg_ef3__student_objective_assessments` to hydrate correctly when populated in respective Ed-Fi element's `academicSubject` field
-
+  
 # edu_edfi_source v0.4.3
 ## Fixes
 - Add missing `program_enroll_end_date` to every stg-stu-program `__program_services` + `stu_spec_ed__disabilities`
