@@ -178,16 +178,37 @@ models:
   - name: base_ef3__survey_question_responses
     config:
       tags: ['survey']
-      enabled: "{{ var('src:program:survey:enabled', True) }}"
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
   - name: base_ef3__survey_questions
     config:
       tags: ['survey']
-      enabled: "{{ var('src:program:survey:enabled', True) }}"
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
   - name: base_ef3__survey_responses
     config:
       tags: ['survey']
-      enabled: "{{ var('src:program:survey:enabled', True) }}"
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
   - name: base_ef3__surveys
     config:
       tags: ['survey']
-      enabled: "{{ var('src:program:survey:enabled', True) }}"
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
+  - name: base_ef3__credentials
+    config:
+      tags: ['core']
+  - name: base_ef3__people
+    config:
+      tags: ['core']
+  - name: base_ef3__post_secondary_institutions
+    config:
+      tags: ['core']
+  - name: base_ef3__survey_sections
+    config:
+      tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
+  - name: base_ef3__survey_section_responses
+    config:
+      tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
+  - name: base_ef3__survey_response_education_organization_target_associations
+    config:
+      tags: ['survey']
+      enabled: "{{ var('src:domain:survey:enabled', True) }}"
