@@ -23,6 +23,7 @@ with base_course_transcripts as (
     {% if is_incremental() %}
     -- Only get new or updated records since the last run
     where pull_timestamp > (select max(pull_timestamp) from {{ this }})
+      and not is_deleted
     {% endif %}
 ),
 keyed as (
