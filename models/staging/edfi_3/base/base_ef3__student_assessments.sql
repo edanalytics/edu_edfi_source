@@ -42,5 +42,6 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
     from student_assessments
+    where administration_date != ''
 )
 select * from renamed
