@@ -11,6 +11,8 @@ renamed as (
         is_deleted,
         name                           as descriptor_name, 
         v:id::string                   as record_guid,
+        ods_version,
+        data_model_version,
         v:codeValue::string            as code_value,
         v:namespace::string            as namespace,
         v:description::string          as description,

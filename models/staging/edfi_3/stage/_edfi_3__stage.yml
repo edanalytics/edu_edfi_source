@@ -13,6 +13,12 @@ referential_integrity_tests:
         field: k_cohort
         tags: [ 'ref_integrity' ]
 
+  - k_contact: &ref_k_contact
+    - relationships:
+        to: ref('stg_ef3__contacts')
+        field: k_contact
+        tags: [ 'ref_integrity' ]
+
   - k_course: &ref_k_course
     - relationships:
         to: ref('stg_ef3__courses')
@@ -212,6 +218,22 @@ models:
     config:
       tags: ['cohort']
       enabled: "{{ var('src:domain:cohort:enabled', True) }}"
+
+  - name: stg_ef3__contacts
+    config:
+      tags: ['core']
+
+  - name: stg_ef3__contacts__addresses
+    config:
+      tags: ['core']
+
+  - name: stg_ef3__contacts__emails
+    config:
+      tags: ['core']
+
+  - name: stg_ef3__contacts__telephones
+    config:
+      tags: ['core']
 
   - name: stg_ef3__course_offerings
     config:
@@ -631,6 +653,17 @@ models:
       - name: k_cohort
         tests:
           *ref_k_cohort
+
+  - name: stg_ef3__student_contact_associations
+    config:
+      tags: ['core']
+      columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_contact
+        tests:
+          *ref_k_contact
 
   - name: stg_ef3__student_discipline_incident_behavior_associations
     config:

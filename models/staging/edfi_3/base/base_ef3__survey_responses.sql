@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
 
         v:id::string                                                  as record_guid,
+        ods_version,
+        data_model_version,
         v:surveyReference:surveyIdentifier::string                    as survey_id,
         v:surveyReference:namespace::string                           as namespace,
         v:surveyResponseIdentifier::string                            as survey_response_id,
@@ -22,10 +24,10 @@ renamed as (
         v:responseDate::date                                          as response_date, 
         v:responseTime::int                                           as completion_time_seconds, 
         --references
-        v:surveyReference    as survey_reference,
-        v:studentReference   as student_reference,
-        v:staffReference     as staff_reference,
-        v:parentReference    as parent_reference,
+        v:surveyReference                               as survey_reference,
+        v:studentReference                              as student_reference,
+        v:staffReference                                as staff_reference,
+        coalesce(v:parentReference, v:contactReference) as contact_reference, -- parentReference renamed to contactReference in Data Standard v5.0
         -- lists
         v:surveyLevels  as v_survey_levels,    
         -- edfi extensions
