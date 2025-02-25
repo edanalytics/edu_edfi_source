@@ -4,7 +4,7 @@ with candidate_relationship_to_staff_associations as (
 ),
 keyed as (
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
             'lower(candidate_id)',
