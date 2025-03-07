@@ -13,7 +13,6 @@ keyed as (
                 'api_year',
                 'event_date',
                 'school_id',
-                'api_year',
                 'restraint_event_identifier'
             ]
         ) }} as k_restraint_event,
