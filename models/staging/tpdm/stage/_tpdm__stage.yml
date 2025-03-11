@@ -27,7 +27,7 @@ referential_integrity_tests:
 
   - k_certification_exam: &ref_k_certification_exam
     - relationships:
-        to: ref('stg_tpdm__certification_exam')
+        to: ref('stg_tpdm__certification_exams')
         field: k_certification_exam
 
   - k_course_section: &ref_k_course_section
@@ -155,6 +155,11 @@ models:
       enabled: "{{ var('edu:tpdm:enabled', False) }}"
 
   - name: stg_tpdm__certifications
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+
+  - name: stg_tpdm__evaluation_elements
     config:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdm:enabled', False) }}"
