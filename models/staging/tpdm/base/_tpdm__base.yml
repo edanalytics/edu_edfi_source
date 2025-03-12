@@ -60,29 +60,29 @@ models:
   - name: base_tpdm__applicant_profiles
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
   - name: base_tpdm__applications
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
   - name: base_tpdm__candidate_relationship_to_staff_associations
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
   - name: base_tpdm__certification_exam_results
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
   - name: base_tpdm__certification_exams
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
   - name: base_tpdm__certifications
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
   - name: base_tpdm__fieldwork_experiences
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', False) }}"
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
 
