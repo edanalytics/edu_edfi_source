@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+  - Add partial support for TPDM Core and TPDM Community
 ## Under the hood
 ## Fixes
 
