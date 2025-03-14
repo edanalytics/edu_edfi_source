@@ -3,6 +3,10 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.4.5
+## New features
+- Add base/stage models for `restraintEvents`
+
 # edu_edfi_source v0.4.4
 ## Fixes
 - Handle invalid timestamp formatting in student_assessments
