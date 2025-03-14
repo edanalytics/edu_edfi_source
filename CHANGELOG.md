@@ -1,12 +1,12 @@
 # Unreleased
 ## New features
-  - Add partial support for TPDM Core and TPDM Community
 ## Under the hood
 ## Fixes
 
 # edu_edfi_source v0.4.5
 ## New features
 - Add base/stage models for `restraintEvents`
+- Add partial support for TPDM Core and TPDM Community
 
 # edu_edfi_source v0.4.4
 ## Fixes
