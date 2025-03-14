@@ -35,6 +35,11 @@ models:
            +tags: ['bypass_rls']
         stage: 
           +materialized: table
+      tpdm:
+        base:
+          +materialized: view
+        stage:
+          +materialized: table
           
 vars:
   extensions: null
