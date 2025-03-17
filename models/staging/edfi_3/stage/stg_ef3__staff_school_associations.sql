@@ -16,13 +16,24 @@ keyed as (
     from base_staff_school_assoc
 
 ),
-deduped as (
+-- The first dedupe step removes duplicates within api_years that occur when the optional school_year field is updated
+deduped_api_year as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
+            partition_by='k_staff, k_school, program_assignment, api_year',
+            order_by='pull_timestamp desc'
+        )
+    }}
+-- The second dedupe step removes duplicates across api_years
+),
+deduped_school_year as (
+    {{
+        dbt_utils.deduplicate(
+            relation='deduped_api_year',
             partition_by='k_staff, k_school, program_assignment, school_year',
             order_by='pull_timestamp desc'
         )
     }}
 )
-select * from deduped
+select * from deduped_school_year
