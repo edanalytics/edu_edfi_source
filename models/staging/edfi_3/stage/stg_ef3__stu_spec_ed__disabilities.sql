@@ -12,6 +12,8 @@ flattened as (
         program_enroll_begin_date,
         program_enroll_end_date,
         school_year,
+        disab.value:disabilitySetBeginDate::date as begin_date,
+        disab.value:disabilitySetEndDate::date as end_date,
         {{ extract_descriptor('disab.value:disabilityDescriptor::string') }} as disability_type,
         {{ extract_descriptor('disab.value:disabilityDeterminationSourceTypeDescriptor::string') }} as disability_source_type,
         disab.value:disabilityDiagnosis::string as disability_diagnosis,
