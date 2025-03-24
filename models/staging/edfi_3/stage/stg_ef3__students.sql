@@ -1,10 +1,8 @@
 with base_students as (
     select * from {{ ref('base_ef3__students') }}
-    where not is_deleted
 ),
 keyed as (
-    -- todo: should this be annualized or not?
-    select 
+    select
         {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
@@ -27,8 +25,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student', 
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

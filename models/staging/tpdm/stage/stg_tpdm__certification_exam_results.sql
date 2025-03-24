@@ -1,6 +1,5 @@
 with certification_exam_results as (
     select * from {{ ref('base_tpdm__certification_exam_results') }}
-    where not is_deleted
 ),
 keyed as (
     select 
@@ -24,7 +23,8 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_certification_exam_result',
-            order_by='pull_timestamp desc')
+            order_by='last_modified_timestamp desc')
     }}
 )
 select * from deduped
+where not is_deleted

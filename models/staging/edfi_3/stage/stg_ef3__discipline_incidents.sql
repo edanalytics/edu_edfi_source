@@ -1,6 +1,5 @@
 with base_discipline_incident as (
     select * from {{ ref('base_ef3__discipline_incidents') }}
-    where not is_deleted
 ),
 keyed as (
     select 
@@ -21,8 +20,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_discipline_incident',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

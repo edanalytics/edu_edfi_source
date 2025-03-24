@@ -1,6 +1,5 @@
 with int_stu_assessments as (
     select * from {{ ref('int_ef3__student_assessments__identify_subject') }}
-    where not is_deleted
 ),
 keyed as (
     select
@@ -26,8 +25,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student_assessment',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

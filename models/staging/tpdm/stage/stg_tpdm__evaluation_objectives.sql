@@ -1,6 +1,5 @@
 with base_evaluation_objectives as (
     select * from {{ ref('base_tpdm__evaluation_objectives') }}
-    where not is_deleted
 ),
 keyed as (
     select
@@ -28,8 +27,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_evaluation_objective',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

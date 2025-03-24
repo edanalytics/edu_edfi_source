@@ -1,6 +1,5 @@
 with base_grading_periods as (
     select * from {{ ref('base_ef3__grading_periods') }}
-    where not is_deleted
 ),
 keyed as (
     select
@@ -35,9 +34,10 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_grading_period',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted
 order by tenant_code, school_year desc, period_sequence

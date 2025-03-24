@@ -1,11 +1,9 @@
 with base_contacts as (
     select * from {{ ref('base_ef3__contacts') }}
-    where not is_deleted
 ),
 base_parents as (
     select * rename parent_unique_id as contact_unique_id
     from {{ ref('base_ef3__parents') }}
-    where not is_deleted
 ),
 -- parents were renamed to contacts in Data Standard v5.0
 unioned as (
@@ -30,8 +28,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_contact', 
-            order_by='api_year desc, pull_timestamp desc'
+            order_by='api_year desc, last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

@@ -1,6 +1,5 @@
 with base_course_transcripts as (
     select * from {{ ref('base_ef3__course_transcripts') }}
-    where not is_deleted
 ),
 keyed as (
     select
@@ -15,8 +14,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_course, k_student_academic_record, course_attempt_result',
-            order_by='api_year desc, pull_timestamp desc'
+            order_by='api_year desc, last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

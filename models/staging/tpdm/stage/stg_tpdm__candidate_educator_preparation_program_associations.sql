@@ -1,6 +1,5 @@
 with candidate_educator_preparation_program_associations as (
     select * from {{ ref('base_tpdm__candidate_educator_preparation_program_associations') }}
-    where not is_deleted
 ),
 keyed as (
     select
@@ -26,8 +25,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_candidate_educator_preparation_program_association',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted
