@@ -9,6 +9,7 @@ flattened as (
         tenant_code,
         api_year,
         pull_timestamp,
+        last_modified_timestamp,
         k_student_assessment,
         k_assessment,
         k_student,
@@ -54,6 +55,7 @@ keyed as (
         tenant_code,
         api_year,
         pull_timestamp,
+        last_modified_timestamp,
         {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
