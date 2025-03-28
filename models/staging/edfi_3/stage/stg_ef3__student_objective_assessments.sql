@@ -58,6 +58,8 @@ keyed as (
             ['tenant_code',
             'api_year',
             'lower(academic_subject)',
+            'lower(assessment_identifier)',
+            'lower(namespace)',
             'lower(student_assessment_identifier)',
             'lower(objective_assessment_identification_code)']
         ) }} as k_student_objective_assessment,
