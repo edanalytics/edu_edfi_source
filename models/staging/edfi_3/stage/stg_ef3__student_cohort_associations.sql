@@ -16,7 +16,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student, k_cohort, cohort_begin_date, school_year',
-            order_by='last_modified_timestamp desc')
+            order_by='last_modified_timestamp desc, pull_timestamp desc')
     }}
 )
 select * from deduped

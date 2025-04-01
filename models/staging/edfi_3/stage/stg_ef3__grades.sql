@@ -16,7 +16,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_grading_period, k_student, k_school, k_course_section, grade_type',
-            order_by='last_modified_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )

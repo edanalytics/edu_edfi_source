@@ -20,7 +20,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_staff, k_school, program_assignment, school_year',
-            order_by='last_modified_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )

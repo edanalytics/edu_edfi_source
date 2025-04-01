@@ -7,7 +7,7 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'lower(survey_id)', 
+                'lower(survey_id)',
                 'lower(survey_response_id)'
             ]
         ) }} as k_survey_response,
@@ -23,8 +23,8 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_survey_response', 
-            order_by='last_modified_timestamp desc'
+            partition_by='k_survey_response',
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )

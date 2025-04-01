@@ -18,7 +18,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_credential',
-            order_by='last_modified_timestamp desc')
+            order_by='last_modified_timestamp desc, pull_timestamp desc')
     }}
 )
 select * from deduped

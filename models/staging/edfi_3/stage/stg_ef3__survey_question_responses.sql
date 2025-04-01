@@ -15,7 +15,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_survey_question, k_survey_response',
-            order_by='last_modified_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )

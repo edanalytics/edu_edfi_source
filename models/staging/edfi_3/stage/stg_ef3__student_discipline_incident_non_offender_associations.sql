@@ -9,7 +9,7 @@ dedupe_base_student_discipline_incident  as (
         dbt_utils.deduplicate(
             relation='base_student_discipline_incident',
             partition_by='student_unique_id, school_id, incident_id',
-            order_by='last_modified_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 ),
@@ -54,7 +54,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student, k_discipline_incident',
-            order_by='last_modified_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )

@@ -16,7 +16,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_post_secondary_institution',
-            order_by='api_year desc, last_modified_timestamp desc')
+            order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc')
     }}
 )
 select * from deduped

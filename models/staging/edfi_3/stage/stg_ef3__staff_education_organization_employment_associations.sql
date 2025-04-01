@@ -15,7 +15,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by= 'tenant_code, api_year, ed_org_id, employment_status, hire_date, staff_unique_id',
-            order_by='api_year desc, last_modified_timestamp desc'
+            order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
