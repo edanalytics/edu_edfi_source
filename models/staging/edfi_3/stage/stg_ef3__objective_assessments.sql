@@ -1,6 +1,5 @@
 with base_obj_assessments as (
     select * from {{ ref('base_ef3__objective_assessments') }}
-    where not is_deleted
 ),
 stage_student_assessments as (
     select * from {{ ref('stg_ef3__student_assessments') }}
@@ -53,8 +52,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_objective_assessment',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

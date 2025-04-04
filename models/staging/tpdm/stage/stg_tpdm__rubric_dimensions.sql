@@ -1,6 +1,5 @@
 with base_rubric_dimensions as (
     select * from {{ ref('base_tpdm__rubric_dimensions') }}
-    where not is_deleted
 ),
 keyed as (
     select
@@ -30,8 +29,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_rubric_dimension',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

@@ -3,14 +3,12 @@ with base_stu_contact as (
         *,
         contact_reference:contactUniqueId as contact_unique_id
     from {{ ref('base_ef3__student_contact_associations') }}
-    where not is_deleted
 ),
 base_stu_parent as (
     select 
         *,
         parent_reference:parentUniqueId as contact_unique_id --rename to support union and key generation
     from {{ ref('base_ef3__student_parent_associations') }}
-    where not is_deleted
 ),
 -- parents were renamed to contacts in Data Standard v5.0
 unioned as (
@@ -34,8 +32,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student, k_contact',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

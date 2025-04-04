@@ -1,17 +1,15 @@
 with base_student_discipline_incident_non_offender as (
     select * from {{ ref('base_ef3__student_discipline_incident_non_offender_associations') }}
-    where not is_deleted
 ),
 base_student_discipline_incident as (
     select * from {{ ref('base_ef3__student_discipline_incident_associations') }}
-    where not is_deleted
 ),
 dedupe_base_student_discipline_incident  as (
     {{
         dbt_utils.deduplicate(
             relation='base_student_discipline_incident',
             partition_by='student_unique_id, school_id, incident_id',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 ),
@@ -56,8 +54,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student, k_discipline_incident',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted
