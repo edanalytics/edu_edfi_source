@@ -1,6 +1,5 @@
 with base_staff_school_assoc as (
     select * from {{ ref('base_ef3__staff_school_associations') }}
-    where not is_deleted
 ),
 keyed as (
     select 
@@ -21,8 +20,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_staff, k_school, program_assignment, school_year',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

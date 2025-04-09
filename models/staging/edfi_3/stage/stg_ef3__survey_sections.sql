@@ -1,6 +1,5 @@
 with survey_sections as (
     select * from {{ ref('base_ef3__survey_sections') }}
-    where not is_deleted
 ),
 keyed as (
     select 
@@ -21,7 +20,8 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_survey_section',
-            order_by='pull_timestamp desc')
+            order_by='last_modified_timestamp desc, pull_timestamp desc')
     }}
 )
 select * from deduped
+where not is_deleted
