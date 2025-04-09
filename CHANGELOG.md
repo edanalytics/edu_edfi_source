@@ -3,6 +3,11 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.4.6
+## Fixes
+- Fix deduplication logic in all stg models to handle deleted records correctly before removal. This brings EDU more in sync with ODS true state
+- Fix unique key in `stg_ef3__student_objective_assessments` to include assessment_identifier to handle edge case duplicates
+  
 # edu_edfi_source v0.4.5
 ## New features
 - Add base/stage models for `restraintEvents`
