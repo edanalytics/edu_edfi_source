@@ -1,5 +1,15 @@
+{{ config(
+    materialized='incremental',
+    unique_key=['k_course', 'k_student_academic_record', 'course_attempt_result'],
+    post_hook=["{{edu_edfi_source.stg_post_hook_delete()}}"]
+) }}
 with base_course_transcripts as (
     select * from {{ ref('base_ef3__course_transcripts') }}
+
+    {% if is_incremental() %}
+    -- Only get newly added or deleted records since the last run
+    where last_modified_timestamp > (select max(last_modified_timestamp) from {{ this }})
+    {% endif %}
 ),
 keyed as (
     select

@@ -1,5 +1,14 @@
+{{ config(
+    materialized='incremental',
+    unique_key=['k_student_assessment']
+) }}
 with int_stu_assessments as (
     select * from {{ ref('int_ef3__student_assessments__identify_subject') }}
+
+    {% if is_incremental() %}
+    -- Only get new or updated records since the last run
+    and last_modified_timestamp > (select max(pull_timestamp) from {{ this }})
+    {% endif %}
 ),
 keyed as (
     select
