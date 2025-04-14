@@ -13,7 +13,7 @@ renamed as (
         v:id::string                                                  as record_guid,
         v:contactTitle::string                                        as contact_title,
         v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
-        v:electronicMailAddress::string                               as electronic_mail_address,
+        v:electronicMailAddress::string                               as email_address,
         v:staffReference:staffUniqueId::int                           as staff_unique_id,
         -- arrays
         v:telephones                                                  as v_telephones,
