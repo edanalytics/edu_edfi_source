@@ -10,14 +10,14 @@ renamed as (
         file_row_number,
         filename,
         is_deleted,
-        v:id::string                     as record_guid,
+        v:id::string as record_guid,
         ods_version,
         data_model_version,
-        v:schoolId::integer              as school_id,
-        v:nameOfInstitution::string      as school_name,
-        v:shortNameOfInstitution::string as school_short_name,
-        v:webSite::string                as website,
-        v:localEducationAgencyReference:localEducationAgencyId as lea_id,
+        v:schoolId::int                                             as school_id,
+        v:nameOfInstitution::string                                 as school_name,
+        v:shortNameOfInstitution::string                            as school_short_name,
+        v:webSite::string                                           as website,
+        v:localEducationAgencyReference:localEducationAgencyId::int as lea_id,
         -- pull out school categories
         case
             when {{ json_array_size('v:schoolCategories') }} = 1
