@@ -4,6 +4,7 @@ Aggregate rows into a variant array, based on any inner expression.
 Arguments:
     expression: Any SQL expression to roll up into an array
     window: Optional window expression for the aggregation
+    order_by: Optional sort order expression for the array
     is_terminal: Is this the outermost function call in a chain? See notes
 
 Notes:
@@ -25,20 +26,27 @@ Notes:
 
 #}
 
-{% macro json_array_agg(expression, window=None, is_terminal=False) %}
-    {{ return(adapter.dispatch('json_array_agg', 'edu_edfi_source')(expression, window, is_terminal)) }}
+{% macro json_array_agg(expression, window='', order_by=none, is_terminal=False) %}
+    {{ return(adapter.dispatch('json_array_agg', 'edu_edfi_source')(expression, window, order_by, is_terminal)) }}
 {% endmacro %}
 
-{% macro snowflake__json_array_agg(expression, window, is_terminal) -%}
-    array_agg({{ expression}})
+{% macro snowflake__json_array_agg(expression, window, order_by, is_terminal) -%}
+    array_agg({{ expression}}) 
+    {%- if order_by is not none %} 
+        within group (order by {{ order_by }}) 
+    {%- endif %}
     {{ window }}
 {%- endmacro %}
 
-{% macro databricks__json_array_agg(expression, window, is_terminal) -%}
+{% macro databricks__json_array_agg(expression, window, order_by, is_terminal) -%}
     {%- if is_terminal -%}
     parse_json(to_json(
     {%- endif %}
+    {%- if order_by is not none %} 
+    sort_index(
+    {%- endif %}
     array_agg({{ expression}})
     {{ window }}
+    {%- if order_by is not none %}) {% endif %}
     {% if is_terminal %})) {% endif %}
 {%- endmacro %}
