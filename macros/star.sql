@@ -9,6 +9,8 @@ Arguments:
 Notes:
     This macro is more complex than it otherwise would be because Databricks does
     not support RENAME in select statements.
+
+    The Databricks implementation does not retain the original column order.
 #}
 
 {% macro star(from, except=[], rename=[]) %}
