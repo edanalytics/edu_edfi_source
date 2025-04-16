@@ -1,6 +1,5 @@
 with base_staff_ed_org_contact_assoc as (
     select * from {{ ref('base_ef3__staff_education_organization_contact_associations') }}
-    where not is_deleted
 ),
 keyed as (
     select 
@@ -15,9 +14,10 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by= 'tenant_code, api_year, ed_org_id, staff_unique_id, email_address',
-            order_by='api_year desc, pull_timestamp desc'
+            partition_by= 'k_staff, ed_org_id, contact_title, api_year',
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

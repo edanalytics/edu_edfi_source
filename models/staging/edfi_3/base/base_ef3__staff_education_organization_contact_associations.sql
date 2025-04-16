@@ -18,7 +18,7 @@ renamed as (
         -- arrays
         v:telephones                                                  as v_telephones,
         -- references
-        v:educationOrganizationReference:educationOrganizationId      as education_organization_reference,
+        v:educationOrganizationReference                              as education_organization_reference,
         v:staffReference                                              as staff_reference,
         -- edfi extensions
         v:_ext                                                        as v_ext
