@@ -11,7 +11,7 @@ base_parents_renamed as (
 unioned as (
     select * from base_contacts
     union 
-    select * from base_parents
+    select * from base_parents_renamed
 ),
 keyed as (
     select 
