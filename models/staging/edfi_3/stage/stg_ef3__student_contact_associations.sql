@@ -18,7 +18,6 @@ formatted as (
             parent_reference:parentUniqueId::string
         ) as contact_unique_id
     from union_parent_contact
-    where not is_deleted
 ),
 keyed as (
     select
@@ -36,8 +35,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student, k_contact',
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

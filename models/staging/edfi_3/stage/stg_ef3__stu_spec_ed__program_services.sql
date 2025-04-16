@@ -13,6 +13,7 @@ flattened as (
         k_school,
 
         program_enroll_begin_date,
+        program_enroll_end_date,
         {{ extract_descriptor('value:specialEducationProgramServiceDescriptor::string') }} as program_service,
         value:primaryIndicator::boolean as primary_indicator,
         value:providers                 as v_providers,
