@@ -15,7 +15,7 @@ flattened as (
         v_lsg.value:letterGradeEarned::string as learning_standard_letter_grade_earned,
         v_lsg.value:numericGradeEarned::string as learning_standard_numeric_grade_earned,
         {{ edu_edfi_source.extract_descriptor('v_lsg.value:performanceBaseConversionDescriptor::string') }} as performance_base_conversion_descriptor
-    from stg_grades,
+    from stg_grades
         {{ json_flatten('v_learning_standard_grades', 'v_lsg') }}
 )
 select * from flattened
