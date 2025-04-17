@@ -5,7 +5,7 @@
 -- when flatten = False (use case: wh models):
   -- for each extension, just return the col name
 #}
-{% macro extract_extension(model_name, flatten) %}
+{% macro extract_extension(model_name, flatten) -%}
 
 {# If `model_name` is not a singleton, use extract list function. #}
 {% if model_name is not string %}
@@ -42,16 +42,16 @@
 
 {% endif %}
 
-{% endmacro %}
+{%- endmacro %}
 
 {# 
   If model_name is a list, use this macro to find the unique names from those models
    and print them. Note, flattening from a list of models is NOT supported, because
    duplicate names would cause issues in metadata retrieval
 #}
-{% macro extract_extension_list(model_name) %}
+{% macro extract_extension_list(model_name) -%}
 
-  {% set extensions = [] -%}
+  {%- set extensions = [] -%}
   {%- for relation in model_name -%}
       {%- for extension in var('extensions')[relation] -%}
           {%- do extensions.append(extension) -%}
@@ -65,4 +65,4 @@
     {%- if not loop.last %},{% endif -%}
   {%- endfor -%}
 
-{% endmacro %}
+{%- endmacro %}

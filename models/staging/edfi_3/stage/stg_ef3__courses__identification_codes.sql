@@ -10,7 +10,7 @@ flattened as (
         value:assigningOrganizationIdentificationCode::string as assigning_org,
         value:courseCatalogURL::string as course_catalog_url,
         value:identificationCode::string as id_code
-    from stg_courses,
-        lateral flatten(input => v_identification_codes)
+    from stg_courses
+        {{ json_flatten('v_identification_codes') }}
 )
 select * from flattened
