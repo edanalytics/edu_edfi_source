@@ -23,7 +23,7 @@ flattened as (
         -- edfi extensions
         value:_ext as v_ext
 
-    from stage_stu_programs,
+    from stage_stu_programs
         {{ json_flatten('v_language_instruction_program_services') }}
 )
 
