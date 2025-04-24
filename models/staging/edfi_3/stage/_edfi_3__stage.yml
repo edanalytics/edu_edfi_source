@@ -2,145 +2,145 @@ version: 2
 
 referential_integrity_tests:
   - k_assessment: &ref_k_assessment
-    - relationships:
-        to: ref('stg_ef3__assessments')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__assessments
         field: k_assessment
         tags: ['ref_integrity']
 
   - k_cohort: &ref_k_cohort
-    - relationships:
-        to: ref('stg_ef3__cohorts')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__cohorts
         field: k_cohort
         tags: [ 'ref_integrity' ]
 
   - k_contact: &ref_k_contact
-    - relationships:
-        to: ref('stg_ef3__contacts')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__contacts'
         field: k_contact
         tags: [ 'ref_integrity' ]
 
   - k_course: &ref_k_course
-    - relationships:
-        to: ref('stg_ef3__courses')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__courses
         field: k_course
         tags: ['ref_integrity']
 
   - k_course_offering: &ref_k_course_offering
-    - relationships:
-        to: ref('stg_ef3__course_offerings')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__course_offerings
         field: k_course_offering
         tags: ['ref_integrity']
 
   - k_course_section: &ref_k_course_section
-    - relationships:
-        to: ref('stg_ef3__sections')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__sections
         field: k_course_section
         tags: ['ref_integrity']
 
   - k_discipline_incident: &ref_k_discipline_incident
-    - relationships:
-        to: ref('stg_ef3__discipline_incidents')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__discipline_incidents
         field: k_discipline_incident
         tags: ['ref_integrity']
 
   - k_grading_period: &ref_k_grading_period
-    - relationships:
-        to: ref('stg_ef3__grading_periods')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__grading_periods
         field: k_grading_period
         tags: ['ref_integrity']
 
   - k_lea: &ref_k_lea
-    - relationships:
-        to: ref('stg_ef3__local_education_agencies')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__local_education_agencies
         field: k_lea
         tags: ['ref_integrity']
 
   - k_location: &ref_k_location
-    - relationships:
-        to: ref('stg_ef3__locations')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__locations
         field: k_location
         tags: ['ref_integrity']
 
   - k_objective_assessment: &ref_k_objective_assessment
-    - relationships:
-        to: ref('stg_ef3__objective_assessments')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__objective_assessments
         field: k_objective_assessment
         tags: ['ref_integrity']
 
   - k_parent: &ref_k_parent
-    - relationships:
-        to: ref('stg_ef3__parents')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__parents
         field: k_parent
         tags: ['ref_integrity']
 
   - k_program: &ref_k_program
-    - relationships:
-        to: ref('stg_ef3__programs')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__programs
         field: k_program
         tags: ['ref_integrity']
 
   - k_school: &ref_k_school
-    - relationships:
-        to: ref('stg_ef3__schools')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__schools
         field: k_school
         tags: ['ref_integrity']
 
   - k_school_calendar: &ref_k_school_calendar
-    - relationships:
-        to: ref('stg_ef3__calendars')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__calendars
         field: k_school_calendar
         tags: ['ref_integrity']
 
   - k_session: &ref_k_session
-    - relationships:
-        to: ref('stg_ef3__sessions')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__sessions
         field: k_session
         tags: ['ref_integrity']
 
   - k_staff: &ref_k_staff
-    - relationships:
-        to: ref('stg_ef3__staffs')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__staffs
         field: k_staff
         tags: ['ref_integrity']
 
   - k_student: &ref_k_student
-    - relationships:
-        to: ref('stg_ef3__students')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__students
         field: k_student
         tags: ['ref_integrity']
 
   - k_student_academic_record: &ref_k_student_academic_record
-    - relationships:
-        to: ref('stg_ef3__student_academic_records')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__student_academic_records
         field: k_student_academic_record
         tags: ['ref_integrity']
 
   - k_survey: &ref_k_survey
-    - relationships:
-        to: ref('stg_ef3__surveys')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__surveys
         field: k_survey
         tags: ['ref_integrity']
 
   - k_survey_question: &ref_k_survey_question
-    - relationships:
-        to: ref('stg_ef3__survey_questions')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__survey_questions
         field: k_survey_question
         tags: ['ref_integrity']
 
   - k_survey_response: &ref_k_survey_response
-    - relationships:
-        to: ref('stg_ef3__survey_responses')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__survey_responses
         field: k_survey_response
         tags: ['ref_integrity']
 
   - k_survey_section: &ref_k_survey_section
-    - relationships:
-        to: ref('stg_ef3__survey_sections')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__survey_sections
         field: k_survey_section
 
   - k_person: &ref_k_person
-    - relationships:
-        to: ref('stg_ef3__people')
+    - edu_edfi_source.relationship:
+        to: stg_ef3__people
         field: k_person
         tags: ['ref_integrity']
 
