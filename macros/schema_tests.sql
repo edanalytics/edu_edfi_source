@@ -1,8 +1,8 @@
-{% macro relationship(model, parent, column_name) %} 
+{% macro relationship(model, to, field) %} 
     {%- set all_columns = adapter.get_columns_in_relation(model) %}
 
     with child as (
-        select {{ column_name }} as from_field,
+        select {{ field }} as from_field,
             {%-if 'TENANT_CODE' in all_columns %}
                 tenant_code,
             {%- endif %}
@@ -10,17 +10,17 @@
                 api_year,
             {%- endif %}
         from {{ ref(model) }}
-        where {{ column_name  }} is not null
+        where {{ field  }} is not null
     ),
     parent as (
-        select {{ column_name }} as to_field,
+        select {{ field }} as to_field,
             {%-if 'TENANT_CODE' in all_columns %}
                 tenant_code,
             {%- endif %}
             {%- if 'API_YEAR' in all_columns %}
                 api_year,
             {%- endif %}
-        from {{ ref(parent) }}
+        from {{ ref(to) }}
     )
     select
         {%-if 'TENANT_CODE' in all_columns %}
@@ -29,8 +29,8 @@
         {%- if 'API_YEAR' in all_columns %}
         child.api_year,
         {%- endif %}
-        '{{ parent }}' as parent_model_name,
-        object_construct('test_column', array_construct('{{ column_name }}') )  as test_params,
+        '{{ to }}' as parent_model_name,
+        object_construct('test_column', array_construct('{{ field }}') )  as test_params,
         count(*) as failed_row_count
     from child
     left join parent
