@@ -2,96 +2,81 @@ version: 2
 
 referential_integrity_tests:
   - k_candidate: &ref_k_candidate
-      - relationships:
-          to: ref('stg_tpdm__candidates')
-          field: k_candidate
-          tags: ['ref_integrity']
+    - relationship:
+        parent: stg_tpdm__candidates
+        tags: ['ref_integrity']
 
-  - k_educator_prep_program: &ref_k_educator_prep_program
-      - relationships:
-          to: ref('stg_tpdm__educator_preparation_programs')
-          field: k_educator_prep_program
-          tags: ['ref_integrity']
+  - k_educaparentr_prep_program: &ref_k_educaparentr_prep_program
+    - relationship:
+        parent: stg_tpdm__educaparentr_preparation_programs
+        tags: ['ref_integrity']
 
   - k_applicant_profile: &ref_k_applicant_profile
-      - relationships:
-            to: ref('stg_tpdm__applicant_profiles')
-            field: k_applicant_profile
-            tags: ['ref_integrity']
+    - relationship:
+        parent: stg_tpdm__applicant_profiles
+        tags: ['ref_integrity']
 
   - k_staff: &ref_k_staff
-    - relationships:
-        to: ref('stg_ef3__staffs')
-        field: k_staff
+    - relationship:
+        parent: stg_ef3__staffs
         tags: ['ref_integrity']
 
   - k_certification_exam: &ref_k_certification_exam
-    - relationships:
-        to: ref('stg_tpdm__certification_exams')
-        field: k_certification_exam
+    - relationship:
+        parent: stg_tpdm__certification_exams
 
   - k_course_section: &ref_k_course_section
-    - relationships:
-        to: ref('stg_ef3__sections')
-        field: k_course_section
+    - relationship:
+        parent: stg_ef3__sections
         tags: ['ref_integrity']
 
   - k_person: &ref_k_person
-    - relationships:
-        to: ref('stg_ef3__people')
-        field: k_person
+    - relationship:
+        parent: stg_ef3__people
         tags: ['ref_integrity']
 
   - k_student: &ref_k_student
-    - relationships:
-        to: ref('stg_ef3__students')
-        field: k_student
+    - relationship:
+        parent: stg_ef3__students
         tags: ['ref_integrity']
   
   - k_survey_response: &ref_k_survey_response
-    - relationships:
-        to: ref('stg_ef3__survey_responses')
-        field: k_survey_response
+    - relationship:
+        parent: stg_ef3__survey_responses
         tags: ['ref_integrity']
 
   - k_evaluation: &ref_k_evaluation
-    - relationships:
-        to: ref('stg_tpdm__evaluations')
-        field: k_evaluation
+    - relationship:
+        parent: stg_tpdm__evaluations
         tags: ['ref_integrity']
         
   - k_evaluation_rating: &ref_k_evaluation_rating
-    - relationships:
-        to: ref('stg_tpdm__evaluation_ratings')
-        field: k_evaluation_rating
+    - relationship:
+        parent: stg_tpdm__evaluation_ratings
         tags: ['ref_integrity']
 
   - k_evaluation_objective: &ref_k_evaluation_objective
-    - relationships:
-        to: ref('stg_tpdm__evaluation_objectives')
-        field: k_evaluation_objective
+    - relationship:
+        parent: stg_tpdm__evaluation_objectives
         tags: ['ref_integrity']
 
   - k_performance_evaluation: &ref_k_performance_evaluation
-    - relationships:
-        to: ref('stg_tpdm__performance_evaluations')
-        field: k_performance_evaluation
+    - relationship:
+        parent: stg_tpdm__performance_evaluations
         tags: ['ref_integrity']
 
   - k_performance_evaluation_rating: &ref_k_performance_evaluation_rating
-    - relationships:
-        to: ref('stg_tpdm__evaluation_ratings')
-        field: k_performance_evaluation_rating
+    - relationship:
+        parent: stg_tpdm__evaluation_ratings
         tags: ['ref_integrity']
 
   - k_evaluation_objective_rating: &ref_k_evaluation_objective_rating
-    - relationships:
-        to: ref('stg_tpdm__evaluation_objective_ratings')
-        field: k_evaluation_objective_rating
+    - relationship:
+        parent: stg_tpdm__evaluation_objective_ratings
         tags: ['ref_integrity']
 
 models:
-  - name: stg_tpdm__candidate_educator_preparation_program_associations
+  - name: stg_tpdm__candidate_educaparentr_preparation_program_associations
     config:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdm:enabled', False) }}"
@@ -99,9 +84,9 @@ models:
       - name: k_candidate
         tests:
           *ref_k_candidate
-      - name: k_educator_prep_program
+      - name: k_educaparentr_prep_program
         tests:
-          *ref_k_educator_prep_program
+          *ref_k_educaparentr_prep_program
 
   - name: stg_tpdm__candidates
     config:
@@ -122,7 +107,7 @@ models:
         tests:
           *ref_k_applicant_profile
       
-  - name: stg_tpdm__candidate_relationship_to_staff_associations
+  - name: stg_tpdm__candidate_relationship_parent_staff_associations
     config:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
@@ -224,7 +209,7 @@ models:
         tests:
           *ref_k_student
 
-  - name: stg_tpdm__educator_preparation_programs
+  - name: stg_tpdm__educaparentr_preparation_programs
     config:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdm:enabled', False) }}"
@@ -271,6 +256,6 @@ models:
       - name: k_student
         tests:
           *ref_k_student
-      - name: k_educator_prep_program
+      - name: k_educaparentr_prep_program
         tests:
-          *ref_k_educator_prep_program
+          *ref_k_educaparentr_prep_program
