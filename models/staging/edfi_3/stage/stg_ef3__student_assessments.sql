@@ -7,7 +7,7 @@ with int_stu_assessments as (
 
     {% if is_incremental() %}
     -- Only get new or updated records since the last run
-    and last_modified_timestamp > (select max(pull_timestamp) from {{ this }})
+    where last_modified_timestamp > (select max(pull_timestamp) from {{ this }})
     {% endif %}
 ),
 keyed as (
