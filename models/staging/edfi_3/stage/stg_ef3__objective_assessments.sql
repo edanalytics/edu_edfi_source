@@ -20,8 +20,9 @@ distinct_obj_subject as (
 join_subject as (
     select
         base_obj_assessments.*,
+        distinct_obj_subject.academic_subject as academic_subject,
         -- prefer subject directly from obj assessment, else use studentAssess value
-        coalesce(base_obj_assessments.academic_subject_descriptor, distinct_obj_subject.academic_subject) as academic_subject
+        coalesce(base_obj_assessments.academic_subject_descriptor, distinct_obj_subject.academic_subject) as obj_assess_academic_subject
     from base_obj_assessments
     -- this join will drop objective assessments with no student results
     join distinct_obj_subject 
@@ -36,7 +37,7 @@ keyed as (
         {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
-            'lower(academic_subject)',
+            'lower(obj_assess_academic_subject)',
             'lower(assessment_identifier)',
             'lower(namespace)',
             'lower(objective_assessment_identification_code)']
