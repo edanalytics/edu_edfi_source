@@ -29,8 +29,7 @@
         {%- if 'API_YEAR' in all_columns %}
         child.api_year,
         {%- endif %}
-        '{{ parent }}' as parent_model_name,
-        object_construct('test_column', array_construct('{{ column_name }}') ) as test_params,
+        object_construct('test_column', array_construct('{{ column_name }}'), 'parent_model_name', '{{ parent }}' ) as test_params,
         count(*) as failed_row_count
     from child
     left join parent
