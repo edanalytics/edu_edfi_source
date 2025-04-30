@@ -39,4 +39,7 @@ deduped as (
     }}
 )
 select * from deduped
+{% if not is_incremental() %}
 where not is_deleted
+{% endif %}
+
