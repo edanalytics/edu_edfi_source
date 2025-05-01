@@ -37,6 +37,7 @@ keyed as (
         {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
+            'lower(academic_subject)',
             'lower(obj_assess_academic_subject)',
             'lower(assessment_identifier)',
             'lower(namespace)',
