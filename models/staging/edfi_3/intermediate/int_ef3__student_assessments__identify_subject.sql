@@ -1,6 +1,6 @@
 with base_stu_assessments as (
     select * from {{ ref('base_ef3__student_assessments') }}
-    {% if is_incremental() %}
+    {% if var('edu:edfi_source:large_stg_materialization', 'table') == 'incremental' %}
     -- Only get new or updated records since the last run
     where last_modified_timestamp > (select max(pull_timestamp) from {{ this }})
     {% endif %}
