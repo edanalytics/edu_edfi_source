@@ -2,7 +2,7 @@ with base_stu_assessments as (
     select * from {{ ref('base_ef3__student_assessments') }}
     {% if var('edu:edfi_source:large_stg_materialization', 'table') == 'incremental' %}
     -- Only get new or updated records since the last run
-    where last_modified_timestamp > (select max(pull_timestamp) from {{ this }})
+    where last_modified_timestamp > (select max(pull_timestamp) from {{ ref('stg_ef3__student_assessments') }})
     {% endif %}
 ),
 stg_assessments_single_subj as (
