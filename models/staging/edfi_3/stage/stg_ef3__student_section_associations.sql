@@ -1,5 +1,5 @@
 {{ config(
-    materialized='incremental',
+    materialized=var('edu:edfi_source:large_stg_materialization', 'table'),
     unique_key=['k_student', 'k_course_section', 'begin_date'],
     post_hook=["{{edu_edfi_source.stg_post_hook_delete()}}"]
 ) }}

@@ -1,5 +1,5 @@
 {{ config(
-    materialized='incremental',
+    materialized=var('edu:edfi_source:large_stg_materialization', 'table'),
     unique_key=['k_survey_question', 'k_survey_response'],
     post_hook=["{{edu_edfi_source.stg_post_hook_delete()}}"]
 ) }}
