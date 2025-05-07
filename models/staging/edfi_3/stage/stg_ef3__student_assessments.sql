@@ -7,9 +7,10 @@ keyed as (
             ['tenant_code',
             'api_year',
             'lower(academic_subject)',
-            'lower(student_assessment_identifier)',
             'lower(assessment_identifier)',
-            'lower(namespace)']
+            'lower(namespace)',
+            'lower(student_assessment_identifier)',
+            'lower(student_unique_id)']
         ) }} as k_student_assessment,
         {{ gen_skey('k_assessment', extras = ['academic_subject']) }},
         {{ gen_skey('k_student') }},
