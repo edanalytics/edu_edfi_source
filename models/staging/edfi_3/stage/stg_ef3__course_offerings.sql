@@ -1,10 +1,9 @@
 with base_course_offerings as (
     select * from {{ ref('base_ef3__course_offerings') }}
-    where not is_deleted
 ),
 keyed as (
     select
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
              'lower(local_course_code)',
              'school_id',
@@ -23,9 +22,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_course_offering',
-            order_by='school_year desc, pull_timestamp desc'
+            order_by='school_year desc, last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
-
+where not is_deleted

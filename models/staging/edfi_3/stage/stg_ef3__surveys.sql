@@ -1,10 +1,9 @@
 with base_surveys as (
     select * from {{ ref('base_ef3__surveys') }}
-    where not is_deleted
 ),
 keyed as (
     select 
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
                 'api_year',
@@ -21,8 +20,9 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_survey', 
-            order_by='pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
 select * from deduped
+where not is_deleted

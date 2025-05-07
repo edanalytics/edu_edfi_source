@@ -11,6 +11,8 @@ renamed as (
         file_row_number,
         is_deleted,
         v:id::string                               as record_guid,
+        ods_version,
+        data_model_version,
         v:schoolReference:schoolId                 as school_id,
         v:sessionReference:schoolYear              as school_year,
         v:sessionReference:sessionName::string     as session_name,

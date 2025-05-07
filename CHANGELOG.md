@@ -3,6 +3,51 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.4.6
+## Fixes
+- Fix deduplication logic in all stg models to handle deleted records correctly before removal. This brings EDU more in sync with ODS true state
+- Fix unique key in `stg_ef3__student_objective_assessments` to include assessment_identifier to handle edge case duplicates
+  
+# edu_edfi_source v0.4.5
+## New features
+- Add base/stage models for `restraintEvents`
+- Add partial support for TPDM Core and TPDM Community
+
+# edu_edfi_source v0.4.4
+## Fixes
+- Handle invalid timestamp formatting in student_assessments
+- Fix coalesce logic for academic subjects in `stg_ef3__objective_assessments` and `stg_ef3__student_objective_assessments` to hydrate correctly when populated in respective Ed-Fi element's `academicSubject` field
+  
+# edu_edfi_source v0.4.3
+## Fixes
+- Add missing `program_enroll_end_date` to every stg-stu-program `__program_services` + `stu_spec_ed__disabilities`
+
+# edu_edfi_source v0.4.2
+## Fixes
+- Fix surrogate key creation for `stg_ef3__grading_periods` to properly hanlde lowering of alphanumeric column (grading_period_name) that is part of natural key
+
+# edu_edfi_source v0.4.1
+## Fixes
+- Fix surrogate key creation for `stg_ef3__student_contact_associations` to properly hanlde lowering of alphanumeric columns that are part of natural keys
+
+# edu_edfi_source v0.4.0
+## New features
+- Add `stg_ef3__stu_ed_org__cohort_years` tracking student cohort designations (flattens Ed-Fi collection `cohort_years` for easier downstream use)
+- Add base/stage models for `contacts` and `student_contact_associations`, added due to the rename from parent to contact in Ed-Fi data standard v5.0.
+- Rename `k_parent` to `k_contact` in `stg_ef3__survey_responses`.
+- Add `gender_identity`, `preferred_first_name`, `preferred_last_name` columns to `staffs` (Ed-Fi Data Standard v5.0 additions)
+- Add `section_type` descriptor column to `sections` (Ed-Fi Data Standard v5.0 addition)
+- Add `responsible_teacher_staff_reference`, `v_programs`, `v_sections` columns to `course_transcripts` (Ed-Fi Data Standard v5.0 additions)
+- Add `v_programs` column to `course_transcripts` (Ed-Fi Data Standard v5.0 addition)
+## Under the hood
+- Add columns to `base_ef3__parents` to allow data to be unioned into new `stg_ef3__contacts` model
+- Update package dependency `dbt_utils` to 1.3.0, including alignment to renamed `generate_surrogate_key()` macro. Note, this change now treats nulls and empty strings as distinct values in surrogate key generation.
+- Make package macro calls to `extract_descriptor` explicit so `flatten_arrays` can be used by outer packages
+## Fixes
+- Fix typo in column name `courses.maxCompletionsForCredit`
+- Fix surrogate key creation for `stg_ef3__student_academic_records`, `stg_ef3__student_objective_assessments`, and `stg_ef3__students` to properly handle lowering of alphanumeric columns that are part of natural keys
+- Rename `stg_ef3__staff__races` to `stg_ef3__staffs__races` for consistency with EDU naming conventions
+
 # edu_edfi_source v0.3.6
 ## Fixes
 - Fix data type on base_ef3__student_special_education_program_associations.student_unique_id

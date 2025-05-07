@@ -14,6 +14,8 @@ renamed as (
         is_deleted,
 
         v:id::string as record_guid,
+        ods_version,
+        data_model_version,
         v:studentReference:studentUniqueId::string                    as student_unique_id,
         v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         v:educationOrganizationReference:link:rel::string             as ed_org_type,

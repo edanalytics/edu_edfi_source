@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                              as record_guid,
+        ods_version,
+        data_model_version,
         v:staffReference:staffUniqueId::string    as staff_unique_id,
         v:schoolReference:schoolId::int           as school_id,
         v:calendarReference:calendarCode::string  as calendar_code,
@@ -18,13 +20,13 @@ renamed as (
         v:calendarReference:schoolYear::int       as calendar_school_year,
         v:schoolYearTypeReference:schoolYear::int as school_year,
         -- descriptors
-        {{ extract_descriptor('v:programAssignmentDescriptor') }} as program_assignment,
+        {{ extract_descriptor('v:programAssignmentDescriptor::string') }} as program_assignment,
         -- references
         v:calendarReference as calendar_reference,
         v:schoolReference   as school_reference,
         v:staffReference    as staff_reference,
         -- lists 
-        v:academic_subjects as v_academic_subjects,
+        v:academicSubjects as v_academic_subjects,
         v:gradeLevels       as v_grade_levels,
 
         -- edfi extensions

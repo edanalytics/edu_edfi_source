@@ -10,11 +10,11 @@
         when education_organization_reference:link:rel::string  = 'School'
         then null
         when education_organization_reference:link:rel::string  = 'LocalEducationAgency'
-        then {{dbt_utils.surrogate_key(static_cols + ['education_organization_reference:educationOrganizationId'])}}
+        then {{dbt_utils.generate_surrogate_key(static_cols + ['education_organization_reference:educationOrganizationId'])}}
     end as k_lea,
     case 
         when education_organization_reference:link:rel::string  = 'School'
-        then {{dbt_utils.surrogate_key(static_cols + ['education_organization_reference:educationOrganizationId'])}}
+        then {{dbt_utils.generate_surrogate_key(static_cols + ['education_organization_reference:educationOrganizationId'])}}
         when education_organization_reference:link:rel::string  = 'LocalEducationAgency'
         then null
     end as k_school

@@ -1,0 +1,1 @@
+{{ flatten_emails('stg_ef3__contacts', ['k_contact']) }}

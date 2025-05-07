@@ -12,6 +12,8 @@ renamed as (
         is_deleted,
 
         v:id::string                                                                     as record_guid,
+        ods_version,
+        data_model_version,
         v:parentUniqueId::string                                                         as parent_unique_id,
         v:personReference:personId::string                                               as person_id,
         v:firstName::string                                                              as first_name,
@@ -20,6 +22,11 @@ renamed as (
         v:maidenName::string                                                             as maiden_name,
         v:generationCodeSuffix::string                                                   as generation_code_suffix,
         v:personalTitlePrefix::string                                                    as personal_title_prefix,
+        -- the following three fields were introduced to the Contacts resource, which replaced Parents in v5.0
+        -- including them here (they will always be null) to allow the tables to be unioned in stage
+        v:genderIdentity::string                                                         as gender_identity, 
+        v:preferredFirstName::string                                                     as preferred_first_name,
+        v:preferredLastSurname::string                                                   as preferred_last_name,
         v:loginId::string                                                                as login_id,
         {{ extract_descriptor('v:sexDescriptor::string') }}                              as sex,
         {{ extract_descriptor('v:highestCompletedLevelOfEducationDescriptor::string') }} as highest_completed_level_of_education,

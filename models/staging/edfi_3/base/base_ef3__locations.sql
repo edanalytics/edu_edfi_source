@@ -11,6 +11,8 @@ renamed as (
         filename,
         is_deleted,
         v:id::string                          as record_guid,
+        ods_version,
+        data_model_version,
         v:classroomIdentificationCode::string as classroom_id_code,
         v:schoolReference:schoolId::int       as school_id,
         v:maximumNumberOfSeats::int           as maximum_seating,
