@@ -41,7 +41,7 @@ flattened as (
 joined as (
     select
       flattened.* exclude(academic_subject),
-      coalesce(stage_obj_assessments.obj_assess_academic_subject, flattened.academic_subject) as academic_subject
+      coalesce(stage_obj_assessments.academic_subject, flattened.academic_subject) as academic_subject
     from flattened
     join stage_obj_assessments
       on flattened.tenant_code = stage_obj_assessments.tenant_code

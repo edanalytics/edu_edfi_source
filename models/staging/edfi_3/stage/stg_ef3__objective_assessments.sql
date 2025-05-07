@@ -57,6 +57,12 @@ deduped as (
             order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
+),
+{# Rename obj_assess_academic_subject --> academic_subject for human-readability and to avoid breaking change to warehouse. academic_subject above represents 'OVERALL' assessment subject, so that the gen_skey() call works. #}
+renamed as (
+  select 
+    deduped.* RENAME (academic_subject as assess_academic_subject, obj_assess_academic_subject as academic_subject)
+  from deduped
 )
-select * from deduped
+select * from renamed
 where not is_deleted
