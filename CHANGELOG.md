@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+ - Add (optional) support for incremental materialization of most expensive stg models
 ## Under the hood
 ## Fixes
 
