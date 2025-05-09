@@ -20,8 +20,9 @@ distinct_obj_subject as (
 join_subject as (
     select
         base_obj_assessments.*,
+        distinct_obj_subject.academic_subject as academic_subject,
         -- prefer subject directly from obj assessment, else use studentAssess value
-        coalesce(base_obj_assessments.academic_subject_descriptor, distinct_obj_subject.academic_subject) as academic_subject
+        coalesce(base_obj_assessments.academic_subject_descriptor, distinct_obj_subject.academic_subject) as obj_assess_academic_subject
     from base_obj_assessments
     -- this join will drop objective assessments with no student results
     join distinct_obj_subject 
@@ -39,6 +40,7 @@ keyed as (
             'lower(academic_subject)',
             'lower(assessment_identifier)',
             'lower(namespace)',
+            'lower(obj_assess_academic_subject)',
             'lower(objective_assessment_identification_code)']
         ) }} as k_objective_assessment,
         {{ gen_skey('k_assessment', extras = ['academic_subject']) }},
@@ -55,6 +57,12 @@ deduped as (
             order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
+),
+{# Rename obj_assess_academic_subject --> academic_subject for human-readability and to avoid breaking change to warehouse. academic_subject above represents 'OVERALL' assessment subject, so that the gen_skey() call works. #}
+renamed as (
+  select 
+    deduped.* RENAME (academic_subject as assess_academic_subject, obj_assess_academic_subject as academic_subject)
+  from deduped
 )
-select * from deduped
+select * from renamed
 where not is_deleted

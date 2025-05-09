@@ -4,7 +4,9 @@
 - Add (optional) support for incremental materialization of most expensive stg models
 ## Under the hood
 ## Fixes
+- Fix unique key of `k_assessment` in `stg_ef3__objective_assessments`
 - Fix unique key `k_student_assessment` in `stg_ef3__student_assessments` to include `student_unique_id` (relevant only where `student_assessment_identifier` is not on its own unique)
+
 
 # edu_edfi_source v0.4.6
 ## Fixes
