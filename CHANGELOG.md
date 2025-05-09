@@ -1,6 +1,7 @@
 # Unreleased
 ## New features
 - Add base/stage models for `staffEducationOrganizationContactAssociations`
+- Add (optional) support for incremental materialization of most expensive stg models
 ## Under the hood
 ## Fixes
 
