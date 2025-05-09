@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Fix unique key of `k_assessment` in `stg_ef3__objective_assessments`
 
 # edu_edfi_source v0.4.6
 ## Fixes
