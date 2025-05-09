@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add base/stage models for `staffEducationOrganizationContactAssociations`
 ## Under the hood
 ## Fixes
 
