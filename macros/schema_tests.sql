@@ -47,13 +47,13 @@
     with validation_errors as (
         select
             {%- for value in combination_of_columns %} {{value}},{%-endfor%}
-        {%-if 'TENANT_CODE' in all_columns %}
+        {%-if 'TENANT_CODE' in all_columns and 'tenant_code' not in combination_of_columns %}
             tenant_code,
         {%- endif %}
-        {%- if 'API_YEAR' in all_columns %}
+        {%- if 'API_YEAR' in all_columns and 'api_year' not in combination_of_columns %}
             api_year,
         {%- endif %}
-        {%- if 'SCHOOL_YEAR' in all_columns %}
+        {%- if 'SCHOOL_YEAR' in all_columns and 'school_year' not in combination_of_columns %}
             school_year,
         {%- endif %}
             count(*) as failed_row_count
@@ -103,6 +103,9 @@
         {%- endif %}
         {%- if 'API_YEAR' in all_columns %}
         api_year,
+        {%- endif %},
+        {%- if 'SCHOOL_YEAR' in all_columns %}
+        school_year,
         {%- endif %}
         count(*) as failed_row_count,
         object_construct('accepted_values', {{values}} ) as test_params
@@ -124,6 +127,9 @@
         {%- if 'API_YEAR' in all_columns %}
         api_year,
         {%- endif %}
+        {%- if 'SCHOOL_YEAR' in all_columns %}
+        school_year,
+        {%- endif %}
         count(*) as failed_row_count,
         object_construct('test_column', array_construct('{{ column_name }}') ) as test_params
     from {{ model }}
@@ -143,6 +149,9 @@
         {%- endif %}
         {%- if 'API_YEAR' in all_columns %}
         api_year,
+        {%- endif %}
+        {%- if 'SCHOOL_YEAR' in all_columns %}
+        school_year,
         {%- endif %}
         count(*) as failed_row_count,
         object_construct('test_column', array_construct('{{ column_name }}') )  as test_params
