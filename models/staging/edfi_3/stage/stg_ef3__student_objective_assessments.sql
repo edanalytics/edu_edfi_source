@@ -17,6 +17,7 @@ flattened as (
         student_assessment_identifier,
         assessment_identifier,
         namespace,
+        assess_academic_subject,
         academic_subject,
         school_year,
         administration_date,
@@ -65,7 +66,7 @@ keyed as (
             'lower(objective_assessment_identification_code)',
             'lower(student_assessment_identifier)']
         ) }} as k_student_objective_assessment,
-        {{ gen_skey('k_objective_assessment', extras = ['academic_subject']) }},
+        {{ gen_skey('k_objective_assessment', extras = ['assess_academic_subject', 'academic_subject']) }},
         k_student_assessment,
         k_assessment,
         k_student,
