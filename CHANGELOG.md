@@ -3,6 +3,10 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.4.8
+## Fixes
+- Fix unique key of `k_objective_assessment` to account for recent update to include obj assess subject.
+
 # edu_edfi_source v0.4.7
 ## New features
 - Add base/stage models for `staffEducationOrganizationContactAssociations`
