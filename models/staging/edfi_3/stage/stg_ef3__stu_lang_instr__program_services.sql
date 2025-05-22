@@ -13,6 +13,7 @@ flattened as (
         k_school,
 
         program_enroll_begin_date,
+        program_enroll_end_date,
         {{ extract_descriptor('value:languageInstructionProgramServiceDescriptor::string') }} as program_service,
         value:primaryIndicator::boolean as primary_indicator,
         value:providers                 as v_providers,
@@ -22,7 +23,7 @@ flattened as (
         -- edfi extensions
         value:_ext as v_ext
 
-    from stage_stu_programs,
+    from stage_stu_programs
         {{ json_flatten('v_language_instruction_program_services') }}
 )
 

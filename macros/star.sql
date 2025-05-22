@@ -20,7 +20,7 @@ Notes:
 
 {% macro snowflake__star(from, except, rename) -%}
 
-    select * 
+    {{from}}.* 
     {% if except | length > 0 -%}
     exclude ({{ except | join(',') }})
     {% endif %}
@@ -30,22 +30,19 @@ Notes:
         {{ col_pair[0] | trim }} as {{ col_pair[1] | trim }} {% if not loop.last %},{% else %}){% endif %}
     {% endfor -%}
     {% endif %}
-    from {{from}}
 
 {%- endmacro %}
 
 
 {% macro databricks__star(from, except, rename) -%}
 
-    select
     {% for col_pair in rename -%}
     {{ col_pair[0] | trim }} as {{ col_pair[1] | trim }},
     {{ except.append(col_pair[0] | trim) or "" }}
     {% endfor -%}
-    *
+    {{from}}.*
     {% if except | length > 0 -%} 
     except ({{ except | join(', ') }})
     {% endif -%}
-    from {{from}}
 
 {%- endmacro %}

@@ -1,6 +1,5 @@
 with base_stu_responsibility as (
     select * from {{ ref('base_ef3__student_education_organization_responsibility_associations') }}
-    where not is_deleted
 ),
 keyed as (
     select 
@@ -17,7 +16,8 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student, ed_org_id, begin_date, school_year, responsibility',
-            order_by='pull_timestamp desc')
+            order_by='last_modified_timestamp desc, pull_timestamp desc')
     }}
 )
 select * from deduped
+where not is_deleted

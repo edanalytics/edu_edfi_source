@@ -204,6 +204,139 @@
             'annualize': False
         },
 
+        'k_educator_prep_program': {
+            'reference_name': 'educator_preparation_program_reference',
+            'col_list': ['educationOrganizationId', 'programName', 'programTypeDescriptor'],
+            'annualize': True
+        },
+        'k_candidate': {
+            'reference_name': 'candidate_reference',
+            'col_list': ['candidateIdentifier'],
+            'annualize': True
+        },
+
+        'k_applicant_profile': {
+            'reference_name': 'applicant_profile_reference',
+            'col_list': ['applicantProfileIdentifier'],
+            'annualize': True
+        },
+
+        'k_certification_exam': {
+            'reference_name': 'certification_exam_reference',
+            'col_list': ['certificationExamIdentifier', 'namespace'],
+            'annualize': True
+        },
+
+        'k_survey_section': {
+            'reference_name': 'survey_section_reference',
+            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title'],
+            'annualize': True
+        },
+
+        'k_person': {
+            'reference_name': 'person_reference',
+            'col_list': ['personId', 'sourceSystemDescriptor'],
+            'annualize': True
+        },
+        'k_educator_prep_program': {
+            'reference_name': 'educator_preparation_program_reference',
+            'col_list': ['educationOrganizationId',
+                         'programName',
+                         'programTypeDescriptor'],
+            'annualize': True
+        },
+        'k_performance_evaluation': {
+            'reference_name': 'performance_evaluation_reference',
+            'col_list': ['educationOrganizationId', 
+                         'evaluationPeriodDescriptor',
+                         'performanceEvaluationTitle', 
+                         'performanceEvaluationTypeDescriptor',
+                         'schoolYear',
+                         'termDescriptor'],
+            'annualize': True
+        },
+        'k_evaluation': {
+            'reference_name': 'evaluation_reference',
+            'col_list': ['educationOrganizationId',
+                         'evaluationPeriodDescriptor',
+                         'evaluationTitle',
+                         'performanceEvaluationTitle',
+                         'performanceEvaluationTypeDescriptor',
+                         'schoolYear',
+                         'termDescriptor'],
+            'annualize': True
+        },
+        'k_evaluation_rating': {
+            'reference_name': 'evaluation_rating_reference',
+            'col_list': ['educationOrganizationId',
+                         'evaluationDate',
+                         'evaluationPeriodDescriptor',
+                         'evaluationTitle',
+                         'performanceEvaluationTitle',
+                         'performanceEvaluationTypeDescriptor',
+                         'personId',
+                         'schoolYear',
+                         'sourceSystemDescriptor',
+                         'termDescriptor'],
+            'annualize': True
+        },
+        'k_evaluation_objective': {
+            'reference_name': 'evaluation_objective_reference',
+            'col_list': ['educationOrganizationId',
+                         'evaluationObjectiveTitle',
+                         'evaluationPeriodDescriptor',
+                         'evaluationTitle',
+                         'performanceEvaluationTitle',
+                         'performanceEvaluationTypeDescriptor',
+                         'schoolYear',
+                         'termDescriptor'],
+            'annualize': True
+        },
+        'k_evaluation_element': {
+            'reference_name': 'evaluation_element_reference',
+            'col_list': ['educationOrganizationId',
+                         'evaluationElementTitle',
+                         'evaluationObjectiveTitle',
+                         'evaluationPeriodDescriptor',
+                         'evaluationTitle',
+                         'performanceEvaluationTitle',
+                         'performanceEvaluationTypeDescriptor',
+                         'schoolYear',
+                         'termDescriptor'],
+            'annualize': True
+        },
+        'k_evaluation_objective_rating': {
+            'reference_name': 'evaluation_objective_rating_reference',
+            'col_list': ['educationOrganizationId',
+                         'evaluationDate',
+                         'evaluationObjectiveTitle',
+                         'evaluationPeriodDescriptor',
+                         'evaluationTitle',
+                         'performanceEvaluationTitle',
+                         'performanceEvaluationTypeDescriptor',
+                         'personId',
+                         'schoolYear',
+                         'sourceSystemDescriptor',
+                         'termDescriptor'],
+            'annualize': True
+        },
+        'k_performance_evaluation_rating': {
+            'reference_name': 'performance_evaluation_rating_reference',
+            'col_list': ['educationOrganizationId',
+                         'evaluationPeriodDescriptor',
+                         'performanceEvaluationTitle',
+                         'performanceEvaluationTypeDescriptor',
+                         'personId',
+                         'schoolYear',
+                         'sourceSystemDescriptor',
+                         'termDescriptor'],
+            'annualize': True
+        },
+        'k_post_secondary_institution': {
+            'reference_name': 'k_post_secondary_institution_reference',
+            'col_list': ['post_secondary_institution_id'],
+            'annualize': False
+        },
         'k_template': {
             'reference_name': '',
             'col_list': [],
