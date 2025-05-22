@@ -4,15 +4,11 @@ with base_contacts as (
 base_parents as (
     select * from {{ ref('base_ef3__parents') }}
 ),
-base_parents_renamed as (
-    select {{ star('base_parents', rename=[['parent_unique_id', 'contact_unique_id']]) }}
-    from base_parents
-),
 -- parents were renamed to contacts in Data Standard v5.0
 unioned as (
-    select * from base_contacts
+    select contact_unique_id, {{ star('base_contacts', except=['contact_unique_id']) }} from base_contacts
     union 
-    select * from base_parents_renamed
+    select {{ star('base_parents', rename=[['parent_unique_id', 'contact_unique_id']]) }} from base_parents
 ),
 keyed as (
     select 
