@@ -16,7 +16,7 @@ renamed as (
         v:incidentIdentifier::string                  as incident_id,
         v:schoolReference:schoolId::int               as school_id,
         v:incidentDate::date                          as incident_date,
-        v:incidentTime::time                          as incident_time,
+        v:incidentTime::string                        as incident_time,
         v:caseNumber::string                          as case_number,
         v:incidentCost::float                         as incident_cost,
         v:incidentDescription::string                 as incident_description,
