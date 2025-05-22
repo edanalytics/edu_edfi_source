@@ -5,7 +5,8 @@ base_parents as (
     select * from {{ ref('base_ef3__parents') }}
 ),
 base_parents_renamed as (
-    {{ star('base_parents', rename=[['parent_unique_id', 'contact_unique_id']]) }}
+    select {{ star('base_parents', rename=[['parent_unique_id', 'contact_unique_id']]) }}
+    from base_parents
 ),
 -- parents were renamed to contacts in Data Standard v5.0
 unioned as (
