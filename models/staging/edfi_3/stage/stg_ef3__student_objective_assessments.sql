@@ -40,7 +40,7 @@ flattened as (
 -- join to get subject from stg obj assess (if not null)
 joined as (
     select
-      flattened.* exclude(academic_subject),
+      {{ star('flattened', except=['academic_subject']) }},
       coalesce(stage_obj_assessments.academic_subject, flattened.academic_subject) as academic_subject
     from flattened
     join stage_obj_assessments
