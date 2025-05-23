@@ -43,7 +43,7 @@ Notes:
     parse_json(to_json(
     {%- endif %}
     {%- if order_by is not none %} 
-    sort_index(
+    array_sort(
     {%- endif %}
     array_agg({{ expression}})
     {{ window }}
