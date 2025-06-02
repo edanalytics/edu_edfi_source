@@ -18,6 +18,6 @@ flattened as (
         disab.value:orderOfDisability::int as order_of_disability,
         disab.value:designations as v_designations
     from stg_stu_spec_ed_org
-        , lateral flatten(input=>v_disabilities) disab
+        {{ json_flatten('v_disabilities', 'disab') }}
 )
 select * from flattened

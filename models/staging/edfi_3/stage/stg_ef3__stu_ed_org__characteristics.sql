@@ -2,7 +2,7 @@ with stage_stu_ed_org as (
     select * from {{ ref('stg_ef3__student_education_organization_associations') }}
 ),
 flattened as (
-    select 
+    select
         tenant_code,
         api_year,
         k_student,
@@ -15,8 +15,8 @@ flattened as (
         timing.value:beginDate::date as begin_date,
         timing.value:endDate::date as end_date
     from stage_stu_ed_org
-        , lateral flatten(input=>v_student_characteristics, outer=>true) as char
-        , lateral flatten(input=>char.value:periods, outer=>true) as timing
+        {{ json_flatten('v_student_characteristics', 'char', outer=True) }}
+        {{ json_flatten('char.value:periods', 'timing', outer=True) }}
 )
 select * from flattened
 
