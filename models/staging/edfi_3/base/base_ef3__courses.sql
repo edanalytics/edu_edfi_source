@@ -42,6 +42,7 @@ renamed as (
         v:learningStandards    as v_learning_standards,
         v:levelCharacteristics as v_level_characteristics,
         v:offeredGradeLevels   as v_offered_grade_levels,
+	v:academicSubjects     as v_academic_subjects,
 
         -- edfi extensions
         v:_ext as v_ext
