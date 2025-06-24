@@ -2,7 +2,7 @@ with stg_survey_questions as (
     select * from {{ ref('stg_ef3__survey_questions') }}
 ),
 flattened as (
-    select 
+    select
         tenant_code,
         api_year,
         k_survey,
@@ -11,6 +11,6 @@ flattened as (
         value:numericValue::float as numeric_value,
         value:textValue::string   as text_value
     from stg_survey_questions
-        , lateral flatten(input=>v_response_choices)
+        {{ json_flatten('v_response_choices') }}
 )
 select * from flattened
