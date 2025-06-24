@@ -10,11 +10,6 @@ with unioned as (
         )
     }}
 ),
-drop_deletes as (
-    select * 
-    from unioned
-    where not is_deleted
-),
 keyed as (
     select 
         {{ dbt_utils.generate_surrogate_key(
@@ -23,9 +18,9 @@ keyed as (
                 'lower(contact_unique_id)'
             ]
         ) }} as k_contact,
-        drop_deletes.*
+        unioned.*
         {{ extract_extension(model_name=[this.name, 'stg_ef3__parents'], flatten=True) }}
-    from drop_deletes
+    from unioned
 ),
 -- For x-year resources (those that do not include year in unique key), there's an edge case 
 -- where a record we need for historic reporting could have been deleted in a later year. To avoid removing these,
