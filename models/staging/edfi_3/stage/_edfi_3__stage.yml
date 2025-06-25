@@ -664,6 +664,10 @@ models:
       - name: k_contact
         tests:
           *ref_k_contact
+  
+  - name: stg_ef3__student_cte_program_associations
+    config:
+      tags: ['core']
 
   - name: stg_ef3__student_discipline_incident_behavior_associations
     config:
