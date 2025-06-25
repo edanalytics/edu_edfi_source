@@ -667,7 +667,8 @@ models:
   
   - name: stg_ef3__student_cte_program_associations
     config:
-      tags: ['core']
+      tags: ['cte']
+      enabled: "{{ var('src:domain:discipline:enabled', True) }}"
 
   - name: stg_ef3__student_discipline_incident_behavior_associations
     config:
