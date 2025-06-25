@@ -13,25 +13,24 @@ renamed as (
         filename,
         is_deleted,
 
+        v:id::string                                                            as record_guid, 
         ods_version, 
         data_model_version,
-        v:id::string                                                            as record_guid, 
-        TRY_TO_DATE(TRIM(v:beginDate::string), 'YYYY-MM-DD')                    as begin_date, 
-        TRY_TO_DATE(TRIM(v:endDate::string), 'YYYY-MM-DD')                      as end_date, 
-
-        v:nonTraditionalGenderStatus::boolean                                   as non_traditional_gender_status,
-        v:privateCTEProgram::boolean                                            as private_cte_program,
+        v:studentReference:studentUniqueId::int                                 as student_unique_id,
         v:educationOrganizationReference:educationOrganizationId::int           as ed_org_id,
         v:educationOrganizationReference:link:rel::string                       as ed_org_type,
         v:programReference:educationOrganizationId::int                         as program_ed_org_id,
+        v:beginDate::date                                                       as program_enroll_begin_date, 
+        v:endDate::date                                                         as program_enroll_end_date, 
         v:programReference:programName::string                                  as program_name,
-        v:programReference:link:rel::string                                     as program_reference_rel,
-        v:studentReference:studentUniqueId::int                                 as student_unique_id,
         v:studentReference:link:rel::string                                     as student_reference_rel,
 
+        v:nonTraditionalGenderStatus::boolean                                   as non_traditional_gender_status,
+        v:privateCTEProgram::boolean                                            as private_cte_program,
+
         -- descriptors
-        {{ extract_descriptor('v:technicalSkillsAssessmentDescriptor') }}       as technical_skills_assessment_descriptor,
-        {{ extract_descriptor('v:programReference:programTypeDescriptor') }}    as program_type_descriptor,
+        {{ extract_descriptor('v:technicalSkillsAssessmentDescriptor') }}       as technical_skills_assessment,
+        {{ extract_descriptor('v:programReference:programTypeDescriptor') }}    as program_type,
 
         -- references
         v:educationOrganizationReference                                        as education_organization_reference,
@@ -39,10 +38,10 @@ renamed as (
         v:studentReference                                                      as student_reference,
 
         -- lists
-        v:cteProgramServices                                                    as cte_program_services, 
-        v:ctePrograms                                                           as cte_programs, 
-        v:programParticipationStatuses                                          as program_participation_statuses, 
-        v:services                                                              as services
+        v:cteProgramServices                                                    as v_cte_program_services, 
+        v:ctePrograms                                                           as v_cte_programs, 
+        v:programParticipationStatuses                                          as v_program_participation_statuses, 
+        v:services                                                              as v_services
         
     from source_stu_programs
 )
