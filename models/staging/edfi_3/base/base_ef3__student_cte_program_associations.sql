@@ -27,12 +27,12 @@ renamed as (
 
         v:nonTraditionalGenderStatus::boolean                                           as non_traditional_gender_status,
         v:privateCTEProgram::boolean                                                    as private_cte_program,
-        v:ServedOutsideOfRegularSession::boolean                                        as served_outside_of_regular_session
+        v:ServedOutsideOfRegularSession::boolean                                        as served_outside_of_regular_session,
 
         -- descriptors
         {{ extract_descriptor('v:technicalSkillsAssessmentDescriptor') }}               as technical_skills_assessment,
         {{ extract_descriptor('v:programReference:programTypeDescriptor') }}            as program_type,
-        {{ extract_descriptor('v:ReasonExitedDescriptor:ReasonExitedDescriptorId') }}   as reason_exited
+        {{ extract_descriptor('v:ReasonExitedDescriptor:ReasonExitedDescriptorId') }}   as reason_exited,
 
         -- references
         v:educationOrganizationReference                                                as education_organization_reference,
