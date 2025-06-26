@@ -588,6 +588,18 @@ models:
       tags: ['language_instruction']
       enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
 
+  - name: stg_ef3__student_migrant_education_program_associations
+    config: 
+      tags: ['migrant']
+
+  - name: stg_ef3__stu_migrant_edu__program_services
+    config:
+      tags: ['migrant']
+
+  - name: stg_ef3__stu_school_food_service__program_services
+    config: 
+      tags: ['food']
+
   - name: stg_ef3__stu_spec_ed__disabilities
     config:
       tags: ['special_ed']
@@ -796,6 +808,10 @@ models:
       - name: k_session
         tests:
           *ref_k_session
+
+  - name: stg_ef3__student_school_food_service_program_association
+    config: 
+      tags: ['food']
 
   - name: stg_ef3__student_section_associations
     config:

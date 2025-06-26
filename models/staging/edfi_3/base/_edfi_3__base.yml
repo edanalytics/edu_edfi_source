@@ -146,6 +146,9 @@ models:
     config:
       tags: ['language_instruction']
       enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
+  - name: base_ef3__student_migrant_education_program_associations
+    config:
+      tags: ['migrant']
   - name: base_ef3__student_parent_associations
     config:
       tags: ['core']
@@ -158,6 +161,9 @@ models:
   - name: base_ef3__student_school_attendance_events
     config:
       tags: ['core']
+  - name: base_ef3__student_school_food_service_program_association
+    config:
+      tags: ['food']
   - name: base_ef3__student_section_associations
     config:
       tags: ['core']
