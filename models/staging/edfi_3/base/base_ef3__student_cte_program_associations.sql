@@ -23,7 +23,6 @@ renamed as (
         v:beginDate::date                                                               as program_enroll_begin_date, 
         v:endDate::date                                                                 as program_enroll_end_date, 
         v:programReference:programName::string                                          as program_name,
-        v:studentReference:link:rel::string                                             as student_reference_rel,
 
         v:nonTraditionalGenderStatus::boolean                                           as non_traditional_gender_status,
         v:privateCTEProgram::boolean                                                    as private_cte_program,
@@ -43,7 +42,10 @@ renamed as (
         v:cteProgramServices                                                            as v_cte_program_services, 
         v:ctePrograms                                                                   as v_cte_programs, 
         v:programParticipationStatuses                                                  as v_program_participation_statuses, 
-        v:services                                                                      as v_services
+        v:services                                                                      as v_services,
+
+        -- edfi extensions
+        v:_ext as v_ext
         
     from source_stu_programs
 )

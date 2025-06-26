@@ -126,6 +126,7 @@ models:
   - name: base_ef3__student_cte_program_associations
     config:
       tags: ['cte']
+      enabled: "{{ var('src:program:cte:enabled', True) }}"
   - name: base_ef3__student_discipline_incident_associations
     config:
       tags: ['discipline']
