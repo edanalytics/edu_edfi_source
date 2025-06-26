@@ -2,6 +2,8 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Add handling of multiple academic subjects per course for DS 5.0 compatibility; new `stg_ef3__courses_academic_subjects` model and new `v_academic_subjects` columns in `base_ef3__courses` and `stg_ef3__courses` models.
+- Correctly cast minimum and maximum credits for courses to float instead of int.
 
 
 # edu_edfi_source v0.4.9
