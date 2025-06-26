@@ -19,8 +19,8 @@ renamed as (
         v:studentReference:studentUniqueId::string                                                  as student_unique_id, 
         v:educationOrganizationReference:educationOrganizationId::int                               as ed_org_id,
         v:educationOrganizationReference:link:rel::string                                           as ed_org_type,
-        v:beginDate::date                                                                           as begin_date,
-        v:endDate::date                                                                             as end_date, 
+        v:beginDate::date                                                                           as program_enroll_begin_date,
+        v:endDate::date                                                                             as program_enroll_end_date, 
         v:programReference:programName::string                                                      as program_name, 
         v:studentReference:link:rel::string                                                         as student_reference_rel,
 
