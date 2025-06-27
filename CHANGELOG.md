@@ -1,5 +1,9 @@
 # Unreleased
+
 ## New features
+- Add base/stage model for `StudentCTEProgramAssociation`
+- Add stage model `stg_ef3__stu_cte__program_services` to flatten program services list for `StudentCTEProgramAssociation`
+
 ## Under the hood
 ## Fixes
 
