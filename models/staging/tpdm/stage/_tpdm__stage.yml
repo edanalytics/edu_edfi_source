@@ -90,6 +90,12 @@ referential_integrity_tests:
         field: k_evaluation_objective_rating
         tags: ['ref_integrity']
 
+  - k_survey_section_response: &ref_k_survey_section_response
+    - relationships:
+        to: ref('stg_ef3__survey_section_responses')
+        field: k_survey_section_response
+        tags: ['ref_integrity']
+
 models:
   - name: stg_tpdm__candidate_educator_preparation_program_associations
     config:
@@ -274,3 +280,15 @@ models:
       - name: k_educator_prep_program
         tests:
           *ref_k_educator_prep_program
+
+  - name: stg_tpdm__survey_section_response_person_target_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+    columns:
+      - name: k_person
+        tests:
+          *ref_k_person
+      - name: k_survey_section_response
+        tests:
+          *ref_k_survey_section_response
