@@ -1,12 +1,15 @@
 # Unreleased
 
 ## New features
-- Add base/stage model for `StudentCTEProgramAssociation`
-- Add stage model `stg_ef3__stu_cte__program_services` to flatten program services list for `StudentCTEProgramAssociation`
-
 ## Under the hood
 ## Fixes
-- Add handling of multiple academic subjects per course for DS 5.0 compatibility; new `stg_ef3__courses_academic_subjects` model and new `v_academic_subjects` columns in `base_ef3__courses` and `stg_ef3__courses` models.
+
+# edu_edfi_source v0.4.10
+## New features
+- Add base/stage model for `StudentCTEProgramAssociation`
+- Add stage model `stg_ef3__stu_cte__program_services` to flatten program services list for `StudentCTEProgramAssociation`
+## Fixes
+- Add handling of multiple academic subjects per course for DS 5.0 compatibility; new `stg_ef3__courses__academic_subjects` model and new `v_academic_subjects` columns in `base_ef3__courses` and `stg_ef3__courses` models.
 - Correctly cast minimum and maximum credits for courses to float instead of int.
 
 
