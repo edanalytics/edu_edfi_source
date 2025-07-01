@@ -23,8 +23,6 @@ renamed as (
         v:beginDate::date                                                           as program_enroll_begin_date,
         v:endDate::date                                                             as program_enroll_end_date,
         v:programReference:programName::string                                      as program_name,
-        v:studentReference:link:rel::string                                         as student_reference_rel, 
-        v:programReference:link:rel::string                                         as program_reference_rel,
 
         v:directCertification::boolean                                              as direct_certification,
         v:servedOutsideOfRegularSession::boolean                                    as served_outside_of_regular_session,

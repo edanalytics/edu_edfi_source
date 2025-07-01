@@ -22,7 +22,6 @@ renamed as (
         v:beginDate::date                                                                           as program_enroll_begin_date,
         v:endDate::date                                                                             as program_enroll_end_date, 
         v:programReference:programName::string                                                      as program_name, 
-        v:studentReference:link:rel::string                                                         as student_reference_rel,
 
         v:priorityForServices::boolean                                                              as priority_for_service, 
 
@@ -33,7 +32,6 @@ renamed as (
         v:qualifyingArrivalDate::date                                                               as qualifying_arrival_date,
         v:stateResidencyDate::date                                                                  as state_residency_date,
         v:eligibilityExpirationDate::date                                                           as eligibility_expiration_date,
-        v:programReference:link:rel::string                                                         as program_reference_rel,
         v:continuationOfServicesReasonDescriptor:continuationOfServicesReasonDescriptorId::string   as continuation_services_reason,
         -- descriptors
         {{ extract_descriptor('v:programReference:programTypeDescriptor') }}                        as program_type_descriptor,
