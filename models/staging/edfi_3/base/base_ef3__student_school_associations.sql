@@ -27,6 +27,7 @@ renamed as (
         v:termCompletionIndicator                     as completed_term,
         v:calendarReference:calendarCode::string      as calendar_code,
         v:classOfSchoolYearTypeReference:schoolYear   as class_of_school_year,
+        v:nextYearSchoolReference:schoolId::integer   as next_year_school_id,
         -- descriptors
         {{ extract_descriptor('v:residencyStatusDescriptor::string') }}       as residency_status,
         {{ extract_descriptor('v:entryGradeLevelDescriptor::string') }}       as entry_grade_level,
