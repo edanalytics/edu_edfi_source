@@ -536,6 +536,11 @@ models:
   - name: stg_ef3__staffs__identification_codes
     config:
       tags: ['core']
+  
+  - name: stg_ef3__stu_cte__program_services
+    config:
+      tags: ['cte']
+      enabled: "{{ var('src:program:cte:enabled', True) }}"
 
   - name: stg_ef3__stu_ed_org__addresses
     config:
@@ -664,6 +669,11 @@ models:
       - name: k_contact
         tests:
           *ref_k_contact
+  
+  - name: stg_ef3__student_cte_program_associations
+    config:
+      tags: ['cte']
+      enabled: "{{ var('src:program:cte:enabled', True) }}"
 
   - name: stg_ef3__student_discipline_incident_behavior_associations
     config:

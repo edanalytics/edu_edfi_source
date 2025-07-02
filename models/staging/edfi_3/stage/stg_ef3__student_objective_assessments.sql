@@ -41,7 +41,8 @@ flattened as (
 joined as (
     select
       flattened.* exclude(academic_subject),
-      coalesce(stage_obj_assessments.academic_subject, flattened.academic_subject) as academic_subject
+      coalesce(stage_obj_assessments.academic_subject, flattened.academic_subject) as academic_subject,
+      stage_obj_assessments.assess_academic_subject
     from flattened
     join stage_obj_assessments
       on flattened.tenant_code = stage_obj_assessments.tenant_code
@@ -49,6 +50,12 @@ joined as (
       and flattened.assessment_identifier = stage_obj_assessments.assessment_identifier
       and flattened.namespace = stage_obj_assessments.namespace
       and flattened.objective_assessment_identification_code = stage_obj_assessments.objective_assessment_identification_code
+),
+{# TEMPORARY Rename academic_subject --> obj_assess_academic_subject & overall --> academic_subject to allow the gen_skey() call to behave consistent with stg_ef3__objective_assessments #}
+renamed1 as (
+    select 
+      * RENAME(academic_subject as obj_assess_academic_subject, assess_academic_subject as academic_subject)
+    from joined
 ),
 keyed as (
     select
@@ -65,7 +72,7 @@ keyed as (
             'lower(objective_assessment_identification_code)',
             'lower(student_assessment_identifier)']
         ) }} as k_student_objective_assessment,
-        {{ gen_skey('k_objective_assessment', extras = ['academic_subject']) }},
+        {{ gen_skey('k_objective_assessment', extras = ['academic_subject', 'obj_assess_academic_subject']) }},
         k_student_assessment,
         k_assessment,
         k_student,
@@ -74,6 +81,7 @@ keyed as (
         assessment_identifier,
         namespace,
         academic_subject,
+        obj_assess_academic_subject,
         objective_assessment_identification_code,
         objective_assessment_reference,
         school_year,
@@ -89,14 +97,20 @@ keyed as (
         when_assessed_grade_level,
         v_performance_levels,
         v_score_results
-    from joined
+    from renamed1
+),
+{# Rename BACK obj_assess_academic_subject --> academic_subject for human-readability and to avoid breaking change to warehouse. academic_subject above represents 'OVERALL' assessment subject, so that the gen_skey() call works. #}
+renamed2 as (
+    select 
+      * RENAME(academic_subject as assess_academic_subject, obj_assess_academic_subject as academic_subject)
+    from keyed
 ),
 -- todo: we already dedupe in student assessments so this is actually only necessary if we think there
     -- could be dupes in the objective assessments list
 deduped as (
     {{
         dbt_utils.deduplicate(
-            relation='keyed',
+            relation='renamed2',
             partition_by='k_student_objective_assessment',
             order_by='last_modified_timestamp desc, pull_timestamp desc'
         )

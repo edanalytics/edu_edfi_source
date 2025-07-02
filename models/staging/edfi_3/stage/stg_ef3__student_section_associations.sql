@@ -1,5 +1,15 @@
+{{ config(
+    materialized=var('edu:edfi_source:large_stg_materialization', 'table'),
+    unique_key=['k_student', 'k_course_section', 'begin_date'],
+    post_hook=["{{edu_edfi_source.stg_post_hook_delete()}}"]
+) }}
 with base_student_section as (
     select * from {{ ref('base_ef3__student_section_associations') }}
+
+    {% if is_incremental() %}
+    -- Only get newly added or deleted records since the last run
+    where last_modified_timestamp > (select max(last_modified_timestamp) from {{ this }})
+    {% endif %}
 ),
 keyed as (
     select 
@@ -20,4 +30,7 @@ deduped as (
     }}
 )
 select * from deduped
+{% if not is_incremental() %}
 where not is_deleted
+{% endif %}
+

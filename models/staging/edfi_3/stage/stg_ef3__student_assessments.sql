@@ -1,5 +1,15 @@
+{{ config(
+    materialized=var('edu:edfi_source:large_stg_materialization', 'table'),
+    unique_key=['k_student_assessment'],
+    post_hook=["{{edu_edfi_source.stg_post_hook_delete()}}"]
+) }}
 with int_stu_assessments as (
     select * from {{ ref('int_ef3__student_assessments__identify_subject') }}
+
+    {% if is_incremental() %}
+    -- Only get new or updated records since the last run
+    where last_modified_timestamp > (select max(pull_timestamp) from {{ this }})
+    {% endif %}
 ),
 keyed as (
     select
@@ -7,9 +17,10 @@ keyed as (
             ['tenant_code',
             'api_year',
             'lower(academic_subject)',
-            'lower(student_assessment_identifier)',
             'lower(assessment_identifier)',
-            'lower(namespace)']
+            'lower(namespace)',
+            'lower(student_assessment_identifier)',
+            'lower(student_unique_id)']
         ) }} as k_student_assessment,
         {{ gen_skey('k_assessment', extras = ['academic_subject']) }},
         {{ gen_skey('k_student') }},
@@ -30,4 +41,6 @@ deduped as (
     }}
 )
 select * from deduped
+{% if not is_incremental() %}
 where not is_deleted
+{% endif %}
