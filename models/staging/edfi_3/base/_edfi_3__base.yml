@@ -152,7 +152,8 @@ models:
       enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
   - name: base_ef3__student_migrant_education_program_associations
     config:
-      tags: ['migrant']
+      tags: ['migrant_education']
+      enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
   - name: base_ef3__student_parent_associations
     config:
       tags: ['core']
@@ -167,7 +168,8 @@ models:
       tags: ['core']
   - name: base_ef3__student_school_food_service_program_association
     config:
-      tags: ['food']
+      tags: ['food_service']
+      enabled: "{{ var('src:program:food_service:enabled', True) }}"
   - name: base_ef3__student_section_associations
     config:
       tags: ['core']

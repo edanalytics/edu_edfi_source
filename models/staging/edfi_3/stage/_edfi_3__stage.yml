@@ -595,7 +595,13 @@ models:
 
   - name: stg_ef3__student_migrant_education_program_associations
     config: 
-      tags: ['migrant']
+      tags: ['migrant_education']
+      enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
+
+  - name: stg_ef3__stu_migrant_edu__program_services
+    config: 
+      tags: ['migrant_edu']
+      enabled: "{{ var('src:program:migrant_edu:enabled', True) }}"
 
   - name: stg_ef3__stu_migrant_edu__program_services
     config:
@@ -603,7 +609,8 @@ models:
 
   - name: stg_ef3__stu_school_food_service__program_services
     config: 
-      tags: ['food']
+      tags: ['food_service']
+      enabled: "{{ var('src:program:food_service:enabled', True) }}"
 
   - name: stg_ef3__stu_spec_ed__disabilities
     config:
@@ -821,7 +828,8 @@ models:
 
   - name: stg_ef3__student_school_food_service_program_association
     config: 
-      tags: ['food']
+      tags: ['food_service']
+      enabled: "{{ var('src:program:food_service:enabled', True) }}"
 
   - name: stg_ef3__student_section_associations
     config:
