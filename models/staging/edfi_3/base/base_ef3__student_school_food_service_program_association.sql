@@ -29,7 +29,7 @@ renamed as (
 
         -- descriptors
         {{ extract_descriptor('v:programReference:programTypeDescriptor') }}        as program_type,
-        {{ extract_descriptor('v:reasonExitedDescriptor') }} as reason_exited,
+        {{ extract_descriptor('v:reasonExitedDescriptor') }}                        as reason_exited,
 
         -- references
         v:educationOrganizationReference                                            as education_organization_reference,

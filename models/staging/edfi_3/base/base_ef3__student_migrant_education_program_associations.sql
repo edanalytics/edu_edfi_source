@@ -32,9 +32,8 @@ renamed as (
         v:qualifyingArrivalDate::date                                                               as qualifying_arrival_date,
         v:stateResidencyDate::date                                                                  as state_residency_date,
         v:eligibilityExpirationDate::date                                                           as eligibility_expiration_date,
-        v:continuationOfServicesReasonDescriptor:continuationOfServicesReasonDescriptorId::string   as continuation_services_reason,
         -- descriptors
-        {{ extract_descriptor('v:programReference:programTypeDescriptor') }}                        as program_type_descriptor,
+        {{ extract_descriptor('v:programReference:programTypeDescriptor') }}                        as program_type,
         {{ extract_descriptor('v:continuationOfServicesReasonDescriptor') }}                        as continuation_of_services_reason,
 
         -- references
