@@ -342,6 +342,11 @@
             'col_list': [],
             'annualize': False
         },
+        'k_survey_section_response': {
+            'reference_name': 'survey_section_response_reference',
+            'col_list': ['surveyIdentifier', 'namespace', 'surveySectionTitle'],
+            'annualize': True
+        }
 
     }
     %}
