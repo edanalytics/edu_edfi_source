@@ -603,6 +603,16 @@ models:
       tags: ['migrant_edu']
       enabled: "{{ var('src:program:migrant_edu:enabled', True) }}"
 
+  - name: stg_ef3__student_cte_program_associations
+    config:
+      tags: ['cte']
+      enabled: "{{ var('src:program:cte:enabled', True) }}"
+
+  - name: stg_ef3__stu_cte__program_services
+    config:
+      tags: ['cte']
+      enabled: "{{ var('src:program:cte:enabled', True) }}"
+
   - name: stg_ef3__stu_school_food_service__program_services
     config: 
       tags: ['food_service']
