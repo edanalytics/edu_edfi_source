@@ -346,6 +346,11 @@
             'reference_name': 'survey_section_response_reference',
             'col_list': ['surveyIdentifier', 'namespace', 'surveySectionTitle'],
             'annualize': True
+        },
+        'k_application': {
+            'reference_name': 'application_reference',
+            'col_list': ['applicantProfileIdentifier', 'applicationIdentifier', 'ed_org_id'],
+            'annualize': True,
         }
 
     }
