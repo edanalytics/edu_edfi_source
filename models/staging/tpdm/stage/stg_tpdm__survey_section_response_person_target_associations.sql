@@ -10,7 +10,7 @@ keyed as (
             'lower(person_id)',
             'lower(source_system)',
             'lower(survey_id)',
-            'lower(survey_response_id)',
+            'lower(survey_response_identifier)',
             'lower(survey_section_title)'] 
         ) }} as k_survey_section_response_person_target_association,
         {{ gen_skey('k_survey_section_response') }},  
