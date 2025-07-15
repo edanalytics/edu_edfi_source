@@ -14,13 +14,13 @@ renamed as (
         v:id::string as record_guid,
         -- identity components
         v:sequenceNumber::int                                                as sequence_number,
-        v:eventDate::string                                                  as event_date,  -- this could also be event_start_date
+        v:eventDate::date                                                    as event_date,  -- this could also be event_start_date
         {{ extract_descriptor('v:applicationEventTypeDescriptor::string') }} as application_event_type,
         v:applicationReference:applicationIdentifier::string                 as application_identifier,
         v:applicationReference:applicantProfileIdentifier::string            as applicant_profile_identifier,
         v:applicationReference:educationOrganizationId::int                  as education_organization_id,
         -- non-identity components
-        v:eventEndDate::string                   as event_end_date
+        v:eventEndDate::date                     as event_end_date
         v:applicationEvaluationScore::float      as application_evaluation_score
         v:schoolYearTypeReference:schoolYear:int as school_year
         -- references
