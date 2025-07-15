@@ -229,7 +229,7 @@
 
         'k_survey_section': {
             'reference_name': 'survey_section_reference',
-            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title'],
+            'col_list': ['namespace', 'surveyIdentifier', 'surveySectionTitle'],
             'annualize': True
         },
 
@@ -349,7 +349,7 @@
         },
         'k_application': {
             'reference_name': 'application_reference',
-            'col_list': ['applicantProfileIdentifier', 'applicationIdentifier', 'ed_org_id'],
+            'col_list': ['applicantProfileIdentifier', 'applicationIdentifier', 'educationOrganizationId'],
             'annualize': True,
         }
 
