@@ -156,6 +156,9 @@ models:
   - name: base_ef3__student_program_associations
     config:
       tags: ['core']
+  - name: base_ef3__student_program_evaluations
+    config:
+      tags: ['core']
   - name: base_ef3__student_school_associations
     config:
       tags: ['core']
@@ -169,6 +172,10 @@ models:
     config:
       tags: ['core']
   - name: base_ef3__student_special_education_program_associations
+    config:
+      tags: ['special_ed']
+      enabled: "{{ var('src:program:special_ed:enabled', True) }}"
+  - name: base_ef3__student_special_education_program_eligibility_associations
     config:
       tags: ['special_ed']
       enabled: "{{ var('src:program:special_ed:enabled', True) }}"
