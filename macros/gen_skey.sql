@@ -351,6 +351,11 @@
             'reference_name': 'application_reference',
             'col_list': ['applicantProfileIdentifier', 'applicationIdentifier', 'educationOrganizationId'],
             'annualize': True,
+        },
+        'k_credential': {
+            'reference_name': 'credential_reference',
+            'col_list': ['credentialIdentifier', 'stateOfIssueStateAbbreviationDescriptor'],
+            'annualize': True,            
         }
 
     }
