@@ -356,7 +356,17 @@
             'reference_name': 'credential_reference',
             'col_list': ['credentialIdentifier', 'stateOfIssueStateAbbreviationDescriptor'],
             'annualize': True,            
-        }
+        },
+        'k_fieldwork_experience': {
+            'reference_name': 'fieldwork_experience_reference',
+            'col_list': ['beginDate', 'fieldworkIdentifier', 'studentUniqueId'],
+            'annualize': True,            
+        },
+        'k_section': {
+            'reference_name': 'section_reference',
+            'col_list': ['localCourseCode', 'schoolId', 'schoolYear', 'sectionIdentifier', 'sessionName'],
+            'annualize': False,            
+        }            
 
     }
     %}
