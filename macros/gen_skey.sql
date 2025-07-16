@@ -350,23 +350,28 @@
         'k_application': {
             'reference_name': 'application_reference',
             'col_list': ['applicantProfileIdentifier', 'applicationIdentifier', 'educationOrganizationId'],
-            'annualize': True,
+            'annualize': True
         },
         'k_credential': {
             'reference_name': 'credential_reference',
             'col_list': ['credentialIdentifier', 'stateOfIssueStateAbbreviationDescriptor'],
-            'annualize': True,            
+            'annualize': True          
         },
         'k_fieldwork_experience': {
             'reference_name': 'fieldwork_experience_reference',
             'col_list': ['beginDate', 'fieldworkIdentifier', 'studentUniqueId'],
-            'annualize': True,            
+            'annualize': True          
         },
         'k_section': {
             'reference_name': 'section_reference',
             'col_list': ['localCourseCode', 'schoolId', 'schoolYear', 'sectionIdentifier', 'sessionName'],
-            'annualize': False,            
-        }            
+            'annualize': False        
+        },
+        'k_parent_goal': {
+            'reference_name': 'parent_goal_reference',
+            'col_list': ['assignmentDate', 'goalTitle', 'personId', 'sourceSystemDescriptor'],
+            'annualize': False          
+        }             
 
     }
     %}
