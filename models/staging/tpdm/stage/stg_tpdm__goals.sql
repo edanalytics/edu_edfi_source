@@ -16,7 +16,7 @@ keyed as (
         {{ gen_skey('k_person') }},
         {{ gen_skey('k_evaluation_element') }},
         {{ gen_skey('k_evaluation_objective') }},
-        {{ gen_skey('k_parent_goal') }},
+        {{ gen_skey('k_goal', alt_ref='parent_goal_reference', alt_k_name='k_goal__parent') }}, 
         base_goals.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_goals

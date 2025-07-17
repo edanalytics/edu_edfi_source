@@ -366,12 +366,7 @@
             'reference_name': 'section_reference',
             'col_list': ['localCourseCode', 'schoolId', 'schoolYear', 'sectionIdentifier', 'sessionName'],
             'annualize': False        
-        },
-        'k_parent_goal': {
-            'reference_name': 'parent_goal_reference',
-            'col_list': ['assignmentDate', 'goalTitle', 'personId', 'sourceSystemDescriptor'],
-            'annualize': False          
-        }             
+        }           
 
     }
     %}
