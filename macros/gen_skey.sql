@@ -370,7 +370,12 @@
         'k_open_staff_position': {
             'reference_name': 'open_staff_position_reference',
             'col_list': ['educationOrganizationId', 'eventDate', 'openStaffPositionEventTypeDescriptor', 'requisitionNumber'],
-            'annualize': False        
+            'annualize': True        
+        },
+        'k_professional_development_event': {
+            'reference_name': 'professional_development_event_reference',
+            'col_list': ['namespace', 'professionalDevelopmentTitle'],
+            'annualize': True        
         }             
 
     }
