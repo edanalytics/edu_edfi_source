@@ -376,7 +376,23 @@
             'reference_name': 'professional_development_event_reference',
             'col_list': ['namespace', 'professionalDevelopmentTitle'],
             'annualize': True        
-        }             
+        },
+        'k_evaluation_element_rating': {
+            'reference_name': 'evaluation_element_rating_reference',
+            'col_list': ['educationOrganizationId',
+                'evaluationDate',
+                'evaluationElementTitle',
+                'evaluationObjectiveTitle',
+                'evaluationPeriodDescriptor',
+                'evaluationTitle',
+                'performanceEvaluationTitle',
+                'performanceEvaluationTypeDescriptor',
+                'personId',
+                'schoolYear',
+                'sourceSystemDescriptor',
+                'termDescriptor'],
+            'annualize': True     
+        }         
 
     }
     %}
