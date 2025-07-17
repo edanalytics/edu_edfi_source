@@ -366,7 +366,12 @@
             'reference_name': 'section_reference',
             'col_list': ['localCourseCode', 'schoolId', 'schoolYear', 'sectionIdentifier', 'sessionName'],
             'annualize': False        
-        }           
+        },
+        'k_open_staff_position': {
+            'reference_name': 'open_staff_position_reference',
+            'col_list': ['educationOrganizationId', 'eventDate', 'openStaffPositionEventTypeDescriptor', 'requisitionNumber'],
+            'annualize': False        
+        }             
 
     }
     %}
