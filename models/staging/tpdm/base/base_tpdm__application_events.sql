@@ -18,7 +18,7 @@ renamed as (
         {{ extract_descriptor('v:applicationEventTypeDescriptor::string') }} as application_event_type,
         v:applicationReference:applicationIdentifier::string                 as application_identifier,
         v:applicationReference:applicantProfileIdentifier::string            as applicant_profile_identifier,
-        v:applicationReference:educationOrganizationId::int                  as education_organization_id,
+        v:applicationReference:educationOrganizationId::int                  as ed_org_id,
         -- non-identity components
         v:eventEndDate::date                     as event_end_date
         v:applicationEvaluationScore::float      as application_evaluation_score
@@ -27,7 +27,7 @@ renamed as (
         v:applicationReference as application_reference
         -- descriptors
         {{ extract_descriptor('v:applicationEventResultDescriptor::string') }} as application_event_result_descriptor
-        {{ extract_descriptor('v:termDescriptor::string') }}                   as term
+        {{ extract_descriptor('v:termDescriptor::string') }}                   as academic_term
         -- edfi extensions
         v:_ext as v_ext
 
