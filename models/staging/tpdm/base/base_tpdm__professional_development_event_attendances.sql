@@ -13,7 +13,7 @@ renamed as (
 
         v:id::string as record_guid,
         -- identity components
-        v:attendanceDate::int                                                        as attendance_date,
+        v:attendanceDate::date                                                       as attendance_date,
         v:personReference:personId::string                                           as person_id,
         {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string') }} as person_source_system,
         v:professionalDevelopmentEventReference:namespace::string                    as professional_development_event_namespace,
