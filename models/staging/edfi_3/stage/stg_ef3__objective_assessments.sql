@@ -1,3 +1,5 @@
+  -- depends_on: {{ ref('base_ef3__objective_assessments') }}
+
 with base_obj_assessments as (
     select * from {{ ref('base_ef3__objective_assessments') }}
 ),
@@ -44,6 +46,14 @@ keyed as (
             'lower(objective_assessment_identification_code)'
             ]
         ) }} as k_objective_assessment,
+        {{ dbt_utils.generate_surrogate_key(
+            ['tenant_code',
+            'api_year',
+            'lower(academic_subject)',
+            'lower(assessment_identifier)',
+            'lower(namespace)',
+            'lower(parent_objective_assessment_reference:identificationCode::varchar)']
+        ) }} as k_parent_objective_assessment,
         {{ gen_skey('k_assessment', extras = ['academic_subject']) }},
         join_subject.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
