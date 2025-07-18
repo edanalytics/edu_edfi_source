@@ -12,7 +12,7 @@ keyed as (
                 'lower(event_title)',
             ]
         ) }} as k_recruitment_event,
-        {{ gen_skey('k_education_organization') }},
+        {{ gen_skey('k_ed_org') }},
         base_recruitment_events.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_recruitment_events
