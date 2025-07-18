@@ -392,7 +392,23 @@
                 'sourceSystemDescriptor',
                 'termDescriptor'],
             'annualize': True     
-        }         
+        },
+        'k_quantitative_measure': {
+            'reference_name': 'quantitative_measure_reference',
+            'col_list': [
+                'educationOrganizationId',
+                'evaluationElementTitle',
+                'evaluationObjectiveTitle',
+                'evaluationPeriodDescriptor',
+                'evaluationTitle',
+                'performanceEvaluationTitle',
+                'performanceEvaluationTypeDescriptor',
+                'quantitative_measure_identifier',
+                'schoolYear',
+                'termDescriptor'
+            ],
+            'annualize': True     
+        },        
 
     }
     %}
