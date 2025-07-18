@@ -409,7 +409,11 @@
             ],
             'annualize': True     
         },        
-
+        'k_recruitment_event': {
+            'reference_name': 'recruitment_event_reference',
+            'col_list': ['educationOrganizationId', 'eventDate', 'eventTitle'],
+            'annualize': True     
+        }
     }
     %}
     {#- retrieve key def for then decompose parts -#}
