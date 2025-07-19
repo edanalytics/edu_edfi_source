@@ -13,13 +13,13 @@ renamed as (
 
         v:id::string as record_guid,
         -- identity components
-        v:pathReference:pathName::string as path_name,
-        v:studentReference:studentUniqueId::string as student_unique_id,
+        v:pathReference:pathName::string             as path_name,
+        v:studentReference:studentUniqueId::string   as student_unique_id,
         v:pathReference:educationOrganizationId::int as ed_org_id,
         -- unflattened lists
         v:periods as v_periods,
         -- references
-        v:pathReference as path_reference,
+        v:pathReference    as path_reference,
         v:studentReference as student_reference,
         -- edfi extensions
         v:_ext as v_ext
