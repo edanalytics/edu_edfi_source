@@ -13,11 +13,10 @@ renamed as (
 
         v:id::string as record_guid,
         -- identity components
-        v:pathMilestoneName::string as path_milestone_name,
+        v:pathMilestoneName::string                                       as path_milestone_name,
         {{ extract_descriptor('v:pathMilestoneTypeDescriptor::string') }} as path_milestone_type,
-
         -- non-identity components
-        v:pathMilestoneCode::string as path_milestone_code,
+        v:pathMilestoneCode::string        as path_milestone_code,
         v:pathMilestoneDescription::string as path_milestone_description,
         -- edfi extensions
         v:_ext as v_ext
