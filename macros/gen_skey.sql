@@ -413,7 +413,12 @@
             'reference_name': 'recruitment_event_reference',
             'col_list': ['educationOrganizationId', 'eventDate', 'eventTitle'],
             'annualize': True     
-        }
+        },
+        'k_path': {
+            'reference_name': 'path_reference',
+            'col_list': ['educationOrganizationId', 'pathName'],
+            'annualize': True     
+        
     }
     %}
     {#- retrieve key def for then decompose parts -#}
