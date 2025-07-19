@@ -418,7 +418,17 @@
             'reference_name': 'path_reference',
             'col_list': ['educationOrganizationId', 'pathName'],
             'annualize': True     
-        
+        },
+        'k_student_path': {
+            'reference_name': 'student_path_reference',
+            'col_list': ['educationOrganizationId', 'pathName', 'studentUniqueId'],
+            'annualize': True     
+        },
+        'k_path_milestone': {
+            'reference_name': 'path_milestone_reference',
+            'col_list': ['educationOrganizationId', 'pathMilestoneName', 'pathMilestoneTypeDescriptor', 'pathName'],
+            'annualize': True     
+        }
     }
     %}
     {#- retrieve key def for then decompose parts -#}
