@@ -6,6 +6,13 @@ with student_program_evaluations as (
     select
 
         -- generic
+        tenant_code,
+        api_year,
+        pull_timestamp,
+        last_modified_timestamp,
+        file_row_number,
+        filename,
+        is_deleted,
         v:id::string                                                  as record_guid,
         v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         v:educationOrganizationReference:link:rel::string             as ed_org_type,
