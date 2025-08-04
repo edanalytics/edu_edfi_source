@@ -1,8 +1,8 @@
 with student_program_evaluations as (
-    select * from {{ source_edfi3('student_program_evaluations') }}
-)
+    {{ source_edfi3('student_program_evaluations') }}
+),
 
-, renamed as (
+renamed as (
     select
 
         -- generic

@@ -1,8 +1,8 @@
 with student_special_education_program_eligibility_associations as (
-    select * from {{ source_edfi3('student_special_education_program_eligibility_associations') }}
-)
+    {{ source_edfi3('student_special_education_program_eligibility_associations') }}
+),
 
-, renamed as (
+renamed as (
     select
 
         -- generic
