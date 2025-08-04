@@ -34,7 +34,7 @@ with program_evaluations as (
         v:levels as v_levels,
 
         -- ed-fi extensions
-        v:_ext as v_ext,
+        v:_ext as v_ext
 
     from program_evaluations
 )

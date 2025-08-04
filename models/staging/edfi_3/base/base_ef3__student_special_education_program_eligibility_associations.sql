@@ -46,7 +46,7 @@ with student_special_education_program_eligibility_associations as (
         v:studentReference               as student_reference,
 
         -- ed-fi extensions
-        v:_ext as v_ext,
+        v:_ext as v_ext
 
     from student_special_education_program_eligibility_associations
 )

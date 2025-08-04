@@ -45,7 +45,7 @@ with student_program_evaluations as (
         v:studentEvaluationObjectives as v_student_evaluation_objectives,
 
         -- ed-fi extensions
-        v:_ext as v_ext,
+        v:_ext as v_ext
 
     from student_program_evaluations
 )
