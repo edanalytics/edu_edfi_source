@@ -431,7 +431,7 @@
         },
         'k_path_phase': {
             'reference_name': 'path_phase_reference',
-            'col_list': ['coleducationOrganizationId_a', 'pathName', 'pathPhaseName'],
+            'col_list': ['educationOrganizationId', 'pathName', 'pathPhaseName'],
             'annualize': True
         }
     }
