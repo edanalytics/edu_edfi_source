@@ -1,7 +1,8 @@
 # Unreleased
 
 ## New features
-- Add support for Databricks
+- Add Databricks platform compatibility
+  - The only potentially breaking change: `base_ef3__discipline_incidents.v:incidentTime` datatype switched from time to string.
 
 ## Under the hood
 ## Fixes
