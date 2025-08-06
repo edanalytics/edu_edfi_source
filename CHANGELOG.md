@@ -1,11 +1,16 @@
 # Unreleased
 
 ## New features
+## Under the hood
+## Fixes
+
+# edu_edfi_source v0.5.0
+## New features
 - Add new optional fields in `student_education_organization_associations` and `student_school_associations` from Ed-Fi Data Standard v5:
   - stuEdOrg: `gender_identity`, `supporter_military_connection`
   - stuSchAssoc: `is_school_choice`, `school_choice_basis`, `enrollment_type`, `next_year_school_id`, `next_year_grade_level`
-## Under the hood
-## Fixes
+- Add Databricks platform compatibility
+  - The only potentially breaking change: `base_ef3__discipline_incidents.v:incidentTime` datatype switched from time to string.
 
 # edu_edfi_source v0.4.10
 ## New features

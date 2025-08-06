@@ -34,13 +34,13 @@ flattened as (
         -- unflattened lists
         value:performanceLevels as v_performance_levels,
         value:scoreResults as v_score_results
-    from stage_student_assessments,
-        lateral flatten(input => v_student_objective_assessments)
+    from stage_student_assessments
+        {{ json_flatten('v_student_objective_assessments') }}
 ),
 -- join to get subject from stg obj assess (if not null)
 joined as (
     select
-      flattened.* exclude(academic_subject),
+      {{ star('flattened', except=['academic_subject']) }},
       coalesce(stage_obj_assessments.academic_subject, flattened.academic_subject) as academic_subject,
       stage_obj_assessments.assess_academic_subject
     from flattened
@@ -54,7 +54,7 @@ joined as (
 {# TEMPORARY Rename academic_subject --> obj_assess_academic_subject & overall --> academic_subject to allow the gen_skey() call to behave consistent with stg_ef3__objective_assessments #}
 renamed1 as (
     select 
-      * RENAME(academic_subject as obj_assess_academic_subject, assess_academic_subject as academic_subject)
+        {{ edu_edfi_source.star('joined', rename=[['academic_subject', 'obj_assess_academic_subject'], ['assess_academic_subject', 'academic_subject']]) }}
     from joined
 ),
 keyed as (
@@ -102,7 +102,7 @@ keyed as (
 {# Rename BACK obj_assess_academic_subject --> academic_subject for human-readability and to avoid breaking change to warehouse. academic_subject above represents 'OVERALL' assessment subject, so that the gen_skey() call works. #}
 renamed2 as (
     select 
-      * RENAME(academic_subject as assess_academic_subject, obj_assess_academic_subject as academic_subject)
+        {{ edu_edfi_source.star('keyed', rename=[['academic_subject', 'assess_academic_subject'], ['obj_assess_academic_subject', 'academic_subject']]) }}
     from keyed
 ),
 -- todo: we already dedupe in student assessments so this is actually only necessary if we think there

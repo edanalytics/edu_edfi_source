@@ -31,7 +31,7 @@ renamed as (
         {{ extract_descriptor('v:assessmentCategoryDescriptor::string') }}      as assessment_category,
         {{ extract_descriptor('v:period:assessmentPeriodDescriptor::string') }} as assessment_period,
         case
-            when array_size(v:academicSubjects) > 1
+            when {{ json_array_size('v:academicSubjects') }} > 1
                 then False
             else True
         end                            as is_single_subject_identifier,
