@@ -1,6 +1,9 @@
 # Unreleased
 
 ## New features
+- Add new optional fields in `student_education_organization_associations` and `student_school_associations` from Ed-Fi Data Standard v5:
+  - stuEdOrg: `gender_identity`, `supporter_military_connection`
+  - stuSchAssoc: `is_school_choice`, `school_choice_basis`, `enrollment_type`, `next_year_school_id`, `next_year_grade_level`
 ## Under the hood
 ## Fixes
 
