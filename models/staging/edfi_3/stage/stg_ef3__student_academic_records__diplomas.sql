@@ -2,7 +2,7 @@ with stg_academic_records as (
     select * from {{ ref('stg_ef3__student_academic_records') }}
 ),
 flattened as (
-    select 
+    select
         tenant_code,
         api_year,
         k_student_academic_record,
@@ -22,13 +22,13 @@ flattened as (
         value:issuerName::string as issuer_name,
         value:issuerOriginURL::string as issuer_origin_url,
         -- edfi extensions
-        value:_ext as v_ext 
+        value:_ext as v_ext
     from stg_academic_records
-        , lateral flatten(input=>v_diplomas)
+        {{ json_flatten('v_diplomas') }}
 ),
 -- pull out extensions from v_diplomas.v_ext to their own columns
 extended as (
-    select 
+    select
         flattened.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 

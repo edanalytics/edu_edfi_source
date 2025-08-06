@@ -32,7 +32,7 @@ flatten as (
         left join distinct_subject_score_xwalk
             on int_stu_assessments_subjects.assessment_identifier = distinct_subject_score_xwalk.assessment_identifier
             and int_stu_assessments_subjects.namespace = distinct_subject_score_xwalk.namespace
-        , lateral flatten(input=>v_score_results, outer => True)
+        {{ json_flatten('v_score_results', outer=True) }}
             where {{ extract_descriptor('value:assessmentReportingMethodDescriptor::string') }} = distinct_subject_score_xwalk.score_name
             and int_stu_assessments_subjects.academic_subject is null
 )

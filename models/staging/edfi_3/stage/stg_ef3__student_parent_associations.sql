@@ -1,3 +1,4 @@
+-- deprecated model
 with base_stu_parent as (
     select * from {{ ref('base_ef3__student_parent_associations') }}
 ),

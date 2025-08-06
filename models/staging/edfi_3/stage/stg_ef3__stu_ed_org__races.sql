@@ -2,7 +2,7 @@ with stage_stu_ed_org as (
     select * from {{ ref('stg_ef3__student_education_organization_associations') }}
 ),
 flattened as (
-    select 
+    select
         tenant_code,
         api_year,
         k_student,
@@ -12,7 +12,6 @@ flattened as (
         k_school,
         {{ extract_descriptor('value:raceDescriptor::string') }} as race
     from stage_stu_ed_org
-        , lateral flatten(input=>v_races)
+        {{ json_flatten('v_races') }}
 )
 select * from flattened
-
