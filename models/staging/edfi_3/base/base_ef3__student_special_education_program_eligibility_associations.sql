@@ -13,6 +13,8 @@ renamed as (
         file_row_number,
         filename,
         is_deleted,
+        ods_version,
+        data_model_version,
 
         v:id::string                                                  as record_guid,
         v:consentToEvaluationDate::date                               as consent_to_evaluation_date,

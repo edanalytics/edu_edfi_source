@@ -13,6 +13,8 @@ renamed as (
         file_row_number,
         filename,
         is_deleted,
+        ods_version,
+        data_model_version,
 
         v:id::string                                    as record_guid,
         v:evaluationMaxNumericRating::float             as evaluation_max_numeric_rating,
