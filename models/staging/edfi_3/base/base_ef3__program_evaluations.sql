@@ -27,7 +27,7 @@ renamed as (
         -- descriptors
         {{ extract_descriptor('v:programEvaluationPeriodDescriptor::string') }}      as program_evaluation_period,
         {{ extract_descriptor('v:programEvaluationTypeDescriptor::string') }}        as program_evaluation_type,
-        {{ extract_descriptor('v:programReference:programTypeDescriptor::string') }} as program_type_descriptor,
+        {{ extract_descriptor('v:programReference:programTypeDescriptor::string') }} as program_type,
 
         -- references
         v:programReference as program_reference,
