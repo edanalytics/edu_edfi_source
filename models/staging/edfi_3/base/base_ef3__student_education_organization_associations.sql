@@ -21,10 +21,12 @@ renamed as (
         v:hispanicLatinoEthnicity::boolean as has_hispanic_latino_ethnicity,
         v:loginId::string                  as login_id,
         v:profileThumbnail                 as profile_thumbnail_url,
+        v:genderIdentity                   as gender_identity,
         -- descriptors
-        {{ extract_descriptor('v:limitedEnglishProficiencyDescriptor::string') }} as lep_code,
-        {{ extract_descriptor('v:sexDescriptor::string') }}                       as gender,
-        {{ extract_descriptor('v:oldEthnicityDescriptor::string') }}              as old_ethnicity,
+        {{ extract_descriptor('v:limitedEnglishProficiencyDescriptor::string') }}   as lep_code,
+        {{ extract_descriptor('v:sexDescriptor::string') }}                         as gender,
+        {{ extract_descriptor('v:oldEthnicityDescriptor::string') }}                as old_ethnicity,
+        {{ extract_descriptor('v:supporterMilitaryConnectionDescriptor::string') }} as supporter_military_connection,
         -- references
         v:studentReference               as student_reference,
         v:educationOrganizationReference as education_organization_reference,

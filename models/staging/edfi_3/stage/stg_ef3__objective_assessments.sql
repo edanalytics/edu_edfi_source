@@ -14,8 +14,8 @@ distinct_obj_subject as (
         namespace,
         academic_subject,
         value:objectiveAssessmentReference:identificationCode::string as objective_assessment_identification_code
-    from stage_student_assessments,
-        lateral flatten(input => v_student_objective_assessments)
+    from stage_student_assessments
+        {{ json_flatten('v_student_objective_assessments') }}
 ),
 join_subject as (
     select
@@ -25,7 +25,7 @@ join_subject as (
         coalesce(base_obj_assessments.academic_subject_descriptor, distinct_obj_subject.academic_subject) as obj_assess_academic_subject
     from base_obj_assessments
     -- this join will drop objective assessments with no student results
-    join distinct_obj_subject 
+    join distinct_obj_subject
         on base_obj_assessments.tenant_code = distinct_obj_subject.tenant_code
         and base_obj_assessments.api_year = distinct_obj_subject.api_year
         and base_obj_assessments.assessment_identifier = distinct_obj_subject.assessment_identifier
@@ -48,7 +48,7 @@ keyed as (
         join_subject.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from join_subject
-    
+
 ),
 deduped as (
     {{
@@ -62,7 +62,7 @@ deduped as (
 {# Rename obj_assess_academic_subject --> academic_subject for human-readability and to avoid breaking change to warehouse. academic_subject above represents 'OVERALL' assessment subject, so that the gen_skey() call works. #}
 renamed as (
   select 
-    deduped.* RENAME (academic_subject as assess_academic_subject, obj_assess_academic_subject as academic_subject)
+    {{ edu_edfi_source.star('deduped', rename=[['academic_subject', 'assess_academic_subject'], ['obj_assess_academic_subject', 'academic_subject']]) }}
   from deduped
 )
 select * from renamed

@@ -9,7 +9,7 @@ flattened as (
         {{ extract_descriptor('value:assessmentReportingMethodDescriptor::string') }} as performance_level_name,
         {{ extract_descriptor('value:performanceLevelDescriptor::string') }} as performance_level_value,
         {{ extract_descriptor('value:resultDatatypeTypeDescriptor::string') }} as performance_level_data_type
-    from stage_obj_assessments,
-        lateral flatten(input=>v_performance_levels)
+    from stage_obj_assessments
+        {{ json_flatten('v_performance_levels') }}
 )
 select * from flattened

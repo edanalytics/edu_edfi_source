@@ -23,8 +23,8 @@ renamed as (
         v:schoolReference  as school_reference,
         v:studentReference as student_reference,
         -- lists
-        v:programs::array  as v_programs,
-        v:reasons::array   as v_reasons,
+        v:programs         as v_programs,
+        v:reasons          as v_reasons,
 
         -- edfi extensions
         v:_ext as v_ext
