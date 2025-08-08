@@ -86,3 +86,7 @@ models:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
 
+  - name: base_tpdm__survey_section_response_person_target_associations
+    config:
+      tags: ['tpdm']
+      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"

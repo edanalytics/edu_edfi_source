@@ -229,7 +229,7 @@
 
         'k_survey_section': {
             'reference_name': 'survey_section_reference',
-            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title'],
+            'col_list': ['namespace', 'surveyIdentifier', 'surveySectionTitle'],
             'annualize': True
         },
 
@@ -342,7 +342,98 @@
             'col_list': [],
             'annualize': False
         },
-
+        'k_survey_section_response': {
+            'reference_name': 'survey_section_response_reference',
+            'col_list': ['surveyIdentifier', 'namespace', 'surveySectionTitle'],
+            'annualize': True
+        },
+        'k_application': {
+            'reference_name': 'application_reference',
+            'col_list': ['applicantProfileIdentifier', 'applicationIdentifier', 'educationOrganizationId'],
+            'annualize': True
+        },
+        'k_credential': {
+            'reference_name': 'credential_reference',
+            'col_list': ['credentialIdentifier', 'stateOfIssueStateAbbreviationDescriptor'],
+            'annualize': True          
+        },
+        'k_fieldwork_experience': {
+            'reference_name': 'fieldwork_experience_reference',
+            'col_list': ['beginDate', 'fieldworkIdentifier', 'studentUniqueId'],
+            'annualize': True          
+        },
+        'k_section': {
+            'reference_name': 'section_reference',
+            'col_list': ['localCourseCode', 'schoolId', 'schoolYear', 'sectionIdentifier', 'sessionName'],
+            'annualize': False        
+        },
+        'k_open_staff_position': {
+            'reference_name': 'open_staff_position_reference',
+            'col_list': ['educationOrganizationId', 'eventDate', 'openStaffPositionEventTypeDescriptor', 'requisitionNumber'],
+            'annualize': True        
+        },
+        'k_professional_development_event': {
+            'reference_name': 'professional_development_event_reference',
+            'col_list': ['namespace', 'professionalDevelopmentTitle'],
+            'annualize': True        
+        },
+        'k_evaluation_element_rating': {
+            'reference_name': 'evaluation_element_rating_reference',
+            'col_list': ['educationOrganizationId',
+                'evaluationDate',
+                'evaluationElementTitle',
+                'evaluationObjectiveTitle',
+                'evaluationPeriodDescriptor',
+                'evaluationTitle',
+                'performanceEvaluationTitle',
+                'performanceEvaluationTypeDescriptor',
+                'personId',
+                'schoolYear',
+                'sourceSystemDescriptor',
+                'termDescriptor'],
+            'annualize': True     
+        },
+        'k_quantitative_measure': {
+            'reference_name': 'quantitative_measure_reference',
+            'col_list': [
+                'educationOrganizationId',
+                'evaluationElementTitle',
+                'evaluationObjectiveTitle',
+                'evaluationPeriodDescriptor',
+                'evaluationTitle',
+                'performanceEvaluationTitle',
+                'performanceEvaluationTypeDescriptor',
+                'quantitative_measure_identifier',
+                'schoolYear',
+                'termDescriptor'
+            ],
+            'annualize': True     
+        },        
+        'k_recruitment_event': {
+            'reference_name': 'recruitment_event_reference',
+            'col_list': ['educationOrganizationId', 'eventDate', 'eventTitle'],
+            'annualize': True     
+        },
+        'k_path': {
+            'reference_name': 'path_reference',
+            'col_list': ['educationOrganizationId', 'pathName'],
+            'annualize': True     
+        },
+        'k_student_path': {
+            'reference_name': 'student_path_reference',
+            'col_list': ['educationOrganizationId', 'pathName', 'studentUniqueId'],
+            'annualize': True     
+        },
+        'k_path_milestone': {
+            'reference_name': 'path_milestone_reference',
+            'col_list': ['educationOrganizationId', 'pathMilestoneName', 'pathMilestoneTypeDescriptor', 'pathName'],
+            'annualize': True     
+        },
+        'k_path_phase': {
+            'reference_name': 'path_phase_reference',
+            'col_list': ['educationOrganizationId', 'pathName', 'pathPhaseName'],
+            'annualize': True
+        }
     }
     %}
     {#- retrieve key def for then decompose parts -#}
