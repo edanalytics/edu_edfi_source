@@ -39,7 +39,7 @@ score_result_to_subject as (
     join distinct_score_name
             on base_stu_assessments.assessment_identifier = distinct_score_name.assessment_identifier
             and base_stu_assessments.namespace = distinct_score_name.namespace
-        , lateral flatten(input=>v_score_results)
+        {{ json_flatten('v_score_results') }}
             where {{ extract_descriptor('value:assessmentReportingMethodDescriptor::string') }} = score_name
 ),
 adding_subject as (

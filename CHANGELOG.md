@@ -1,4 +1,5 @@
 # Unreleased
+
 ## New features
 - Add stage models `stg_ef3__stu_school_food_service__program_services`
 - Add stage models `stg_ef3__stu_migrant_edu__program_services`
@@ -12,6 +13,22 @@
 
 ## Under the hood
 ## Fixes
+
+# edu_edfi_source v0.5.0
+## New features
+- Add Databricks platform compatibility
+  - The only potentially breaking change: `base_ef3__discipline_incidents.v:incidentTime` datatype switched from time to string.
+- Add new optional fields in `student_education_organization_associations` and `student_school_associations` from Ed-Fi Data Standard v5:
+  - stuEdOrg: `gender_identity`, `supporter_military_connection`
+  - stuSchAssoc: `is_school_choice`, `school_choice_basis`, `enrollment_type`, `next_year_school_id`, `next_year_grade_level`
+    
+# edu_edfi_source v0.4.10
+## New features
+- Add base/stage model for `StudentCTEProgramAssociation`
+- Add stage model `stg_ef3__stu_cte__program_services` to flatten program services list for `StudentCTEProgramAssociation`
+## Fixes
+- Add handling of multiple academic subjects per course for DS 5.0 compatibility; new `stg_ef3__courses__academic_subjects` model and new `v_academic_subjects` columns in `base_ef3__courses` and `stg_ef3__courses` models.
+- Correctly cast minimum and maximum credits for courses to float instead of int.
 
 
 # edu_edfi_source v0.4.9

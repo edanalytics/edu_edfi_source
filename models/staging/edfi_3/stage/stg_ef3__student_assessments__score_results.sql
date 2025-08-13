@@ -12,6 +12,6 @@ flattened as (
         {{ extract_descriptor('value:assessmentReportingMethodDescriptor::string') }} as score_name,
         value:result::string as score_result
     from stage_student_assessments
-        , lateral flatten(input=>v_score_results)
+        {{ json_flatten('v_score_results') }}
 )
 select * from flattened

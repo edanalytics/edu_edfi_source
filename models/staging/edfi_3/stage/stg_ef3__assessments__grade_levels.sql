@@ -4,10 +4,10 @@ with stage_assessments as (
 flattened as (
     select
         tenant_code,
-        api_year, 
+        api_year,
         k_assessment,
         {{ extract_descriptor('value:gradeLevelDescriptor::string') }} as grade_level
-    from stage_assessments,
-        lateral flatten(input=>v_assessed_grade_levels)
+    from stage_assessments
+        {{ json_flatten('v_assessed_grade_levels') }}
 )
 select * from flattened

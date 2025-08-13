@@ -2,7 +2,7 @@ with stg_discipline_actions as (
     select * from {{ ref('stg_ef3__discipline_actions') }}
 ),
 flattened as (
-    select 
+    select
         tenant_code,
         api_year,
         discipline_action_id,
@@ -13,8 +13,8 @@ flattened as (
 
         -- edfi extensions
         value:_ext as v_ext
-    from stg_discipline_actions,
-        lateral flatten(input => v_disciplines)
+    from stg_discipline_actions
+        {{ json_flatten('v_disciplines') }}
 ),
 extended as (
     select 
