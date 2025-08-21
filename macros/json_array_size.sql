@@ -16,3 +16,7 @@ Arguments:
 {% macro databricks__json_array_size(column) -%}
     size(try_cast({{ column }} as array<string>))
 {%- endmacro %}
+
+{% macro postgres__json_array_size(column) %}
+    array_length({{ column }})
+{% endmacro %}
