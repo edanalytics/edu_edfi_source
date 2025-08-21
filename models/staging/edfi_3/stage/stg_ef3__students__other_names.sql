@@ -17,4 +17,4 @@ flattened as (
         {{ json_flatten('v_other_names') }}
 )
 
-select * from deduped
+select * from flattened
