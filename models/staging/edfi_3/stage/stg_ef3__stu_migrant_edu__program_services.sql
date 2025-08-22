@@ -23,7 +23,7 @@ flattened as (
         value:_ext as v_ext
 
     from stage_stu_programs,
-        lateral flatten(input => v_migrant_education_program_services)
+        {{ json_flatten(`v_migrant_education_program_services`) }}
 )
 
 select * from flattened
