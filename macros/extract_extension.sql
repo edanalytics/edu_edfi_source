@@ -13,17 +13,9 @@
 {% else %}
   {# if `model_name` IS a singleton, use var of its single model name #}
 
-  {# get the whole mapping with a default empty dict #}
-  {%- set by_model = var('extensions', {}) -%}
-
   {# pull the entry for this model name, default to empty dict #}
-  {%- set extensions = by_model.get(model.name, {}) -%}
-
-  {# get the whole mapping with a default empty dict #}
-  {%- set by_model = var('tpdm_extensions', {}) -%}
-
-  {# pull the entry for this model name, default to empty dict #}
-  {%- set tpdm_extensions = by_model.get(model.name, {}) -%}
+  {%- set extensions = var('extensions', {}).get(model.name, {}) -%}
+  {%- set tpdm_extensions = var('tpdm_extensions', {}).get(model.name, {}) -%}
 
   {# merge the two extension lists #}
   {% set all_extensions = {} %}
