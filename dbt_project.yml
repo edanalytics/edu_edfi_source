@@ -43,11 +43,30 @@ models:
           
 vars:
   extensions: null
-  tpdm_extensions:
-    stg_ef3__credentials:
-      tpdm_credential_status_date:
-        name: 'tpdm:credentialStatusDate'
-        dtype: 'timestamp'
+  predefined_extensions:
+    extensions__epdm:
+      stg_ef3__credentials:
+        tpdm_certification_route_descriptor:
+          name: 'tpdm:certificationRouteDescriptor'
+          dtype: 'string'
+        tpdm_credential_status_descriptor:
+          name: 'tpdm:credentialStatusDescriptor'
+          dtype: 'string'
+        tpdm_educator_role_descriptor:
+          name: 'tpdm:educatorRoleDescriptor'
+          dtype: 'string'
+        tpdm_board_certification_indicator:
+          name: 'tpdm:boardCertificationIndicator'
+          dtype: 'string'
+        tpdm_credential_certification_title:
+          name: 'tpdm:certificationTitle'
+          dtype: 'string'
+        tpdm_credential_status_date:
+          name: 'tpdm:credentialStatusDate'
+          dtype: 'timestamp'
+
   
   # student discipline participation codes that map to non-offenders
   'edu:discipline:non_offender_codes': ['Victim', 'Witness', 'Reporter']
+
+  'predefined_extensions_list': ['test_extensions']
