@@ -48,19 +48,19 @@ vars:
       stg_ef3__credentials:
         tpdm_certification_route_descriptor:
           name: 'tpdm:certificationRouteDescriptor'
-          dtype: 'string'
+          dtype: 'varchar'
         tpdm_credential_status_descriptor:
           name: 'tpdm:credentialStatusDescriptor'
-          dtype: 'string'
+          dtype: 'varchar'
         tpdm_educator_role_descriptor:
           name: 'tpdm:educatorRoleDescriptor'
-          dtype: 'string'
+          dtype: 'varchar'
         tpdm_board_certification_indicator:
           name: 'tpdm:boardCertificationIndicator'
-          dtype: 'string'
+          dtype: 'boolean'
         tpdm_credential_certification_title:
           name: 'tpdm:certificationTitle'
-          dtype: 'string'
+          dtype: 'varchar'
         tpdm_credential_status_date:
           name: 'tpdm:credentialStatusDate'
           dtype: 'timestamp'
@@ -68,5 +68,3 @@ vars:
   
   # student discipline participation codes that map to non-offenders
   'edu:discipline:non_offender_codes': ['Victim', 'Witness', 'Reporter']
-
-  'predefined_extensions_list': ['test_extensions']
