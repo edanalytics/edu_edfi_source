@@ -1,6 +1,7 @@
 # Unreleased
 
 ## New features
+- Add `stg_ef3__students__other_names`
 ## Under the hood
 ## Fixes
 
