@@ -1,12 +1,15 @@
 # Unreleased
+## New features
+## Under the hood
+## Fixes
 
+# edu_edfi_sourve v0.5.1
 ## New features
 - Add base/stage models `base_ef3__student_school_food_service_program_association`, `stg_ef3__student_school_food_service_program_association`, `stg_ef3__stu_school_food_service__program_services`
 - Add base/stage models `base_ef3__student_migrant_education_program_associations`, `stg_ef3__student_migrant_education_program_associations`, `stg_ef3__stu_migrant_edu__program_services`
 - Add `stg_ef3__students__other_names`
-
-## Under the hood
 ## Fixes
+- Fix deduplication logic of `stg_ef3__course_transcripts` to remove duplicates from across ODS years, by replacing `k_course` (tied to api_year) with `course_code, course_ed_org_id` in the deduplication key
 
 # edu_edfi_source v0.5.0
 ## New features
