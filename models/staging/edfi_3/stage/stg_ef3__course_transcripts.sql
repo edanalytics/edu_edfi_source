@@ -44,5 +44,3 @@ final_deduped as (
     }}
 )
 select * from final_deduped
-where not is_deleted
-
