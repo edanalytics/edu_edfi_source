@@ -1,7 +1,10 @@
 # Unreleased
 
 ## New features
+- Add base/stage models `base_ef3__student_school_food_service_program_association`, `stg_ef3__student_school_food_service_program_association`, `stg_ef3__stu_school_food_service__program_services`
+- Add base/stage models `base_ef3__student_migrant_education_program_associations`, `stg_ef3__student_migrant_education_program_associations`, `stg_ef3__stu_migrant_edu__program_services`
 - Add `stg_ef3__students__other_names`
+
 ## Under the hood
 ## Fixes
 

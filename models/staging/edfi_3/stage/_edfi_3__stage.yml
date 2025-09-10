@@ -536,7 +536,7 @@ models:
   - name: stg_ef3__staffs__identification_codes
     config:
       tags: ['core']
-  
+
   - name: stg_ef3__stu_cte__program_services
     config:
       tags: ['cte']
@@ -592,6 +592,16 @@ models:
     config:
       tags: ['language_instruction']
       enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
+
+  - name: stg_ef3__stu_migrant_edu__program_services
+    config: 
+      tags: ['migrant_education']
+      enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
+
+  - name: stg_ef3__stu_school_food_service__program_services
+    config: 
+      tags: ['food_service']
+      enabled: "{{ var('src:program:food_service:enabled', True) }}"
 
   - name: stg_ef3__stu_spec_ed__disabilities
     config:
@@ -669,7 +679,7 @@ models:
       - name: k_contact
         tests:
           *ref_k_contact
-  
+
   - name: stg_ef3__student_cte_program_associations
     config:
       tags: ['cte']
@@ -741,6 +751,11 @@ models:
         tests:
           *ref_k_program
 
+  - name: stg_ef3__student_migrant_education_program_associations
+    config: 
+      tags: ['migrant_education']
+      enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
+
   - name: stg_ef3__student_objective_assessments
     config:
       tags: ['assessment']
@@ -806,6 +821,11 @@ models:
       - name: k_session
         tests:
           *ref_k_session
+
+  - name: stg_ef3__student_school_food_service_program_association
+    config: 
+      tags: ['food_service']
+      enabled: "{{ var('src:program:food_service:enabled', True) }}"
 
   - name: stg_ef3__student_section_associations
     config:
