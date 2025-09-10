@@ -26,11 +26,13 @@ first_deduped as (
             partition_by='k_course, k_student_academic_record, course_attempt_result',
             order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
         )
-    }}
+    }}      
 ),
 no_deletes as (
     select * from first_deduped
+    {% if not is_incremental() %}
     where not is_deleted
+    {% endif %}
 ),
 final_deduped as (
     {{
@@ -42,7 +44,5 @@ final_deduped as (
     }}
 )
 select * from final_deduped
-{% if not is_incremental() %}
 where not is_deleted
-{% endif %}
 
