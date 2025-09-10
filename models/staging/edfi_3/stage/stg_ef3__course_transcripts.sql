@@ -29,19 +29,19 @@ first_deduped as (
     }}
 ),
 no_deletes as (
-    select * from deduped
+    select * from first_deduped
     where not is_deleted
 ),
 final_deduped as (
     {{
         dbt_utils.deduplicate(
-            relation='keyed',
+            relation='no_deletes',
             partition_by='course_code, course_ed_org_id, k_student_academic_record, course_attempt_result',
             order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
-select * from deduped
+select * from final_deduped
 {% if not is_incremental() %}
 where not is_deleted
 {% endif %}
