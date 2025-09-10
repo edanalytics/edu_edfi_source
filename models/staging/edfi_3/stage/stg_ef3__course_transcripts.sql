@@ -19,17 +19,28 @@ keyed as (
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_course_transcripts
 ),
-deduped as (
+first_deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_course, k_student_academic_record, course_attempt_result',
             order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
         )
+    }}      
+),
+no_deletes as (
+    select * from first_deduped
+    {% if not is_incremental() %}
+    where not is_deleted
+    {% endif %}
+),
+final_deduped as (
+    {{
+        dbt_utils.deduplicate(
+            relation='no_deletes',
+            partition_by='course_code, course_ed_org_id, k_student_academic_record, course_attempt_result',
+            order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
+        )
     }}
 )
-select * from deduped
-{% if not is_incremental() %}
-where not is_deleted
-{% endif %}
-
+select * from final_deduped
