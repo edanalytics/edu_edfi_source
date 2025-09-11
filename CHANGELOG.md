@@ -1,8 +1,47 @@
 # Unreleased
+
 ## New features
+- Add base/stage models `base_ef3__student_school_food_service_program_association`, `stg_ef3__student_school_food_service_program_association`, `stg_ef3__stu_school_food_service__program_services`
+- Add base/stage models `base_ef3__student_migrant_education_program_associations`, `stg_ef3__student_migrant_education_program_associations`, `stg_ef3__stu_migrant_edu__program_services`
+- Add `stg_ef3__students__other_names`
+
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.5.0
+## New features
+- Add Databricks platform compatibility
+  - The only potentially breaking change: `base_ef3__discipline_incidents.v:incidentTime` datatype switched from time to string.
+- Add new optional fields in `student_education_organization_associations` and `student_school_associations` from Ed-Fi Data Standard v5:
+  - stuEdOrg: `gender_identity`, `supporter_military_connection`
+  - stuSchAssoc: `is_school_choice`, `school_choice_basis`, `enrollment_type`, `next_year_school_id`, `next_year_grade_level`
+    
+# edu_edfi_source v0.4.10
+## New features
+- Add base/stage model for `StudentCTEProgramAssociation`
+- Add stage model `stg_ef3__stu_cte__program_services` to flatten program services list for `StudentCTEProgramAssociation`
+## Fixes
+- Add handling of multiple academic subjects per course for DS 5.0 compatibility; new `stg_ef3__courses__academic_subjects` model and new `v_academic_subjects` columns in `base_ef3__courses` and `stg_ef3__courses` models.
+- Correctly cast minimum and maximum credits for courses to float instead of int.
+
+
+# edu_edfi_source v0.4.9
+## Fixes
+- Update unique key of staff section association for DS 5.0 compatibility
+
+# edu_edfi_source v0.4.8
+## Fixes
+- Fix unique key of `k_objective_assessment` to account for recent update to include obj assess subject.
+
+# edu_edfi_source v0.4.7
+## New features
+- Add base/stage models for `staffEducationOrganizationContactAssociations`
+- Add (optional) support for incremental materialization of most expensive stg models
+## Fixes
+- Fix unique key of `k_assessment` in `stg_ef3__objective_assessments`
+- Fix unique key `k_student_assessment` in `stg_ef3__student_assessments` to include `student_unique_id` (relevant only where `student_assessment_identifier` is not on its own unique)
+- Fix surrogate key generation for References that include Descriptors that utilize EDU's 'replace descriptor' functionality
+  
 # edu_edfi_source v0.4.6
 ## Fixes
 - Fix deduplication logic in all stg models to handle deleted records correctly before removal. This brings EDU more in sync with ODS true state

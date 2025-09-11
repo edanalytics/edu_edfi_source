@@ -405,13 +405,14 @@
         {%- set concatted_keys = concatted_keys + '::string::date' %}
       {% endif %}
 
-      {#- hack: wrap in lower to deal with case insensitive collations -#}
-      {% set concatted_keys = 'lower(' + concatted_keys + ')' %}
-
       {#- hack: if key contains Descriptor, parse value out -#}
       {% if 'Descriptor' in skey_var or 'descriptor' in skey_var %}
-        {%- set concatted_keys = edu_edfi_source.extract_descriptor(concatted_keys) %}
+        {%- set concatted_keys = edu_edfi_source.extract_descriptor(concatted_keys,descriptor_name=skey_var) %}
       {% endif %}
+
+      {#- hack: wrap in lower to deal with case insensitive collations -#}
+      {% set concatted_keys = 'lower(' + concatted_keys + ')' %}
+     
       {#- grow the output object with the new key -#}
       {% do output.append(concatted_keys) %}
     {% endfor %}
