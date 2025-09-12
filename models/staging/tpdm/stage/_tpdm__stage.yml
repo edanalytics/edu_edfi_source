@@ -107,7 +107,7 @@ models:
         tests:
           *ref_k_applicant_profile
       
-  - name: stg_tpdm__candidate_relationship_parent_staff_associations
+  - name: stg_tpdm__candidate_relationship_to_staff_associations
     config:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"

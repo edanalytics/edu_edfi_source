@@ -252,7 +252,7 @@ models:
     config:
       tags: ['core']
 
-  - name: stg_ef3__descripparentrs
+  - name: stg_ef3__descriptors
     config:
       tags: ['core']
 
@@ -538,7 +538,7 @@ models:
     config:
       tags: ['core']
 
-  - name: stg_ef3__stu_ed_org__indicaparentrs
+  - name: stg_ef3__stu_ed_org__indicators
     config:
       tags: ['core']
 
