@@ -6,6 +6,7 @@
 - Add `stg_ef3__students__other_names`
 
 ## Under the hood
+- Add `k_assessment` to `stg_ef3__student_assessments__score_results` and `stg_ef3__student_assessments__performance_levels` for use downstream
 ## Fixes
 
 # edu_edfi_source v0.5.0

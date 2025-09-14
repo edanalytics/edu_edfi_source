@@ -6,6 +6,7 @@ flattened as (
         tenant_code,
         api_year,
         k_student_assessment,
+        k_assessment,
         -- used for xwalk in wh
         assessment_identifier,
         namespace,
