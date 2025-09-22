@@ -14,12 +14,11 @@
   {# if `model_name` IS a singleton, use var of its single model name #}
 
   {%- set extensions = var('extensions', {}).get(model_name, {}) -%}
-  {%- set predefined_extensions = var('predefined_extensions', {}) -%}
-  {%- set enabled_predefined_extensions = {} -%}
-  {%- for k,v in predefined_extensions.items() -%}
+  {%- set predefined_extensions = {} -%}
+  {%- for k,v in var('predefined_extensions', {}).items() -%}
     {# If predefined extension flag is enabled, add it to extensions list. #}
     {%- if var('src:predefined_extensions:' ~ k.split('__')[1] ~ ':enabled') -%}
-      {%- set _ = enabled_predefined_extensions.update(v.get(model_name, {})) -%}
+      {%- set _ = predefined_extensions.update(v.get(model_name, {})) -%}
     {%- endif -%}
   {%- endfor -%}
 
@@ -28,8 +27,8 @@
   {% for k, v in extensions.items() %}
     {% set _ = all_extensions.update({k: v}) %}
   {% endfor %}
-  {%- if enabled_predefined_extensions is defined and predefined_extensions|length > 0 -%}
-    {% for k, v in enabled_predefined_extensions.items() %}
+  {%- if predefined_extensions is defined and predefined_extensions|length > 0 -%}
+    {% for k, v in predefined_extensions.items() %}
       {% set _ = all_extensions.update({k: v}) %}
     {% endfor %}
   {%- endif -%}
