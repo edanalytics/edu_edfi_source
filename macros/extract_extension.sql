@@ -17,7 +17,7 @@
   {%- set predefined_extensions = {} -%}
   {%- for k,v in var('predefined_extensions', {}).items() -%}
     {# If predefined extension flag is enabled, add it to extensions list. #}
-    {%- if var('src:predefined_extensions:' ~ k.split('__')[1] ~ ':enabled') -%}
+    {%- if var('src:predefined_extensions:' ~ k ~ ':enabled') -%}
       {%- set _ = predefined_extensions.update(v.get(model_name, {})) -%}
     {%- endif -%}
   {%- endfor -%}
