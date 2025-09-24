@@ -64,6 +64,20 @@ vars:
         tpdm_credential_status_date:
           name: 'tpdm:credentialStatusDate'
           dtype: 'timestamp'
+        tpdm_person_reference_person_id:
+          name: 'tpdm:personReference:PersonId'
+          dtype: 'varchar'
+        tpdm_v_student_academic_records:
+          name: 'tpdm:studentAcademicRecords'
+          dtype: 'variant'
+      stg_ef3__schools:
+        tpdm_post_secondary_institution_reference_post_secondary_institution_id:
+          name: 'tpdm:postSecondaryInstitutionReference:postSecondaryInstitutionId'
+          dtype: 'int'
+      stg_ef3__survey_responses:
+        tpdm_person_reference_person_id:
+          name: 'tpdm:personReference:PersonId'
+          dtype: 'varchar'
 
   
   # student discipline participation codes that map to non-offenders
