@@ -1,4 +1,6 @@
 # Unreleased
+- Updated `gen_skey.sql` macro. Changed the order of `k_survey_section` column list. Changed survey_section_title from snake case to camel case. 
+- Corrected `stg_ef3__survey_section_responses.sql` model `k_survey_section_response` variable. previously missing `survey_response_id` variable. 
 ## New features
 ## Under the hood
 ## Fixes
