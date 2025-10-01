@@ -38,11 +38,17 @@ renamed as (
         v:schoolHoursPerWeek::float                                   as school_hours_per_week,
         v:specialEducationHoursPerWeek::float                         as spec_ed_hours_per_week,
 
+        v:reductionInHoursPerWeekComparedToPeers::float               as reduction_in_hours_per_week_compared_to_peers,
+        v:shortenedSchoolDayIndicator::boolean                        as is_shortened_day,
+        v:specialEducationExitDate::date                              as special_education_exit_date,
+        v:specialEducationExitExplained::string                       as special_education_exit_explained,
+
         -- descriptors
         {{ extract_descriptor('v:programReference:programTypeDescriptor::string') }}            as program_type,
         {{ extract_descriptor('v:participationStatus:participationStatusDescriptor::string') }} as participation_status,
         {{ extract_descriptor('v:reasonExitedDescriptor::string') }}                            as reason_exited,
         {{ extract_descriptor('v:specialEducationSettingDescriptor::string') }}                 as special_education_setting,
+        {{ extract_descriptor('v:specialEducationExitReasonDescriptor::string')}}               as special_education_exit_reason,
 
         -- references
         v:educationOrganizationReference as education_organization_reference,
