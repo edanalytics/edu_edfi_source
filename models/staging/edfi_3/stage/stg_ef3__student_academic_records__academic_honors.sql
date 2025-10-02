@@ -13,7 +13,7 @@ flattened as (
         {{  extract_descriptor('value:academicHonorCategoryDescriptor::string')  }}  as academic_honor_category_code,
         value:"honorDescription"::string as honor_description,
         try_to_date(value:"honorAwardDate"::date) as honor_award_date
-         -- edfi extensions
+        -- edfi extensions
         value:_ext as v_ext 
     from stg_academic_records,
         {{ json_flatten('v_academic_honors') }}
