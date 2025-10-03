@@ -6,10 +6,6 @@ flattened as (
         tenant_code,
         api_year,
         k_student_academic_record,
-        k_student,
-        k_student_xyear,
-        k_lea,
-        k_school,
         {{  extract_descriptor('value:academicHonorCategoryDescriptor::string')  }}  as academic_honor_category_code,
         value:"honorDescription"::string as honor_description,
         try_to_date(value:"honorAwardDate"::date) as honor_award_date
