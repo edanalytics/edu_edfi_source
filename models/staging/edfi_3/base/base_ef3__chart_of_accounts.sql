@@ -1,0 +1,47 @@
+with chart_of_accounts as (
+     {{  edu_edfi_source.source_edfi3('chart_of_accounts')  }} 
+),
+renamed as (
+    select
+        tenant_code,
+        api_year,
+        pull_timestamp,
+        file_row_number,
+        filename,
+        is_deleted,
+        v:id::string as record_guid,
+        v:accountIdentifier::string as account_identifier,
+        v:fiscalYear::int as fiscal_year,
+        v:balanceSheetDimensionReference as balance_sheet_dimension_reference,
+        v:balanceSheetDimensionReference:code::string as balance_sheet_dimension_code,
+        v:balanceSheetDimensionReference:fiscalYear::int as balance_sheet_dimension_fiscal_year,
+        v:educationOrganizationReference as education_organization_reference,
+        v:educationOrganizationReference:educationOrganizationId::bigint as education_organization_education_organization_id,
+        v:functionDimensionReference as function_dimension_reference,
+        v:functionDimensionReference:code::string as function_dimension_code,
+        v:functionDimensionReference:fiscalYear::int as function_dimension_fiscal_year,
+        v:fundDimensionReference as fund_dimension_reference,
+        v:fundDimensionReference:code::string as fund_dimension_code,
+        v:fundDimensionReference:fiscalYear::int as fund_dimension_fiscal_year,
+        v:objectDimensionReference as object_dimension_reference,
+        v:objectDimensionReference:code::string as object_dimension_code,
+        v:objectDimensionReference:fiscalYear::int as object_dimension_fiscal_year,
+        v:operationalUnitDimensionReference as operational_unit_dimension_reference,
+        v:operationalUnitDimensionReference:code::string as operational_unit_dimension_code,
+        v:operationalUnitDimensionReference:fiscalYear::int as operational_unit_dimension_fiscal_year,
+        v:programDimensionReference as program_dimension_reference,
+        v:programDimensionReference:code::string as program_dimension_code,
+        v:programDimensionReference:fiscalYear::int as program_dimension_fiscal_year,
+        v:projectDimensionReference as project_dimension_reference,
+        v:projectDimensionReference:code::string as project_dimension_code,
+        v:projectDimensionReference:fiscalYear::int as project_dimension_fiscal_year,
+        v:sourceDimensionReference as source_dimension_reference,
+        v:sourceDimensionReference:code::string as source_dimension_code,
+        v:sourceDimensionReference:fiscalYear::int as source_dimension_fiscal_year,
+        v:accountName::string as account_name,
+        {{  edu_edfi_source.extract_descriptor('v:accountTypeDescriptor::string')  }}  as account_type,
+        v:reportingTags::array as v_reporting_tags,
+        v:_lastModifiedDate::datetime as _last_modified_date
+    from chart_of_accounts
+)
+select * from renamed
