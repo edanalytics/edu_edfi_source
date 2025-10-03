@@ -44,7 +44,7 @@ models:
 vars:
   extensions: null
   predefined_extensions:
-    epdm:
+    tpdm:
       stg_ef3__credentials:
         tpdm_certification_route_descriptor:
           name: 'tpdm:certificationRouteDescriptor'
@@ -84,4 +84,4 @@ vars:
   'edu:discipline:non_offender_codes': ['Victim', 'Witness', 'Reporter']
 
   # epdm extension default disabled
-  'src:predefined_extensions:epdm:enabled': False
+  'src:predefined_extensions:tpdm:enabled': False
