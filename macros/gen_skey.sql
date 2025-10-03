@@ -229,7 +229,7 @@
 
         'k_survey_section': {
             'reference_name': 'survey_section_reference',
-            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title'],
+            'col_list': ['surveyIdentifier', 'namespace', 'surveySectionTitle'],
             'annualize': True
         },
 
