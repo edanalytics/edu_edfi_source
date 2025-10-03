@@ -1,9 +1,30 @@
 # Unreleased
-
+- Updated `gen_skey.sql` macro. Changed the order of `k_survey_section` column list. Changed survey_section_title from snake case to camel case. 
+- Corrected `stg_ef3__survey_section_responses.sql` model `k_survey_section_response` variable. previously missing `survey_response_id` variable. 
 ## New features
+- Updated `extract_extension.sql` macro to allow for extensions to be defined in the edu_edfi_source `dbt_project.yml` and enabled per project.
+- Added the tpdm/epdm predefined extension to `dbt_project.yml'
 ## Under the hood
 ## Fixes
 
+# edu_edfi_sourve v0.5.1
+## New features
+- Add base/stage models `base_ef3__student_school_food_service_program_association`, `stg_ef3__student_school_food_service_program_association`, `stg_ef3__stu_school_food_service__program_services`
+- Add base/stage models `base_ef3__student_migrant_education_program_associations`, `stg_ef3__student_migrant_education_program_associations`, `stg_ef3__stu_migrant_edu__program_services`
+- Add `stg_ef3__students__other_names`
+## Under the hood
+- Add `k_assessment` to `stg_ef3__student_assessments__score_results` and `stg_ef3__student_assessments__performance_levels` for use downstream
+## Fixes
+- Fix deduplication logic of `stg_ef3__course_transcripts` to remove duplicates from across ODS years, by replacing `k_course` (tied to api_year) with `course_code, course_ed_org_id` in the deduplication key
+
+# edu_edfi_source v0.5.0
+## New features
+- Add Databricks platform compatibility
+  - The only potentially breaking change: `base_ef3__discipline_incidents.v:incidentTime` datatype switched from time to string.
+- Add new optional fields in `student_education_organization_associations` and `student_school_associations` from Ed-Fi Data Standard v5:
+  - stuEdOrg: `gender_identity`, `supporter_military_connection`
+  - stuSchAssoc: `is_school_choice`, `school_choice_basis`, `enrollment_type`, `next_year_school_id`, `next_year_grade_level`
+    
 # edu_edfi_source v0.4.10
 ## New features
 - Add base/stage model for `StudentCTEProgramAssociation`
