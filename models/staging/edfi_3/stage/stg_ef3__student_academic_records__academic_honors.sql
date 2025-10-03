@@ -8,7 +8,16 @@ flattened as (
         k_student_academic_record,
         {{  extract_descriptor('value:academicHonorCategoryDescriptor::string')  }}  as academic_honor_category_code,
         value:"honorDescription"::string as honor_description,
-        try_to_date(value:"honorAwardDate"::date) as honor_award_date
+        try_to_date(value:"honorAwardDate"::date) as honor_award_date,
+        {{ extract_descriptor('value:achievementCategoryDescriptor::string') }} as achievement_category_descriptor,
+        value:achievementCategorySystem::string as achievement_category_system,
+        value:achievementTitle::string as achievement_title,
+        value:criteria::string as criteria,
+        value:criteriaUrl::string as criteria_url,
+        value:evidenceStatement::string as evidence_statement,
+        value:imageURL::string as image_url,
+        value:issuerName::string as issuer_name,
+        value:issuerOriginURL::string as issuer_origin_url,
         -- edfi extensions
         value:_ext as v_ext 
     from stg_academic_records,
