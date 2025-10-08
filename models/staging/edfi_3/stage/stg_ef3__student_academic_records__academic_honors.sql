@@ -21,9 +21,9 @@ flattened as (
         value:issuerOriginURL::string as issuer_origin_url,
         -- edfi extensions
         value:_ext as v_ext 
-    from stg_academic_records,
+    from stg_academic_records
         {{ json_flatten('v_academic_honors') }}
-)
+),
 -- pull out extensions from v_academic_honors.v_ext to their own columns
 extended as (
     select
