@@ -1,33 +1,47 @@
-{% test relationship(model, parent, column_name) %} 
-    {%- set all_columns = adapter.get_columns_in_relation(model) %}
-    {%- set all_columns = all_columns | map(attribute='column') | list %}
+{% test edu_relationship(model, parent, column_name) %} 
+    {%- set all_columns_child = adapter.get_columns_in_relation(model) %}
+    {%- set all_columns_child = all_columns_child | map(attribute='column') | list %}
+
+    {%- set all_columns_parent = adapter.get_columns_in_relation(parent) %}
+    {%- set all_columns_parent = all_columns_parent | map(attribute='column') | list %}
+
     with child as (
-        select {{ column_name }} as from_field
-            {%-if 'TENANT_CODE' in all_columns %}
+        select 
+            {{ column_name }} as from_field
+            {%-if 'TENANT_CODE' in all_columns_child %}
                 ,tenant_code,
             {%- endif %}
-            {%- if 'API_YEAR' in all_columns %}
-                api_year,
+            {%- if 'API_YEAR' in all_columns_child %}
+                api_year
+            {%- endif %}
+            {%- if 'SCHOOL_YEAR' in all_columns_child %}
+                ,school_year
             {%- endif %}
         from {{ model }}
         where {{ column_name }} is not null
     ),
     parent as (
         select {{ column_name }} as to_field
-            {%-if 'TENANT_CODE' in all_columns %}
+            {%-if 'TENANT_CODE' in all_columns_parent %}
                 ,tenant_code,
             {%- endif %}
-            {%- if 'API_YEAR' in all_columns %}
-                api_year,
+            {%- if 'API_YEAR' in all_columns_parent %}
+                api_year
+            {%- endif %}
+            {%- if 'SCHOOL_YEAR' in all_columns_parent %}
+                ,school_year
             {%- endif %}
         from {{ref(parent) }}
     )
     select
-        {%-if 'TENANT_CODE' in all_columns %}
+        {%-if 'TENANT_CODE' in all_columns_child %}
         child.tenant_code,
         {%- endif %}
-        {%- if 'API_YEAR' in all_columns %}
+        {%- if 'API_YEAR' in all_columns_child %}
         child.api_year,
+        {%- endif %}
+        {%- if 'SCHOOL_YEAR' in all_columns_child %}
+        child.school_year,
         {%- endif %}
         object_construct('test_column', array_construct('{{ column_name }}'), 'parent_model_name', '{{ parent }}' ) as test_params,
         count(*) as failed_row_count
@@ -40,13 +54,15 @@
 
 
 
-{% test unique_combination_of_columns(model, combination_of_columns) %}
+{% test edu_unique_combination_of_columns(model, combination_of_columns) %}
     {%- set all_columns = adapter.get_columns_in_relation(model) %}
     {%- set all_columns = all_columns | map(attribute='column') | list %}
 
     with validation_errors as (
         select
-            {%- for value in combination_of_columns %} {{value}},{%-endfor%}
+        {%- for value in combination_of_columns %} 
+            {%- if value != 'school_year' and value != 'api_year'%} {{value}},{%-endif%}    
+        {%-endfor%}
         {%-if 'TENANT_CODE' in all_columns %}
             tenant_code,
         {%- endif %}
@@ -80,7 +96,7 @@
 {% endtest %}
 
 
-{% test accepted_values(model, values, column_name, quote_columns = true) %}
+{% test edu_accepted_values(model, values, column_name, quote_columns = true) %}
     {%- set all_columns = adapter.get_columns_in_relation(model) %}
     {%- set all_columns = all_columns | map(attribute='column') | list %}
     
@@ -104,6 +120,9 @@
         {%- if 'API_YEAR' in all_columns %}
         api_year,
         {%- endif %}
+        {%- if 'SCHOOL_YEAR' in all_columns %}
+        school_year,
+        {%- endif %}
         count(*) as failed_row_count,
         object_construct('accepted_values', {{values}} ) as test_params
     from {{ model }}
@@ -114,7 +133,7 @@
 {% endtest%}
 
 
-{% test not_null(model, column_name) %}
+{% test edu_not_null(model, column_name) %}
     {%- set all_columns = adapter.get_columns_in_relation(model) %}
     {%- set all_columns = all_columns | map(attribute='column') | list %}
     select 
@@ -123,6 +142,9 @@
         {%- endif %}
         {%- if 'API_YEAR' in all_columns %}
         api_year,
+        {%- endif %}
+        {%- if 'SCHOOL_YEAR' in all_columns %}
+        school_year,
         {%- endif %}
         count(*) as failed_row_count,
         object_construct('test_column', array_construct('{{ column_name }}') ) as test_params
@@ -133,7 +155,7 @@
 {% endtest %}
 
 
-{% test unique(model, column_name) %}
+{% test edu_unique(model, column_name) %}
     {%- set all_columns = adapter.get_columns_in_relation(model) %}
     {%- set all_columns = all_columns | map(attribute='column') | list %}
     select 
@@ -143,6 +165,9 @@
         {%- endif %}
         {%- if 'API_YEAR' in all_columns %}
         api_year,
+        {%- endif %}
+        {%- if 'SCHOOL_YEAR' in all_columns %}
+        school_year,
         {%- endif %}
         count(*) as failed_row_count,
         object_construct('test_column', array_construct('{{ column_name }}') )  as test_params
