@@ -2,76 +2,76 @@ version: 2
 
 referential_integrity_tests:
   - k_candidate: &ref_k_candidate
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__candidates
         tags: ['ref_integrity']
 
   - k_educator_prep_program: &ref_k_educator_prep_program
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__educator_preparation_programs
         tags: ['ref_integrity']
 
   - k_applicant_profile: &ref_k_applicant_profile
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__applicant_profiles
         tags: ['ref_integrity']
 
   - k_staff: &ref_k_staff
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__staffs
         tags: ['ref_integrity']
 
   - k_certification_exam: &ref_k_certification_exam
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__certification_exams
 
   - k_course_section: &ref_k_course_section
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__sections
         tags: ['ref_integrity']
 
   - k_person: &ref_k_person
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__people
         tags: ['ref_integrity']
 
   - k_student: &ref_k_student
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__students
         tags: ['ref_integrity']
   
   - k_survey_response: &ref_k_survey_response
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__survey_responses
         tags: ['ref_integrity']
 
   - k_evaluation: &ref_k_evaluation
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__evaluations
         tags: ['ref_integrity']
         
   - k_evaluation_rating: &ref_k_evaluation_rating
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__evaluation_ratings
         tags: ['ref_integrity']
 
   - k_evaluation_objective: &ref_k_evaluation_objective
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__evaluation_objectives
         tags: ['ref_integrity']
 
   - k_performance_evaluation: &ref_k_performance_evaluation
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__performance_evaluations
         tags: ['ref_integrity']
 
   - k_performance_evaluation_rating: &ref_k_performance_evaluation_rating
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__evaluation_ratings
         tags: ['ref_integrity']
 
   - k_evaluation_objective_rating: &ref_k_evaluation_objective_rating
-    - relationship:
+    - edu_relationship:
         parent: stg_tpdm__evaluation_objective_ratings
         tags: ['ref_integrity']
 

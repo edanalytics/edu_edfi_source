@@ -2,121 +2,121 @@ version: 2
 
 referential_integrity_tests:
   - k_assessment: &ref_k_assessment
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__assessments
         tags: ['ref_integrity']
 
   - k_cohort: &ref_k_cohort
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__cohorts
         tags: [ 'ref_integrity' ]
 
   - k_contact: &ref_k_contact
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__contacts
         tags: [ 'ref_integrity' ]
 
   - k_course: &ref_k_course
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__courses
         tags: ['ref_integrity']
 
   - k_course_offering: &ref_k_course_offering
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__course_offerings
         tags: ['ref_integrity']
 
   - k_course_section: &ref_k_course_section
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__sections
         tags: ['ref_integrity']
 
   - k_discipline_incident: &ref_k_discipline_incident
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__discipline_incidents
         tags: ['ref_integrity']
 
   - k_grading_period: &ref_k_grading_period
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__grading_periods
         tags: ['ref_integrity']
 
   - k_lea: &ref_k_lea
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__local_education_agencies
         tags: ['ref_integrity']
 
   - k_location: &ref_k_location
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__locations
         tags: ['ref_integrity']
 
   - k_objective_assessment: &ref_k_objective_assessment
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__objective_assessments
         tags: ['ref_integrity']
 
   - k_parent: &ref_k_parent
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__parents
         tags: ['ref_integrity']
 
   - k_program: &ref_k_program
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__programs
         tags: ['ref_integrity']
 
   - k_school: &ref_k_school
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__schools
         tags: ['ref_integrity']
 
   - k_school_calendar: &ref_k_school_calendar
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__calendars
         tags: ['ref_integrity']
 
   - k_session: &ref_k_session
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__sessions
         tags: ['ref_integrity']
 
   - k_staff: &ref_k_staff
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__staffs
         tags: ['ref_integrity']
 
   - k_student: &ref_k_student
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__students
         tags: ['ref_integrity']
 
   - k_student_academic_record: &ref_k_student_academic_record
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__student_academic_records
         tags: ['ref_integrity']
 
   - k_survey: &ref_k_survey
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__surveys
         tags: ['ref_integrity']
 
   - k_survey_question: &ref_k_survey_question
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__survey_questions
         tags: ['ref_integrity']
 
   - k_survey_response: &ref_k_survey_response
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__survey_responses
         tags: ['ref_integrity']
 
   - k_survey_section: &ref_k_survey_section
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__survey_sections
 
   - k_person: &ref_k_person
-    - relationship:
+    - edu_relationship:
         parent: stg_ef3__people
         tags: ['ref_integrity']
 
