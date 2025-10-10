@@ -40,4 +40,6 @@ dupes as (
     group by 1,2,3,4,5,6,7
     having n_score_results > 1
 )
-select * from dupes
+select count(*) as failed_row_count, tenant_code, api_year from dupes
+group by all
+having count(*) > 1

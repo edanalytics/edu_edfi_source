@@ -36,4 +36,6 @@ flatten as (
             where {{ extract_descriptor('value:assessmentReportingMethodDescriptor::string') }} = distinct_subject_score_xwalk.score_name
             and int_stu_assessments_subjects.academic_subject is null
 )
-select * from flatten
+select count(*) as failed_row_count, tenant_code, api_year from flatten
+group by all
+having count(*) > 1
