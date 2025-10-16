@@ -3,6 +3,13 @@ with base_student_school_assoc as (
 ),
 keyed as (
     select 
+        {{ dbt_utils.generate_surrogate_key(
+            ['tenant_code',
+            'api_year',
+            'lower(student_unique_id)',
+            'lower(school_id)',
+            'entry_date']
+        ) }} as k_enrollment,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_school') }},
@@ -16,7 +23,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_student, k_school, entry_date', 
+            partition_by='k_enrollment', 
             order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
