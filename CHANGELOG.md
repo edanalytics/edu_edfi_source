@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add `stg_ef3__student_academic_records__academic_honors` to capture academic honors from student academic records
 ## Under the hood
 ## Fixes
 
