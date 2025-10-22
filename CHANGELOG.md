@@ -2,6 +2,8 @@
 - Updated `gen_skey.sql` macro. Changed the order of `k_survey_section` column list. Changed survey_section_title from snake case to camel case. 
 - Corrected `stg_ef3__survey_section_responses.sql` model `k_survey_section_response` variable. previously missing `survey_response_id` variable. 
 ## New features
+- Updated `extract_extension.sql` macro to allow for extensions to be defined in the edu_edfi_source `dbt_project.yml` and enabled per project.
+- Added the tpdm/epdm predefined extension to `dbt_project.yml'
 ## Under the hood
 ## Fixes
 
