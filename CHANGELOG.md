@@ -7,7 +7,7 @@
 ## New features
 - Add `stg_ef3__student_academic_records__academic_honors` to capture academic honors from student academic records
 - Updated `extract_extension.sql` macro to allow for extensions to be defined in the edu_edfi_source `dbt_project.yml` and enabled per project.
-- Added the tpdm/epdm predefined extension to `dbt_project.yml'
+  - And added the tpdm/epdm predefined extension to `dbt_project.yml`
 ## Fixes
 - To fix keys that were triggering faulty dbt test failures:
   - Updated `gen_skey.sql` macro. Changed the order of `k_survey_section` column list. Changed survey_section_title from snake case to camel case. 
