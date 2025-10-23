@@ -22,6 +22,7 @@ keyed as (
         #}
         {# {{ edorg_ref(annualize=False) }}, #}
 
+        api_year as school_year,
         base_program_evaluations.*,
         {{ extract_extension(model_name=this.name, flatten=True) }}
 

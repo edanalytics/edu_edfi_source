@@ -4,14 +4,13 @@ with base_student_program_eligibility_associations as (
 
 keyed as (
     select
-        tenant_code,
-        api_year,
 
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_program') }},
         {{ edorg_ref() }},
 
+        api_year as school_year,
         base_student_program_eligibility_associations.*
 
         {{ extract_extension(model_name=this.name, flatten=True) }}

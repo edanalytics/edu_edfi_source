@@ -33,7 +33,7 @@ renamed as (
         v:programReference as program_reference,
 
         -- lists
-        v:levels as v_levels,
+        v:levels as v_program_evaluation_levels,
 
         -- ed-fi extensions
         v:_ext as v_ext
