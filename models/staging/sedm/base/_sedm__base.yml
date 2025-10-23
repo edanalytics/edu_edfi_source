@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: base_sedm__student_iep_association
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('edu:sedm:enabled', True) }}"

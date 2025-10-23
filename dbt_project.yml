@@ -40,6 +40,9 @@ models:
           +materialized: view
         stage:
           +materialized: table
+      sedm:
+        base:
+          +materialized: view
           
 vars:
   extensions: null
