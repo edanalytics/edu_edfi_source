@@ -1,10 +1,12 @@
 # Unreleased
 ## New features
 - Add `stg_ef3__student_academic_records__academic_honors` to capture academic honors from student academic records
+- Updated `extract_extension.sql` macro to allow for extensions to be defined in the edu_edfi_source `dbt_project.yml` and enabled per project.
+- Added the tpdm/epdm predefined extension to `dbt_project.yml'
 ## Under the hood
 ## Fixes
 
-# edu_edfi_sourve v0.5.1
+# edu_edfi_source v0.5.1
 ## New features
 - Add base/stage models `base_ef3__student_school_food_service_program_association`, `stg_ef3__student_school_food_service_program_association`, `stg_ef3__stu_school_food_service__program_services`
 - Add base/stage models `base_ef3__student_migrant_education_program_associations`, `stg_ef3__student_migrant_education_program_associations`, `stg_ef3__stu_migrant_edu__program_services`
