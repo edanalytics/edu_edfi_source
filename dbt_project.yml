@@ -49,12 +49,15 @@ vars:
         tpdm_certification_route_descriptor:
           name: 'tpdm:certificationRouteDescriptor'
           dtype: 'varchar'
+          extract_descriptor: True
         tpdm_credential_status_descriptor:
           name: 'tpdm:credentialStatusDescriptor'
           dtype: 'varchar'
+          extract_descriptor: True
         tpdm_educator_role_descriptor:
           name: 'tpdm:educatorRoleDescriptor'
           dtype: 'varchar'
+          extract_descriptor: True
         tpdm_board_certification_indicator:
           name: 'tpdm:boardCertificationIndicator'
           dtype: 'boolean'
