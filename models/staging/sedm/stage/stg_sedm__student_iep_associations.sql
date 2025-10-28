@@ -16,7 +16,6 @@ keyed as (
         ) }} as k_student_iep_association,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
-        {{ gen_skey('k_ed_org') }},
         {{ edorg_ref(annualize=False) }},
         api_year as school_year,
         base_student_iep_associations.*
