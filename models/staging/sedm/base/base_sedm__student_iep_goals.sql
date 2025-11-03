@@ -21,7 +21,7 @@ renamed as (
         -- value columns
         v:iepGoalDetails::string               as iep_goal_details,
         v:goalAchievementPeriodBeginDate::date as goal_achievement_period_begin_date,
-        v:goalAchievementPeriodEndDate::date                                              as goal_achievement_period_end_date,
+        v:goalAchievementPeriodEndDate::date   as goal_achievement_period_end_date,
         -- descriptors
         {{ extract_descriptor('v:iepGoalDescriptor::string') }} as iep_goal,
         -- references
