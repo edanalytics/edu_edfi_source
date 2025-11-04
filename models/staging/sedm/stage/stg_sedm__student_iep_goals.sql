@@ -15,16 +15,7 @@ keyed as (
         ) }} as k_student_iep_goal,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
-        {{ dbt_utils.generate_surrogate_key(
-            [
-                'tenant_code',
-                'api_year',
-                'lower(student_iep_association_id)',
-                'cast(studentIEPReference:educationOrganizationReference:educationOrganizationId as string)',
-                'cast(studentIEPReference:iepFinalizedDate as string)',
-                'lower(student_unique_id)'
-            ]
-        ) }} as k_student_iep_association,
+        {{ gen_skey('k_student_iep_association') }},
         api_year as school_year,
         base_student_iep_goals.*
         {{ extract_extension(model_name=this.name, flatten=True) }}

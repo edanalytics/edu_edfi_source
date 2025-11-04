@@ -18,16 +18,7 @@ keyed as (
         ) }} as k_student_iep_service_prescription,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
-        {{ dbt_utils.generate_surrogate_key(
-            [
-                'tenant_code',
-                'api_year',
-                'lower(student_iep_association_id)',
-                'iep_servicing_ed_org_id',
-                'iep_finalized_date',
-                'lower(student_unique_id)'
-            ]
-        ) }} as k_student_iep_association,
+        {{ gen_skey('k_student_iep_association') }},
         {{ gen_skey('k_staff', alt_ref='service_provider_staff_reference') }},
         api_year as school_year,
         base_student_iep_service_prescriptions.*
