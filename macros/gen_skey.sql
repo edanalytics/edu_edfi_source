@@ -337,6 +337,15 @@
             'col_list': ['post_secondary_institution_id'],
             'annualize': False
         },
+        'k_student_iep_association': {
+            'reference_name': 'student_iep_association_reference',
+            'col_list': ['student_iep_association_id',
+                         'iep_servicing_ed_org_id',
+                         'iep_finalized_date',
+                         'student_unique_id'],
+            'annualize': True
+        },
+
         'k_template': {
             'reference_name': '',
             'col_list': [],
