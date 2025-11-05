@@ -12,6 +12,7 @@ performance_levels as (
         tenant_code,
         api_year,
         k_student_assessment,
+        k_assessment,
         assessment_identifier,
         namespace,
         -- normalize column names to stack with scores
