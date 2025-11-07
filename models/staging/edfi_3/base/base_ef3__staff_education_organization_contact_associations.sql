@@ -14,7 +14,7 @@ renamed as (
         v:contactTitle::string                                        as contact_title,
         v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         lower(v:electronicMailAddress::string)                        as email_address,
-        v:staffReference:staffUniqueId::int                           as staff_unique_id,
+        v:staffReference:staffUniqueId::string                        as staff_unique_id,
         -- arrays
         v:telephones                                                  as v_telephones,
         -- references
