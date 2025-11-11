@@ -339,9 +339,10 @@
         },
         'k_student_iep_association': {
             'reference_name': 'student_iep_association_reference',
-            'col_list': ['student_iep_association_id',
-                         'iep_servicing_ed_org_id',
+            'col_list': [
                          'iep_finalized_date',
+                         'iep_servicing_ed_org_id',
+                         'student_iep_association_id',
                          'student_unique_id'],
             'annualize': True
         },
@@ -349,11 +350,11 @@
             'reference_name': 'student_iep_association_reference',
             'col_list': [
                          'iep_service_id',
-                         'student_unique_id',
-                         'student_iep_association_id',
                          'iep_servicing_ed_org_id',
-                         'service_prescription'
-                         'service_prescription_date'
+                         'service_prescription',
+                         'service_prescription_date',
+                         'student_iep_association_id',
+                         'student_unique_id'
                          ],
             'annualize': False
         },
