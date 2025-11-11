@@ -9,11 +9,11 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'lower(iep_service_id)',
-                'lower(student_unique_id)',
-                'lower(student_iep_association_id)',
-                'iep_servicing_ed_org_id',
+                'lower(iep_servicing_ed_org_id)',
                 'lower(service_prescription)',
                 'service_prescription_date'
+                'lower(student_iep_association_id)',
+                'lower(student_unique_id)'
             ]
         ) }} as k_student_iep_service_prescription,
         {{ gen_skey('k_student') }},
