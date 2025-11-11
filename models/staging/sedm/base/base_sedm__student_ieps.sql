@@ -1,5 +1,5 @@
-with student_iep_associations as (
-    {{ source_edfi3('student_iep_associations') }}
+with student_ieps as (
+    {{ source_edfi3('student_ieps') }}
 ),
 
 renamed as (
@@ -43,7 +43,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from student_iep_associations
+    from student_iep
 )
 
 select * from renamed
