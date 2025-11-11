@@ -1,5 +1,5 @@
-with base_student_iep_associations as (
-    select * from {{ ref('base_sedm__student_iep_associations') }}
+with base_student_ieps as (
+    select * from {{ ref('base_sedm__student_ieps') }}
 ),
 
 keyed as (
@@ -21,7 +21,7 @@ keyed as (
         base_student_iep_associations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 
-    from base_student_iep_associations
+    from base_student_ieps
 ),
 
 deduped as (
