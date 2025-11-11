@@ -345,6 +345,18 @@
                          'student_unique_id'],
             'annualize': True
         },
+        'k_student_iep_service_prescription': {
+            'reference_name': 'student_iep_association_reference',
+            'col_list': [
+                         'iep_service_id',
+                         'student_unique_id',
+                         'student_iep_association_id',
+                         'iep_servicing_ed_org_id',
+                         'service_prescription'
+                         'service_prescription_date'
+                         ],
+            'annualize': False
+        },
 
         'k_template': {
             'reference_name': '',
