@@ -7,12 +7,12 @@ flattened as (
         api_year,
         k_student,
         k_student_xyear,
-        {{ extract_descriptor('value:otherNameTypeDescriptor::varchar') }} as other_name_type,
-        value:personalTitlePrefix::varchar as personal_title_prefix,
-        value:firstName::varchar as first_name,
-        value:middleName::varchar as middle_name,
-        value:lastSurname::varchar as last_surname,
-        value:generationCodeSuffix::varchar as generation_code_suffix
+        {{ extract_descriptor('value:otherNameTypeDescriptor::string') }} as other_name_type,
+        value:personalTitlePrefix::string as personal_title_prefix,
+        value:firstName::string as first_name,
+        value:middleName::string as middle_name,
+        value:lastSurname::string as last_surname,
+        value:generationCodeSuffix::string as generation_code_suffix
     from students
         {{ json_flatten('v_other_names') }}
 )
