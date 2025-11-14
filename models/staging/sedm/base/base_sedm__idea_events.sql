@@ -1,4 +1,4 @@
-with source_idea_events as (
+with idea_events as (
     {{ source_edfi3('idea_events') }}
 ),
 
@@ -34,7 +34,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from source_idea_events
+    from idea_events
 )
 
 select * from renamed

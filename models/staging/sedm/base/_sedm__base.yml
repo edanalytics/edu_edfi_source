@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: base_sedm__student_iep_associations
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: base_sedm__ideaevents
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: base_sedm__student_iep_goals
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: base_sedm__student_iep_service_prescriptions
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: base_sedm__student_iep_service_deliveries
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: base_sedm__student_iep_disability_collections
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: base_sedm__student_iep_accommodation_collections
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+

@@ -1,4 +1,4 @@
-with source_student_iep_service_deliveries as (
+with student_iep_service_deliveries as (
     {{ source_edfi3('student_iep_service_deliveries') }}
 ),
 
@@ -40,7 +40,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from source_student_iep_service_deliveries
+    from student_iep_service_deliveries
 )
 
 select * from renamed

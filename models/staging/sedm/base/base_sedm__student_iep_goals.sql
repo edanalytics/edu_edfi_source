@@ -1,4 +1,4 @@
-with source_iep_goals as (
+with student_iep_goals as (
     {{ source_edfi3('student_iep_goals') }}
 ),
 
@@ -32,7 +32,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from source_student_iep_goals
+    from student_iep_goals
 )
 
 select * from renamed
