@@ -19,7 +19,7 @@ keyed as (
         base_student_iep_accommodations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 
-    from base_student_iep_accommodations
+    from base_student_iep_accommodation_collections
 ),
 
 deduped as (
