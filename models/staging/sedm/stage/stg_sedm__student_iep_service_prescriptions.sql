@@ -18,7 +18,7 @@ keyed as (
         ) }} as k_student_iep_service_prescription,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
-        {{ gen_skey('k_student_iep_association') }},
+        {{ gen_skey('k_student_iep') }},
         {{ gen_skey('k_staff', alt_ref='service_provider_staff_reference') }},
         api_year as school_year,
         base_student_iep_service_prescriptions.*

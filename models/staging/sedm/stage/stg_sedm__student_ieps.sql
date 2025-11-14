@@ -13,7 +13,7 @@ keyed as (
                 'iep_finalized_date',
                 'lower(student_unique_id)'
             ]
-        ) }} as k_student_iep_association,
+        ) }} as k_student_iep,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ edorg_ref(annualize=False) }},
