@@ -27,7 +27,7 @@ keyed as (
 deduped as (
     {{ dbt_utils.deduplicate(
         relation='keyed',
-        partition_by='k_student_iep_association',
+        partition_by='k_student_iep',
         order_by='last_modified_timestamp desc, pull_timestamp desc'
     ) }}
 )
