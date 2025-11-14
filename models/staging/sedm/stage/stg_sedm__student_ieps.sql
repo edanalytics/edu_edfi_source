@@ -18,7 +18,7 @@ keyed as (
         {{ gen_skey('k_student_xyear') }},
         {{ edorg_ref(annualize=False) }},
         api_year as school_year,
-        base_student_iep_associations.*
+        base_student_iep.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 
     from base_student_ieps
