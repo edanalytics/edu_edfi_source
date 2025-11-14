@@ -1,5 +1,5 @@
-with base_student_iep_accommodations as (
-    select * from {{ ref('base_sedm__student_iep_accommodations') }}
+with base_student_iep_disability_collections as (
+    select * from {{ ref('base_sedm__student_iep_disability_collections') }}
 ),
 
 keyed as (
@@ -12,20 +12,21 @@ keyed as (
                 'lower(student_unique_id)',
                 'iep_servicing_ed_org_id'
             ]
-        ) }} as k_student_iep_accommodation_collection,
+        ) }} as k_student_iep_disability_collection,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_student_iep_association') }},
-        base_student_iep_accommodations.*
+        api_year as school_year,
+        base_student_iep_disabilities.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 
-    from base_student_iep_accommodations
+    from base_student_iep_disabilities
 ),
 
 deduped as (
     {{ dbt_utils.deduplicate(
         relation='keyed',
-        partition_by='k_student_iep_accommodation_collection',
+        partition_by='k_student_iep_disability_collection',
         order_by='last_modified_timestamp desc, pull_timestamp desc'
     ) }}
 )
