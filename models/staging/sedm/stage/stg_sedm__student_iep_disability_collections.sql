@@ -17,7 +17,7 @@ keyed as (
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_student_iep') }},
         api_year as school_year,
-        base_student_iep_disabilities.*
+        base_student_iep_disability_collections.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 
     from base_student_iep_disability_collections
