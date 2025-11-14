@@ -43,7 +43,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from student_iep
+    from student_ieps
 )
 
 select * from renamed
