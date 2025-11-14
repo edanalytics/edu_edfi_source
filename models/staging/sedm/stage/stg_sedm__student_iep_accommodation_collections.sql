@@ -16,7 +16,7 @@ keyed as (
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_student_iep') }},
-        base_student_iep_accommodations.*
+        base_student_iep_accommodation_collections.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 
     from base_student_iep_accommodation_collections
