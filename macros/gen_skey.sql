@@ -337,8 +337,8 @@
             'col_list': ['post_secondary_institution_id'],
             'annualize': False
         },
-        'k_student_iep_association': {
-            'reference_name': 'student_iep_association_reference',
+        'k_student_iep': {
+            'reference_name': 'student_iep_reference',
             'col_list': [
                          'iep_finalized_date',
                          'iep_servicing_ed_org_id',
@@ -347,7 +347,7 @@
             'annualize': True
         },
         'k_student_iep_service_prescription': {
-            'reference_name': 'student_iep_association_reference',
+            'reference_name': 'student_iep_reference',
             'col_list': [
                          'iep_service_id',
                          'iep_servicing_ed_org_id',
