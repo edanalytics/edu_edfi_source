@@ -11,7 +11,7 @@ keyed as (
                 'lower(iep_service_id)',
                 'lower(iep_servicing_ed_org_id)',
                 'lower(service_prescription)',
-                'service_prescription_date'
+                'service_prescription_date',
                 'lower(student_iep_association_id)',
                 'lower(student_unique_id)'
             ]
