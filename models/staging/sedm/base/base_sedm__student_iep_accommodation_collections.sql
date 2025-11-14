@@ -1,5 +1,5 @@
-with student_iep_accommodations as (
-    {{ source_edfi3('student_iep_accommodations') }}
+with student_iep_accommodation_collections as (
+    {{ source_edfi3('student_iep_accommodation_collections') }}
 ),
 
 renamed as (
@@ -27,7 +27,7 @@ renamed as (
         -- edfi extensions
         v:_ext as v_ext
 
-    from student_iep_accommodations
+    from student_iep_accommodation_collections
 )
 
 select * from renamed
