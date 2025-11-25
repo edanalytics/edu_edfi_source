@@ -4,10 +4,16 @@ with base_candidates as (
 keyed as (
     select
         {{ dbt_utils.generate_surrogate_key(
-            ['tenant_code',
-            'api_year',
-            'lower(candidate_id)']
+            [
+                'tenant_code',
+                'api_year',
+                'lower(candidate_id)']
         ) }} as k_candidate,
+        {{ dbt_utils.generate_surrogate_key(
+            [
+                'tenant_code',
+                'lower(candidate_id)']
+        ) }} as k_candidate_xyear,
         {{ gen_skey('k_person') }},
         base_candidates.tenant_code,
         {{ star(from='base_candidates', except=['tenant_code'], rename=[['api_year','school_year']]) }},
