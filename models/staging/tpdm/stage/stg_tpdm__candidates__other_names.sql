@@ -4,7 +4,7 @@ with candidates as (
 flattened as (
     select 
         tenant_code,
-        school_year,
+        api_year,
         k_candidate,
         k_candidate_xyear,
         {{ extract_descriptor('value:otherNameTypeDescriptor::varchar') }} as other_name_type,

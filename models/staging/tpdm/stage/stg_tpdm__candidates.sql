@@ -16,7 +16,8 @@ keyed as (
         ) }} as k_candidate_xyear,
         {{ gen_skey('k_person') }},
         base_candidates.tenant_code,
-        {{ star(from='base_candidates', except=['tenant_code'], rename=[['api_year','school_year']]) }},
+        base_candidates.api_year as school_year,
+        base_candidates.*,
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_candidates
 ),

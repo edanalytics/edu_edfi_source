@@ -4,7 +4,7 @@ with stage_candidates as (
 flattened as (
     select
         tenant_code,
-        school_year,
+        api_year,
         k_candidate,
         -- do wee need candidate_xyear since k_candidate is now annualized?
         --k_candidate_xyear,
