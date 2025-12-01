@@ -9,7 +9,7 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'idea_event_id',
-                'student_unique_id'
+                'student_unique_id',
                 'idea_event'
             ]
         ) }} as k_idea_event,
