@@ -7,12 +7,14 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'lower(candidate_id)']
+                'lower(candidate_id)'
+            ]
         ) }} as k_candidate,
         {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
-                'lower(candidate_id)']
+                'lower(candidate_id)'
+            ]
         ) }} as k_candidate_xyear,
         {{ gen_skey('k_person') }},
         base_candidates.api_year as school_year,
