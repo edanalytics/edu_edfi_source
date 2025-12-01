@@ -15,7 +15,6 @@ keyed as (
         ) }} as k_idea_event,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
-        {{ gen_skey('k_student_iep') }},
         base_idea_events.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
 
