@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add `stg_tpdm__candidates__other_names`, `stg_tpdm__candidate_races`, and modify `stg_tpdm__candidates` to support `dim_candidate` model
 ## Under the hood
 ## Fixes
 
