@@ -15,7 +15,6 @@ keyed as (
                 'lower(candidate_id)']
         ) }} as k_candidate_xyear,
         {{ gen_skey('k_person') }},
-        base_candidates.tenant_code,
         base_candidates.api_year as school_year,
         base_candidates.*,
         {{ extract_extension(model_name=this.name, flatten=True) }}
