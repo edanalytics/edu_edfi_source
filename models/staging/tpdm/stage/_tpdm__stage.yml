@@ -106,17 +106,17 @@ models:
   - name: stg_tpdm__candidates
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', True) }}"
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
 
   - name: stg_tpdm__candidate__races
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', True) }}"
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
 
   - name: stg_tpdm__candidate__other_names
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdm:enabled', True) }}"
+      enabled: "{{ var('edu:tpdm:enabled', False) }}"
 
   - name: stg_tpdm__applicant_profiles
     config:
