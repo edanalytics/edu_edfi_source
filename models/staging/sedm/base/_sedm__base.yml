@@ -1,11 +1,11 @@
 version: 2
 
 models:
-  - name: base_sedm__student_iep_associations
+  - name: base_sedm__student_ieps
     config:
       tags: ['sedm']
       enabled: "{{ var('src:domain:sedm:enabled', False) }}"
-  - name: base_sedm__ideaevents
+  - name: base_sedm__idea_events
     config:
       tags: ['sedm']
       enabled: "{{ var('src:domain:sedm:enabled', False) }}"
