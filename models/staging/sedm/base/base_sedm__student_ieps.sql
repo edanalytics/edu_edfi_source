@@ -1,5 +1,5 @@
 with student_ieps as (
-    {{ source_edfi3('student_ieps') }}
+    {{ source_edfi3('student_ie_ps') }}
 ),
 
 renamed as (
