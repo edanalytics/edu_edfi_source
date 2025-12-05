@@ -598,6 +598,10 @@ models:
       tags: ['migrant_education']
       enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
 
+  - name: stg_ef3__stu_program__program_services
+    config: 
+      tags: ['core']
+
   - name: stg_ef3__stu_school_food_service__program_services
     config: 
       tags: ['food_service']
