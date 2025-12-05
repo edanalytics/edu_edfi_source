@@ -1,8 +1,14 @@
 # Unreleased
 ## New features
-- Add `stg_tpdm__candidates__other_names`, `stg_tpdm__candidate_races`, and modify `stg_tpdm__candidates` to support `dim_candidate` model
 ## Under the hood
 ## Fixes
+
+# edu_edfi_source v0.5.3
+## New features
+- Add `stg_tpdm__candidates__other_names`, `stg_tpdm__candidate_races`, and modify `stg_tpdm__candidates` to support `dim_candidate` model
+## Fixes
+- Fix missing column from test `cfg_student_assessment_score_name_dupes`
+- Minor fixes for Databricks compatibility
 
 # edu_edfi_source v0.5.2
 ## New features
