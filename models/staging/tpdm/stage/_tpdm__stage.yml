@@ -113,7 +113,7 @@ models:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdm:enabled', False) }}"
 
-  - name: stg_tpdm__candidate__other_names
+  - name: stg_tpdm__candidates__other_names
     config:
       tags: ['tpdm']
       enabled: "{{ var('edu:tpdm:enabled', False) }}"
