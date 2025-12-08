@@ -8,6 +8,7 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
+                'ed_org_id',
                 'lower(idea_event_id)',
                 'lower(student_unique_id)',
                 'idea_event'
