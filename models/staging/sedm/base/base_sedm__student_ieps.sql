@@ -28,7 +28,7 @@ renamed as (
         v:medicallyFragile::boolean                                             as is_medically_fragile,
         v:multiplyDisabled::boolean                                             as is_multiply_disabled,
         v:schoolHoursPerWeek::float                                             as school_hours_per_week,
-        v:specialEducationHoursPerWeek::float                                   as spec_ed_hours_per_week,
+        v:specialEducationHoursPerWeek::float                                   as special_education_hours_per_week,
         -- descriptors
         {{ extract_descriptor('v:iepStatusDescriptor::string') }}               as iep_status,
         {{ extract_descriptor('v:reasonExitedDescriptor::string') }}            as reason_exited,
