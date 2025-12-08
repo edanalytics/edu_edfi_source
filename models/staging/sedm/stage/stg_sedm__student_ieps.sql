@@ -9,7 +9,7 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'lower(student_iep_association_id)',
-                'iep_servicing_ed_org_id',
+                'ed_org_id',
                 'iep_finalized_date',
                 'lower(student_unique_id)'
             ]
