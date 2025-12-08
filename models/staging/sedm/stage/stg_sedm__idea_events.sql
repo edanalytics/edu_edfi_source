@@ -8,8 +8,8 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
-                'idea_event_id',
-                'student_unique_id',
+                'lower(idea_event_id)',
+                'lower(student_unique_id)',
                 'idea_event'
             ]
         ) }} as k_idea_event,
