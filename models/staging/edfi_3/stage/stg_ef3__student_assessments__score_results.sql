@@ -11,7 +11,9 @@ flattened as (
         assessment_identifier,
         namespace,
         {{ extract_descriptor('value:assessmentReportingMethodDescriptor::string') }} as score_name,
-        value:result::string as score_result
+        value:result::string as score_result,
+        pull_timestamp,
+        last_modified_timestamp
     from stage_student_assessments
         {{ json_flatten('v_score_results') }}
 )

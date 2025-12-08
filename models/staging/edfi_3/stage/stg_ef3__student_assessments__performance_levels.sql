@@ -11,7 +11,9 @@ flattened as (
         assessment_identifier,
         namespace,
         {{ extract_descriptor('value:assessmentReportingMethodDescriptor::string') }} as performance_level_name,
-        {{ extract_descriptor('value:performanceLevelDescriptor::string') }} as performance_level_result
+        {{ extract_descriptor('value:performanceLevelDescriptor::string') }} as performance_level_result,
+        pull_timestamp,
+        last_modified_timestamp
     from stage_student_assessments
         {{ json_flatten('v_performance_levels') }}
 )
