@@ -17,8 +17,8 @@ renamed as (
         data_model_version,
         -- key columns
         v:studentIEPAssociationID::string                             as student_iep_association_id,
-        v:educationOrganizationReference:educationOrganizationId::int as iep_servicing_ed_org_id,
-        v:educationOrganizationReference:link:rel::string             as iep_servicing_ed_org_type,
+        v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
+        v:educationOrganizationReference:link:rel::string             as ed_org_type,
         v:iepFinalizedDate::date                                      as iep_finalized_date,
         v:studentReference:studentUniqueId::string                    as student_unique_id,
         -- value columns
