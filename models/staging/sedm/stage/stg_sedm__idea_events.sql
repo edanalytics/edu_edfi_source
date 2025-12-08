@@ -15,6 +15,7 @@ keyed as (
         ) }} as k_idea_event,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
+        {{ edorg_ref(annualize=False) }},
         api_year as school_year,
         base_idea_events.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
