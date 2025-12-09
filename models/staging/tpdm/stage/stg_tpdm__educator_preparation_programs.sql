@@ -9,7 +9,7 @@ keyed as (
             'lower(ed_org_id)',
             'lower(program_name)',
             'lower(program_type)']
-        ) }} as k_educator_prep_program,
+        ) }} as k_educator_preparation_program,
         {{ edorg_ref(annualize=False) }},
         base_epp.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
