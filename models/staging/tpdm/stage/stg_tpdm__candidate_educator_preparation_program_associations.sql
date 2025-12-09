@@ -15,7 +15,7 @@ keyed as (
             ]
         ) }} as k_candidate_educator_preparation_program_association,
         {{ gen_skey('k_candidate') }},
-        {{ gen_skey('k_educator_prep_program') }},
+        {{ gen_skey('k_educator_preparation_program') }},
         candidate_educator_preparation_program_associations.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from candidate_educator_preparation_program_associations

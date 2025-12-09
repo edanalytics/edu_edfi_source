@@ -204,7 +204,7 @@
             'annualize': False
         },
 
-        'k_educator_prep_program': {
+        'k_educator_preparation_program': {
             'reference_name': 'educator_preparation_program_reference',
             'col_list': ['educationOrganizationId', 'programName', 'programTypeDescriptor'],
             'annualize': True
