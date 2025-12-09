@@ -9,6 +9,7 @@ keyed as (
                 'lower(staff_unique_id)'
             ]
         ) }} as k_staff,
+        {{ gen_skey('k_person') }},
         base_staffs.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_staffs
