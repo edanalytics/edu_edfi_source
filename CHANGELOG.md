@@ -1,6 +1,7 @@
 # Unreleased
 ## New features
 ## Under the hood
+- Breaking change if your project is using the TPDM/EPDM domain: The variable `edu:tpdm:enabled` has been renamed to `src:domain:tpdm:enabled` to remain consistent with the existing domain variables. 
 ## Fixes
 
 # edu_edfi_source v0.5.3
