@@ -11,6 +11,7 @@ keyed as (
             'lower(program_type)']
         ) }} as k_educator_preparation_program,
         {{ edorg_ref(annualize=False) }},
+        base_epp.api_year as school_year,
         base_epp.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_epp
