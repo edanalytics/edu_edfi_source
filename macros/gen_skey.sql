@@ -339,8 +339,7 @@
         },
         'k_student_iep': {
             'reference_name': 'student_iep_reference',
-            'col_list': [
-                         'iep_finalized_date',
+            'col_list': ['iep_finalized_date',
                          'ed_org_id',
                          'student_iep_association_id',
                          'student_unique_id'],
@@ -348,14 +347,12 @@
         },
         'k_student_iep_service_prescription': {
             'reference_name': 'student_iep_reference',
-            'col_list': [
-                         'iep_service_id',
+            'col_list': ['iep_service_id',
                          'ed_org_id',
                          'service_prescription',
                          'service_prescription_date',
                          'student_iep_association_id',
-                         'student_unique_id'
-                         ],
+                         'student_unique_id'],
             'annualize': False
         },
 
