@@ -345,7 +345,6 @@
                         'idea_event'],
             'annualize': True
         },
-
         'k_student_iep': {
             'reference_name': 'student_iep_reference',
             'col_list': ['iep_finalized_date',
