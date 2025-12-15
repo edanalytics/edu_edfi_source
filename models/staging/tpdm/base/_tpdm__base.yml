@@ -64,7 +64,7 @@ models:
   - name: base_tpdm__applications
     config:
       tags: ['tpdm']
-      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdm:enabled', False) }}"
   - name: base_tpdm__candidate_relationship_to_staff_associations
     config:
       tags: ['tpdm']
