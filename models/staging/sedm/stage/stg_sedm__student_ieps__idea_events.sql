@@ -6,15 +6,11 @@ flattened as (
         tenant_code,
         api_year,
         k_student_iep,
-        k_student,
-        k_student_xyear,
-        student_iep_association_id,
-        iep_finalized_date,
-        iep_begin_date,
-        iep_end_date,
-        iep_amended_date,
         {{ gen_skey('k_idea_event', alt_ref='value:ideaEventReference') }},
-        value:ideaEventReference:ideaEventID as idea_event_id
+        value:ideaEventReference:ideaEventID as idea_event_id,
+        value:ideaEventReference:studentUniqueId as student_unique_id,
+        value:ideaEventReference:educationOrganizationId as ed_org_id,
+        {{ extract_descriptor('value:ideaEventReference:ideaEventDescriptor') }} as idea_event
     from stg_student_ieps
         {{ json_flatten('v_idea_events') }}
 )
