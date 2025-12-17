@@ -3,6 +3,10 @@ models:
     config:
       tags: ['sedm']
       enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: stg_sedm__student_ieps__idea_events
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
   - name: stg_sedm__student_ieps
     config:
       tags: ['sedm']
