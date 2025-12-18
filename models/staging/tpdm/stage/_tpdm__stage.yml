@@ -7,10 +7,10 @@ referential_integrity_tests:
           field: k_candidate
           tags: ['ref_integrity']
 
-  - k_educator_prep_program: &ref_k_educator_prep_program
+  - k_educator_preparation_program: &ref_k_educator_preparation_program
       - relationships:
           to: ref('stg_tpdm__educator_preparation_programs')
-          field: k_educator_prep_program
+          field: k_educator_preparation_program
           tags: ['ref_integrity']
 
   - k_applicant_profile: &ref_k_applicant_profile
