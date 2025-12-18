@@ -1,5 +1,5 @@
 {% macro gen_skey(k_name, alt_ref=None, alt_k_name=None, extras=None) %}
-     
+
     {#- make these alphabetical for predictability -#}
     {% set skey_defs = {
         'k_school': {
@@ -39,22 +39,22 @@
         },
         'k_course': {
             'reference_name': 'course_reference',
-            'col_list': ['courseCode', 
+            'col_list': ['courseCode',
                          'educationOrganizationId'],
             'annualize': True
         },
         'k_course_offering': {
             'reference_name': 'course_offering_reference',
-            'col_list': ['localCourseCode', 
-                         'schoolId', 
-                         'schoolYear', 
+            'col_list': ['localCourseCode',
+                         'schoolId',
+                         'schoolYear',
                          'sessionName'],
             'annualize': False
         },
         'k_course_section': {
             'reference_name': 'section_reference',
-            'col_list': ['localCourseCode', 
-                         'schoolId', 
+            'col_list': ['localCourseCode',
+                         'schoolId',
                          'schoolYear',
                          'sectionIdentifier',
                          'sessionName'],
@@ -78,8 +78,8 @@
         },
         'k_session': {
             'reference_name': 'session_reference',
-            'col_list': ['schoolId', 
-                         'schoolYear', 
+            'col_list': ['schoolId',
+                         'schoolYear',
                          'sessionName'],
             'annualize': False
         },
@@ -100,6 +100,18 @@
             'col_list': ['educationOrganizationId',
                          'programName',
                          'programTypeDescriptor'],
+            'annualize': True
+        },
+        'k_program_evaluation': {
+            'reference_name': 'program_evaluation_reference',
+            'col_list': [
+                'programEducationOrganizationId',
+                'programEvaluationPeriodDescriptor',
+                'programEvaluationTitle',
+                'programEvaluationTypeDescriptor',
+                'programName',
+                'programTypeDescriptor'
+            ],
             'annualize': True
         },
         'k_student_academic_record': {
@@ -141,13 +153,13 @@
         },
         'k_assessment': {
             'reference_name': 'assessment_reference',
-            'col_list': ['assessmentIdentifier', 
+            'col_list': ['assessmentIdentifier',
                          'namespace'],
             'annualize': True
         },
         'k_objective_assessment': {
             'reference_name': 'objective_assessment_reference',
-            'col_list': ['assessmentIdentifier', 
+            'col_list': ['assessmentIdentifier',
                          'namespace',
                          'identificationCode'],
             'annualize': True
@@ -247,9 +259,9 @@
         },
         'k_performance_evaluation': {
             'reference_name': 'performance_evaluation_reference',
-            'col_list': ['educationOrganizationId', 
+            'col_list': ['educationOrganizationId',
                          'evaluationPeriodDescriptor',
-                         'performanceEvaluationTitle', 
+                         'performanceEvaluationTitle',
                          'performanceEvaluationTypeDescriptor',
                          'schoolYear',
                          'termDescriptor'],
@@ -392,13 +404,13 @@
           when {{ skey_ref }} is null then null
         {% for ds_version in skey_def['ds_specific_col_lists'] %}
             when data_model_version {{ ds_version }}
-                then {{ dbt_utils.generate_surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_def['ds_specific_col_lists'][ds_version], extras=extras)) }} 
+                then {{ dbt_utils.generate_surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_def['ds_specific_col_lists'][ds_version], extras=extras)) }}
         {% endfor %}
         end)::varchar(32) as {{ alt_k_name or k_name }}
     {% else %}
         iff(
-            {{ skey_ref }} is not null, 
-            {{ dbt_utils.generate_surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }}, 
+            {{ skey_ref }} is not null,
+            {{ dbt_utils.generate_surrogate_key(edu_edfi_source.gen_key_list(skey_def, skey_ref, skey_vars, extras=extras)) }},
             null
         )::varchar(32) as {{ alt_k_name or k_name }}
     {% endif %}
@@ -412,7 +424,7 @@
         {% set consts = ['tenant_code', 'api_year'] %}
     {% endif %}
 
-    
+
     {#- add our key constants to the output -#}
     {% set output = consts %}
     {#- add extra columns that do not exist in ref to output, always lower -#}
@@ -439,11 +451,11 @@
 
       {#- hack: wrap in lower to deal with case insensitive collations -#}
       {% set concatted_keys = 'lower(' + concatted_keys + ')' %}
-     
+
       {#- grow the output object with the new key -#}
       {% do output.append(concatted_keys) %}
     {% endfor %}
 
     {{ return(output) }}
-  
+
 {% endmacro %}

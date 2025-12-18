@@ -4,6 +4,13 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.6.0
+## New features
+- Add Ed-Fi Data Standard v5 base/stage models: `base_ef3__program_evaluations`, `base_ef3__student_program_evaluations`, `base_ef3__student_special_education_program_eligibility_associations`, `stg_ef3__program_evaluations`, `stg_ef3__student_program_evaluations`, `stg_ef3__student_special_education_program_eligibility_associations`
+- Add columns to `base_ef3__student_special_education_program_associations` that are new in Ed-Fi Data Standard v5.2
+## Under the hood
+## Fixes
+
 # edu_edfi_source v0.5.3
 ## New features
 - Add `stg_tpdm__candidates__other_names`, `stg_tpdm__candidate_races`, and modify `stg_tpdm__candidates` to support `dim_candidate` model
@@ -20,7 +27,7 @@
 - To fix keys that were triggering faulty dbt test failures:
   - Updated `gen_skey.sql` macro. Changed the order of `k_survey_section` column list. Changed survey_section_title from snake case to camel case. 
   - Corrected `stg_ef3__survey_section_responses.sql` model `k_survey_section_response` variable. previously missing `survey_response_id` variable. 
-  
+
 # edu_edfi_source v0.5.1
 ## New features
 - Add base/stage models `base_ef3__student_school_food_service_program_association`, `stg_ef3__student_school_food_service_program_association`, `stg_ef3__stu_school_food_service__program_services`
@@ -38,7 +45,7 @@
 - Add new optional fields in `student_education_organization_associations` and `student_school_associations` from Ed-Fi Data Standard v5:
   - stuEdOrg: `gender_identity`, `supporter_military_connection`
   - stuSchAssoc: `is_school_choice`, `school_choice_basis`, `enrollment_type`, `next_year_school_id`, `next_year_grade_level`
-    
+
 # edu_edfi_source v0.4.10
 ## New features
 - Add base/stage model for `StudentCTEProgramAssociation`
@@ -64,12 +71,12 @@
 - Fix unique key of `k_assessment` in `stg_ef3__objective_assessments`
 - Fix unique key `k_student_assessment` in `stg_ef3__student_assessments` to include `student_unique_id` (relevant only where `student_assessment_identifier` is not on its own unique)
 - Fix surrogate key generation for References that include Descriptors that utilize EDU's 'replace descriptor' functionality
-  
+
 # edu_edfi_source v0.4.6
 ## Fixes
 - Fix deduplication logic in all stg models to handle deleted records correctly before removal. This brings EDU more in sync with ODS true state
 - Fix unique key in `stg_ef3__student_objective_assessments` to include assessment_identifier to handle edge case duplicates
-  
+
 # edu_edfi_source v0.4.5
 ## New features
 - Add base/stage models for `restraintEvents`
@@ -79,7 +86,7 @@
 ## Fixes
 - Handle invalid timestamp formatting in student_assessments
 - Fix coalesce logic for academic subjects in `stg_ef3__objective_assessments` and `stg_ef3__student_objective_assessments` to hydrate correctly when populated in respective Ed-Fi element's `academicSubject` field
-  
+
 # edu_edfi_source v0.4.3
 ## Fixes
 - Add missing `program_enroll_end_date` to every stg-stu-program `__program_services` + `stu_spec_ed__disabilities`
@@ -209,7 +216,7 @@
 - Add models for the main components of the Survey domain
 - Add model for disabilities on studentSpecialEducationProgramAssociation
 ## Under the hood
-- Change the way foreign key generation works: optional references that are Null 
+- Change the way foreign key generation works: optional references that are Null
     will now produce a Null key rather than a valid hash that doesn't join to anything
 
 # edu_edfi_source v0.2.5
@@ -220,12 +227,12 @@
 ## Fixes
 - Bugfix release: correct typo
 
-# edu_edfi_source v0.2.3 
+# edu_edfi_source v0.2.3
 ## Fixes
 - Bugfix release: correct typo
 - Add to default non-offender codes
 
-# edu_edfi_source v0.2.2 
+# edu_edfi_source v0.2.2
 ## New features
 - Add models for education service centers
 - Add additional discipline/behavior models
@@ -234,7 +241,7 @@
 - Update `extract_extension` macro to handle multiple models
 - Add school_year to staff ed org assignments
 
-# edu_edfi_source v0.2.1 
+# edu_edfi_source v0.2.1
 ## Under the hood
 - Standardize naming conventions across program models
 - Add minimum dbt version requirement

@@ -79,6 +79,12 @@ referential_integrity_tests:
         field: k_program
         tags: ['ref_integrity']
 
+  - k_program_evaluation: &ref_k_program_evaluation
+    - relationships:
+        to: ref('stg_edf3__student_program_evaluations')
+        field: k_program_evaluation
+        tags: ['ref_integrity']
+
   - k_school: &ref_k_school
     - relationships:
         to: ref('stg_ef3__schools')
@@ -797,6 +803,23 @@ models:
         tests:
           *ref_k_program
 
+  - name: stg_ef3__student_program_evaluations
+    config:
+      tags: ['core']
+    columns:
+      - name: k_program_evaluation
+        tests:
+          *ref_k_program_evaluation
+      - name: k_program
+        tests:
+          *ref_k_program
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_staff
+        tests:
+          *ref_k_staff
+
   - name: stg_ef3__student_school_associations
     config:
       tags: ['core']
@@ -850,6 +873,18 @@ models:
           *ref_k_course_section
 
   - name: stg_ef3__student_special_education_program_associations
+    config:
+      tags: ['special_ed']
+      enabled: "{{ var('src:program:special_ed:enabled', True) }}"
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+      - name: k_program
+        tests:
+          *ref_k_program
+  
+  - name: stg_ef3__student_special_education_program_eligibility_associations
     config:
       tags: ['special_ed']
       enabled: "{{ var('src:program:special_ed:enabled', True) }}"
