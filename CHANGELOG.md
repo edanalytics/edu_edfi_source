@@ -4,6 +4,23 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.5.3
+## New features
+- Add `stg_tpdm__candidates__other_names`, `stg_tpdm__candidate_races`, and modify `stg_tpdm__candidates` to support `dim_candidate` model
+## Fixes
+- Fix missing column from test `cfg_student_assessment_score_name_dupes`
+- Minor fixes for Databricks compatibility
+
+# edu_edfi_source v0.5.2
+## New features
+- Add `stg_ef3__student_academic_records__academic_honors` to capture academic honors from student academic records
+- Updated `extract_extension.sql` macro to allow for extensions to be defined in the edu_edfi_source `dbt_project.yml` and enabled per project.
+  - And added the tpdm/epdm predefined extension to `dbt_project.yml`
+## Fixes
+- To fix keys that were triggering faulty dbt test failures:
+  - Updated `gen_skey.sql` macro. Changed the order of `k_survey_section` column list. Changed survey_section_title from snake case to camel case. 
+  - Corrected `stg_ef3__survey_section_responses.sql` model `k_survey_section_response` variable. previously missing `survey_response_id` variable. 
+  
 # edu_edfi_source v0.5.1
 ## New features
 - Add base/stage models `base_ef3__student_school_food_service_program_association`, `stg_ef3__student_school_food_service_program_association`, `stg_ef3__stu_school_food_service__program_services`
