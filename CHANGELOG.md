@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add base/stg models for new SEDM `student_ieps` and `iep_events`
 ## Under the hood
 ## Fixes
 
