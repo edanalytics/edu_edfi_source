@@ -9,6 +9,7 @@
 - Add Ed-Fi Data Standard v5 base/stage models: `base_ef3__program_evaluations`, `base_ef3__student_program_evaluations`, `base_ef3__student_special_education_program_eligibility_associations`, `stg_ef3__program_evaluations`, `stg_ef3__student_program_evaluations`, `stg_ef3__student_special_education_program_eligibility_associations`
 - Add columns to `base_ef3__student_special_education_program_associations` that are new in Ed-Fi Data Standard v5.2
 ## Under the hood
+- Breaking change if your project is using the TPDM/EPDM domain: The variable `edu:tpdm:enabled` has been renamed to `src:domain:tpdm:enabled` to remain consistent with the existing domain variables. 
 ## Fixes
 
 # edu_edfi_source v0.5.3

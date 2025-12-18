@@ -216,7 +216,7 @@
             'annualize': False
         },
 
-        'k_educator_prep_program': {
+        'k_educator_preparation_program': {
             'reference_name': 'educator_preparation_program_reference',
             'col_list': ['educationOrganizationId', 'programName', 'programTypeDescriptor'],
             'annualize': True
@@ -248,13 +248,6 @@
         'k_person': {
             'reference_name': 'person_reference',
             'col_list': ['personId', 'sourceSystemDescriptor'],
-            'annualize': True
-        },
-        'k_educator_prep_program': {
-            'reference_name': 'educator_preparation_program_reference',
-            'col_list': ['educationOrganizationId',
-                         'programName',
-                         'programTypeDescriptor'],
             'annualize': True
         },
         'k_performance_evaluation': {

@@ -9,8 +9,9 @@ keyed as (
             'lower(ed_org_id)',
             'lower(program_name)',
             'lower(program_type)']
-        ) }} as k_educator_prep_program,
+        ) }} as k_educator_preparation_program,
         {{ edorg_ref(annualize=False) }},
+        base_epp.api_year as school_year,
         base_epp.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_epp
@@ -19,7 +20,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_educator_prep_program',
+            partition_by='k_educator_preparation_program',
             order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}

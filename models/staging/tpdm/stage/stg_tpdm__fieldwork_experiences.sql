@@ -10,7 +10,7 @@ keyed as (
             'lower(fieldwork_id)',
             'lower(student_unique_id)']
         ) }} as k_fieldwork_experience,
-        {{ gen_skey('k_educator_prep_program') }},
+        {{ gen_skey('k_educator_preparation_program') }},
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         fieldwork_experiences.*
