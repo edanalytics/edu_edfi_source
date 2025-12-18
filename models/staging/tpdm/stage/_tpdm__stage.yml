@@ -121,12 +121,12 @@ models:
   - name: stg_tpdm__applicant_profiles
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
 
   - name: stg_tpdm__applications
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
     columns:
       - name: k_applicant_profile
         tests:
@@ -135,7 +135,7 @@ models:
   - name: stg_tpdm__candidate_relationship_to_staff_associations
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
     columns:
       - name: k_candidate
         tests:
@@ -147,7 +147,7 @@ models:
   - name: stg_tpdm__certification_exam_results
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
     columns:
       - name: k_person
         tests:
@@ -159,12 +159,12 @@ models:
   - name: stg_tpdm__certification_exams
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
 
   - name: stg_tpdm__certifications
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
 
   - name: stg_tpdm__evaluation_elements
     config:
@@ -276,7 +276,7 @@ models:
   - name: stg_tpdm__fieldwork_experiences
     config:
       tags: ['tpdm']
-      enabled: "{{ var('edu:tpdmcommunity:enabled', False) }}"
+      enabled: "{{ var('src:domain:tpdmcommunity:enabled', False) }}"
     columns:
       - name: k_student
         tests:
