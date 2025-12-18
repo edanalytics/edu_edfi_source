@@ -99,9 +99,9 @@ models:
       - name: k_candidate
         tests:
           *ref_k_candidate
-      - name: k_educator_prep_program
+      - name: k_educator_preparation_program
         tests:
-          *ref_k_educator_prep_program
+          *ref_k_educator_preparation_program
 
   - name: stg_tpdm__candidates
     config:
@@ -281,6 +281,6 @@ models:
       - name: k_student
         tests:
           *ref_k_student
-      - name: k_educator_prep_program
+      - name: k_educator_preparation_program
         tests:
-          *ref_k_educator_prep_program
+          *ref_k_educator_preparation_program
