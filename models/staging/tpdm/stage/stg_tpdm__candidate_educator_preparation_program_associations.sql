@@ -14,7 +14,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_candidate,k_educator_preparation_program',
+            partition_by='k_candidate,k_educator_preparation_program,begin_date',
             order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
