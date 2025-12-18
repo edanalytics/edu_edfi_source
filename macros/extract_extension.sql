@@ -12,19 +12,39 @@
     {{ edu_edfi_source.extract_extension_list(model_name) }}
 {% else %}
   {# if `model_name` IS a singleton, use var of its single model name #}
-  {%- set extensions =  var('extensions')[model_name]  -%}
 
-  {%- if extensions is defined and extensions|length > 0 -%},{% endif -%}
+  {%- set extensions = (var('extensions', {}) or {}).get(model_name, {}) -%}
+  {%- set predefined_extensions = {} -%}
+  {%- for k,v in (var('predefined_extensions', {}) or {}).items() -%}
+    {# If predefined extension flag is enabled, add it to extensions list. #}
+    {%- if var('src:predefined_extensions:' ~ k ~ ':enabled') -%}
+      {%- set _ = predefined_extensions.update(v.get(model_name, {})) -%}
+    {%- endif -%}
+  {%- endfor -%}
 
-  {%- for ext in extensions %}
+  {# merge the two extension lists #}
+  {% set all_extensions = {} %}
+  {% for k, v in extensions.items() %}
+    {% set _ = all_extensions.update({k: v}) %}
+  {% endfor %}
+  {%- if predefined_extensions is defined and predefined_extensions|length > 0 -%}
+    {% for k, v in predefined_extensions.items() %}
+      {% set _ = all_extensions.update({k: v}) %}
+    {% endfor %}
+  {%- endif -%}
+  
+
+  {%- if all_extensions is defined and all_extensions|length > 0 -%},{% endif -%}
+
+  {%- for ext in all_extensions %}
   
     {# If flatten (as is done in stg models), pull out metadata from dbt_project var and use to flatten json into columns #}
     {%- if flatten %}
     
-      {%- set ext_native_name =  extensions[ext].name  -%}
+      {%- set ext_native_name =  all_extensions[ext].name  -%}
       {%- set full_ext_native_name =  'v_ext:' + ext_native_name  -%}
-      {%- set ext_dtype =  extensions[ext].dtype  -%}
-      {%- set ext_extract_descriptor =  extensions[ext].extract_descriptor  -%}
+      {%- set ext_dtype =  all_extensions[ext].dtype  -%}
+      {%- set ext_extract_descriptor =  all_extensions[ext].extract_descriptor  -%}
 
       {%- if ext_extract_descriptor %}
         {{extract_descriptor(full_ext_native_name + '::string')}}::{{ext_dtype}} as {{ext}}

@@ -241,7 +241,7 @@
 
         'k_survey_section': {
             'reference_name': 'survey_section_reference',
-            'col_list': ['namespace', 'surveyIdentifier', 'survey_section_title'],
+            'col_list': ['surveyIdentifier', 'namespace', 'surveySectionTitle'],
             'annualize': True
         },
 
@@ -349,6 +349,33 @@
             'col_list': ['post_secondary_institution_id'],
             'annualize': False
         },
+        'k_idea_event': {
+            'reference_name': 'idea_event_reference',
+            'col_list': ['ed_org_id',
+                         'idea_event_id',
+                         'student_unique_id',
+                        'idea_event'],
+            'annualize': True
+        },
+        'k_student_iep': {
+            'reference_name': 'student_iep_reference',
+            'col_list': ['iep_finalized_date',
+                         'ed_org_id',
+                         'student_iep_association_id',
+                         'student_unique_id'],
+            'annualize': True
+        },
+        'k_student_iep_service_prescription': {
+            'reference_name': 'student_iep_reference',
+            'col_list': ['iep_service_id',
+                         'ed_org_id',
+                         'service_prescription',
+                         'service_prescription_date',
+                         'student_iep_association_id',
+                         'student_unique_id'],
+            'annualize': False
+        },
+
         'k_template': {
             'reference_name': '',
             'col_list': [],
