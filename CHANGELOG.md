@@ -1,8 +1,6 @@
 # Unreleased
 ## New features
-- Add `stg_ef3__student_academic_records__academic_honors` to capture academic honors from student academic records
-- Updated `extract_extension.sql` macro to allow for extensions to be defined in the edu_edfi_source `dbt_project.yml` and enabled per project.
-- Added the tpdm/epdm predefined extension to `dbt_project.yml'
+- Add base/stg models for new SEDM `student_ieps` and `iep_events`
 ## Under the hood
 ## Fixes
 
