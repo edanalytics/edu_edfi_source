@@ -9,8 +9,7 @@ keyed as (
         {{ gen_skey("k_student") }},
         {{ gen_skey(
             "k_staff",
-            alt_ref="staff_evaluator_staff_reference",
-            alt_k_name="k_evaluator_staff"
+            alt_ref="staff_evaluator_staff_reference"
         ) }},
         {{ edorg_ref() }},
 
