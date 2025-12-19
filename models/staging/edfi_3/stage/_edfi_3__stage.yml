@@ -810,9 +810,6 @@ models:
       - name: k_program_evaluation
         tests:
           *ref_k_program_evaluation
-      - name: k_program
-        tests:
-          *ref_k_program
       - name: k_student
         tests:
           *ref_k_student
