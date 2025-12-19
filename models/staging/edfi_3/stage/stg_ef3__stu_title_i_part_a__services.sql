@@ -11,6 +11,7 @@ flattened as (
         k_program,
         k_lea,
         k_school,
+        ed_org_id,
 
         {{ extract_descriptor('value:serviceDescriptor::string') }} as service,
         value:primaryIndicator::boolean as primary_indicator,

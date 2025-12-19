@@ -12,6 +12,7 @@ flattened as (
         k_lea,
         k_school,
 
+        ed_org_id,
         program_enroll_begin_date,
         program_enroll_end_date,
         {{ extract_descriptor('value:schoolFoodServiceProgramServiceDescriptor::string') }} as program_service,

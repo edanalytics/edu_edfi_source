@@ -11,6 +11,7 @@ flattened as (
         k_program,
         k_lea,
         k_school,
+        ed_org_id,
 
         program_enroll_begin_date,
         program_enroll_end_date,
