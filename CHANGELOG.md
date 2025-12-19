@@ -1,15 +1,18 @@
 # Unreleased
 ## New features
-- Add base/stg models for new SEDM `student_ieps` and `iep_events`
 ## Under the hood
 ## Fixes
 
 # edu_edfi_source v0.6.0
 ## New features
-- Add Ed-Fi Data Standard v5 base/stage models: `base_ef3__program_evaluations`, `base_ef3__student_program_evaluations`, `base_ef3__student_special_education_program_eligibility_associations`, `stg_ef3__program_evaluations`, `stg_ef3__student_program_evaluations`, `stg_ef3__student_special_education_program_eligibility_associations`
+- Add base/stg models for new SEDM `student_ieps` and `iep_events`
+- Add Ed-Fi Data Standard v5 special education base/stage models: `base_ef3__program_evaluations`, `base_ef3__student_program_evaluations`, `base_ef3__student_special_education_program_eligibility_associations`, `stg_ef3__program_evaluations`, `stg_ef3__student_program_evaluations`, `stg_ef3__student_special_education_program_eligibility_associations`
 - Add columns to `base_ef3__student_special_education_program_associations` that are new in Ed-Fi Data Standard v5.2
+- Add `stg_ef3__sections__programs`
+- Add `k_person` to `stg_ef3__staffs` (useful for TPDM/EPDM domain links)
 ## Under the hood
-- Breaking change if your project is using the TPDM/EPDM domain: The variable `edu:tpdm:enabled` has been renamed to `src:domain:tpdm:enabled` to remain consistent with the existing domain variables. 
+- Breaking change if your project is using the TPDM/EPDM domain: The variable `edu:tpdm:enabled` has been renamed to `src:domain:tpdm:enabled` to remain consistent with the existing domain variables.
+- Breaking changes if your project is using the TPDM/EPDM domain: removed `k_survey_response_person_target_association`, `k_candidate_educator_preparation_program_association` and renamed `k_educator_prep_program` to `k_educator_preparation_program`
 ## Fixes
 
 # edu_edfi_source v0.5.3
