@@ -16,17 +16,16 @@ flattened as (
 
         program_enroll_begin_date,
         program_enroll_end_date,
-        {{ extract_descriptor('value:specialEducationProgramServiceDescriptor::string') }} as program_service,
-        value:primaryIndicator::boolean as primary_indicator,
-        value:providers                 as v_providers,
-        value:serviceBeginDate::date    as service_begin_date,
-        value:serviceEndDate::date      as service_end_date,
+        {{ extract_descriptor('value:participationStatusDescriptor::string') }} as participation_status,
+        value:statusBeginDate::date     as status_begin_date,
+        value:designatedBy              as designated_by,
+        value:statusEndDate::date       as status_end_date,
 
         -- edfi extensions
         value:_ext as v_ext
 
     from stage_stu_programs
-        {{ json_flatten('v_special_education_program_services') }}
+        {{ json_flatten('v_program_participation_statuses') }}
 ),
 
 -- There is a v_ext nested within v_special_education_program_services. Those extensions must be extracted here, not in prev CTE, 
