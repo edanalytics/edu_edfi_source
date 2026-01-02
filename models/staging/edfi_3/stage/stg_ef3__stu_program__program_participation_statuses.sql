@@ -4,6 +4,7 @@ with stage_stu_programs as (
 
 flattened as (
     select
+        k_student_program,
         tenant_code,
         api_year,
         school_year,

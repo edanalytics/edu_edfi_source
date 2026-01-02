@@ -3,6 +3,18 @@ with base_stu_programs as (
 ),
 keyed as (
     select 
+        {{ dbt_utils.generate_surrogate_key(
+            [
+                'tenant_code',
+                'api_year',
+                'lower(student_unique_id)',
+                'ed_org_id',
+                'program_ed_org_id',
+                'lower(program_name)',
+                'lower(program_type)',
+                'program_enroll_begin_date'
+            ]
+        ) }} as k_student_program,
         {{ gen_skey('k_student') }},
         {{ gen_skey('k_student_xyear') }},
         {{ gen_skey('k_program') }},
@@ -16,7 +28,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by='k_student, k_program, program_enroll_begin_date, school_year, ed_org_id',
+            partition_by='k_student_program',
             order_by='last_modified_timestamp desc, pull_timestamp desc')
     }}
 )
