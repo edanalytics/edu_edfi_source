@@ -16,7 +16,7 @@ renamed as (
         v:performanceEvaluationReference:educationOrganizationId::int                                            as ed_org_id,
         {{ extract_descriptor('v:performanceEvaluationReference:evaluationPeriodDescriptor::string') }}          as evaluation_period,
         v:evaluationTitle::string                                                                                as evaluation_title,
-        v:performanceEvaluationReference:performanceEvaluationTitle::string                                      as perfomance_evaluation_title,
+        v:performanceEvaluationReference:performanceEvaluationTitle::string                                      as performance_evaluation_title,
         {{ extract_descriptor('v:performanceEvaluationReference:performanceEvaluationTypeDescriptor::string') }} as performance_evaluation_type,
         v:performanceEvaluationReference:schoolYear::int                                                         as school_year,
         {{ extract_descriptor('v:performanceEvaluationReference:termDescriptor::string') }}                      as academic_term,
