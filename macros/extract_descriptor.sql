@@ -1,7 +1,7 @@
 {# grab descriptor codes from namespaced descriptor values #}
-{% macro extract_descriptor(col,descriptor_name=None) -%}
+{% macro extract_descriptor(col, descriptor_name=None) -%}
     
-    {%- set stripped_col = col.split(":")[-3] or descriptor_name -%}
+    {%- set stripped_col = descriptor_name or col.split(":")[-3] -%}
     {%- set config = var('descriptors', {}).get(stripped_col) or None -%}
     {%- set replace_with = config['replace_with'] or None -%}
 
