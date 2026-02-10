@@ -28,10 +28,10 @@ renamed as (
         v:multipleBirthStatus::boolean       as is_multiple_birth,
         -- descriptors
         {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string') }} as person_source_system,
-        {{ extract_descriptor('v:birthSexDescriptor::string') }}                     as birth_sex,
+        {{ extract_descriptor('v:birthSexDescriptor::string', 'sexDescriptor') }}    as birth_sex,
         {{ extract_descriptor('v:citizenshipStatusDescriptor::string') }}            as citizenship_status,
-        {{ extract_descriptor('v:birthStateAbbreviationDescriptor::string') }}       as birth_state,
-        {{ extract_descriptor('v:birthCountryDescriptor::string') }}                 as birth_country,
+        {{ extract_descriptor('v:birthStateAbbreviationDescriptor::string', 'stateAbbreviationDescriptor') }} as birth_state,
+        {{ extract_descriptor('v:birthCountryDescriptor::string', 'countryDescriptor') }} as birth_country,
         -- nested lists
         v:identificationDocuments         as v_identification_documents,
         v:otherNames                      as v_other_names,
