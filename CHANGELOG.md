@@ -3,6 +3,10 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.6.1
+## Under the hood
+- `extract_descriptor()` macro now correctly handles descriptors in cases where the field name doesn't match the underlying descriptor code (e.g. birthCountryDescriptor -> countryDescriptor)
+
 # edu_edfi_source v0.6.0
 ## New features
 - Add base/stg models for new SEDM `student_ieps` and `iep_events`
