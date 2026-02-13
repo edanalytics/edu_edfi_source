@@ -81,7 +81,7 @@ referential_integrity_tests:
 
   - k_program_evaluation: &ref_k_program_evaluation
     - relationships:
-        to: ref('stg_edf3__student_program_evaluations')
+        to: ref('stg_ef3__student_program_evaluations')
         field: k_program_evaluation
         tags: ['ref_integrity']
 
