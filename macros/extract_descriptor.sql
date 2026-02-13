@@ -1,8 +1,8 @@
 {# grab descriptor codes from namespaced descriptor values #}
-{% macro extract_descriptor(col,descriptor_name=None) -%}
+{% macro extract_descriptor(col, descriptor_name=None) -%}
     
-    {%- set stripped_col = col.split(":")[-3] or descriptor_name -%}
-    {%- set config = var('descriptors', {}).get(stripped_col) or None -%}
+    {%- set descriptor_name = descriptor_name or col.split(":")[-3] -%}
+    {%- set config = var('descriptors', {}).get(descriptor_name) or None -%}
     {%- set replace_with = config['replace_with'] or None -%}
 
     {# if not configured to replace (default), split part from raw value #}
@@ -16,7 +16,7 @@
       {% set query_descriptors -%}
         select namespace, code_value, {{ replace_with }}
         from {{ ref('int_ef3__deduped_descriptors') }}
-        where lower(split_part(namespace, '/', -1)) = lower('{{stripped_col}}')
+        where lower(split_part(namespace, '/', -1)) = lower('{{descriptor_name}}')
         order by 1,2
       {%- endset -%}
 
