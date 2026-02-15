@@ -1,5 +1,5 @@
 with stage_stu_programs as (
-    select * from {{ ref('stg_ef3__student_title_i_part_a_program_associations') }}
+    select * from {{ ref('stg_ef3__student_program_associations') }}
 ),
 
 flattened as (
@@ -7,17 +7,18 @@ flattened as (
         k_student_program,
         tenant_code,
         api_year,
+        school_year,
         k_student,
         k_student_xyear,
         k_program,
         k_lea,
         k_school,
         ed_org_id,
+
         program_enroll_begin_date,
         program_enroll_end_date,
-        {{ extract_descriptor('value:titleIPartAProgramServiceDescriptor::string') }} as program_service,
+        {{ extract_descriptor('value:programServiceDescriptor::string') }} as program_service,
         value:primaryIndicator::boolean as primary_indicator,
-        value:providers                 as v_providers,
         value:serviceBeginDate::date    as service_begin_date,
         value:serviceEndDate::date      as service_end_date,
 
@@ -25,6 +26,7 @@ flattened as (
         value:_ext as v_ext
 
     from stage_stu_programs
-        {{ json_flatten('v_title_i_part_a_program_services') }}
+        {{ json_flatten('v_services') }}
 )
+
 select * from flattened
