@@ -1,5 +1,5 @@
 with disabilities as (
-    {{ source('student_iep_disability_collections')}}
+    {{ source_edfi3('student_iep_disability_collections')}}
 ),
 renamed as (
     select
@@ -13,7 +13,11 @@ renamed as (
         v:id::string as record_guid,
         ods_version,
         data_model_version,
+        v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
+        -- references
         v:studentIEPReference as student_iep_reference,
+        v:educationOrganizationReference as education_organization_reference,
+        -- lists
         v:disabilities as v_disabilities,
 
         -- edfi extensions
