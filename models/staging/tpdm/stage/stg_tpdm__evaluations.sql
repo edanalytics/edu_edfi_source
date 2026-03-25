@@ -10,7 +10,7 @@ keyed as (
                 'ed_org_id',
                 'lower(evaluation_period)',
                 'lower(evaluation_title)',
-                'lower(perfomance_evaluation_title)',
+                'lower(performance_evaluation_title)',
                 'lower(performance_evaluation_type)',
                 'school_year',
                 'lower(academic_term)'
