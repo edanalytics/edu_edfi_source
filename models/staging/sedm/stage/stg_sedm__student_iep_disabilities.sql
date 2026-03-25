@@ -4,7 +4,7 @@ with base as (
 keyed as (
     select
         {{ gen_skey('k_student_iep') }},
-        {{ edorg_ref(annualize=True) }},
+        {{ edorg_ref(annualize=False) }},
         api_year as school_year,
         base.*,
         {{ extract_extension(model_name=this.name, flatten=True) }}
@@ -33,3 +33,4 @@ flattened as (
         {{ json_flatten('v_disabilities') }}
     where not is_deleted
 )
+select * from flattened

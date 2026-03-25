@@ -21,8 +21,8 @@ renamed as (
         v:educationOrganizationReference:link:rel::string             as ed_org_type,
         {{ extract_descriptor('v:ideaEventDescriptor::string') }}     as idea_event,
         -- value columns
-        v:eventBeginDate::date   as event_begin_date,
-        v:eventEndDate::date     as event_end_date,
+        v:beginDate::date   as event_begin_date,
+        v:endDate::date     as event_end_date,
         v:eventNarrative::string as event_narrative,
         -- descriptors
         {{ extract_descriptor('v:eventReasonDescriptor::string') }}     as event_reason,
