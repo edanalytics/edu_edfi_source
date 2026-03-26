@@ -9,7 +9,8 @@ keyed as (
             'lower(certification_exam_id)',
             'lower(namespace)']
         ) }} as k_certification_exam,
-        certification_exams.*
+        certification_exams.*,
+        certification_exams.api_year as school_year
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from certification_exams
 ),
