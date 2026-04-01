@@ -1,11 +1,11 @@
 # Unreleased
 ## New features
+- Update the following TPDM/EPDM base and stage models:
+  - base_epdm__certification_exam_results
+  - stg_epdm__certification_exams
+  - stg_epdm__certification_exam_results
 ## Under the hood
 ## Fixes
-
-# edu_edfi_source v0.6.1
-## Under the hood
-- `extract_descriptor()` macro now correctly handles descriptors in cases where the field name doesn't match the underlying descriptor code (e.g. birthCountryDescriptor -> countryDescriptor)
 
 # edu_edfi_source v0.6.0
 ## New features

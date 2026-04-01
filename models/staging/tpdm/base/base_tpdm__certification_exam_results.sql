@@ -21,7 +21,9 @@ renamed as (
         -- non-identity components
         v:attemptNumber::int                      as attempt_number,
         v:certificationExamPassIndicator::boolean as certification_exam_pass_indicator,
+        v:certificationExamScore::number as certification_exam_score,
         -- descriptors
+        {{ extract_descriptor('v:certificationExamStatusDescriptor::string') }} as certification_exam_status_descriptor,
         {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string') }} as person_source_system_descriptor,
         -- references
         v:certificationExamReference as certification_exam_reference,
