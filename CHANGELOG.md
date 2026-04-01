@@ -2,6 +2,7 @@
 ## New features
 ## Under the hood
 ## Fixes
+- Fix invalid reference for relationships test on `stg_ef3__student_program_evaluations`
 
 # edu_edfi_source v0.6.1
 ## Under the hood
