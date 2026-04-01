@@ -1,7 +1,6 @@
 # Unreleased
 ## New features
-- Add the following TPDM/EPDM base and stage models:
-  - base_epdm__certification_exams
+- Update the following TPDM/EPDM base and stage models:
   - base_epdm__certification_exam_results
   - stg_epdm__certification_exams
   - stg_epdm__certification_exam_results
