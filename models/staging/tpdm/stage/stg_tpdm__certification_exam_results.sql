@@ -14,7 +14,8 @@ keyed as (
         ) }} as k_certification_exam_result,
         {{ gen_skey('k_person') }},
         {{ gen_skey('k_certification_exam') }},
-        certification_exam_results.*
+        certification_exam_results.*,
+        certification_exam_results.api_year as school_year
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from certification_exam_results
 ),
