@@ -12,10 +12,17 @@ keyed as (
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_student_school_assoc
 ),
+-- school_year is technically optional, so infer it if it's null to avoid breaking downstream joins
+with_inferred_school_year as (
+    select 
+        {{ edu_edfi_source.star('keyed', except=['school_year']) }},
+        {{ edu_edfi_source.infer_school_year() }} as school_year
+    from keyed
+),
 deduped as (
     {{
         dbt_utils.deduplicate(
-            relation='keyed',
+            relation='with_inferred_school_year',
             partition_by='k_student, k_school, entry_date', 
             order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
