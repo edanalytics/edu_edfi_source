@@ -14,6 +14,10 @@ models:
   - name: base_ef3__calendars
     config:
       tags: ['core']
+  - name: base_ef3__chart_of_accounts
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
   - name: base_ef3__class_periods
     config:
       tags: ['core']
@@ -54,6 +58,14 @@ models:
     config:
       tags: ['esc']
       enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
+  - name: base_ef3__function_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__fund_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
   - name: base_ef3__grades
     config:
       tags: ['core']
@@ -66,6 +78,30 @@ models:
   - name: base_ef3__learning_standards
     config:
       tags: ['core']
+  - name: base_ef3__local_accounts
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__local_actuals
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__local_budgets
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__local_contracted_staffs
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__local_encumbrances
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__local_payrolls
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
   - name: base_ef3__local_education_agencies
     config:
       tags: ['core']
@@ -75,6 +111,10 @@ models:
   - name: base_ef3__locations
     config:
       tags: ['core']
+  - name: base_ef3__object_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
   - name: base_ef3__objective_assessments
     config:
       tags: ['assessment']
@@ -94,6 +134,10 @@ models:
   - name: base_ef3__sessions
     config:
       tags: ['core']
+  - name: base_ef3__source_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
   - name: base_ef3__staff_education_organization_assignment_associations
     config:
       tags: ['core']
