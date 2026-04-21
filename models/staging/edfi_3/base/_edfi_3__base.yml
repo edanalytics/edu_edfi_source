@@ -115,6 +115,22 @@ models:
     config:
       tags: ['finance']
       enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__balance_sheet_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__operational_unit_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__program_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+  - name: base_ef3__project_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
   - name: base_ef3__objective_assessments
     config:
       tags: ['assessment']
