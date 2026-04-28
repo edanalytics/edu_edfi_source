@@ -344,10 +344,10 @@
         },
         'k_idea_event': {
             'reference_name': 'idea_event_reference',
-            'col_list': ['ed_org_id',
-                         'idea_event_id',
-                         'student_unique_id',
-                        'idea_event'],
+            'col_list': ['educationOrganizationId',
+                         'ideaEventId',
+                         'studentUniqueId',
+                        'ideaEvent'],
             'annualize': True
         },
         'k_student_iep': {
