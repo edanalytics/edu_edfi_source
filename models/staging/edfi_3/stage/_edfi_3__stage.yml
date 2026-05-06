@@ -172,6 +172,11 @@ models:
       tags: ['assessment']
       enabled: "{{ var('src:domain:assessment:enabled', True) }}"
 
+  - name: stg_ef3__balance_sheet_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
   - name: stg_ef3__bell_schedules
     config:
       tags: ['core']
@@ -211,6 +216,11 @@ models:
   - name: stg_ef3__calendars__grade_levels
     config:
       tags: ['core']
+
+  - name: stg_ef3__chart_of_accounts
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
 
   - name: stg_ef3__class_periods
     config:
@@ -346,6 +356,16 @@ models:
       tags: ['esc']
       enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
 
+  - name: stg_ef3__function_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__fund_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
   - name: stg_ef3__grades__learning_standards
     config:
       tags: ['core']
@@ -383,6 +403,36 @@ models:
     config:
       tags: ['core']
 
+  - name: stg_ef3__local_accounts
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__local_actuals
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__local_budgets
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__local_contracted_staffs
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__local_encumbrances
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__local_payrolls
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
   - name: stg_ef3__local_education_agencies
     config:
       tags: ['core']
@@ -406,6 +456,26 @@ models:
       - name: k_school
         tests:
           *ref_k_school
+
+  - name: stg_ef3__object_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__operational_unit_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__program_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
+
+  - name: stg_ef3__project_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
 
   - name: stg_ef3__objective_assessments
     config:
@@ -500,6 +570,11 @@ models:
   - name: stg_ef3__sessions__grading_periods
     config:
       tags: ['core']
+
+  - name: stg_ef3__source_dimensions
+    config:
+      tags: ['finance']
+      enabled: "{{ var('src:domain:finance:enabled', True) }}"
 
   - name: stg_ef3__staff_education_organization_assignment_associations
     config:
