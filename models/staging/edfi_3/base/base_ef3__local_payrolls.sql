@@ -15,7 +15,7 @@ renamed as (
         data_model_version,
         -- key columns (local account + staff identify the row)
         v:localAccountReference:accountIdentifier::string as local_account_identifier,
-        v:localAccountReference:educationOrganizationId::bigint as ed_org_id,
+        v:localAccountReference:educationOrganizationId::int as ed_org_id,
         v:localAccountReference:link:rel::string as ed_org_type,
         v:localAccountReference:fiscalYear::int as fiscal_year,
         v:staffReference:staffUniqueId::string as staff_unique_id,

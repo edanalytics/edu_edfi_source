@@ -13,12 +13,12 @@ renamed as (
         v:id::string as record_guid,
         ods_version,
         data_model_version,
-        v:accountIdentifier::string as account_identifier,
+        v:accountIdentifier::string as chart_of_account_identifier,
         v:fiscalYear::int as fiscal_year,
-        v:accountName::string as account_name,
+        v:accountName::string as chart_of_account_name,
         -- education organization reference
         v:educationOrganizationReference as education_organization_reference,
-        v:educationOrganizationReference:educationOrganizationId::bigint as ed_org_id,
+        v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         v:educationOrganizationReference:link:rel::string as ed_org_type,
         -- descriptors
         {{ extract_descriptor('v:accountTypeDescriptor::string') }} as account_type,

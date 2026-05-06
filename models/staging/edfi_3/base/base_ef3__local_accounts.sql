@@ -15,11 +15,11 @@ renamed as (
         data_model_version,
         -- key columns
         v:accountIdentifier::string as local_account_identifier,
-        v:educationOrganizationReference:educationOrganizationId::bigint as ed_org_id,
+        v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         v:educationOrganizationReference:link:rel::string as ed_org_type,
         v:fiscalYear::int as fiscal_year,
         -- value columns
-        v:accountName::string as account_name,
+        v:accountName::string as local_account_name,
         -- references
         v:educationOrganizationReference as education_organization_reference,
         v:chartOfAccountReference as chart_of_account_reference,
