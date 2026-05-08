@@ -33,7 +33,7 @@ renamed as (
         v:attemptedCreditConversion::float                as attempted_credit_conversion,
         v:assigningOrganizationIdentificationCode::string as assigning_organization_identification_code,
         v:courseCatalogURL::string                        as course_catalog_url,
-		v:externalEducationOrganizationReference:educationOrganizationId::int as external_ed_org_reference_ed_org_id,
+		v:externalEducationOrganizationReference:educationOrganizationId::int as external_ed_org_id,
 	    v:externalEducationOrganizationNameOfInstitution::string as external_ed_org_name,
         -- descriptors
         {{ extract_descriptor('v:courseRepeatCodeDescriptor::string') }}      as course_repeat_code,
