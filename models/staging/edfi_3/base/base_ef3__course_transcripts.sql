@@ -33,6 +33,7 @@ renamed as (
         v:attemptedCreditConversion::float                as attempted_credit_conversion,
         v:assigningOrganizationIdentificationCode::string as assigning_organization_identification_code,
         v:courseCatalogURL::string                        as course_catalog_url,
+		v:externalEducationOrganizationReference:educationOrganizationId::int as external_ed_org_reference_ed_org_id,
 	    v:externalEducationOrganizationNameOfInstitution::string as external_ed_org_name,
         -- descriptors
         {{ extract_descriptor('v:courseRepeatCodeDescriptor::string') }}      as course_repeat_code,
@@ -40,7 +41,6 @@ renamed as (
         {{ extract_descriptor('v:earnedCreditTypeDescriptor::string') }}      as earned_credit_type,
         {{ extract_descriptor('v:methodCreditEarnedDescriptor::string') }}    as method_credit_earned,
         {{ extract_descriptor('v:whenTakenGradeLevelDescriptor::string') }}   as when_taken_grade_level,
-		v:externalEducationOrganizationReference:educationOrganizationId::int as external_ed_org_reference_ed_org_id,
         -- references
         v:courseReference                        as course_reference,
         v:studentAcademicRecordReference         as student_academic_record_reference,
