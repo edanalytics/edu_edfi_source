@@ -4,6 +4,17 @@
 ## Fixes
 
 # edu_edfi_source v0.6.2
+## New features
+ - Add fields to `course_transcripts` models, including `external_ed_org_name`. Rename `external_ed_org_id` now that it will be used downstream.
+ - Add fields to `staff_education_organization_contact_associations`
+ - Use `derive_school_year` to allow implementations to override null school years based on configuration.
+## Under the hood
+ - Move macro `derive_school_year` from `edu_wh` to here, and implement this macro in `stg_ef3__student_assessments` instead of downstream in wh
+## Fixes
+ - Fix datatype of `base_ef3__student_cte_program_associations.student_unique_id` to string, match other models
+ - Fix datatype of `student_school_attendance_events.school_id` and `school_year` to explicit int, match other models
+
+# edu_edfi_source v0.6.2
 ## Under the hood
 - Update the following TPDM/EPDM base and stage models, to support new edu_wh models:
   - base_epdm__certification_exam_results
