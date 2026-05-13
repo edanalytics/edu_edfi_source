@@ -3,11 +3,11 @@
 ## Under the hood
 ## Fixes
 
-# edu_edfi_source v0.6.2
+# edu_edfi_source v0.6.3
 ## New features
  - Add fields to `course_transcripts` models, including `external_ed_org_name`
  - Add fields to `staff_education_organization_contact_associations`
- - Use `derive_school_year` to allow implementations to override null school years based on configuration.
+ - Implement `derive_school_year` in `stg_ef3__student_school_associations`, allowing implementations to override null school years based on configuration.
 ## Under the hood
  - Move macro `derive_school_year` from `edu_wh` to here, and implement this macro in `stg_ef3__student_assessments` instead of downstream in wh
 ## Fixes
