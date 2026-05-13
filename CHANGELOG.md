@@ -5,7 +5,7 @@
 
 # edu_edfi_source v0.6.2
 ## New features
- - Add fields to `course_transcripts` models, including `external_ed_org_name`. Rename `external_ed_org_id` now that it will be used downstream.
+ - Add fields to `course_transcripts` models, including `external_ed_org_name`
  - Add fields to `staff_education_organization_contact_associations`
  - Use `derive_school_year` to allow implementations to override null school years based on configuration.
 ## Under the hood
