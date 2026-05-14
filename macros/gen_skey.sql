@@ -345,15 +345,15 @@
         'k_idea_event': {
             'reference_name': 'idea_event_reference',
             'col_list': ['educationOrganizationId',
+                         'ideaEvent',
                          'ideaEventId',
-                         'studentUniqueId',
-                        'ideaEvent'],
+                         'studentUniqueId'],
             'annualize': True
         },
         'k_student_iep': {
             'reference_name': 'student_iep_reference',
-            'col_list': ['iepFinalizedDate',
-                         'educationOrganizationId',
+            'col_list': ['educationOrganizationId',
+                         'iepFinalizedDate',
                          'studentIEPAssociationId',
                          'studentUniqueId'],
             'annualize': True
