@@ -548,6 +548,11 @@ models:
       tags: ['cte']
       enabled: "{{ var('src:program:cte:enabled', True) }}"
 
+  - name: stg_ef3__stu_cte__program_participation_statuses
+    config:
+      tags: ['cte']
+      enabled: "{{ var('src:program:cte:enabled', True) }}"
+
   - name: stg_ef3__stu_ed_org__addresses
     config:
       tags: ['core']
@@ -589,6 +594,11 @@ models:
       tags: ['homeless']
       enabled: "{{ var('src:program:homeless:enabled', True) }}"
 
+  - name: stg_ef3__stu_homeless__program_participation_statuses
+    config:
+      tags: ['homeless']
+      enabled: "{{ var('src:program:homeless:enabled', True) }}"
+
   - name: stg_ef3__stu_lang_instr__proficiency_assessments
     config:
       tags: ['language_instruction']
@@ -599,12 +609,35 @@ models:
       tags: ['language_instruction']
       enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
 
+  - name: stg_ef3__stu_lang_instr__program_participation_statuses
+    config:
+      tags: ['language_instruction']
+      enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
+
   - name: stg_ef3__stu_migrant_edu__program_services
     config: 
       tags: ['migrant_education']
       enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
 
+  - name: stg_ef3__stu_migrant_edu__program_participation_statuses
+    config: 
+      tags: ['migrant_education']
+      enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
+
+  - name: stg_ef3__stu_program__program_services
+    config: 
+      tags: ['core']
+
+  - name: stg_ef3__stu_program__program_participation_statuses
+    config: 
+      tags: ['core']
+
   - name: stg_ef3__stu_school_food_service__program_services
+    config: 
+      tags: ['food_service']
+      enabled: "{{ var('src:program:food_service:enabled', True) }}"
+
+  - name: stg_ef3__stu_school_food_service__program_participation_statuses
     config: 
       tags: ['food_service']
       enabled: "{{ var('src:program:food_service:enabled', True) }}"
@@ -619,7 +652,17 @@ models:
       tags: ['special_ed']
       enabled: "{{ var('src:program:special_ed:enabled', True) }}"
 
+  - name: stg_ef3__stu_spec_ed__program_participation_statuses
+    config:
+      tags: ['special_ed']
+      enabled: "{{ var('src:program:special_ed:enabled', True) }}"
+
   - name: stg_ef3__stu_title_i_part_a__program_services
+    config:
+      tags: ['title_i']
+      enabled: "{{ var('src:program:title_i:enabled', True) }}"
+
+  - name: stg_ef3__stu_title_i_part_a__program_participation_statuses
     config:
       tags: ['title_i']
       enabled: "{{ var('src:program:title_i:enabled', True) }}"
