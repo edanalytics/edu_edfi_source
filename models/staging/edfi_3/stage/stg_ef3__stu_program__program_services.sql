@@ -7,7 +7,6 @@ flattened as (
         k_student_program,
         tenant_code,
         api_year,
-        school_year,
         k_student,
         k_student_xyear,
         k_program,
