@@ -18,7 +18,7 @@ flattened as (
         program_enroll_end_date,
         {{ extract_descriptor('value:participationStatusDescriptor::string') }} as participation_status,
         value:statusBeginDate::date     as status_begin_date,
-        value:designatedBy              as designated_by,
+        value:designatedBy::string      as designated_by,
         value:statusEndDate::date       as status_end_date,
 
         -- edfi extensions
