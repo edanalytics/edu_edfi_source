@@ -5,6 +5,7 @@ flattened as (
     select
         tenant_code,
         api_year,
+        school_year,
         k_student,
         k_student_xyear,
         ed_org_id,
@@ -14,12 +15,8 @@ flattened as (
         {{ extract_descriptor('disab.value:disabilityDeterminationSourceTypeDescriptor::string') }} as disability_source_type,
         disab.value:disabilityDiagnosis::string as disability_diagnosis,
         disab.value:orderOfDisability::int as order_of_disability,
-        -- todo: perhaps these would better serve as wide booleans
-        -- in which case we would not want to double-flatten, but leave nested
-        -- for a downstream step
-        {{ extract_descriptor('desig.value:disabilityDesignationDescriptor::string') }} as disability_designation
+        disab.value:designations as v_designations
     from stg_stu_ed_org
         {{ json_flatten('v_disabilities', 'disab') }}
-        {{ json_flatten('disab.value:designations', 'desig') }}
 )
 select * from flattened

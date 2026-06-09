@@ -1,6 +1,9 @@
 # Unreleased
 ## New features
+
 ## Under the hood
+ - Breaking change of grain in `stg_ef3__stu_ed_org__disabilities` and `stg_ef3__stu_spec_ed__disabilities` where double-flattening `designations` was multiplying rows per disability entry. Designations are now passed forward as `v_designations` (nested variant) instead.
+ - Add missing columns to disability sub-tables: `school_year` on `stg_ef3__stu_ed_org__disabilities`; `api_year`, `school_year`, `k_student_program`, and `ed_org_id` on `stg_ef3__stu_spec_ed__disabilities`
 ## Fixes
 
 # edu_edfi_source v0.6.3
