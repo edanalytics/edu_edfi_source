@@ -19,6 +19,7 @@ renamed as (
         -- nested lists
         v:reportingTags::array as v_reporting_tags,
         v:_lastModifiedDate::datetime as _last_modified_date,
+        -- edfi extensions
         v:_ext as v_ext
     from object_dimensions
 )
