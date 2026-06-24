@@ -3,6 +3,7 @@ with stg_stu_spec_ed_org as (
 ),
 flattened as (
     select
+        k_student_program,
         tenant_code,
         k_student,
         k_student_xyear,
