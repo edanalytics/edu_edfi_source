@@ -2,33 +2,31 @@ name: Notify Slack on Latest Release
 on:
   release:
     types: [published]
-  workflow_dispatch:
 
-permissions:
-  contents: read
+permissions: {}  # No permissions needed — we use github.event.release instead of the API
 
 jobs:
   notify-slack:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch latest published release
-        id: get_release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
+      - name: Install dependencies
         run: |
-          echo "🔍 Getting latest published release..."
-          curl -s -H "Authorization: Bearer $GH_TOKEN" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/repos/$GH_REPO/releases" \
-            | jq '[.[] | select(.draft == false and .prerelease == false)][0]' > release.json
+          pip install -r .github/workflows/requirements/notify-slack.txt
 
-          # Write to temp files instead of $GITHUB_ENV to avoid EOF injection
-          jq -r .name release.json > /tmp/release_name.txt
+      - name: Fetch release info
+        id: get_release
+        run: |
+          echo "🔍 Getting release info..."
+          # Use the event payload directly — no token needed, and guarantees
+          # we're notifying about the release that actually triggered this workflow
+          echo '${{ toJSON(github.event.release) }}' | jq '{name, html_url, body}' > release.json
+
+          jq -r .name release.json     > /tmp/release_name.txt
           jq -r .html_url release.json > /tmp/release_url.txt
-          jq -r .body release.json > /tmp/release_body.txt
+          jq -r .body release.json     > /tmp/release_body.txt
 
       - name: Print resolved values (debug)
+        if: runner.debug == '1'
         run: |
           echo "RELEASE_NAME: $(cat /tmp/release_name.txt)"
           echo "RELEASE_URL: $(cat /tmp/release_url.txt)"
@@ -39,7 +37,6 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          pip install slack-sdk==3.34.0 markdown2slack==0.3.0
           python3 << 'EOF'
           import os
           from slack_sdk.webhook import WebhookClient
@@ -75,3 +72,7 @@ jobs:
           )
           print(f"Response: {response.status_code}")
           EOF
+
+      - name: Cleanup temp files
+        if: always()
+        run: rm -f /tmp/release_name.txt /tmp/release_url.txt /tmp/release_body.txt
