@@ -1,6 +1,8 @@
 # Unreleased
 ## New features
+- Add base and staging models for EdFi finance domain resources: `balance_sheet_dimensions`, `chart_of_accounts`, `function_dimensions`, `fund_dimensions`, `object_dimensions`, `operational_unit_dimensions`, `program_dimensions`, `project_dimensions`, `source_dimensions`, `local_accounts`, `local_actuals`, `local_budgets`, `local_contracted_staffs`, `local_encumbrances`, `local_payrolls`
 ## Under the hood
+- Add `gen_skey` macro entries for finance domain surrogate key generation
 ## Fixes
 
 # edu_edfi_source v0.6.3
