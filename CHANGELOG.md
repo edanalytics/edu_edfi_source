@@ -5,6 +5,9 @@
 ## Under the hood
  - Add missing `program_ed_org_id` extraction to `base_ef3__student_migrant_education_program_associations`.
 
+- Add base and staging models for EdFi finance domain resources: `balance_sheet_dimensions`, `chart_of_accounts`, `function_dimensions`, `fund_dimensions`, `object_dimensions`, `operational_unit_dimensions`, `program_dimensions`, `project_dimensions`, `source_dimensions`, `local_accounts`, `local_actuals`, `local_budgets`, `local_contracted_staffs`, `local_encumbrances`, `local_payrolls`
+## Under the hood
+- Add `gen_skey` macro entries for finance domain surrogate key generation
 ## Fixes
  - Deduplication for all program association stage models now partitions by `k_student_program` instead of the previous `k_student, k_program, program_enroll_begin_date, school_year`. This is a more precise natural key that correctly includes `ed_org_id`.
 
