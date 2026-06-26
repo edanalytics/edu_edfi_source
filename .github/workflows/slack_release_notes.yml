@@ -3,23 +3,29 @@ on:
   release:
     types: [published]
 
-permissions: {}  # No permissions needed — we use github.event.release instead of the API
+permissions:
+  contents: read
 
 jobs:
   notify-slack:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+        
       - name: Install dependencies
         run: |
           pip install -r .github/workflows/requirements/notify-slack.txt
 
       - name: Fetch release info
         id: get_release
+        env:
+          RELEASE_JSON: ${{ toJSON(github.event.release) }}
         run: |
           echo "🔍 Getting release info..."
-          # Use the event payload directly — no token needed, and guarantees
-          # we're notifying about the release that actually triggered this workflow
-          echo '${{ toJSON(github.event.release) }}' | jq '{name, html_url, body}' > release.json
+          echo "$RELEASE_JSON" | jq '{name, html_url, body}' > release.json
 
           jq -r .name release.json     > /tmp/release_name.txt
           jq -r .html_url release.json > /tmp/release_url.txt
