@@ -4,6 +4,7 @@ with stage_stu_programs as (
 
 flattened as (
     select
+        k_student_program,
         tenant_code,
         api_year,
         k_student,
@@ -11,6 +12,7 @@ flattened as (
         k_program,
         k_lea,
         k_school,
+        ed_org_id,
 
         {{ extract_descriptor('value:serviceDescriptor::string') }} as service,
         value:primaryIndicator::boolean as primary_indicator,

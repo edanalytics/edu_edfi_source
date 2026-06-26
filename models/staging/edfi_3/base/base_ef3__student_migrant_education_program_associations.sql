@@ -21,7 +21,8 @@ renamed as (
         v:educationOrganizationReference:link:rel::string                                           as ed_org_type,
         v:beginDate::date                                                                           as program_enroll_begin_date,
         v:endDate::date                                                                             as program_enroll_end_date, 
-        v:programReference:programName::string                                                      as program_name, 
+        v:programReference:programName::string                                                      as program_name,
+        v:programReference:educationOrganizationId::integer                                         as program_ed_org_id,
 
         v:priorityForServices::boolean                                                              as priority_for_service, 
 
