@@ -21,7 +21,7 @@ renamed as (
         v:staffReference:staffUniqueId::string as staff_unique_id,
         v:asOfDate::date as as_of_date,
         -- value columns
-        coalesce(v:amount::float, v:amountToDate::float) as amount,
+        v:amount::float as amount,
         -- descriptors
         {{ extract_descriptor('v:financialCollectionDescriptor::string') }} as financial_collection,
         -- references
