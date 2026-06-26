@@ -28,13 +28,17 @@ models:
       edfi_3:
         base:
           +materialized: view
+          finance:
+            +schema: finance_stage
         intermediate:
           +materialized: ephemeral
           int_ef3__deduped_descriptors:
            +materialized: table
            +tags: ['bypass_rls']
-        stage: 
+        stage:
           +materialized: table
+          finance:
+            +schema: finance_stage
       tpdm:
         base:
           +materialized: view
