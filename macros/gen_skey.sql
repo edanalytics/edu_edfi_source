@@ -369,6 +369,69 @@
             'annualize': False
         },
 
+        'k_balance_sheet_dimension': {
+            'reference_name': 'balance_sheet_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_chart_of_account': {
+            'reference_name': 'chart_of_account_reference',
+            'col_list': ['accountIdentifier',
+                         'educationOrganizationId',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_function_dimension': {
+            'reference_name': 'function_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_fund_dimension': {
+            'reference_name': 'fund_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_local_account': {
+            'reference_name': 'local_account_reference',
+            'col_list': ['accountIdentifier',
+                         'educationOrganizationId',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_object_dimension': {
+            'reference_name': 'object_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_operational_unit_dimension': {
+            'reference_name': 'operational_unit_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_program_dimension': {
+            'reference_name': 'program_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_project_dimension': {
+            'reference_name': 'project_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+        'k_source_dimension': {
+            'reference_name': 'source_dimension_reference',
+            'col_list': ['code',
+                         'fiscalYear'],
+            'annualize': False
+        },
+
         'k_template': {
             'reference_name': '',
             'col_list': [],

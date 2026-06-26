@@ -69,10 +69,10 @@ models:
   - name: base_ef3__local_education_agencies
     config:
       tags: ['core']
-  - name: base_ef3__state_education_agencies
+  - name: base_ef3__locations
     config:
       tags: ['core']
-  - name: base_ef3__locations
+  - name: base_ef3__state_education_agencies
     config:
       tags: ['core']
   - name: base_ef3__objective_assessments
