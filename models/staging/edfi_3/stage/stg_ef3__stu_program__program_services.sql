@@ -16,7 +16,7 @@ flattened as (
 
         program_enroll_begin_date,
         program_enroll_end_date,
-        {{ extract_descriptor('value:programServiceDescriptor::string') }} as program_service,
+        {{ extract_descriptor('value:serviceDescriptor::string') }} as program_service,
         value:primaryIndicator::boolean as primary_indicator,
         value:serviceBeginDate::date    as service_begin_date,
         value:serviceEndDate::date      as service_end_date,
