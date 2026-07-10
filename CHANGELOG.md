@@ -1,6 +1,9 @@
-# edu_edfi_source v0.6.5
+# Unreleased
 ## New features
 ## Under the hood
+## Fixes
+
+# edu_edfi_source v0.6.5
 ## Fixes
  - Fixed the `program_service` column in `stg_ef3__stu_program__program_services`, which read the nonexistent `programServiceDescriptor` field and always resolved to null. It now reads `serviceDescriptor`, matching the actual Ed-Fi `services` collection.
 
