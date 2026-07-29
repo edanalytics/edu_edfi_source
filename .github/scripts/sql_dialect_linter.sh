@@ -97,13 +97,40 @@ cat > macros/_ci_lint_stub.sql << EOF
     cast(null as {{ cast_to }}) as {{ value_name }}
   where false
 {% endmacro %}
+EOF
 
-{#- edu_edfi_source's own databricks__json_flatten emits "lateral variant_explode(...)",
-which is real, working Databricks SQL (Databricks' variant type + lateral table
-functions), but sqlfluff's databricks dialect can't parse it yet. Reproduce the
-exact same SQL and just tell sqlfluff to skip the parse check on that line -#}
+
+# edu_edfi_source's own databricks__json_flatten emits "lateral variant_explode(...)",
+# which is real, working Databricks SQL (Databricks' variant type + lateral table
+# functions), but sqlfluff's databricks dialect can't parse it yet. Reproduce the
+# exact same SQL and just tell sqlfluff to skip the parse check on that line 
+
+cat > macros/json_flatten.sql << EOF
+{#
+Flatten JSON arrays to rows.
+
+Arguments:
+    column: column name of array to flatten
+    alias: alias assigned to flattened object
+    outer: Keep rows with empty lists? Default false.
+#}
+
+{% macro json_flatten(column, alias='', outer=False) %}
+    {{ return(adapter.dispatch('json_flatten', 'edu_edfi_source')(column, alias, outer)) }}
+{% endmacro %}
+
+{% macro snowflake__json_flatten(column, alias, outer) -%}
+
+, lateral flatten(input=>{{ column }}, outer=>{{ outer }}) {% if alias != '' %} as {{ alias }}
+ {% endif %}
+
+{%- endmacro %}
+
+
 {% macro databricks__json_flatten(column, alias, outer) -%}
+
 , lateral variant_explode{% if outer %}_outer{% endif %}({{ column }}) {% if alias != '' %} as {{ alias }} {% endif %} -- noqa: PRS
+
 {%- endmacro %}
 EOF
 
