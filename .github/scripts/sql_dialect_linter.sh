@@ -205,7 +205,7 @@ while true; do
   [[ ${#all_excluded[@]} -gt 0 ]] && exclude_flags=(--exclude "${all_excluded[@]}")
 
   dbt compile --no-introspect --no-populate-cache \
-    --select package:edu_wh \
+    --select package:edu_edfi_source \
     "${exclude_flags[@]}" \
     --vars '{"edu:tpdm:enabled": true, "src:domain:tpdm:enabled": true, "src:domain:tpdmcommunity:enabled": true, "edu:finance:enabled": true, "src:domain:finance:enabled": true, "extensions": {
       "stg_ef3__stu_spec_ed__program_services": {},
@@ -246,12 +246,12 @@ done
 # with the full sqlfluff output inside. Generic tests (auto-generated from
 # schema .yml files, like unique/not_null) compile into a "<node>.yml/"
 # subfolder — split those out from real models so the counts mean what they say.
-mapfile -d '' -t compiled_files < <(find "$target_path/compiled" -path "*/edu_wh/models/*" -name "*.sql" -print0)
+mapfile -d '' -t compiled_files < <(find "$target_path/compiled" -path "*/edu_edfi_source/models/*" -name "*.sql" -print0)
 model_total=0; model_pass=0; model_fail=0; model_failed=()
 test_total=0; test_pass=0; test_fail=0; test_failed=()
 for f in "${compiled_files[@]}"; do
   name=$(basename "$f")
-  path=${f#*/edu_wh/}
+  path=${f#*/edu_edfi_source/}
   is_test=false
   [[ "$path" == *.yml/* ]] && is_test=true
 
