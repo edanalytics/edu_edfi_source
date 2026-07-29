@@ -18,7 +18,7 @@ dedupe_base_student_discipline_incident  as (
 format_student_discipline_incident as (
     -- note: the deprecated model needs to be flattened to match the grain of the new model
     select 
-        {{ dbt_utils.star(ref('base_ef3__student_discipline_incident_associations'), 
+        {{ edu_edfi_source.star(ref('base_ef3__student_discipline_incident_associations'), 
             except=['student_participation_code', 'v_behaviors', 'v_ext', 'discipline_incident_reference', 'student_reference']) }},
             value:behaviorDetailedDescription::string as behavior_detailed_description,
         {{ extract_descriptor('value:behaviorDescriptor::string') }} as behavior_type,
