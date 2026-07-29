@@ -118,7 +118,7 @@ cat > macros/get_single_value.sql << 'EOF'
 {% endmacro %}
 EOF
 
-cat > dbt_packages/edu_edfi_source/macros/extract_descriptor.sql << 'EOF'
+cat > macros/extract_descriptor.sql << 'EOF'
 {% macro extract_descriptor(col, descriptor_name=None) -%}
   split_part({{ col }}, '#', -1)
 {%- endmacro %}
@@ -127,7 +127,7 @@ EOF
 # Generate a placeholder covering every resource name actually referenced, 
 # with a fake database/schema, so source() resolves without needing a real one.
 resources=$(grep -rhoE "source_edfi3\(\s*['\"][a-zA-Z0-9_]+['\"]" \
-    dbt_packages/edu_edfi_source/models dbt_packages/edu_edfi_source/macros 2>/dev/null \
+    models macros 2>/dev/null \
     | sed -E "s/source_edfi3\(\s*['\"]//; s/['\"]//" | sort -u)
 
 {
@@ -140,17 +140,17 @@ resources=$(grep -rhoE "source_edfi3\(\s*['\"][a-zA-Z0-9_]+['\"]" \
   for r in $resources; do
     echo "      - name: $r"
   done
-} > dbt_packages/edu_edfi_source/models/_ci_lint_sources.yml
+} > models/_ci_lint_sources.yml
 
 # Generate an empty placeholder seed for every ref() that isn't defined
 # anywhere else, so ref() resolves without needing the real crosswalk data.
 mkdir -p seeds
 {
-  find . dbt_packages/edu_edfi_source -iname "*.sql" -path "*/models/*" 2>/dev/null | sed -E 's#.*/##; s/\.sql$//'
-  find . dbt_packages/edu_edfi_source -iname "*.csv" -path "*/seeds/*" 2>/dev/null | sed -E 's#.*/##; s/\.csv$//'
+  find . -iname "*.sql" -path "*/models/*" 2>/dev/null | sed -E 's#.*/##; s/\.sql$//'
+  find . -iname "*.csv" -path "*/seeds/*" 2>/dev/null | sed -E 's#.*/##; s/\.csv$//'
 } | sort -u > /tmp/_ci_defined_nodes.txt
 
-grep -rhoE "ref\(['\"][a-zA-Z0-9_]+['\"]" . dbt_packages/edu_edfi_source --include="*.sql" 2>/dev/null \
+grep -rhoE "ref\(['\"][a-zA-Z0-9_]+['\"]" . --include="*.sql" 2>/dev/null \
   | sed -E "s/ref\(['\"]//; s/['\"]//" | sort -u > /tmp/_ci_all_refs.txt
 
 for missing in $(comm -23 /tmp/_ci_all_refs.txt /tmp/_ci_defined_nodes.txt); do
