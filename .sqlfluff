@@ -3,6 +3,9 @@
 templater = dbt
 dialect = snowflake
 exclude_rules = layout, convention, capitalisation, aliasing, references, ambiguous, structure
+# extend max parse depth default is 255 so we get 
+# error "Maximum parse depth exceeded" even though the SQL is valid.
+max_parse_depth = 2000
 
 # Settings for --templater dbt
 [sqlfluff:templater:dbt]
