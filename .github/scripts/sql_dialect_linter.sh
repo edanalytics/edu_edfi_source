@@ -97,61 +97,43 @@ cat > macros/_ci_lint_stub.sql << EOF
     cast(null as {{ cast_to }}) as {{ value_name }}
   where false
 {% endmacro %}
+
+{#- edu_edfi_source's databricks__json_flatten emits "lateral variant_explode(...)",
+but sqlfluff's databricks dialect can't parse this for some reason, even though it
+is an actual Databricks call. When a where clause follows directly after this variant_explode,
+sqlfluff errors. Adding trailing comma to force sqlfluff to look at this line instead of the
+where clause. This redefines the same macro as macros/json_flatten.sql below, which is fine
+since that file only keeps the dispatch + snowflake__ versions #}
+{% macro databricks__json_flatten(column, alias, outer) -%}
+, lateral variant_explode{% if outer %}_outer{% endif %}({{ column }}) {% if alias != '' %} as {{ alias }} {% endif %}, -- noqa: PRS
+{%- endmacro %}
+
 EOF
 
-
-# edu_edfi_source's own databricks__json_flatten emits "lateral variant_explode(...)",
-# which is real, working Databricks SQL (Databricks' variant type + lateral table
-# functions), but sqlfluff's databricks dialect can't parse it yet. Reproduce the
-# exact same SQL and just tell sqlfluff to skip the parse check on that line 
-
-cat > macros/json_flatten.sql << EOF
-{#
-Flatten JSON arrays to rows.
-
-Arguments:
-    column: column name of array to flatten
-    alias: alias assigned to flattened object
-    outer: Keep rows with empty lists? Default false.
-#}
-
+# json_flatten's databricks__ implementation is stubbed above (to work around
+# the sqlfluff parse issue), so drop it here to avoid a duplicate macro
+# definition; keep the dispatch macro and the snowflake__ implementation.
+cat > macros/json_flatten.sql << 'EOF'
 {% macro json_flatten(column, alias='', outer=False) %}
     {{ return(adapter.dispatch('json_flatten', 'edu_edfi_source')(column, alias, outer)) }}
 {% endmacro %}
 
 {% macro snowflake__json_flatten(column, alias, outer) -%}
-
-, lateral flatten(input=>{{ column }}, outer=>{{ outer }}) {% if alias != '' %} as {{ alias }}
- {% endif %}
-
-{%- endmacro %}
-
-
-{% macro databricks__json_flatten(column, alias, outer) -%}
-
-, lateral variant_explode{% if outer %}_outer{% endif %}({{ column }}) {% if alias != '' %} as {{ alias }} {% endif %} -- noqa: PRS
-
+, lateral flatten(input=>{{ column }}, outer=>{{ outer }}) {% if alias != '' %} as {{ alias }} {% endif %}
 {%- endmacro %}
 EOF
 
-
-# get_single_value (this repo) and extract_descriptor (edu_edfi_source) also
-# run real queries against the warehouse, but can't be faked the same way as
-# above. So we replace their whole file with a simple version that skips the
-# query and just returns a default answer.
-cat > macros/get_single_value.sql << 'EOF'
-{% macro get_single_value(query, default) %}
-  {{ return(default) }}
-{% endmacro %}
-EOF
-
+# extract_descriptor also runs a real query against the warehouse (via
+# run_query), which can't use a dummy the same way as above. So replace its
+# whole file with a simple version that skips the query and just returns
+# the raw descriptor code.
 cat > macros/extract_descriptor.sql << 'EOF'
 {% macro extract_descriptor(col, descriptor_name=None) -%}
   split_part({{ col }}, '#', -1)
 {%- endmacro %}
 EOF
 
-# Generate a placeholder covering every resource name actually referenced, 
+# Generate a placeholder covering every resource name actually referenced,
 # with a fake database/schema, so source() resolves without needing a real one.
 resources=$(grep -rhoE "source_edfi3\(\s*['\"][a-zA-Z0-9_]+['\"]" \
     models macros 2>/dev/null \
@@ -188,12 +170,8 @@ done
 # so they can't compile against a fake connection. Any OTHER kind of failure (a real bug, a missing
 # config) stops the script.
 #
-# fct_student_program_service also needs an "extensions" answer for each of
-# these 7 program names, or it errors out asking for a setting that's
-# normally supplied by implementation.
-#
-# tpdm_warehouse and finance_warehouse (and their edu_edfi_source staging
-# models) are disabled by default. turn them on so they get linted too.
+# tpdm, tpdmcommunity, and sedm staging models are disabled by default.
+# turn them on so they get linted too.
 models_needing_warehouse=()
 tests_needing_warehouse=()
 compile_log=$(mktemp)
@@ -207,15 +185,7 @@ while true; do
   dbt compile --no-introspect --no-populate-cache \
     --select package:edu_edfi_source \
     "${exclude_flags[@]}" \
-    --vars '{"edu:tpdm:enabled": true, "src:domain:tpdm:enabled": true, "src:domain:tpdmcommunity:enabled": true, "edu:finance:enabled": true, "src:domain:finance:enabled": true, "extensions": {
-      "stg_ef3__stu_spec_ed__program_services": {},
-      "stg_ef3__stu_lang_instr__program_services": {},
-      "stg_ef3__stu_homeless__program_services": {},
-      "stg_ef3__stu_title_i_part_a__program_services": {},
-      "stg_ef3__stu_cte__program_services": {},
-      "stg_ef3__stu_migrant_edu__program_services": {},
-      "stg_ef3__stu_school_food_service__program_services": {}
-    }}' \
+    --vars '{"src:domain:tpdm:enabled": true, "src:domain:tpdmcommunity:enabled": true, "src:domain:sedm:enabled": true}' \
     --profiles-dir "$profiles_dir" --target dry_run --target-path "$target_path" \
     > "$compile_log" 2>&1 && break
 
@@ -241,11 +211,17 @@ while true; do
   fi
 done
 
-# Lint each compiled model/test on its own so one failure doesn't stop the
-# rest. Passing ones print one line; failing ones get a collapsible group
-# with the full sqlfluff output inside. Generic tests (auto-generated from
+# sqlfluff only catches syntax that doesn't parse, it can't tell that a
+# function or type doesn't exist in that dialect, so check for
+# these known Databricks gaps by name instead. Add new ones here as they come up.
+databricks_incompatible_patterns=(
+  'try_to_date\s*\('  # function has no Databricks equivalent
+  '\bas\s+time\b'     # Databricks has no TIME datatype
+)
+incompatible_regex=$(IFS='|'; echo "${databricks_incompatible_patterns[*]}")
+
+# Lint each compiled model/test. Generic tests (auto-generated from
 # schema .yml files, like unique/not_null) compile into a "<node>.yml/"
-# subfolder — split those out from real models so the counts mean what they say.
 mapfile -d '' -t compiled_files < <(find "$target_path/compiled" -path "*/edu_edfi_source/models/*" -name "*.sql" -print0)
 model_total=0; model_pass=0; model_fail=0; model_failed=()
 test_total=0; test_pass=0; test_fail=0; test_failed=()
@@ -256,10 +232,25 @@ for f in "${compiled_files[@]}"; do
   [[ "$path" == *.yml/* ]] && is_test=true
 
   if out=$(sqlfluff lint --config .sqlfluff --templater raw --dialect "$dialect" "$f" 2>&1); then
+    sqlfluff_ok=0
+  else
+    sqlfluff_ok=1
+  fi
+
+  bad_function=""
+  if [[ "$dialect" == "databricks" ]]; then
+    match=$(grep -inE "$incompatible_regex" "$f" | head -1 || true)
+    [[ -n "$match" ]] && bad_function="No Databricks equivalent: $match"
+  fi
+
+  if [[ $sqlfluff_ok -eq 0 && -z "$bad_function" ]]; then
     echo "Linting $path ✅"
     if $is_test; then test_pass=$((test_pass + 1)); else model_pass=$((model_pass + 1)); fi
   else
-    printf '::group::Linting %s ❌\n%s\n::endgroup::\n' "$path" "$out"
+    printf '::group::Linting %s ❌\n' "$path"
+    [[ -n "$bad_function" ]] && echo "$bad_function"
+    echo "$out"
+    echo "::endgroup::"
     if $is_test; then
       test_fail=$((test_fail + 1)); test_failed+=("${name%.sql}")
     else
@@ -284,6 +275,10 @@ if [[ ${#tests_needing_warehouse[@]} -gt 0 ]]; then
   printf '⚠️ %d of those %d cannot be compiled here and requires live warehouse, lint these tests locally instead:\n' "${#tests_needing_warehouse[@]}" "$test_known"
   printf '    - %s\n' "${tests_needing_warehouse[@]}"
 fi
+if [[ ${#test_failed[@]} -gt 0 ]]; then
+  printf '❌ %d tests are NOT compatible with %s:\n' "${#test_failed[@]}" "$dialect"
+  printf '    - %s\n' "${test_failed[@]}"
+fi
 
 if [[ ${#model_failed[@]} -eq 0 && ${#test_failed[@]} -eq 0 ]]; then
   exit 0
@@ -292,9 +287,5 @@ echo ""
 if [[ ${#model_failed[@]} -gt 0 ]]; then
   printf '❌ %d models are NOT compatible with %s:\n' "${#model_failed[@]}" "$dialect"
   printf '    - %s\n' "${model_failed[@]}"
-fi
-if [[ ${#test_failed[@]} -gt 0 ]]; then
-  printf '❌ %d tests are NOT compatible with %s:\n' "${#test_failed[@]}" "$dialect"
-  printf '    - %s\n' "${test_failed[@]}"
 fi
 exit 1
