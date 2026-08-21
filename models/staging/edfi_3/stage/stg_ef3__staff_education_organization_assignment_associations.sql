@@ -3,6 +3,17 @@ with base_staff_ed_org_assign as (
 ),
 keyed as (
     select 
+        {{ dbt_utils.generate_surrogate_key(
+            [
+                'tenant_code',
+                'api_year',
+                'begin_date',
+                'k_staff',
+                'k_lea',
+                'k_school',
+                'staff_classification'
+            ]
+        ) }} as k_staff_ed_org_assignment,
         {{ gen_skey('k_staff') }},
         {{ edorg_ref() }},
         api_year as school_year,
