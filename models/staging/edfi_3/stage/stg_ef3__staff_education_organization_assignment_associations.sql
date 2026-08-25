@@ -3,6 +3,8 @@ with base_staff_ed_org_assign as (
 ),
 keyed as (
     select 
+        {{ gen_skey('k_staff') }},
+        {{ edorg_ref() }},
         {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
@@ -14,8 +16,6 @@ keyed as (
                 'staff_classification'
             ]
         ) }} as k_staff_ed_org_assignment,
-        {{ gen_skey('k_staff') }},
-        {{ edorg_ref() }},
         api_year as school_year,
         base_staff_ed_org_assign.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
