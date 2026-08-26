@@ -431,15 +431,6 @@
                          'fiscalYear'],
             'annualize': False
         },
-        'k_staff_ed_org_assignment': {
-            'reference_name': '',
-            'col_list': ['begin_date'
-                'k_lea',
-                'k_school',
-                'k_staff',
-                'staff_classification'],
-            'annualize': True
-        },
 
 
         'k_template': {
