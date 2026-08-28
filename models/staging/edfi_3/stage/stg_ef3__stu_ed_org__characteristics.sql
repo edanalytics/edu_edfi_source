@@ -15,7 +15,7 @@ flattened as (
         timing.value:beginDate::date as begin_date,
         timing.value:endDate::date as end_date
     from stage_stu_ed_org
-        {{ json_flatten('v_student_characteristics', 'char', outer=True) }}
+        {{ json_flatten('v_student_characteristics', 'char') }}
         {{ json_flatten('char.value:periods', 'timing', outer=True) }}
 )
 select * from flattened
