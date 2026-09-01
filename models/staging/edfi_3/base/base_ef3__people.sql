@@ -13,7 +13,7 @@ renamed as (
 
         v:id::string as record_guid,
         -- identity components
-        v:personId::int as person_id,
+        v:personId::string as person_id,
         {{ extract_descriptor('v:sourceSystemDescriptor::string') }} as source_system
     from people
 )
