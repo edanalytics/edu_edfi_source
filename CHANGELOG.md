@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+- Add base and stage models for `student_section_504_program_associations` and `student_neglected_or_delinquent_program_associations`
 ## Under the hood
 ## Fixes
 

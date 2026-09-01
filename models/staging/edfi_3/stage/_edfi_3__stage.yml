@@ -614,6 +614,16 @@ models:
       tags: ['language_instruction']
       enabled: "{{ var('src:program:language_instruction:enabled', True) }}"
 
+  - name: stg_ef3__stu_neglected_delinquent__program_services
+    config: 
+      tags: ['neglected_or_delinquent']
+      enabled: "{{ var('src:program:neglected_or_delinquent:enabled', True) }}"
+
+  - name: stg_ef3__stu_neglected_delinquent__program_participation_statuses
+    config: 
+      tags: ['neglected_or_delinquent']
+      enabled: "{{ var('src:program:neglected_or_delinquent:enabled', True) }}"
+
   - name: stg_ef3__stu_migrant_edu__program_services
     config: 
       tags: ['migrant_education']
@@ -641,6 +651,11 @@ models:
     config: 
       tags: ['food_service']
       enabled: "{{ var('src:program:food_service:enabled', True) }}"
+
+  - name: stg_ef3__stu_section_504__program_services
+    config: 
+      tags: ['section_504']
+      enabled: "{{ var('src:program:section_504:enabled', True) }}"
 
   - name: stg_ef3__stu_spec_ed__disabilities
     config:
@@ -805,6 +820,11 @@ models:
       tags: ['migrant_education']
       enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
 
+  - name: stg_ef3__student_neglected_or_delinquent_program_associations
+    config: 
+      tags: ['neglected_or_delinquent']
+      enabled: "{{ var('src:program:neglected_or_delinquent:enabled', True) }}"
+
   - name: stg_ef3__student_objective_assessments
     config:
       tags: ['assessment']
@@ -889,6 +909,11 @@ models:
     config: 
       tags: ['food_service']
       enabled: "{{ var('src:program:food_service:enabled', True) }}"
+
+  - name: stg_ef3__student_section_504_program_association
+    config: 
+      tags: ['section_504']
+      enabled: "{{ var('src:program:section_504:enabled', True) }}"
 
   - name: stg_ef3__student_section_associations
     config:
