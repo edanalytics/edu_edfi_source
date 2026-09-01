@@ -652,7 +652,7 @@ models:
       tags: ['food_service']
       enabled: "{{ var('src:program:food_service:enabled', True) }}"
 
-  - name: stg_ef3__stu_section_504__program_services
+  - name: stg_ef3__stu_section_504__program_participation_statuses
     config: 
       tags: ['section_504']
       enabled: "{{ var('src:program:section_504:enabled', True) }}"
@@ -910,7 +910,7 @@ models:
       tags: ['food_service']
       enabled: "{{ var('src:program:food_service:enabled', True) }}"
 
-  - name: stg_ef3__student_section_504_program_association
+  - name: stg_ef3__student_section_504_program_associations
     config: 
       tags: ['section_504']
       enabled: "{{ var('src:program:section_504:enabled', True) }}"

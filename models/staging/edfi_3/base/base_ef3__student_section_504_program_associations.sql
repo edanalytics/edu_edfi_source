@@ -32,8 +32,8 @@ renamed as (
         v:section504MeetingDate::date                                        as section_504_meeting_date,
         -- descriptors
         {{ extract_descriptor('v:programReference:programTypeDescriptor') }} as program_type,
-        {{ extract_descriptor('v:reasonExitedDescriptor') }}                 as reason_exited_descriptor,
-        {{ extract_descriptor('v:section504DisabilityDescriptor') }}         as section_504_disability_descriptor,
+        {{ extract_descriptor('v:reasonExitedDescriptor') }}                 as reason_exited,
+        {{ extract_descriptor('v:section504DisabilityDescriptor') }}         as section_504_disability,
 
         -- references
         v:educationOrganizationReference                                     as education_organization_reference,

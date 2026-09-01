@@ -28,10 +28,10 @@ renamed as (
 
         -- descriptors
         {{ extract_descriptor('v:programReference:programTypeDescriptor') }} as program_type,
-        {{ extract_descriptor('v:elaProgressLevelDescriptor') }}             as ela_progress_level_descriptor,
-        {{ extract_descriptor('v:mathematicsProgressLevelDescriptor') }}     as mathematics_progress_level_descriptor,
-        {{ extract_descriptor('v:neglectedOrDelinquentProgramDescriptor') }} as neglected_or_delinquent_program_descriptor,
-        {{ extract_descriptor('v:reasonExitedDescriptor') }}                 as reason_exited_descriptor,
+        {{ extract_descriptor('v:elaProgressLevelDescriptor') }}             as ela_progress_level,
+        {{ extract_descriptor('v:mathematicsProgressLevelDescriptor') }}     as mathematics_progress_level,
+        {{ extract_descriptor('v:neglectedOrDelinquentProgramDescriptor') }} as neglected_or_delinquent_program,
+        {{ extract_descriptor('v:reasonExitedDescriptor') }}                 as reason_exited,
 
         -- references
         v:educationOrganizationReference                                     as education_organization_reference,
