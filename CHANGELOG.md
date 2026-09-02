@@ -1,6 +1,6 @@
 # Unreleased
 ## New features
-- Add base and stage models for `student_section_504_program_associations` and `student_neglected_or_delinquent_program_associations`
+- Add base and stage models for `student_section_504_program_associations` and `student_neglected_or_delinquent_program_associations`. Disable these programs by setting `'src:program:section_504:enabled': False` and `'src:program:neglected_or_delinquent:enabled': False` if necessary
 ## Under the hood
 ## Fixes
 
