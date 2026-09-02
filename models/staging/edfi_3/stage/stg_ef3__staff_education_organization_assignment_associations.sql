@@ -10,9 +10,8 @@ keyed as (
                 'tenant_code',
                 'api_year',
                 'begin_date',
-                'k_staff',
-                'k_lea',
-                'k_school',
+                'ed_org_id',
+                'staff_unique_id',
                 'staff_classification'
             ]
         ) }} as k_staff_ed_org_assignment,
@@ -25,7 +24,7 @@ deduped as (
     {{
         dbt_utils.deduplicate(
             relation='keyed',
-            partition_by= 'tenant_code, api_year, begin_date, ed_org_id, staff_unique_id, staff_classification',
+            partition_by= 'k_staff_ed_org_assignment',
             order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
