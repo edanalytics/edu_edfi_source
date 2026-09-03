@@ -3,6 +3,9 @@
 ## Under the hood
 ## Fixes
 
+## New features
+- Add `k_staff_ed_org_assignment` to `stg_ef3__staff_education_organization_assignment_association`.
+
 # edu_edfi_source v0.7.0
 ## Under the hood
  - Breaking change of grain in `stg_ef3__stu_ed_org__disabilities` and `stg_ef3__stu_spec_ed__disabilities` where double-flattening `designations` was multiplying rows per disability entry. Designations are now passed forward as `v_designations` (nested variant) instead.
