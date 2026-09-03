@@ -962,13 +962,16 @@ models:
           *ref_k_survey
 
   - name: stg_ef3__survey_questions
-    config: 
+    config:
       tags: ['survey']
       enabled: "{{ var('src:domain:survey:enabled', True) }}"
     columns:
       - name: k_survey
-        tests: 
+        tests:
           *ref_k_survey
+      - name: k_survey_section
+        tests:
+          *ref_k_survey_section
 
   - name: stg_ef3__survey_question_responses
     config: 
