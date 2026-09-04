@@ -10,7 +10,7 @@ keyed as (
         -- which means this table almost never contains year data, so we have to 
         -- add it back in where possible
         coalesce(school_year, api_year) as school_year,
-        {{ dbt_utils.star(from=ref('base_ef3__staff_school_associations'), except=['school_year']) }}
+        {{ edu_edfi_source.star(from=ref('base_ef3__staff_school_associations'), except=['school_year']) }}
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_staff_school_assoc
 
