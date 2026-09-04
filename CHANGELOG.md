@@ -3,8 +3,12 @@
 ## Under the hood
 ## Fixes
 
+# edu_edfi_source v0.7.1
 ## New features
 - Add `k_staff_ed_org_assignment` to `stg_ef3__staff_education_organization_assignment_association`.
+## Fixes
+- Fix data type of `person_id` from int to string
+- Make joins on `assessment_identfier` case-insensitive in `int_ef3__student_assessments__identify_subject.sql`
 
 # edu_edfi_source v0.7.0
 ## Under the hood
