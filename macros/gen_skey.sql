@@ -197,12 +197,12 @@
         },
         'k_survey_question': {
             'reference_name': 'survey_question_reference',
-            'col_list': ['questionCode', 'surveyIdentifier'],
+            'col_list': ['namespace', 'questionCode', 'surveyIdentifier'],
             'annualize': True
         },
         'k_survey_response': {
             'reference_name': 'survey_response_reference',
-            'col_list': ['surveyIdentifier', 'surveyResponseIdentifier'],
+            'col_list': ['namespace', 'surveyIdentifier', 'surveyResponseIdentifier'],
             'annualize': True
         },
         'k_learning_standard': {
