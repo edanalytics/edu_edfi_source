@@ -154,6 +154,10 @@ models:
     config:
       tags: ['migrant_education']
       enabled: "{{ var('src:program:migrant_education:enabled', True) }}"
+  - name: base_ef3__student_neglected_or_delinquent_program_associations
+    config:
+      tags: ['neglected_or_delinquent']
+      enabled: "{{ var('src:program:neglected_or_delinquent:enabled', True) }}"
   - name: base_ef3__student_parent_associations
     config:
       tags: ['core']
@@ -173,6 +177,10 @@ models:
     config:
       tags: ['food_service']
       enabled: "{{ var('src:program:food_service:enabled', True) }}"
+  - name: base_ef3__student_section_504_program_associations
+    config:
+      tags: ['section_504']
+      enabled: "{{ var('src:program:section_504:enabled', True) }}"
   - name: base_ef3__student_section_associations
     config:
       tags: ['core']
