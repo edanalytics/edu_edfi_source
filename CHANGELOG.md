@@ -1,5 +1,6 @@
 # Unreleased
 ## New features
+ - Consolidate the duplicated SQL for the 8 student program association stage models (`student_program_associations`, `program_services`, `program_participation_statuses`) into shared macros in `macros/stg_student_programs.sql`: `stg_student_program_association`, `stg_student_program_services`, `stg_student_program_participation_statuses`. No column or behavior changes; each model now just calls the macro with its own descriptor/array/field arguments.
 ## Under the hood
 ## Fixes
 
