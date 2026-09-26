@@ -11,4 +11,8 @@ models:
     config:
       tags: ['sedm']
       enabled: "{{ var('src:domain:sedm:enabled', False) }}"
+  - name: stg_sedm__student_iep_disability_collections
+    config:
+      tags: ['sedm']
+      enabled: "{{ var('src:domain:sedm:enabled', False) }}"
 

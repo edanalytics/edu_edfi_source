@@ -344,18 +344,18 @@
         },
         'k_idea_event': {
             'reference_name': 'idea_event_reference',
-            'col_list': ['ed_org_id',
-                         'idea_event_id',
-                         'student_unique_id',
-                        'idea_event'],
+            'col_list': ['educationOrganizationId',
+                         'ideaEvent',
+                         'ideaEventId',
+                         'studentUniqueId'],
             'annualize': True
         },
         'k_student_iep': {
             'reference_name': 'student_iep_reference',
-            'col_list': ['iep_finalized_date',
-                         'ed_org_id',
-                         'student_iep_association_id',
-                         'student_unique_id'],
+            'col_list': ['educationOrganizationId',
+                         'iepFinalizedDate',
+                         'studentIEPAssociationId',
+                         'studentUniqueId'],
             'annualize': True
         },
         'k_student_iep_service_prescription': {
