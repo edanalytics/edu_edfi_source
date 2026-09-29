@@ -48,25 +48,18 @@ incident_associations as (
 
 -- Some implementations send both the current and deprecated references for the same action and incident.
 -- Prefer the current behavior reference and use the deprecated reference only when it fills a gap.
-gap_filling_incident_associations as (
-    select
-        incident_associations.*
-    from incident_associations
-    -- Note:
-        -- Matching rows may fan out in the left join, but they are dropped by the null filter. 
-        -- If the deprecated reference ever grows significantly, consider joining to distinct incident_behavior_associations instead.
-    left join incident_behavior_associations
-        on incident_behavior_associations.k_student             = incident_associations.k_student
-        and incident_behavior_associations.k_discipline_incident = incident_associations.k_discipline_incident
-        and  incident_behavior_associations.discipline_action_id  = incident_associations.discipline_action_id
-        and incident_behavior_associations.discipline_date       = incident_associations.discipline_date
-    where incident_behavior_associations.k_discipline_incident is null
-),
-
 flattened as (
     select * from incident_behavior_associations
     union all
-    select * from gap_filling_incident_associations
+    select * from incident_associations
+    -- exclude rows that are already present in the behavior associations, to avoid bad duplicates
+    where not exists (
+        select 1 from incident_behavior_associations iba
+        where iba.k_student             = incident_associations.k_student
+          and iba.k_discipline_incident = incident_associations.k_discipline_incident
+          and iba.discipline_action_id  = incident_associations.discipline_action_id
+          and iba.discipline_date       = incident_associations.discipline_date
+    )
 ),
 
 extended as (
