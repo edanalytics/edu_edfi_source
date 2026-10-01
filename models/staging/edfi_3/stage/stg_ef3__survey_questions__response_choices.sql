@@ -7,6 +7,9 @@ flattened as (
         api_year,
         k_survey,
         k_survey_question,
+        survey_id,
+        namespace,
+        question_code,
         value:sortOrder::int      as sort_order,
         value:numericValue::float as numeric_value,
         value:textValue::string   as text_value

@@ -12,6 +12,7 @@ keyed as (
             ]
         ) }} as k_survey_question,
         {{ gen_skey('k_survey') }},
+        {{ gen_skey('k_survey_section') }},
         base_survey_questions.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_survey_questions

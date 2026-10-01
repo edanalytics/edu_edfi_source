@@ -205,6 +205,11 @@
             'col_list': ['surveyIdentifier', 'surveyResponseIdentifier'],
             'annualize': True
         },
+        'k_survey_section': {
+            'reference_name': 'survey_section_reference',
+            'col_list': ['surveyIdentifier', 'namespace', 'surveySectionTitle'],
+            'annualize': True
+        },
         'k_learning_standard': {
             'reference_name': 'learning_standard_reference',
             'col_list': ['learningStandardId'],
