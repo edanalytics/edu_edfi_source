@@ -8,7 +8,7 @@ keyed as (
             'api_year',
             'lower(namespace)',
             'lower(survey_id)',
-            'lower(survey_response_id)'
+            'lower(survey_response_id)',
             'lower(survey_section_title)', 
             ]
         ) }} as k_survey_section_response,
