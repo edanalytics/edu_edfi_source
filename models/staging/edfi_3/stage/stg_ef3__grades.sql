@@ -14,6 +14,7 @@ with base_grades as (
 keyed as (
     select
         {{ gen_skey('k_student', 'student_section_association_reference') }},
+        {{ gen_skey('k_student_xyear', 'student_section_association_reference') }},
         {{ gen_skey('k_school', 'student_section_association_reference') }},
         {{ gen_skey('k_grading_period') }},
         {{ gen_skey('k_course_section', 'student_section_association_reference') }},
