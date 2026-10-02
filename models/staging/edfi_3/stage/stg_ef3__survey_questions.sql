@@ -7,6 +7,7 @@ keyed as (
             [
                 'tenant_code',
                 'api_year',
+                'lower(namespace)',
                 'lower(question_code)',
                 'lower(survey_id)' 
             ]
