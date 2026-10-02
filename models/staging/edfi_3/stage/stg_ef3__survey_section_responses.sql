@@ -8,8 +8,8 @@ keyed as (
             'api_year',
             'lower(namespace)',
             'lower(survey_id)',
-            'lower(survey_section_title)', 
             'lower(survey_response_id)'
+            'lower(survey_section_title)', 
             ]
         ) }} as k_survey_section_response,
         {{ gen_skey('k_survey_response') }},
