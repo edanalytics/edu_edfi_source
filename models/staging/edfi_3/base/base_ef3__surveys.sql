@@ -20,6 +20,8 @@ renamed as (
         v:educationOrganizationReference:educationOrganizationId::int as ed_org_id,
         v:educationOrganizationReference:link:rel::string             as ed_org_type,
         v:surveyTitle::string                                         as survey_title,
+        v:sessionReference:school_id::string                          as school_id,
+        v:sessionReference:session_name::string                       as session_name,
         v:numberAdministered::int                                     as number_administered,
         -- descriptors
         {{ extract_descriptor('v:surveyCategoryDescriptor::string') }} as survey_category,
