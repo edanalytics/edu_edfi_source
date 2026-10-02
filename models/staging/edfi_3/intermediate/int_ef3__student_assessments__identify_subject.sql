@@ -48,7 +48,7 @@ adding_subject as (
         coalesce(subject_xwalk.academic_subject, stg_assessments_single_subj.academic_subject) as academic_subject
     from base_stu_assessments
     left join score_result_to_subject
-        on base_stu_assessments.assessment_identifier = score_result_to_subject.assessment_identifier
+        on lower(base_stu_assessments.assessment_identifier) = lower(score_result_to_subject.assessment_identifier)
         and base_stu_assessments.namespace = score_result_to_subject.namespace
         and base_stu_assessments.student_assessment_identifier = score_result_to_subject.student_assessment_identifier
         and base_stu_assessments.tenant_code = score_result_to_subject.tenant_code
@@ -56,11 +56,11 @@ adding_subject as (
         and base_stu_assessments.pull_timestamp = score_result_to_subject.pull_timestamp
         and base_stu_assessments.file_row_number = score_result_to_subject.file_row_number
     left join subject_xwalk
-        on score_result_to_subject.assessment_identifier = subject_xwalk.assessment_identifier
+        on lower(score_result_to_subject.assessment_identifier) = lower(subject_xwalk.assessment_identifier)
         and score_result_to_subject.namespace = subject_xwalk.namespace
         and score_result_to_subject.score_result = subject_xwalk.score_result
     left join stg_assessments_single_subj
-        on base_stu_assessments.assessment_identifier = stg_assessments_single_subj.assessment_identifier
+        on lower(base_stu_assessments.assessment_identifier) = lower(stg_assessments_single_subj.assessment_identifier)
         and base_stu_assessments.namespace = stg_assessments_single_subj.namespace
         and base_stu_assessments.tenant_code = stg_assessments_single_subj.tenant_code
         and base_stu_assessments.api_year = stg_assessments_single_subj.api_year
