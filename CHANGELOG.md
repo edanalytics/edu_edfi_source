@@ -1,8 +1,9 @@
 # Unreleased
 
 ## New features
+- Add base and stage models for `student_section_504_program_associations` and `student_neglected_or_delinquent_program_associations`. Disable these programs by setting `'src:program:section_504:enabled': False` and `'src:program:neglected_or_delinquent:enabled': False` if necessary
+## Under the hood
 - Added `k_discipline_incident` to `stg_ef3__discipline_actions__student_discipline_incident_behaviors`. It now uses the same incident key as `stg_ef3__discipline_incidents` and the incident association models, so downstream models can join on one consistent key instead of relying on `incident_id` and `school_id`.
-
 ## Fixes
 - Fixed duplicate rows in `stg_ef3__discipline_actions__student_discipline_incident_behaviors` when both `studentDisciplineIncidentBehaviorAssociations` and the deprecated `studentDisciplineIncidentAssociations` are populated. We now use the deprecated reference only to fill in incidents that are missing from the current reference, rather than treating both as separate sources for the same incident.
 
