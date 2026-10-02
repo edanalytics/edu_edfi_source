@@ -11,6 +11,8 @@ keyed as (
                 'lower(survey_id)'
             ]
         ) }} as k_survey,
+        {{ edorg_ref() }},
+        {{ gen_skey('k_session') }},
         base_surveys.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_surveys

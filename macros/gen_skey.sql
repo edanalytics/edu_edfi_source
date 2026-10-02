@@ -197,12 +197,17 @@
         },
         'k_survey_question': {
             'reference_name': 'survey_question_reference',
-            'col_list': ['questionCode', 'surveyIdentifier'],
+            'col_list': ['namespace', 'questionCode', 'surveyIdentifier'],
             'annualize': True
         },
         'k_survey_response': {
             'reference_name': 'survey_response_reference',
-            'col_list': ['surveyIdentifier', 'surveyResponseIdentifier'],
+            'col_list': ['namespace', 'surveyIdentifier', 'surveyResponseIdentifier'],
+            'annualize': True
+        },
+        'k_survey_section': {
+            'reference_name': 'survey_section_reference',
+            'col_list': ['namespace', 'surveyIdentifier', 'surveySectionTitle'],
             'annualize': True
         },
         'k_learning_standard': {
@@ -236,12 +241,6 @@
         'k_certification_exam': {
             'reference_name': 'certification_exam_reference',
             'col_list': ['certificationExamIdentifier', 'namespace'],
-            'annualize': True
-        },
-
-        'k_survey_section': {
-            'reference_name': 'survey_section_reference',
-            'col_list': ['surveyIdentifier', 'namespace', 'surveySectionTitle'],
             'annualize': True
         },
 

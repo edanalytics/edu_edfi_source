@@ -6,10 +6,10 @@ keyed as (
         {{ dbt_utils.generate_surrogate_key(
             ['tenant_code',
             'api_year',
-            'lower(survey_id)',
             'lower(namespace)',
+            'lower(survey_id)',
+            'lower(survey_response_id)',
             'lower(survey_section_title)', 
-            'lower(survey_response_id)'
             ]
         ) }} as k_survey_section_response,
         {{ gen_skey('k_survey_response') }},
