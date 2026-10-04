@@ -180,7 +180,7 @@ models:
   - name: base_ef3__student_section_504_program_associations
     config:
       tags: ['section_504']
-      enabled: "{{ var('src:program:section_504:enabled', True) }}"
+      enabled: "{{ var('src:program:section_504:enabled', False) }}"
   - name: base_ef3__student_section_associations
     config:
       tags: ['core']
