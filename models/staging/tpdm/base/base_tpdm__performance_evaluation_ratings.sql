@@ -22,7 +22,7 @@ renamed as (
         {{ extract_descriptor('v:personReference:sourceSystemDescriptor::string') }}                            as source_system,
         {{ extract_descriptor('v:performanceEvaluationReference:termDescriptor::string')}}                      as academic_term,
         -- non-identity components
-        v:actualTime::time       as actual_time,
+        v:actualTime::string     as actual_time,
         v:scheduleDate::date     as schedule_date,
         v:actualDate::date       as actual_date,
         v:comments::string       as comments,

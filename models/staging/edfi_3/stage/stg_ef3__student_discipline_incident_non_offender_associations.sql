@@ -17,7 +17,7 @@ dedupe_base_student_discipline_incident  as (
 -- projects should only ever have one of the two models in use
 format_student_discipline_incident as (
     select 
-        {{ dbt_utils.star(ref('base_ef3__student_discipline_incident_associations'), 
+        {{ edu_edfi_source.star(ref('base_ef3__student_discipline_incident_associations'), 
             except=['student_participation_code', 'v_behaviors', 'v_ext']) }},
         {{
             json_array_agg(
