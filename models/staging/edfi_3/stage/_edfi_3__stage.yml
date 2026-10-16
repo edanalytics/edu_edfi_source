@@ -736,7 +736,7 @@ models:
   - name: stg_ef3__student_contact_associations
     config:
       tags: ['core']
-      columns:
+    columns:
       - name: k_student
         tests:
           *ref_k_student
