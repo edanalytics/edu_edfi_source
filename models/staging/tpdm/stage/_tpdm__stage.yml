@@ -1,94 +1,123 @@
 version: 2
 
-referential_integrity_tests:
+anchors:
   - k_candidate: &ref_k_candidate
       - relationships:
-          to: ref('stg_tpdm__candidates')
-          field: k_candidate
-          tags: ['ref_integrity']
+          arguments:
+            to: ref('stg_tpdm__candidates')
+            field: k_candidate
+          config:
+            tags: ['ref_integrity']
 
   - k_educator_preparation_program: &ref_k_educator_preparation_program
       - relationships:
-          to: ref('stg_tpdm__educator_preparation_programs')
-          field: k_educator_preparation_program
-          tags: ['ref_integrity']
+          arguments:
+            to: ref('stg_tpdm__educator_preparation_programs')
+            field: k_educator_preparation_program
+          config:
+            tags: ['ref_integrity']
 
   - k_applicant_profile: &ref_k_applicant_profile
       - relationships:
+          arguments:
             to: ref('stg_tpdm__applicant_profiles')
             field: k_applicant_profile
+          config:
             tags: ['ref_integrity']
 
   - k_staff: &ref_k_staff
     - relationships:
-        to: ref('stg_ef3__staffs')
-        field: k_staff
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__staffs')
+          field: k_staff
+        config:
+          tags: ['ref_integrity']
 
   - k_certification_exam: &ref_k_certification_exam
     - relationships:
-        to: ref('stg_tpdm__certification_exams')
-        field: k_certification_exam
+        arguments:
+          to: ref('stg_tpdm__certification_exams')
+          field: k_certification_exam
 
   - k_course_section: &ref_k_course_section
     - relationships:
-        to: ref('stg_ef3__sections')
-        field: k_course_section
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__sections')
+          field: k_course_section
+        config:
+          tags: ['ref_integrity']
 
   - k_person: &ref_k_person
     - relationships:
-        to: ref('stg_ef3__people')
-        field: k_person
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__people')
+          field: k_person
+        config:
+          tags: ['ref_integrity']
 
   - k_student: &ref_k_student
     - relationships:
-        to: ref('stg_ef3__students')
-        field: k_student
-        tags: ['ref_integrity']
-  
+        arguments:
+          to: ref('stg_ef3__students')
+          field: k_student
+        config:
+          tags: ['ref_integrity']
+      
   - k_survey_response: &ref_k_survey_response
     - relationships:
-        to: ref('stg_ef3__survey_responses')
-        field: k_survey_response
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__survey_responses')
+          field: k_survey_response
+        config:
+          tags: ['ref_integrity']
 
   - k_evaluation: &ref_k_evaluation
     - relationships:
-        to: ref('stg_tpdm__evaluations')
-        field: k_evaluation
-        tags: ['ref_integrity']
-        
+        arguments:
+          to: ref('stg_tpdm__evaluations')
+          field: k_evaluation
+        config:
+          tags: ['ref_integrity']
+            
   - k_evaluation_rating: &ref_k_evaluation_rating
     - relationships:
-        to: ref('stg_tpdm__evaluation_ratings')
-        field: k_evaluation_rating
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_tpdm__evaluation_ratings')
+          field: k_evaluation_rating
+        config:
+          tags: ['ref_integrity']
 
   - k_evaluation_objective: &ref_k_evaluation_objective
     - relationships:
-        to: ref('stg_tpdm__evaluation_objectives')
-        field: k_evaluation_objective
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_tpdm__evaluation_objectives')
+          field: k_evaluation_objective
+        config:
+          tags: ['ref_integrity']
 
   - k_performance_evaluation: &ref_k_performance_evaluation
     - relationships:
-        to: ref('stg_tpdm__performance_evaluations')
-        field: k_performance_evaluation
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_tpdm__performance_evaluations')
+          field: k_performance_evaluation
+        config:
+          tags: ['ref_integrity']
 
   - k_performance_evaluation_rating: &ref_k_performance_evaluation_rating
     - relationships:
-        to: ref('stg_tpdm__evaluation_ratings')
-        field: k_performance_evaluation_rating
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_tpdm__evaluation_ratings')
+          field: k_performance_evaluation_rating
+        config:
+          tags: ['ref_integrity']
 
   - k_evaluation_objective_rating: &ref_k_evaluation_objective_rating
     - relationships:
-        to: ref('stg_tpdm__evaluation_objective_ratings')
-        field: k_evaluation_objective_rating
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_tpdm__evaluation_objective_ratings')
+          field: k_evaluation_objective_rating
+        config:
+          tags: ['ref_integrity']
 
 models:
   - name: stg_tpdm__candidate_educator_preparation_program_associations
