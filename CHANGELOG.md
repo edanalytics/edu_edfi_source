@@ -2,6 +2,7 @@
 
 ## New features
 ## Under the hood
+- Updated the required minimum dbt version to `1.10.8`
 - Nest generic test arguments under `arguments:` and test configs under `config:` to resolve `MissingArgumentsPropertyInGenericTestDeprecation` warnings
 - Move YAML anchors from the custom `referential_integrity_tests` top-level key to the dbt-supported `anchors` key to resolve `CustomTopLevelKeyDeprecation` warnings
 ## Fixes
