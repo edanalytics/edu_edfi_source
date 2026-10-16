@@ -2,7 +2,10 @@
 
 ## New features
 ## Under the hood
+- Nest generic test arguments under `arguments:` and test configs under `config:` to resolve `MissingArgumentsPropertyInGenericTestDeprecation` warnings
+- Move YAML anchors from the custom `referential_integrity_tests` top-level key to the dbt-supported `anchors` key to resolve `CustomTopLevelKeyDeprecation` warnings
 ## Fixes
+- Rename `models` key to `data_tests` in `_config_tests.yml` to allow test config to be applied correctly
 
 
 # edu_edfi_source v0.7.2
