@@ -16,6 +16,7 @@ keyed as (
         {{ dbt_utils.generate_surrogate_key(
             [
                 'tenant_code',
+                'api_year',
                 'ed_org_id',
                 'school_year',
                 'lower(student_unique_id)',
@@ -34,7 +35,7 @@ deduped as (
         dbt_utils.deduplicate(
             relation='keyed',
             partition_by='k_student_academic_record',
-            order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
         )
     }}
 )
