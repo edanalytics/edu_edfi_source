@@ -34,13 +34,25 @@ no_deletes as (
     where not is_deleted
     {% endif %}
 ),
+-- for each student, keep only records from their most recent api_year.
+-- academic records are cumulative: the latest ODS is the authoritative view of
+-- all past transcripts, so older api_year data is superseded, not supplementary.
+latest_api_year_per_student as (
+    select
+        tenant_code,
+        student_unique_id,
+        max(api_year) as latest_api_year
+    from no_deletes
+    group by 1, 2
+),
+
 final_deduped as (
-    {{
-        dbt_utils.deduplicate(
-            relation='no_deletes',
-            partition_by='course_code, course_ed_org_id, k_student_academic_record, course_attempt_result',
-            order_by='api_year desc, last_modified_timestamp desc, pull_timestamp desc'
-        )
-    }}
+    select no_deletes.*
+    from no_deletes
+    inner join latest_api_year_per_student
+        on no_deletes.tenant_code = latest_api_year_per_student.tenant_code
+        and no_deletes.student_unique_id = latest_api_year_per_student.student_unique_id
+        and no_deletes.api_year = latest_api_year_per_student.latest_api_year
 )
+
 select * from final_deduped
