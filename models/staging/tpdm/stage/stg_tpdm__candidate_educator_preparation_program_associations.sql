@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with candidate_educator_preparation_program_associations as (
     select * from {{ ref('base_tpdm__candidate_educator_preparation_program_associations') }}
 ),

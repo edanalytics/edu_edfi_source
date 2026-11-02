@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with base_student_program_eligibility_associations as (
     select * from {{ ref('base_ef3__student_special_education_program_eligibility_associations') }}
 ),

@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with balance_sheet_dimensions as (
     {{ source_edfi3('balance_sheet_dimensions') }}
 ),

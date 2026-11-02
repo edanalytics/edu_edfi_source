@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with base_operational_unit_dimensions as (
     select * from {{ ref('base_ef3__operational_unit_dimensions') }}
 ),

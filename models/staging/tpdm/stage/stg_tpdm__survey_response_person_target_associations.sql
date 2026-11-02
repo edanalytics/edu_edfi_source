@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with survey_response_person_target_associations as (
     select * from {{ ref('base_tpdm__survey_response_person_target_associations') }}
 ),

@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with stg_academic_records as (
     select * from  {{  ref('stg_ef3__student_academic_records')  }} 
 ),

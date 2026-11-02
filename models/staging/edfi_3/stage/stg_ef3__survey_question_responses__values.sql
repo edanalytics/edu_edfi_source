@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with stg_survey_question_responses as (
     select * from {{ ref('stg_ef3__survey_question_responses') }}
 ),

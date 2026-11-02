@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with program_dimensions as (
     {{ source_edfi3('program_dimensions') }}
 ),

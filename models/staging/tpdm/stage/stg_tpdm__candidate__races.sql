@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with stage_candidates as (
     select * from {{ ref('stg_tpdm__candidates') }}
 ),

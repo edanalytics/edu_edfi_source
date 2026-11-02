@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with performance_evaluation_ratings as (
     {{ source_edfi3('performance_evaluation_ratings') }}
 ),

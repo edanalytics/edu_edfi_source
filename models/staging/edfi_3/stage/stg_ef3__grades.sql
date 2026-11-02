@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {{ config(
     materialized=var('edu:edfi_source:large_stg_materialization', 'table'),
     unique_key=['k_grading_period', 'k_student', 'k_school', 'k_course_section', 'grade_type'],

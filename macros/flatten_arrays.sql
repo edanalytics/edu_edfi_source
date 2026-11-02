@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 -- flatten emails
 {% macro flatten_emails(stg_ref, keys) %}
 with stg as (

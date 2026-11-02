@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with bell_schedules as (
     {{ source_edfi3('bell_schedules') }}
 ),

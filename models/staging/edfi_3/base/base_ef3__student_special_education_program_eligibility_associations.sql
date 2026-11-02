@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with student_special_education_program_eligibility_associations as (
     {{ source_edfi3('student_special_education_program_eligibility_associations') }}
 ),

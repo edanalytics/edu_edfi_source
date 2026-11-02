@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with staff_ed_org_contact_assoc as (
     {{ source_edfi3('staff_education_organization_contact_associations') }}
 ),

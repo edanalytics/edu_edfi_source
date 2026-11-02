@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with fieldwork_experiences as (
     select * from {{ ref('base_tpdm__fieldwork_experiences') }}
 ),

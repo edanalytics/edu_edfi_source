@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {#
 -- this macro reads a list of configured extensions from `var`, for a given a model name, e.g. stg_ef3__students
 -- when flatten = True (use case: stg models):

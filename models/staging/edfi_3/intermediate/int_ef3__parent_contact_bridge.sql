@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 -- bridge differences between parents and contacts
 {{ config(materialized='view') }}
 with base_parents as (

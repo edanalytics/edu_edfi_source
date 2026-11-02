@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 -- is this useful?
 -- maybe for creating standalone keys, but not for
 -- embedding the resolved key into another

@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {# grab descriptor codes from namespaced descriptor values #}
 {% macro extract_descriptor(col, descriptor_name=None) -%}
     
