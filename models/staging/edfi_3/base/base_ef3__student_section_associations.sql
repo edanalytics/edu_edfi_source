@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with student_section as (
     {{ source_edfi3('student_section_associations') }}
 ),

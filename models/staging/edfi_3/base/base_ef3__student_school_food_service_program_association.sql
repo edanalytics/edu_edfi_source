@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with source_stu_program as (
     {{ source_edfi3('student_school_food_service_program_associations') }}
 ), 

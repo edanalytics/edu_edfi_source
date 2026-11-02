@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with base_student_discipline_incident_behavior as (
     select * from {{ ref('base_ef3__student_discipline_incident_behavior_associations') }}
 ),

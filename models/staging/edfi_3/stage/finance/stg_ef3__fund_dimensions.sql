@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with base_fund_dimensions as (
     select * from {{ ref('base_ef3__fund_dimensions') }}
 ),

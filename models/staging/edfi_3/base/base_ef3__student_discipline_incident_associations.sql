@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 -- note: this model is deprecated, but still in use
 with student_discipline_incident as (
     {{ source_edfi3('student_discipline_incident_associations') }}

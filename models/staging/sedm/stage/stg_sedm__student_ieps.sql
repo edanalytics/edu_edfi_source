@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with base_student_ieps as (
     select * from {{ ref('base_sedm__student_ieps') }}
 ),

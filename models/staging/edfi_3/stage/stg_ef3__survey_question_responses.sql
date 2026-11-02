@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {{ config(
     materialized=var('edu:edfi_source:large_stg_materialization', 'table'),
     unique_key=['k_survey_question', 'k_survey_response'],

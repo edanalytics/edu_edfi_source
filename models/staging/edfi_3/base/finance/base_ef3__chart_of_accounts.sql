@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with chart_of_accounts as (
     {{ source_edfi3('chart_of_accounts') }}
 ),

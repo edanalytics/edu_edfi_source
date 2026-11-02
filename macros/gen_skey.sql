@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {% macro gen_skey(k_name, alt_ref=None, alt_k_name=None, extras=None) %}
 
     {#- make these alphabetical for predictability -#}

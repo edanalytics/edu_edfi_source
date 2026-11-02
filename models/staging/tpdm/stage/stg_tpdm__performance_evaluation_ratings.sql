@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with base_performance_evaluation_ratings as (
     select * from {{ ref('base_tpdm__performance_evaluation_ratings') }}
 ),

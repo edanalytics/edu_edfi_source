@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {#- Created an is_deleted flag using deletes resources -#}
 {% macro source_edfi3(resource, join_deletes=True) -%}
 

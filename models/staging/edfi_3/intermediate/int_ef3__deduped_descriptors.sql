@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 -- this model deduplicates stg_ef3__descriptors across tenants & years, to simplify the code needed in edu_edfi_source.extract_descriptor
     -- to replace descriptor code_values with short descriptions
 -- in the future, we could allow for more sophisticated order by logic, to not just select rows based on alphabetical tenant order

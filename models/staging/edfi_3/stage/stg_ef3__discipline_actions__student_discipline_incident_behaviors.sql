@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with stg_discipline_actions as (
     select * from {{ ref('stg_ef3__discipline_actions') }}
 ),

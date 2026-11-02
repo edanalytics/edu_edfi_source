@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with stg_service_centers as (
     select * from {{ ref('stg_ef3__education_service_centers') }}
 ),

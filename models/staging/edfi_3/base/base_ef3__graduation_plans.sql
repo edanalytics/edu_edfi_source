@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with graduation_plans as (
     {{ source_edfi3('graduation_plans') }}
 ),

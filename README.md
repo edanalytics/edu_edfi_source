@@ -27,7 +27,7 @@ packages:
 Note: if you're using the downstream [warehouse package](https://github.com/edanalytics/edu_wh), it already includes this source package, and you don't need to install it again. 
 
 ## License
-This package is free to use for noncommercial purposes. 
+Mozilla Public License Version 2.0
 See [License](LICENSE.md).
 
 ## Configuration

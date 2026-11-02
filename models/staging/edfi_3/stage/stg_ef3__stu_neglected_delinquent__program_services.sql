@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with stage_stu_programs as (
     select * from {{ ref('stg_ef3__student_neglected_or_delinquent_program_associations') }}
 ),

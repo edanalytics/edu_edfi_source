@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {#
 Cross-platform implementation of Snowflake's EXCLUDE and RENAME functionality
 

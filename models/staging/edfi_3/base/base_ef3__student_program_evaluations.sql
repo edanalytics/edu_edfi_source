@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 with student_program_evaluations as (
     {{ source_edfi3('student_program_evaluations') }}
 ),
