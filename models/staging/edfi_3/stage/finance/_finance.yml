@@ -1,29 +1,37 @@
 version: 2
 
-referential_integrity_tests:
+anchors:
   - k_lea: &ref_k_lea
     - relationships:
-        to: ref('stg_ef3__local_education_agencies')
-        field: k_lea
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__local_education_agencies')
+          field: k_lea
+        config:
+          tags: ['ref_integrity']
 
   - k_local_account: &ref_k_local_account
     - relationships:
-        to: ref('stg_ef3__local_accounts')
-        field: k_local_account
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__local_accounts')
+          field: k_local_account
+        config:
+          tags: ['ref_integrity']
 
   - k_school: &ref_k_school
     - relationships:
-        to: ref('stg_ef3__schools')
-        field: k_school
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__schools')
+          field: k_school
+        config:
+          tags: ['ref_integrity']
 
   - k_staff: &ref_k_staff
     - relationships:
-        to: ref('stg_ef3__staffs')
-        field: k_staff
-        tags: ['ref_integrity']
+        arguments:
+          to: ref('stg_ef3__staffs')
+          field: k_staff
+        config:
+          tags: ['ref_integrity']
 
 models:
   - name: stg_ef3__balance_sheet_dimensions
