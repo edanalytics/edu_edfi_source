@@ -2,10 +2,17 @@
 
 ## New features
 ## Under the hood
-- Update License to MPL 2.0
 ## Fixes
 
-
+# edu_edfi_source v0.7.3
+## Under the hood
+- Update License to MPL 2.0
+- Update the required minimum dbt version to `1.10.5`
+- Nest generic test arguments under `arguments:` and test configs under `config:` to resolve `MissingArgumentsPropertyInGenericTestDeprecation` warnings
+- Move YAML anchors from the custom `referential_integrity_tests` top-level key to the dbt-supported `anchors` key to resolve `CustomTopLevelKeyDeprecation` warnings
+## Fixes
+- Rename `models` key to `data_tests` in `_config_tests.yml` to allow test config to be applied correctly
+- 
 # edu_edfi_source v0.7.2
 ## New features
 - Add base and stage models for `student_section_504_program_associations` and `student_neglected_or_delinquent_program_associations`. Disable these programs by setting `'src:program:section_504:enabled': False` and `'src:program:neglected_or_delinquent:enabled': False` if necessary
