@@ -120,7 +120,7 @@
                          'schoolYear',
                          'studentUniqueId',
                          'termDescriptor'],
-            'annualize': True
+            'annualize': False
         },
         'k_school_calendar': {
             'reference_name': 'calendar_reference',
