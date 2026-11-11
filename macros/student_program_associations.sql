@@ -1,10 +1,13 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
 {#
     Macro to build for any student program associations
 
     base_model: name of the upstream base model to ref().
     annualize_edorg: allow to configure annualized edorg. Defaults to False.
 #}
-{% macro stg_student_program_association(base_model, annualize_edorg=False) %}
+{% macro stg_student_program_associations(base_model, annualize_edorg=False) %}
 
 with base_stu_programs as (
     select * from {{ ref(base_model) }}
@@ -54,15 +57,16 @@ where not is_deleted
     stage_model: name of the upstream stage model to ref().
     program_service_descriptor: the JSON key for the service descriptor on each array element, e.g. 'homelessProgramServiceDescriptor'.
     program_services_array: the column holding the services array. Defaults to v_program_services.
-    child_program_service_fields: additional fields to pull off from program_services_array, given as a list of {'name': ..., 'alias': ...}, where "name" is the expression to place after `value:`
-    in the flattened row, optionally with a `::type` cast  and "alias" is the output column name, e.g. [{'name': 'cipCode::string', 'alias': 'cip_code'}].
-    extract_extensions: set True when the array elements nested _ext payload that needs flattening.
+    extra_columns: additional fields to pull off from program_services_array, given as a list of full SQL expressions
+    starting with `value:` (the same `value:` prefix used by json_flatten), e.g. ['value:cipCode::string as cip_code'].
+    If a program needs more than one extra field, add them all to the same list.
+    extract_extensions: set True when the array elements have a nested _ext payload that needs flattening.
 #}
 {% macro stg_student_program_services(
     stage_model,
     program_service_descriptor,
     program_services_array='v_program_services',
-    child_program_service_fields=[],
+    extra_columns=[],
     extract_extensions=False
 ) %}
 
@@ -89,12 +93,11 @@ flattened as (
         value:serviceBeginDate::date    as service_begin_date,
         value:serviceEndDate::date      as service_end_date,
 
-        {%- if child_program_service_fields %}
+        {%- if extra_columns %}
 
-        -- fields local to this program service, e.g. child_program_service_fields=[{'name': 'cipCode::string', 'alias': 'cip_code'}]
-        -- renders as: value:cipCode::string as cip_code,
-        {% for col in child_program_service_fields -%}
-        value:{{ col.name }} as {{ col.alias }},
+        -- fields local to this program service, e.g. extra_columns=['value:cipCode::string as cip_code']
+        {% for col in extra_columns -%}
+        {{ col }},
         {% endfor %}
         {%- endif %}
 
@@ -107,6 +110,8 @@ flattened as (
 
 {%- if extract_extensions %}
 
+-- There is a v_ext nested within program_services_array. Those extensions must be extracted here, not in prev CTE,
+-- because dbt gets confused whether to reference stage_stu_programs.v_ext or program_services_array.v_ext
 , extended as (
     select
         flattened.*
@@ -127,7 +132,7 @@ select * from flattened
 
 {#
     Unpacks programs participation statuses array into one row per status.
-    
+
     stage_model: name of the upstream stage model to ref().
     extract_extensions: same as in stg_student_program_services().
 #}
@@ -165,6 +170,8 @@ flattened as (
 
 {%- if extract_extensions %}
 
+-- There is a v_ext nested within v_program_participation_statuses. Those extensions must be extracted here, not in prev CTE,
+-- because dbt gets confused whether to reference stage_stu_programs.v_ext or v_program_participation_statuses.v_ext
 , extended as (
     select
         flattened.*

@@ -5,5 +5,5 @@
     'stg_ef3__student_cte_program_associations',
     program_service_descriptor='cteProgramServiceDescriptor',
     program_services_array='v_cte_program_services',
-    child_program_service_fields=[{'name': 'cipCode::string', 'alias': 'cip_code'}]
+    extra_columns=['value:cipCode::string as cip_code']
 ) }}

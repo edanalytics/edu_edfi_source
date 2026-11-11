@@ -5,5 +5,5 @@
     'stg_ef3__student_language_instruction_program_associations',
     program_service_descriptor='languageInstructionProgramServiceDescriptor',
     program_services_array='v_language_instruction_program_services',
-    child_program_service_fields=[{'name': 'providers', 'alias': 'v_providers'}]
+    extra_columns=['value:providers as v_providers']
 ) }}

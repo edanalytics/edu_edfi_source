@@ -5,5 +5,5 @@
     'stg_ef3__student_title_i_part_a_program_associations',
     program_service_descriptor='titleIPartAProgramServiceDescriptor',
     program_services_array='v_title_i_part_a_program_services',
-    child_program_service_fields=[{'name': 'providers', 'alias': 'v_providers'}]
+    extra_columns=['value:providers as v_providers']
 ) }}
