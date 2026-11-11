@@ -1,6 +1,10 @@
 # Unreleased
 
 ## New features
+ - Consolidate the duplicated SQL for all the student program association stage models (`student_program_associations`, `program_services`, `program_participation_statuses`) into the shared macros in `macros/student_program_associations.sql`: `stg_student_program_associations`, `stg_student_program_services`, `stg_student_program_participation_statuses`. 
+ - Covers general program association, CTE, homeless, language instruction, migrant education, neglected/delinquent, school food service, section 504, special education, and Title I Part A programs. 
+ - `stg_student_program_services` takes an `extra_columns` argument (a list of full SQL expressions, e.g. `['value:cipCode::string as cip_code']`). 
+ - There's no column or behavior changes, each model now calls the macro instead with its own descriptor/array/field arguments.
 ## Under the hood
 ## Fixes
 
