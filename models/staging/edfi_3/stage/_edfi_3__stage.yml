@@ -510,6 +510,10 @@ models:
     config:
       tags: ['core']
 
+  - name: stg_ef3__schools__grade_levels__by_year
+    config:
+      tags: ['core']
+
   - name: stg_ef3__schools__identification_codes
     config:
       tags: ['core']
@@ -554,6 +558,26 @@ models:
       tags: ['core']
 
   - name: stg_ef3__staff_education_organization_assignment_associations
+    config:
+      tags: ['core']
+    columns:
+      - name: k_staff
+        tests:
+          *ref_k_staff
+  
+  - name: stg_ef3__staff_education_organization_contact_associations
+    config:
+      tags: ['core']
+    columns:
+      - name: k_staff
+        tests:
+          *ref_k_staff
+  
+  - name: stg_ef3__staff_education_organization_contact_associations__addresses
+    config:
+      tags: ['core']
+  
+  - name: stg_ef3__staff_education_organization_employment_associations
     config:
       tags: ['core']
     columns:
