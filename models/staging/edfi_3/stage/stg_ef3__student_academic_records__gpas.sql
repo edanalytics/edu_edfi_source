@@ -9,8 +9,6 @@ flattened as (
         -- carry the parent record's student, school year, ed org, and term columns,
         -- so consumers can use the GPA without joining back to the academic record
         school_year,
-        student_unique_id,
-        ed_org_id,
         academic_term,
         k_student_xyear,
         k_lea,

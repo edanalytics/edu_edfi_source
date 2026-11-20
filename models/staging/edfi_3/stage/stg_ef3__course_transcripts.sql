@@ -15,6 +15,8 @@ keyed as (
     select
         {{ gen_skey('k_course') }},
         {{ gen_skey('k_student_academic_record') }},
+        -- the student is identified through the academic record reference
+        {{ gen_skey('k_student_xyear', alt_ref='student_academic_record_reference') }},
         base_course_transcripts.*
         {{ extract_extension(model_name=this.name, flatten=True) }}
     from base_course_transcripts
