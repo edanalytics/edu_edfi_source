@@ -130,6 +130,12 @@ models:
     config:
       tags: ['cte']
       enabled: "{{ var('src:program:cte:enabled', True) }}"
+  - name: base_ef3__student_demographics
+    config:
+      tags: ['core']
+  - name: base_ef3__student_directories
+    config:
+      tags: ['core']
   - name: base_ef3__student_discipline_incident_associations
     config:
       tags: ['discipline']
@@ -143,6 +149,9 @@ models:
       tags: ['discipline']
       enabled: "{{ var('src:domain:discipline:enabled', True) }}"
   - name: base_ef3__student_education_organization_associations
+    config:
+      tags: ['core']
+  - name: base_ef3__student_identification_codes
     config:
       tags: ['core']
   - name: base_ef3__student_homeless_program_associations

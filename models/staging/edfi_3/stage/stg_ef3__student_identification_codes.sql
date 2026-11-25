@@ -1,0 +1,27 @@
+-- SPDX-FileCopyrightText: 2022 Education Analytics
+-- SPDX-License-Identifier: MPL-2.0
+
+with base_stu_id_codes as (
+    select * from {{ ref('base_ef3__student_identification_codes') }}
+),
+keyed as (
+    select
+        {{ gen_skey('k_student') }},
+        {{ gen_skey('k_student_xyear') }},
+        {{ edorg_ref(annualize=False) }},
+        api_year as school_year,
+        base_stu_id_codes.*
+        {{ extract_extension(model_name=this.name, flatten=True) }}
+    from base_stu_id_codes
+),
+deduped as (
+    {{
+        dbt_utils.deduplicate(
+            relation='keyed',
+            partition_by='k_student, ed_org_id, id_system',
+            order_by='last_modified_timestamp desc, pull_timestamp desc'
+        )
+    }}
+)
+select * from deduped
+where not is_deleted

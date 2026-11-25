@@ -4,7 +4,7 @@
 -- flatten emails
 {% macro flatten_emails(stg_ref, keys) %}
 with stg as (
-    select * from {{ ref(stg_ref) }}
+    {{ edu_edfi_source._flatten_stg_source(stg_ref, keys, 'v_electronic_mails') }}
 ),
 flattened as (
     select 
@@ -26,7 +26,7 @@ select * from flattened
 -- flatten telephones
 {% macro flatten_telephones(stg_ref, keys) %}
 with stg as (
-    select * from {{ ref(stg_ref) }}
+    {{ edu_edfi_source._flatten_stg_source(stg_ref, keys, 'v_telephones') }}
 ),
 flattened as (
     select 
@@ -49,7 +49,7 @@ select * from flattened
 -- flatten addresses
 {% macro flatten_addresses(stg_ref, keys) %}
 with stg as (
-    select * from {{ ref(stg_ref) }}
+    {{ edu_edfi_source._flatten_stg_source(stg_ref, keys, 'v_addresses') }}
 ),
 flattened as (
     select 
@@ -95,4 +95,25 @@ full_address as (
     from flattened
 )
 select * from full_address
+{% endmacro %}
+
+{#
+    Source CTE body for the flatten_* macros.
+    stg_ref may be a single model name, or a list of model names to union. The list form is used where
+    a list moved to a new resource across Ed-Fi data standards (e.g. SEOA addresses moved to
+    studentDirectories in DS 6), so both sources need to feed the same sub-table.
+#}
+{% macro _flatten_stg_source(stg_ref, keys, list_col) %}
+{%- if stg_ref is string %}
+    select * from {{ ref(stg_ref) }}
+{%- else %}
+    {%- set relations = [] %}
+    {%- for r in stg_ref %}
+        {%- do relations.append(ref(r)) %}
+    {%- endfor %}
+    {{ dbt_utils.union_relations(
+        relations=relations,
+        include=['tenant_code', 'api_year'] + keys + [list_col]
+    ) }}
+{%- endif %}
 {% endmacro %}
