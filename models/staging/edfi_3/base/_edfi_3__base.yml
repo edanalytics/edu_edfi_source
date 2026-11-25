@@ -6,6 +6,9 @@ version: 2
 models:
   - name: base_ef3__assessments
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__assessments__analyst_view
+      alias: "{{ 'base_ef3__assessments__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__assessments' }}"
       tags: ['assessment']
       enabled: "{{ var('src:domain:assessment:enabled', True) }}"
   - name: base_ef3__bell_schedules
@@ -32,6 +35,9 @@ models:
       tags: ['core']
   - name: base_ef3__course_transcripts
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__course_transcripts__analyst_view
+      alias: "{{ 'base_ef3__course_transcripts__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__course_transcripts' }}"
       tags: ['core']
   - name: base_ef3__courses
     config:
@@ -59,6 +65,9 @@ models:
       enabled: "{{ var('src:ed_orgs:esc:enabled', True) }}"
   - name: base_ef3__grades
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__grades__analyst_view
+      alias: "{{ 'base_ef3__grades__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__grades' }}"
       tags: ['core']
   - name: base_ef3__grading_periods
     config:
@@ -90,6 +99,9 @@ models:
       tags: ['core']
   - name: base_ef3__schools
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__schools__analyst_view
+      alias: "{{ 'base_ef3__schools__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__schools' }}"
       tags: ['core']
   - name: base_ef3__sections
     config:
@@ -114,9 +126,15 @@ models:
       tags: ['core']
   - name: base_ef3__student_academic_records
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__student_academic_records__analyst_view
+      alias: "{{ 'base_ef3__student_academic_records__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__student_academic_records' }}"
       tags: ['core']
   - name: base_ef3__student_assessments
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__student_assessments__analyst_view
+      alias: "{{ 'base_ef3__student_assessments__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__student_assessments' }}"
       tags: ['assessment']
       enabled: "{{ var('src:domain:assessment:enabled', True) }}"
   - name: base_ef3__student_cohort_associations
@@ -175,6 +193,9 @@ models:
       tags: ['core']
   - name: base_ef3__student_school_attendance_events
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__student_school_attendance_events__analyst_view
+      alias: "{{ 'base_ef3__student_school_attendance_events__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__student_school_attendance_events' }}"
       tags: ['core']
   - name: base_ef3__student_school_food_service_program_association
     config:
@@ -186,9 +207,15 @@ models:
       enabled: "{{ var('src:program:section_504:enabled', False) }}"
   - name: base_ef3__student_section_associations
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__student_section_associations__analyst_view
+      alias: "{{ 'base_ef3__student_section_associations__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__student_section_associations' }}"
       tags: ['core']
   - name: base_ef3__student_section_attendance_events
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__student_section_attendance_events__analyst_view
+      alias: "{{ 'base_ef3__student_section_attendance_events__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__student_section_attendance_events' }}"
       tags: ['core']
   - name: base_ef3__student_special_education_program_associations
     config:
@@ -207,6 +234,9 @@ models:
       tags: ['core']
   - name: base_ef3__survey_question_responses
     config:
+      materialized: "{{ 'ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'view' }}"
+      # ephemeral models are never created, but dbt still checks their alias for uniqueness; free the name for base_ef3__survey_question_responses__analyst_view
+      alias: "{{ 'base_ef3__survey_question_responses__ephemeral' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'base_ef3__survey_question_responses' }}"
       tags: ['survey']
       enabled: "{{ var('src:domain:survey:enabled', True) }}"
   - name: base_ef3__survey_questions

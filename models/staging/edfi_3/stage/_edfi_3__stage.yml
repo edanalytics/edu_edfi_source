@@ -206,6 +206,9 @@ anchors:
 models:
   - name: stg_ef3__assessments
     config:
+      # must be a dynamic table when stg_ef3__student_assessments is one: a regular table is
+      # recreated every run, which would force the downstream dynamic table to reinitialize
+      materialized: "{{ 'dynamic_table' if var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' else 'table' }}"
       tags: ['assessment']
       enabled: "{{ var('src:domain:assessment:enabled', True) }}"
 

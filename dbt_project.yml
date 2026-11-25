@@ -40,6 +40,15 @@ models:
            +tags: ['bypass_rls']
         stage:
           +materialized: table
+          # only read by the dynamic_table materialization (see edu:edfi_source:large_stg_materialization).
+          # no target_lag is set, so dbt triggers each refresh as part of the run.
+          # INCREMENTAL fails at create time if a query can't refresh incrementally, rather than
+          # silently falling back to full refreshes the way AUTO does.
+          +refresh_mode: "{{ var('edu:edfi_source:dynamic_table_refresh_mode', 'INCREMENTAL') }}"
+          # required by dynamic_table (the adapter does not fall back to the profile warehouse).
+          # for table models this is the warehouse they already run on, so it's a no-op.
+          # set here rather than in model configs so a stadium's own +snowflake_warehouse still wins.
+          +snowflake_warehouse: "{{ var('edu:edfi_source:dynamic_table_warehouse', target.warehouse) }}"
           finance:
             +schema: finance_stage
       tpdm:

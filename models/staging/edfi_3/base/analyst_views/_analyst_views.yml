@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2022 Education Analytics
+# SPDX-License-Identifier: MPL-2.0
+
+version: 2
+
+# When large stg models are dynamic tables, their base models become ephemeral so that
+# dbt's per-run CREATE OR REPLACE VIEW doesn't force the dynamic tables to reinitialize.
+# These views recreate the base relations under their original names for ad hoc querying.
+# Nothing in the DAG should ref these models.
+
+models:
+  - name: base_ef3__grades__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' }}"
+  - name: base_ef3__student_assessments__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' and var('src:domain:assessment:enabled', True) }}"
+  - name: base_ef3__student_section_attendance_events__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' }}"
+  - name: base_ef3__schools__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' }}"
+  - name: base_ef3__course_transcripts__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' }}"
+  - name: base_ef3__student_academic_records__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' }}"
+  - name: base_ef3__student_school_attendance_events__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' }}"
+  - name: base_ef3__student_section_associations__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' }}"
+  - name: base_ef3__survey_question_responses__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' and var('src:domain:survey:enabled', True) }}"
+  - name: base_ef3__assessments__analyst_view
+    config:
+      enabled: "{{ var('edu:edfi_source:large_stg_materialization', 'table') == 'dynamic_table' and var('src:domain:assessment:enabled', True) }}"
