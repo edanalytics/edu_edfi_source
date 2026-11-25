@@ -801,6 +801,22 @@ models:
       tags: ['cte']
       enabled: "{{ var('src:program:cte:enabled', True) }}"
 
+  - name: stg_ef3__student_demographics
+    config:
+      tags: ['core']
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+
+  - name: stg_ef3__student_directories
+    config:
+      tags: ['core']
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+
   - name: stg_ef3__student_discipline_incident_behavior_associations
     config:
       tags: ['discipline']
@@ -836,6 +852,28 @@ models:
       enabled: "{{ var('src:domain:discipline:enabled', True) }}"
 
   - name: stg_ef3__student_education_organization_associations
+    config:
+      tags: ['core']
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+
+  - name: stg_ef3__student_education_organization_associations__unified
+    config:
+      tags: ['core']
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - k_student
+              - ed_org_id
+    columns:
+      - name: k_student
+        tests:
+          *ref_k_student
+
+  - name: stg_ef3__student_identification_codes
     config:
       tags: ['core']
     columns:
