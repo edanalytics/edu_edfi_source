@@ -9,6 +9,13 @@ flattened as (
         tenant_code,
         api_year,
         k_student_academic_record,
+        -- carry the parent record's student, school year, ed org, and term columns,
+        -- so consumers can use the GPA without joining back to the academic record
+        school_year,
+        academic_term,
+        k_student_xyear,
+        k_lea,
+        k_school,
         {{ extract_descriptor('value:gradePointAverageTypeDescriptor::string') }} as gpa_type,
         value:gradePointAverageValue::float as gpa_value,
         value:isCumulative::boolean as is_cumulative,
